@@ -14,7 +14,7 @@
         Select Case caption
             Case "Dashboard" : FormHost.LoadInto(Panel3, frmLibraryDashboard)
             Case "Book Management" : FormHost.LoadInto(Panel3, frmBookManagement)
-            Case "Borrow Records Management" : FormHost.LoadInto(Panel3, frmLibrarianHistory)
+            Case "Borrow Management" : FormHost.LoadInto(Panel3, frmLibrarianHistory)
             Case "Penalty Management" : FormHost.LoadInto(Panel3, frmPenaltyManagement)
             Case "Logout" : DoLogout()
         End Select

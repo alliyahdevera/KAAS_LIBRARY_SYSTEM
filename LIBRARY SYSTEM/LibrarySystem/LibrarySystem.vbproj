@@ -243,16 +243,18 @@
     <Compile Include="frmStudentMainMenu.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmStudentManagement.Designer.vb">
-      <DependentUpon>frmStudentManagement.vb</DependentUpon>
+    <Compile Include="frmAccManagement.Designer.vb">
+      <DependentUpon>frmAccManagement.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmStudentManagement.vb">
+    <Compile Include="frmAccManagement.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmStudentPenalty.Designer.vb">
       <DependentUpon>frmStudentPenalty.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmStudentPenalty.vb" />
+    <Compile Include="frmStudentPenalty.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Helpers.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
@@ -328,8 +330,8 @@
     <EmbeddedResource Include="frmStudentMainMenu.resx">
       <DependentUpon>frmStudentMainMenu.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmStudentManagement.resx">
-      <DependentUpon>frmStudentManagement.vb</DependentUpon>
+    <EmbeddedResource Include="frmAccManagement.resx">
+      <DependentUpon>frmAccManagement.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmStudentPenalty.resx">
       <DependentUpon>frmStudentPenalty.vb</DependentUpon>

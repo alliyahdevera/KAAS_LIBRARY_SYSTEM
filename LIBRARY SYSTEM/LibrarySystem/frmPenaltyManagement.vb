@@ -4,6 +4,7 @@ Public Class frmPenaltyManagement
     Private selectedTransactionId As Integer = 0
 
     Private Sub frmPenaltyManagement_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        UiHelpers.FillHeader(Me)          ' name, position, today
         With DataGridView1
             .ReadOnly = True
             .AllowUserToAddRows = False
@@ -16,6 +17,7 @@ Public Class frmPenaltyManagement
     End Sub
 
     Private Sub frmPenaltyManagement_VisibleChanged(sender As Object, e As EventArgs) Handles Me.VisibleChanged
+        UiHelpers.FillHeader(Me)
         If Me.Visible Then RefreshPenaltyData(txtSearch.Text)
     End Sub
 

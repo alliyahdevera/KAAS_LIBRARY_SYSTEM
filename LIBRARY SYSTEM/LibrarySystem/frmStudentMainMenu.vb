@@ -10,16 +10,16 @@
     End Sub
 
     Private Sub MenuButton_Click(sender As Object, e As EventArgs)
-        Dim caption As String = DirectCast(sender, Button).Text.Trim()
+        Dim caption As String = DirectCast(sender, Button).Text.Trim().ToLowerInvariant()
         Select Case caption
-            Case "Dashboard" : FormHost.LoadInto(Panel3, frmStudentDashboard)
-            Case "Borrow Books" : FormHost.LoadInto(Panel3, frmBorrow)
-            Case "Return Books" : FormHost.LoadInto(Panel3, frmReturn)
-            Case "Available Books" : FormHost.LoadInto(Panel3, frmAvailBooks)
-            Case "Borrow History" : FormHost.LoadInto(Panel3, frmStudentHistory)
-            Case "My Penalties" : FormHost.LoadInto(Panel3, frmStudentPenalty)
-            Case "Need Help?" : FormHost.LoadInto(Panel3, frmHelp)
-            Case "Logout" : DoLogout()
+            Case "dashboard" : FormHost.LoadInto(Panel3, frmStudentDashboard)
+            Case "borrow books" : FormHost.LoadInto(Panel3, frmBorrow)
+            Case "return books" : FormHost.LoadInto(Panel3, frmReturn)
+            Case "available books" : FormHost.LoadInto(Panel3, frmAvailBooks)
+            Case "borrow history" : FormHost.LoadInto(Panel3, frmStudentHistory)
+            Case "my penalties" : FormHost.LoadInto(Panel3, frmStudentPenalty)
+            Case "need help?" : FormHost.LoadInto(Panel3, frmHelp)
+            Case "logout" : DoLogout()
         End Select
     End Sub
 

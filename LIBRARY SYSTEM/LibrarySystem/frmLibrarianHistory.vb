@@ -3,6 +3,7 @@
 Public Class frmLibrarianHistory
 
     Private Sub frmLibrarianHistory_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        UiHelpers.FillHeader(Me)          ' name, position, today
         With DataGridView1
             .ReadOnly = True
             .AllowUserToAddRows = False
@@ -15,6 +16,7 @@ Public Class frmLibrarianHistory
     End Sub
 
     Private Sub frmLibrarianHistory_VisibleChanged(sender As Object, e As EventArgs) Handles Me.VisibleChanged
+        UiHelpers.FillHeader(Me)
         If Me.Visible Then
             ClearPanel()
             RefreshHistory(txtSearch.Text)

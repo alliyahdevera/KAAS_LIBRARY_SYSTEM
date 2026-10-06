@@ -18,9 +18,8 @@
         Select Case caption
             Case "Dashboard" : FormHost.LoadInto(Panel3, frmAdminDashboard)
             Case "Book Management" : FormHost.LoadInto(Panel3, frmBookManagement)
-            Case "Account Management" : FormHost.LoadInto(Panel3, frmStudentManagement)
+            Case "Account Management" : FormHost.LoadInto(Panel3, frmAccManagement)
             Case "Borrow History Records" : FormHost.LoadInto(Panel3, frmAdminHistory)
-            Case "Report" : FormHost.LoadInto(Panel3, frmReports)
             Case "Activity Logs" : FormHost.LoadInto(Panel3, frmAdminLogs)
             Case "Logout" : DoLogout()
         End Select
@@ -49,4 +48,5 @@
     Private Sub frmAdminMenu_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
         If Not loggingOut Then Application.Exit()
     End Sub
+
 End Class

@@ -2,7 +2,7 @@
 Imports System.Text.RegularExpressions
 Imports MySql.Data.MySqlClient
 
-Public Class frmStudentManagement
+Public Class frmAccManagement
 
     Private Class AccountInfo
         Public UserId As Integer
@@ -24,13 +24,16 @@ Public Class frmStudentManagement
         Public StatusText As String
     End Class
 
+    ' These point at the controls you added in the designer:
+    '   txtSchoolID (ID No.), cboMemberType (Account Type), chkBorrower (Also a borrower?)
     Private schoolBox As TextBox
     Private typeBox As ComboBox
     Private borrowerBox As CheckBox
     Private selectedUserId As Integer = 0
+    Private pageLoaded As Boolean = False
 
     ' ------------------------------------------------------------ setup
-    Private Sub frmStudentManagement_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Sub frmAccManagement_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         UiHelpers.FillHeader(Me)
         BuildExtraControls()
         SetupGrid()
@@ -45,40 +48,66 @@ Public Class frmStudentManagement
         cboStatus.Items.AddRange(New Object() {"Active", "Inactive", "Locked"})
         ClearForm()
         LoadAccounts()
+        pageLoaded = True
     End Sub
 
-    Private Sub frmStudentManagement_VisibleChanged(sender As Object, e As EventArgs) Handles Me.VisibleChanged
-        If Me.Visible AndAlso Me.IsHandleCreated Then LoadAccounts(txtSearch.Text)
+    ' The page is reused, so refresh the list every time it is shown again.
+    Private Sub frmAccManagement_VisibleChanged(sender As Object, e As EventArgs) Handles Me.VisibleChanged
+        If Me.Visible AndAlso pageLoaded Then LoadAccounts(txtSearch.Text)
     End Sub
 
+    ' Connects the code to the three controls you placed in the designer
+    ' (ID No., Account Type, Also a borrower?). Nothing is created at run time.
     Private Sub BuildExtraControls()
-        schoolBox = TryCast(Me.Controls.Find("txtSchoolID", True).FirstOrDefault(), TextBox)
+        Dim everything As List(Of Control) = AllControls(Me)
+
+        ' Controls that already have a known job; whatever is left over is the new one.
+        Dim knownBoxes As String() = {"txtFirstName", "txtMiddleName", "txtLastName", "txtSuffix",
+                                      "txtContactNum", "txtEmail", "txtusername", "txtpassword",
+                                      "txtconfirmpassword", "txtSearch"}
+        Dim knownCombos As String() = {"cboStatus", "cboGender", "cboCourse", "cboYear_Level"}
+
+        schoolBox = everything.OfType(Of TextBox)().FirstOrDefault(Function(t) t.Name = "txtSchoolID")
         If schoolBox Is Nothing Then
-            Dim lbl As New Label With {.Text = "School ID", .AutoSize = True, .Location = New Point(552, 326)}
-            schoolBox = New TextBox With {.Name = "txtSchoolID", .Location = New Point(618, 322), .Size = New Size(95, 25), .MaxLength = 20}
-            Me.Controls.Add(lbl) : Me.Controls.Add(schoolBox)
-            lbl.BringToFront() : schoolBox.BringToFront()
+            schoolBox = everything.OfType(Of TextBox)().FirstOrDefault(
+                Function(t) Not knownBoxes.Contains(t.Name, StringComparer.OrdinalIgnoreCase))
         End If
 
-        typeBox = TryCast(Me.Controls.Find("cboMemberType", True).FirstOrDefault(), ComboBox)
+        typeBox = everything.OfType(Of ComboBox)().FirstOrDefault(Function(c) c.Name = "cboMemberType")
         If typeBox Is Nothing Then
-            Dim lbl As New Label With {.Text = "Account Type", .AutoSize = True, .Location = New Point(725, 326)}
-            typeBox = New ComboBox With {.Name = "cboMemberType", .Location = New Point(815, 322), .Size = New Size(100, 25)}
-            Me.Controls.Add(lbl) : Me.Controls.Add(typeBox)
-            lbl.BringToFront() : typeBox.BringToFront()
+            typeBox = everything.OfType(Of ComboBox)().FirstOrDefault(
+                Function(c) Not knownCombos.Contains(c.Name, StringComparer.OrdinalIgnoreCase))
         End If
+
+        borrowerBox = everything.OfType(Of CheckBox)().FirstOrDefault()
+
+        If schoolBox Is Nothing OrElse typeBox Is Nothing OrElse borrowerBox Is Nothing Then
+            MsgBox("Account Management could not find the ID No., Account Type or 'Also a borrower?' control." & vbCrLf &
+                   "In the designer, name them txtSchoolID, cboMemberType and chkBorrower.",
+                   vbCritical, "Account Management")
+            Me.Enabled = False
+            Throw New InvalidOperationException("Account Management controls are missing.")
+        End If
+
+        schoolBox.MaxLength = 20
+
         typeBox.DropDownStyle = ComboBoxStyle.DropDownList
         typeBox.Items.Clear()
         typeBox.Items.AddRange(New Object() {"Student", "Teacher", "Staff", "Librarian"})
         AddHandler typeBox.SelectedIndexChanged, AddressOf TypeChanged
 
-        borrowerBox = TryCast(Me.Controls.Find("chkBorrower", True).FirstOrDefault(), CheckBox)
-        If borrowerBox Is Nothing Then
-            borrowerBox = New CheckBox With {.Name = "chkBorrower", .Text = "Also a borrower", .AutoSize = True, .Location = New Point(925, 324)}
-            Me.Controls.Add(borrowerBox)
-            borrowerBox.BringToFront()
-        End If
+        borrowerBox.Text = "Also a borrower?"
+        borrowerBox.Enabled = False          ' only a Librarian can choose this (see TypeChanged)
     End Sub
+
+    Private Function AllControls(parent As Control) As List(Of Control)
+        Dim result As New List(Of Control)
+        For Each c As Control In parent.Controls
+            result.Add(c)
+            result.AddRange(AllControls(c))
+        Next
+        Return result
+    End Function
 
     Private Sub SetupGrid()
         With DataGridView1
@@ -318,7 +347,6 @@ Public Class frmStudentManagement
     ' ------------------------------------------------------------ add
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click      ' Add Account
         If Not InputsAreValid(True) Then Exit Sub
-        Dim isLocked As Boolean = False
         Dim inactive As Boolean = (cboStatus.Text = "Inactive")
         Try
             Using conn = DBConnection.GetConnection()
