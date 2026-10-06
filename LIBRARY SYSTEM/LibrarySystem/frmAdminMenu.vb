@@ -11,13 +11,13 @@ Public Class frmAdminMenu
         End If
     End Sub
 
-    Private Sub btnBookMan_Click(sender As Object, e As EventArgs) Handles btnBookMan.Click
+    Private Sub btnBookMan_Click(sender As Object, e As EventArgs) Handles btnborrowh.Click
         frmBookManagement.Show()
         Me.Hide()
 
     End Sub
 
-    Private Sub btnAccMan_Click(sender As Object, e As EventArgs) Handles btnAccMan.Click
+    Private Sub btnAccMan_Click(sender As Object, e As EventArgs) Handles btndash.Click
         If Form1.CurrentAccountType IsNot Nothing AndAlso
            Form1.CurrentAccountType.Equals("Librarian", StringComparison.OrdinalIgnoreCase) Then
             MsgBox("Librarians do not have access to Account Management.", vbExclamation, "Access Denied")
@@ -27,7 +27,7 @@ Public Class frmAdminMenu
         Me.Hide()
     End Sub
 
-    Private Sub btnRecords_Click(sender As Object, e As EventArgs) Handles btnRecords.Click
+    Private Sub btnRecords_Click(sender As Object, e As EventArgs) Handles btnaccman.Click
         frmAdminHistory.RefreshHistory()
         frmAdminHistory.Show()
         Me.Hide()
@@ -174,7 +174,7 @@ Public Class frmAdminMenu
         lbl_dT.Text = Date.Now.ToString("📅 MMMM dd, yyyy | ⏱️ hh:mm:ss tt")
     End Sub
 
-    Private Sub btnadl_Click(sender As Object, e As EventArgs) Handles btnadl.Click
+    Private Sub btnadl_Click(sender As Object, e As EventArgs) Handles btnbookman.Click
         frmAdminLogs.Show()
         Me.Hide()
     End Sub

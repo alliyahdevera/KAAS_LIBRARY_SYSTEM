@@ -25,6 +25,9 @@ Partial Class frmLibrarianMainMenu
         Dim PictureBox2 As System.Windows.Forms.PictureBox
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.btnbookman = New System.Windows.Forms.Button()
+        Me.btnborrowman = New System.Windows.Forms.Button()
+        Me.btndashb = New System.Windows.Forms.Button()
         Me.btnlogout = New System.Windows.Forms.Button()
         Me.Panel8 = New System.Windows.Forms.Panel()
         Me.Panel1 = New System.Windows.Forms.Panel()
@@ -32,14 +35,23 @@ Partial Class frmLibrarianMainMenu
         Me.lblt_datetime = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label11 = New System.Windows.Forms.Label()
-        Me.frmPenaltyman = New System.Windows.Forms.Button()
-        Me.btnBookMan = New System.Windows.Forms.Button()
-        Me.btnRecords = New System.Windows.Forms.Button()
+        Me.btnpenaltyman = New System.Windows.Forms.Button()
         PictureBox2 = New System.Windows.Forms.PictureBox()
+        CType(PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel2.SuspendLayout()
         Me.Panel1.SuspendLayout()
-        CType(PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
+        '
+        'PictureBox2
+        '
+        PictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        PictureBox2.Image = Global.LibrarySystem.My.Resources.Resources.BOOK_LOGO_
+        PictureBox2.Location = New System.Drawing.Point(13, 14)
+        PictureBox2.Name = "PictureBox2"
+        PictureBox2.Size = New System.Drawing.Size(50, 50)
+        PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        PictureBox2.TabIndex = 37
+        PictureBox2.TabStop = False
         '
         'Panel3
         '
@@ -52,9 +64,10 @@ Partial Class frmLibrarianMainMenu
         'Panel2
         '
         Me.Panel2.BackColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(25, Byte), Integer))
-        Me.Panel2.Controls.Add(Me.frmPenaltyman)
-        Me.Panel2.Controls.Add(Me.btnBookMan)
-        Me.Panel2.Controls.Add(Me.btnRecords)
+        Me.Panel2.Controls.Add(Me.btnpenaltyman)
+        Me.Panel2.Controls.Add(Me.btnbookman)
+        Me.Panel2.Controls.Add(Me.btnborrowman)
+        Me.Panel2.Controls.Add(Me.btndashb)
         Me.Panel2.Controls.Add(Me.btnlogout)
         Me.Panel2.Controls.Add(Me.Panel8)
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Left
@@ -62,6 +75,51 @@ Partial Class frmLibrarianMainMenu
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(223, 778)
         Me.Panel2.TabIndex = 59
+        '
+        'btnbookman
+        '
+        Me.btnbookman.BackColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.btnbookman.Dock = System.Windows.Forms.DockStyle.Top
+        Me.btnbookman.FlatAppearance.BorderSize = 0
+        Me.btnbookman.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnbookman.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnbookman.ForeColor = System.Drawing.Color.White
+        Me.btnbookman.Location = New System.Drawing.Point(0, 100)
+        Me.btnbookman.Name = "btnbookman"
+        Me.btnbookman.Size = New System.Drawing.Size(223, 50)
+        Me.btnbookman.TabIndex = 63
+        Me.btnbookman.Text = "Book Management "
+        Me.btnbookman.UseVisualStyleBackColor = False
+        '
+        'btnborrowman
+        '
+        Me.btnborrowman.BackColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.btnborrowman.Dock = System.Windows.Forms.DockStyle.Top
+        Me.btnborrowman.FlatAppearance.BorderSize = 0
+        Me.btnborrowman.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnborrowman.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnborrowman.ForeColor = System.Drawing.Color.White
+        Me.btnborrowman.Location = New System.Drawing.Point(0, 50)
+        Me.btnborrowman.Name = "btnborrowman"
+        Me.btnborrowman.Size = New System.Drawing.Size(223, 50)
+        Me.btnborrowman.TabIndex = 60
+        Me.btnborrowman.Text = "Borrow Records Management "
+        Me.btnborrowman.UseVisualStyleBackColor = False
+        '
+        'btndashb
+        '
+        Me.btndashb.BackColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.btndashb.Dock = System.Windows.Forms.DockStyle.Top
+        Me.btndashb.FlatAppearance.BorderSize = 0
+        Me.btndashb.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btndashb.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btndashb.ForeColor = System.Drawing.Color.White
+        Me.btndashb.Location = New System.Drawing.Point(0, 0)
+        Me.btndashb.Name = "btndashb"
+        Me.btndashb.Size = New System.Drawing.Size(223, 50)
+        Me.btndashb.TabIndex = 61
+        Me.btndashb.Text = "Dashboard"
+        Me.btndashb.UseVisualStyleBackColor = False
         '
         'btnlogout
         '
@@ -147,61 +205,20 @@ Partial Class frmLibrarianMainMenu
         Me.Label11.TabIndex = 38
         Me.Label11.Text = "LIBRARY"
         '
-        'PictureBox2
+        'btnpenaltyman
         '
-        PictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        PictureBox2.Image = Global.LibrarySystem.My.Resources.Resources.BOOK_LOGO_
-        PictureBox2.Location = New System.Drawing.Point(13, 14)
-        PictureBox2.Name = "PictureBox2"
-        PictureBox2.Size = New System.Drawing.Size(50, 50)
-        PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        PictureBox2.TabIndex = 37
-        PictureBox2.TabStop = False
-        '
-        'frmPenaltyman
-        '
-        Me.frmPenaltyman.BackColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(25, Byte), Integer))
-        Me.frmPenaltyman.Dock = System.Windows.Forms.DockStyle.Top
-        Me.frmPenaltyman.FlatAppearance.BorderSize = 0
-        Me.frmPenaltyman.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.frmPenaltyman.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.frmPenaltyman.ForeColor = System.Drawing.Color.White
-        Me.frmPenaltyman.Location = New System.Drawing.Point(0, 100)
-        Me.frmPenaltyman.Name = "frmPenaltyman"
-        Me.frmPenaltyman.Size = New System.Drawing.Size(223, 50)
-        Me.frmPenaltyman.TabIndex = 63
-        Me.frmPenaltyman.Text = "Penalty Management"
-        Me.frmPenaltyman.UseVisualStyleBackColor = False
-        '
-        'btnBookMan
-        '
-        Me.btnBookMan.BackColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(25, Byte), Integer))
-        Me.btnBookMan.Dock = System.Windows.Forms.DockStyle.Top
-        Me.btnBookMan.FlatAppearance.BorderSize = 0
-        Me.btnBookMan.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnBookMan.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnBookMan.ForeColor = System.Drawing.Color.White
-        Me.btnBookMan.Location = New System.Drawing.Point(0, 50)
-        Me.btnBookMan.Name = "btnBookMan"
-        Me.btnBookMan.Size = New System.Drawing.Size(223, 50)
-        Me.btnBookMan.TabIndex = 60
-        Me.btnBookMan.Text = "Book Management"
-        Me.btnBookMan.UseVisualStyleBackColor = False
-        '
-        'btnRecords
-        '
-        Me.btnRecords.BackColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(25, Byte), Integer))
-        Me.btnRecords.Dock = System.Windows.Forms.DockStyle.Top
-        Me.btnRecords.FlatAppearance.BorderSize = 0
-        Me.btnRecords.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnRecords.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnRecords.ForeColor = System.Drawing.Color.White
-        Me.btnRecords.Location = New System.Drawing.Point(0, 0)
-        Me.btnRecords.Name = "btnRecords"
-        Me.btnRecords.Size = New System.Drawing.Size(223, 50)
-        Me.btnRecords.TabIndex = 61
-        Me.btnRecords.Text = "Borrow Records Management"
-        Me.btnRecords.UseVisualStyleBackColor = False
+        Me.btnpenaltyman.BackColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.btnpenaltyman.Dock = System.Windows.Forms.DockStyle.Top
+        Me.btnpenaltyman.FlatAppearance.BorderSize = 0
+        Me.btnpenaltyman.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnpenaltyman.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnpenaltyman.ForeColor = System.Drawing.Color.White
+        Me.btnpenaltyman.Location = New System.Drawing.Point(0, 150)
+        Me.btnpenaltyman.Name = "btnpenaltyman"
+        Me.btnpenaltyman.Size = New System.Drawing.Size(223, 50)
+        Me.btnpenaltyman.TabIndex = 64
+        Me.btnpenaltyman.Text = "Penalty Management"
+        Me.btnpenaltyman.UseVisualStyleBackColor = False
         '
         'frmLibrarianMainMenu
         '
@@ -213,10 +230,10 @@ Partial Class frmLibrarianMainMenu
         Me.Controls.Add(Me.Panel1)
         Me.Name = "frmLibrarianMainMenu"
         Me.Text = "frmLibrarianMainMenu"
+        CType(PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel2.ResumeLayout(False)
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
-        CType(PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -230,7 +247,8 @@ Partial Class frmLibrarianMainMenu
     Friend WithEvents lblt_datetime As Label
     Friend WithEvents Label4 As Label
     Friend WithEvents Label11 As Label
-    Friend WithEvents frmPenaltyman As Button
-    Friend WithEvents btnBookMan As Button
-    Friend WithEvents btnRecords As Button
+    Friend WithEvents btnbookman As Button
+    Friend WithEvents btnborrowman As Button
+    Friend WithEvents btndashb As Button
+    Friend WithEvents btnpenaltyman As Button
 End Class

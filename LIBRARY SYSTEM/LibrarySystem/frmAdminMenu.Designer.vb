@@ -25,11 +25,13 @@ Partial Class frmAdminMenu
         Me.components = New System.ComponentModel.Container()
         Dim PictureBox2 As System.Windows.Forms.PictureBox
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.btnactlog = New System.Windows.Forms.Button()
+        Me.btnlogout = New System.Windows.Forms.Button()
         Me.Panel8 = New System.Windows.Forms.Panel()
-        Me.btnadl = New System.Windows.Forms.Button()
-        Me.btnBookMan = New System.Windows.Forms.Button()
-        Me.btnRecords = New System.Windows.Forms.Button()
-        Me.btnAccMan = New System.Windows.Forms.Button()
+        Me.btnbookman = New System.Windows.Forms.Button()
+        Me.btnborrowh = New System.Windows.Forms.Button()
+        Me.btnaccman = New System.Windows.Forms.Button()
+        Me.btndash = New System.Windows.Forms.Button()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.lbl_dT = New System.Windows.Forms.Label()
         Me.lblt_datetime = New System.Windows.Forms.Label()
@@ -43,31 +45,72 @@ Partial Class frmAdminMenu
         Me.lblc_name = New System.Windows.Forms.Label()
         Me.Label15 = New System.Windows.Forms.Label()
         Me.tmrDateTime = New System.Windows.Forms.Timer(Me.components)
-        Me.btnlogout = New System.Windows.Forms.Button()
         Me.Panel3 = New System.Windows.Forms.Panel()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.btnreport = New System.Windows.Forms.Button()
         PictureBox2 = New System.Windows.Forms.PictureBox()
+        CType(PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel2.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.Panel9.SuspendLayout()
-        CType(PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
+        '
+        'PictureBox2
+        '
+        PictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        PictureBox2.Image = Global.LibrarySystem.My.Resources.Resources.BOOK_LOGO_
+        PictureBox2.Location = New System.Drawing.Point(13, 14)
+        PictureBox2.Name = "PictureBox2"
+        PictureBox2.Size = New System.Drawing.Size(50, 50)
+        PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        PictureBox2.TabIndex = 37
+        PictureBox2.TabStop = False
         '
         'Panel2
         '
         Me.Panel2.BackColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(25, Byte), Integer))
-        Me.Panel2.Controls.Add(Me.Button1)
+        Me.Panel2.Controls.Add(Me.btnreport)
+        Me.Panel2.Controls.Add(Me.btnactlog)
         Me.Panel2.Controls.Add(Me.btnlogout)
         Me.Panel2.Controls.Add(Me.Panel8)
-        Me.Panel2.Controls.Add(Me.btnadl)
-        Me.Panel2.Controls.Add(Me.btnBookMan)
-        Me.Panel2.Controls.Add(Me.btnRecords)
-        Me.Panel2.Controls.Add(Me.btnAccMan)
+        Me.Panel2.Controls.Add(Me.btnbookman)
+        Me.Panel2.Controls.Add(Me.btnborrowh)
+        Me.Panel2.Controls.Add(Me.btnaccman)
+        Me.Panel2.Controls.Add(Me.btndash)
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Left
         Me.Panel2.Location = New System.Drawing.Point(0, 77)
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(223, 778)
         Me.Panel2.TabIndex = 17
+        '
+        'btnactlog
+        '
+        Me.btnactlog.BackColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.btnactlog.Dock = System.Windows.Forms.DockStyle.Top
+        Me.btnactlog.FlatAppearance.BorderSize = 0
+        Me.btnactlog.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnactlog.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnactlog.ForeColor = System.Drawing.Color.White
+        Me.btnactlog.Location = New System.Drawing.Point(0, 200)
+        Me.btnactlog.Name = "btnactlog"
+        Me.btnactlog.Size = New System.Drawing.Size(223, 50)
+        Me.btnactlog.TabIndex = 54
+        Me.btnactlog.Text = "Activity Logs"
+        Me.btnactlog.UseVisualStyleBackColor = False
+        '
+        'btnlogout
+        '
+        Me.btnlogout.BackColor = System.Drawing.Color.IndianRed
+        Me.btnlogout.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.btnlogout.FlatAppearance.BorderSize = 0
+        Me.btnlogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnlogout.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnlogout.ForeColor = System.Drawing.Color.White
+        Me.btnlogout.Location = New System.Drawing.Point(0, 728)
+        Me.btnlogout.Name = "btnlogout"
+        Me.btnlogout.Size = New System.Drawing.Size(223, 50)
+        Me.btnlogout.TabIndex = 53
+        Me.btnlogout.Text = "Logout"
+        Me.btnlogout.UseVisualStyleBackColor = False
         '
         'Panel8
         '
@@ -79,65 +122,65 @@ Partial Class frmAdminMenu
         Me.Panel8.Size = New System.Drawing.Size(280, 34)
         Me.Panel8.TabIndex = 52
         '
-        'btnadl
+        'btnbookman
         '
-        Me.btnadl.BackColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(25, Byte), Integer))
-        Me.btnadl.Dock = System.Windows.Forms.DockStyle.Top
-        Me.btnadl.FlatAppearance.BorderSize = 0
-        Me.btnadl.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnadl.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnadl.ForeColor = System.Drawing.Color.White
-        Me.btnadl.Location = New System.Drawing.Point(0, 150)
-        Me.btnadl.Name = "btnadl"
-        Me.btnadl.Size = New System.Drawing.Size(223, 50)
-        Me.btnadl.TabIndex = 7
-        Me.btnadl.Text = "Activity Logs"
-        Me.btnadl.UseVisualStyleBackColor = False
+        Me.btnbookman.BackColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.btnbookman.Dock = System.Windows.Forms.DockStyle.Top
+        Me.btnbookman.FlatAppearance.BorderSize = 0
+        Me.btnbookman.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnbookman.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnbookman.ForeColor = System.Drawing.Color.White
+        Me.btnbookman.Location = New System.Drawing.Point(0, 150)
+        Me.btnbookman.Name = "btnbookman"
+        Me.btnbookman.Size = New System.Drawing.Size(223, 50)
+        Me.btnbookman.TabIndex = 7
+        Me.btnbookman.Text = "Book Management "
+        Me.btnbookman.UseVisualStyleBackColor = False
         '
-        'btnBookMan
+        'btnborrowh
         '
-        Me.btnBookMan.BackColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(25, Byte), Integer))
-        Me.btnBookMan.Dock = System.Windows.Forms.DockStyle.Top
-        Me.btnBookMan.FlatAppearance.BorderSize = 0
-        Me.btnBookMan.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnBookMan.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnBookMan.ForeColor = System.Drawing.Color.White
-        Me.btnBookMan.Location = New System.Drawing.Point(0, 100)
-        Me.btnBookMan.Name = "btnBookMan"
-        Me.btnBookMan.Size = New System.Drawing.Size(223, 50)
-        Me.btnBookMan.TabIndex = 1
-        Me.btnBookMan.Text = "Book Management"
-        Me.btnBookMan.UseVisualStyleBackColor = False
+        Me.btnborrowh.BackColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.btnborrowh.Dock = System.Windows.Forms.DockStyle.Top
+        Me.btnborrowh.FlatAppearance.BorderSize = 0
+        Me.btnborrowh.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnborrowh.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnborrowh.ForeColor = System.Drawing.Color.White
+        Me.btnborrowh.Location = New System.Drawing.Point(0, 100)
+        Me.btnborrowh.Name = "btnborrowh"
+        Me.btnborrowh.Size = New System.Drawing.Size(223, 50)
+        Me.btnborrowh.TabIndex = 1
+        Me.btnborrowh.Text = "Borrow History Records "
+        Me.btnborrowh.UseVisualStyleBackColor = False
         '
-        'btnRecords
+        'btnaccman
         '
-        Me.btnRecords.BackColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(25, Byte), Integer))
-        Me.btnRecords.Dock = System.Windows.Forms.DockStyle.Top
-        Me.btnRecords.FlatAppearance.BorderSize = 0
-        Me.btnRecords.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnRecords.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnRecords.ForeColor = System.Drawing.Color.White
-        Me.btnRecords.Location = New System.Drawing.Point(0, 50)
-        Me.btnRecords.Name = "btnRecords"
-        Me.btnRecords.Size = New System.Drawing.Size(223, 50)
-        Me.btnRecords.TabIndex = 3
-        Me.btnRecords.Text = "Borrow History Records"
-        Me.btnRecords.UseVisualStyleBackColor = False
+        Me.btnaccman.BackColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.btnaccman.Dock = System.Windows.Forms.DockStyle.Top
+        Me.btnaccman.FlatAppearance.BorderSize = 0
+        Me.btnaccman.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnaccman.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnaccman.ForeColor = System.Drawing.Color.White
+        Me.btnaccman.Location = New System.Drawing.Point(0, 50)
+        Me.btnaccman.Name = "btnaccman"
+        Me.btnaccman.Size = New System.Drawing.Size(223, 50)
+        Me.btnaccman.TabIndex = 3
+        Me.btnaccman.Text = "Account Management "
+        Me.btnaccman.UseVisualStyleBackColor = False
         '
-        'btnAccMan
+        'btndash
         '
-        Me.btnAccMan.BackColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(25, Byte), Integer))
-        Me.btnAccMan.Dock = System.Windows.Forms.DockStyle.Top
-        Me.btnAccMan.FlatAppearance.BorderSize = 0
-        Me.btnAccMan.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnAccMan.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnAccMan.ForeColor = System.Drawing.Color.White
-        Me.btnAccMan.Location = New System.Drawing.Point(0, 0)
-        Me.btnAccMan.Name = "btnAccMan"
-        Me.btnAccMan.Size = New System.Drawing.Size(223, 50)
-        Me.btnAccMan.TabIndex = 2
-        Me.btnAccMan.Text = "Account Management"
-        Me.btnAccMan.UseVisualStyleBackColor = False
+        Me.btndash.BackColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.btndash.Dock = System.Windows.Forms.DockStyle.Top
+        Me.btndash.FlatAppearance.BorderSize = 0
+        Me.btndash.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btndash.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btndash.ForeColor = System.Drawing.Color.White
+        Me.btndash.Location = New System.Drawing.Point(0, 0)
+        Me.btndash.Name = "btndash"
+        Me.btndash.Size = New System.Drawing.Size(223, 50)
+        Me.btndash.TabIndex = 2
+        Me.btndash.Text = "Dashboard"
+        Me.btndash.UseVisualStyleBackColor = False
         '
         'Panel1
         '
@@ -289,21 +332,6 @@ Partial Class frmAdminMenu
         Me.tmrDateTime.Enabled = True
         Me.tmrDateTime.Interval = 1000
         '
-        'btnlogout
-        '
-        Me.btnlogout.BackColor = System.Drawing.Color.IndianRed
-        Me.btnlogout.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.btnlogout.FlatAppearance.BorderSize = 0
-        Me.btnlogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnlogout.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnlogout.ForeColor = System.Drawing.Color.White
-        Me.btnlogout.Location = New System.Drawing.Point(0, 728)
-        Me.btnlogout.Name = "btnlogout"
-        Me.btnlogout.Size = New System.Drawing.Size(223, 50)
-        Me.btnlogout.TabIndex = 53
-        Me.btnlogout.Text = "Logout"
-        Me.btnlogout.UseVisualStyleBackColor = False
-        '
         'Panel3
         '
         Me.Panel3.Dock = System.Windows.Forms.DockStyle.Fill
@@ -312,31 +340,20 @@ Partial Class frmAdminMenu
         Me.Panel3.Size = New System.Drawing.Size(1245, 778)
         Me.Panel3.TabIndex = 54
         '
-        'PictureBox2
+        'btnreport
         '
-        PictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        PictureBox2.Image = Global.LibrarySystem.My.Resources.Resources.BOOK_LOGO_
-        PictureBox2.Location = New System.Drawing.Point(13, 14)
-        PictureBox2.Name = "PictureBox2"
-        PictureBox2.Size = New System.Drawing.Size(50, 50)
-        PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        PictureBox2.TabIndex = 37
-        PictureBox2.TabStop = False
-        '
-        'Button1
-        '
-        Me.Button1.BackColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(25, Byte), Integer))
-        Me.Button1.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Button1.FlatAppearance.BorderSize = 0
-        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button1.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.ForeColor = System.Drawing.Color.White
-        Me.Button1.Location = New System.Drawing.Point(0, 200)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(223, 50)
-        Me.Button1.TabIndex = 54
-        Me.Button1.Text = "Reports"
-        Me.Button1.UseVisualStyleBackColor = False
+        Me.btnreport.BackColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.btnreport.Dock = System.Windows.Forms.DockStyle.Top
+        Me.btnreport.FlatAppearance.BorderSize = 0
+        Me.btnreport.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnreport.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnreport.ForeColor = System.Drawing.Color.White
+        Me.btnreport.Location = New System.Drawing.Point(0, 250)
+        Me.btnreport.Name = "btnreport"
+        Me.btnreport.Size = New System.Drawing.Size(223, 50)
+        Me.btnreport.TabIndex = 55
+        Me.btnreport.Text = "Report"
+        Me.btnreport.UseVisualStyleBackColor = False
         '
         'frmAdminMenu
         '
@@ -351,24 +368,24 @@ Partial Class frmAdminMenu
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Name = "frmAdminMenu"
         Me.Text = "frmAdmin"
+        CType(PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel2.ResumeLayout(False)
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
         Me.Panel9.ResumeLayout(False)
         Me.Panel9.PerformLayout()
-        CType(PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
 
     Friend WithEvents Panel2 As Panel
-    Friend WithEvents btnRecords As Button
-    Friend WithEvents btnAccMan As Button
-    Friend WithEvents btnBookMan As Button
+    Friend WithEvents btnaccman As Button
+    Friend WithEvents btndash As Button
+    Friend WithEvents btnborrowh As Button
     Friend WithEvents Panel1 As Panel
     Friend WithEvents Label4 As Label
     Friend WithEvents Label11 As Label
-    Friend WithEvents btnadl As Button
+    Friend WithEvents btnbookman As Button
     Friend WithEvents Panel8 As Panel
     Friend WithEvents Panel9 As Panel
     Friend WithEvents lblc_name As Label
@@ -382,5 +399,6 @@ Partial Class frmAdminMenu
     Friend WithEvents lbl_dT As Label
     Friend WithEvents btnlogout As Button
     Friend WithEvents Panel3 As Panel
-    Friend WithEvents Button1 As Button
+    Friend WithEvents btnactlog As Button
+    Friend WithEvents btnreport As Button
 End Class
