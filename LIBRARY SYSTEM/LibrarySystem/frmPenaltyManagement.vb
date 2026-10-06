@@ -1,101 +1,82 @@
 ﻿Imports MySql.Data.MySqlClient
-Imports System.Text.RegularExpressions
 
 Public Class frmPenaltyManagement
-
-    Private Class RecordInfo
-        Public Property TransactionId As Integer
-        Public Property DueDate As DateTime
-        Public Property ReturnDate As DateTime?
-        Public Property BookPrice As Decimal
-    End Class
-
-    Private isLoadingRecord As Boolean = False
+    Private selectedTransactionId As Integer = 0
 
     Private Sub frmPenaltyManagement_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Me.CenterToScreen()
-        ComboBox2.Enabled = False ' Borrow Status is derived from Book Condition, never typed directly
+        With DataGridView1
+            .ReadOnly = True
+            .AllowUserToAddRows = False
+            .AllowUserToDeleteRows = False
+            .MultiSelect = False
+            .SelectionMode = DataGridViewSelectionMode.FullRowSelect
+        End With
+        ComboBox2.Enabled = False        ' derived from the condition
         RefreshPenaltyData()
     End Sub
 
-    ' Default-instance forms only fire Load once per app session. Without this,
-    ' re-opening the form via .Show() after a librarian verifies a book elsewhere
-    ' (frmLibrarianHistory) would keep showing stale data.
     Private Sub frmPenaltyManagement_VisibleChanged(sender As Object, e As EventArgs) Handles Me.VisibleChanged
-        If Me.Visible Then RefreshPenaltyData()
+        If Me.Visible Then RefreshPenaltyData(txtSearch.Text)
     End Sub
 
-    Public Sub RefreshPenaltyData()
-        Using conn = DBConnection.GetConnection()
-            conn.Open()
-            LoadPenaltyRecords(conn)
-        End Using
-    End Sub
+    Public Sub RefreshPenaltyData(Optional keyword As String = "")
+        DataGridView1.Rows.Clear()
+        Dim kw As String = If(keyword, "").Trim()
 
-    Private Sub LoadPenaltyRecords(conn As MySqlConnection)
-        ListViewPenaltyRecords.Items.Clear()
-
-        Dim query As String =
-        "SELECT t.transaction_id, t.receipt_number, a.username, t.book_id, b.title, b.price, " &
-        "       t.due_date, t.return_date, t.condition_status, " &
-        "       t.penalty_amount, t.penalty_status " &
-        "FROM tbl_transaction t " &
-        "JOIN tbl_account a ON a.account_id = t.account_id " &
-        "JOIN tbl_book b ON b.book_id = t.book_id " &
-        "WHERE t.penalty_amount > 0 " &
-        "ORDER BY t.transaction_id DESC"
-
-        Using cmd As New MySqlCommand(query, conn)
-            Using reader As MySqlDataReader = cmd.ExecuteReader()
-                While reader.Read()
-                    Dim receiptNo As String = If(IsDBNull(reader("receipt_number")), "N/A", reader("receipt_number").ToString())
-                    Dim amount As Decimal = Convert.ToDecimal(reader("penalty_amount"))
-                    Dim dueDate As DateTime = Convert.ToDateTime(reader("due_date"))
-                    Dim isReturned As Boolean = Not IsDBNull(reader("return_date"))
-                    Dim returnDate As DateTime? = If(isReturned, CType(Convert.ToDateTime(reader("return_date")), DateTime?), Nothing)
-                    Dim condition As String = reader("condition_status").ToString()
-
-                    ' Reason combines Overdue (dates) with Damaged/Lost (condition) —
-                    ' a record can be both at once.
-                    Dim isOverdue As Boolean = isReturned AndAlso returnDate.Value > dueDate
-                    Dim reasonParts As New List(Of String)
-                    If isOverdue Then reasonParts.Add("Overdue")
-                    If condition = "Damaged" OrElse condition = "Lost" Then reasonParts.Add("Book Condition")
-                    Dim reason As String = If(reasonParts.Count > 0, String.Join(" + ", reasonParts), "Overdue")
-
-                    Dim item As New ListViewItem(receiptNo)
-                    item.SubItems.Add(reader("username").ToString())          ' User
-                    item.SubItems.Add(reader("book_id").ToString())           ' Book ID
-                    item.SubItems.Add(reader("title").ToString())             ' Book Title
-                    item.SubItems.Add(reason)                                 ' Reason
-                    item.SubItems.Add(condition)                              ' Book Condition
-                    item.SubItems.Add(amount.ToString("₱0.00"))               ' Amount
-                    item.SubItems.Add(reader("penalty_status").ToString())    ' Status
-                    item.SubItems.Add(dueDate.ToString("MM/dd/yyyy"))         ' Penalty Date
-
-                    item.Tag = New RecordInfo With {
-                        .TransactionId = Convert.ToInt32(reader("transaction_id")),
-                        .DueDate = dueDate,
-                        .ReturnDate = returnDate,
-                        .BookPrice = Convert.ToDecimal(reader("price"))
-                    }
-
-                    ListViewPenaltyRecords.Items.Add(item)
-                End While
+        Try
+            Using conn = DBConnection.GetConnection()
+                conn.Open()
+                Using cmd As New MySqlCommand(
+                    "SELECT p.transaction_id, u.username, p.receipt_number, v.book_id, v.isbn, v.title, v.authors, " &
+                    "       p.penalty_reason, t.return_condition, p.penalty_amount, p.penalty_status, t.due_date " &
+                    "FROM Penalty p " &
+                    "JOIN BorrowTransaction t ON t.transaction_id = p.transaction_id " &
+                    "JOIN Members m ON m.member_id = t.member_id " &
+                    "JOIN Users u ON u.user_id = m.user_id " &
+                    "JOIN BookCopies c ON c.copy_id = t.copy_id " &
+                    "JOIN vw_BookCatalog v ON v.book_id = c.book_id " &
+                    "WHERE (@kw = '' OR u.username LIKE CONCAT('%',@kw,'%') OR v.title LIKE CONCAT('%',@kw,'%') " &
+                    "   OR v.isbn LIKE CONCAT('%',@kw,'%') OR p.receipt_number LIKE CONCAT('%',@kw,'%') " &
+                    "   OR p.penalty_status LIKE CONCAT('%',@kw,'%')) " &
+                    "ORDER BY p.transaction_id DESC", conn)
+                    cmd.Parameters.AddWithValue("@kw", kw)
+                    Using r As MySqlDataReader = cmd.ExecuteReader()
+                        While r.Read()
+                            Dim row As DataGridViewRow = DataGridView1.Rows(DataGridView1.Rows.Add())
+                            row.Cells("Username").Value = r("username").ToString()
+                            row.Cells("ReceiptNo").Value = If(IsDBNull(r("receipt_number")), "N/A", r("receipt_number").ToString())
+                            row.Cells("BookID").Value = r("book_id").ToString()
+                            row.Cells("ISBN").Value = r("isbn").ToString()
+                            row.Cells("BookTitle").Value = r("title").ToString()
+                            row.Cells("BookAuthor").Value = If(IsDBNull(r("authors")), "", r("authors").ToString())
+                            row.Cells("Reason").Value = r("penalty_reason").ToString().Replace(",", " + ")
+                            row.Cells("BookCondition").Value = If(IsDBNull(r("return_condition")), "Pending", r("return_condition").ToString())
+                            row.Cells("Amount").Value = ChrW(&H20B1) & Convert.ToDecimal(r("penalty_amount")).ToString("N2")
+                            row.Cells("PenaltyStatus").Value = r("penalty_status").ToString()
+                            row.Cells("PenaltyDate").Value = Convert.ToDateTime(r("due_date")).ToString("MM/dd/yyyy")
+                            row.Tag = Convert.ToInt32(r("transaction_id"))
+                        End While
+                    End Using
+                End Using
             End Using
-        End Using
+        Catch ex As Exception
+            MsgBox("Could not load penalties: " & ex.Message, vbCritical, "Penalty Management")
+        End Try
+        DataGridView1.ClearSelection()
     End Sub
 
-    Private Sub ListViewPenaltyRecords_SelectedIndexChanged(sender As Object, e As EventArgs)
-        If ListViewPenaltyRecords.SelectedItems.Count = 0 Then Exit Sub
-        Dim selected As ListViewItem = ListViewPenaltyRecords.SelectedItems(0)
+    Private Sub txtSearch_TextChanged(sender As Object, e As EventArgs) Handles txtSearch.TextChanged
+        RefreshPenaltyData(txtSearch.Text)
+    End Sub
 
-        isLoadingRecord = True
-        txtUserID.Text = If(selected.SubItems(0).Text = "N/A", "", selected.SubItems(0).Text) ' Receipt No.
-        ComboBox1.Text = selected.SubItems(5).Text  ' Book Condition
-        ComboBox3.Text = selected.SubItems(7).Text  ' Status (Penalty Status)
-        isLoadingRecord = False
-
+    Private Sub DataGridView1_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellClick
+        If e.RowIndex < 0 Then Exit Sub
+        Dim row As DataGridViewRow = DataGridView1.Rows(e.RowIndex)
+        selectedTransactionId = Convert.ToInt32(row.Tag)
+        Dim receipt As String = Convert.ToString(row.Cells("ReceiptNo").Value)
+        txtUserID.Text = If(receipt = "N/A", "", receipt)
+        ComboBox1.Text = Convert.ToString(row.Cells("BookCondition").Value)
+        ComboBox3.Text = Convert.ToString(row.Cells("PenaltyStatus").Value)
         UpdateBorrowStatusPreview()
     End Sub
 
@@ -103,115 +84,45 @@ Public Class frmPenaltyManagement
         UpdateBorrowStatusPreview()
     End Sub
 
-    ' Prevents "Paid" from ever being selected unless a valid 6-digit receipt number
-    ' is already in txtUserID. Skipped while a row is being loaded from the list,
-    ' since that shouldn't trigger a validation popup just from clicking a record.
-    Private Sub ComboBox3_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox3.SelectedIndexChanged
-        If isLoadingRecord Then Exit Sub
-
-        If ComboBox3.Text = "Paid" Then
-            Dim receiptNoCheck As String = txtUserID.Text.Trim()
-            If Not Regex.IsMatch(receiptNoCheck, "^\d{6}$") Then
-                MsgBox("Enter a valid 6-digit receipt number before marking this record as Paid.", vbExclamation, "Update Penalty")
-                ComboBox3.SelectedIndex = -1
-                ComboBox3.Text = ""
-                Exit Sub
-            End If
-        End If
-    End Sub
-
     Private Sub UpdateBorrowStatusPreview()
         Select Case ComboBox1.Text
-            Case "Good"
-                ComboBox2.Text = "Returned"
-            Case "Damaged", "Lost"
-                ComboBox2.Text = "Penalty"
-            Case Else
-                ComboBox2.Text = "Pending"
+            Case "Good" : ComboBox2.Text = "Returned"
+            Case "Damaged", "Lost" : ComboBox2.Text = "Penalty"
+            Case Else : ComboBox2.Text = "Pending"
         End Select
     End Sub
 
+    Private Sub txtUserID_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtUserID.KeyPress
+        If Not Char.IsControl(e.KeyChar) AndAlso Not Char.IsDigit(e.KeyChar) Then e.Handled = True
+        If txtUserID.Text.Length >= 6 AndAlso Not Char.IsControl(e.KeyChar) Then e.Handled = True
+    End Sub
+
+    ' "Mark as Paid" button = save condition, penalty status and receipt number
     Private Sub btnMarkAsPaid_Click(sender As Object, e As EventArgs) Handles btnMarkAsPaid.Click
-        If ListViewPenaltyRecords.SelectedItems.Count = 0 Then
+        If selectedTransactionId = 0 Then
             MsgBox("Select a penalty record from the list first.", vbExclamation, "Update Penalty")
             Exit Sub
         End If
-
-        ' Receipt number must be exactly 6 digits (numbers only) — empty is allowed (not yet paid)
-        Dim receiptNoCheck As String = txtUserID.Text.Trim()
-        If receiptNoCheck <> "" AndAlso Not Regex.IsMatch(receiptNoCheck, "^\d{6}$") Then
-            MsgBox("Receipt number must be exactly 6 digits (numbers only).", vbExclamation, "Update Penalty")
-            txtUserID.Focus()
-            Exit Sub
-        End If
-
-        ' Backstop: Paid status can never be saved without a valid 6-digit receipt number
-        If ComboBox3.Text = "Paid" AndAlso Not Regex.IsMatch(receiptNoCheck, "^\d{6}$") Then
-            MsgBox("A valid 6-digit receipt number is required before marking this record as Paid.", vbExclamation, "Update Penalty")
-            txtUserID.Focus()
-            Exit Sub
-        End If
-
-        If ComboBox1.Text <> "Good" AndAlso ComboBox1.Text <> "Damaged" AndAlso ComboBox1.Text <> "Lost" Then
-            MsgBox("Please select a valid Book Condition (Good, Damaged, or Lost).", vbExclamation, "Update Penalty")
-            Exit Sub
-        End If
-
         If ComboBox3.Text <> "None" AndAlso ComboBox3.Text <> "Unpaid" AndAlso ComboBox3.Text <> "Paid" Then
             MsgBox("Please select a valid Penalty Status (None, Unpaid, or Paid).", vbExclamation, "Update Penalty")
             Exit Sub
         End If
 
-        Dim selected As ListViewItem = ListViewPenaltyRecords.SelectedItems(0)
-        Dim info As RecordInfo = CType(selected.Tag, RecordInfo)
-        Dim newCondition As String = ComboBox1.Text
-
-        ' Overdue is still automatic — recalculated from the stored dates, not typed.
-        Dim overdueDays As Integer = If(info.ReturnDate.HasValue, Math.Max(0, CInt((info.ReturnDate.Value - info.DueDate).TotalDays)), 0)
-        Dim overduePenalty As Decimal = overdueDays * DBConnection.PenaltyRatePerDay
-        Dim conditionPenalty As Decimal = If(newCondition = "Damaged" OrElse newCondition = "Lost", info.BookPrice, 0D)
-        Dim totalPenalty As Decimal = overduePenalty + conditionPenalty
-
-        Dim newPenaltyStatus As String = ComboBox3.Text
-        If totalPenalty = 0 Then
-            newPenaltyStatus = "None" ' nothing owed, status can't say otherwise
-        ElseIf newPenaltyStatus = "None" Then
-            MsgBox("This record still has an amount due — choose Unpaid or Paid instead of None.", vbExclamation, "Update Penalty")
+        Try
+            Dim total As Decimal = BorrowData.ApplyVerification(selectedTransactionId, ComboBox1.Text, ComboBox3.Text, txtUserID.Text)
+            DBConnection.LogActivity("Update Penalty",
+                "Updated transaction #" & selectedTransactionId & " - condition " & ComboBox1.Text &
+                ", amount " & ChrW(&H20B1) & total.ToString("N2") & ", status " & If(total = 0, "None", ComboBox3.Text))
+            MsgBox("Penalty record updated.", vbInformation, "Update Penalty")
+        Catch ex As InvalidOperationException
+            MsgBox(ex.Message, vbExclamation, "Update Penalty")
             Exit Sub
-        End If
-
-        Dim receiptNo As String = txtUserID.Text.Trim()
-
-        Using conn = DBConnection.GetConnection()
-            conn.Open()
-            Dim cmd As New MySqlCommand(
-                "UPDATE tbl_transaction SET receipt_number=@rn, condition_status=@cs, " &
-                "penalty_amount=@pa, penalty_status=@ps WHERE transaction_id=@tid", conn)
-            cmd.Parameters.AddWithValue("@rn", If(receiptNo = "", DBNull.Value, receiptNo))
-            cmd.Parameters.AddWithValue("@cs", newCondition)
-            cmd.Parameters.AddWithValue("@pa", totalPenalty)
-            cmd.Parameters.AddWithValue("@ps", newPenaltyStatus)
-            cmd.Parameters.AddWithValue("@tid", info.TransactionId)
-            cmd.ExecuteNonQuery()
-        End Using
-
-        DBConnection.LogActivity("Update Penalty",
-            $"Updated transaction #{info.TransactionId} — condition {newCondition}, amount ₱{totalPenalty:N2}, status {newPenaltyStatus}")
-
-        MsgBox("Penalty record updated.", vbInformation, "Update Penalty")
+        Catch ex As Exception
+            MsgBox("Could not update the penalty: " & ex.Message, vbCritical, "Update Penalty")
+            Exit Sub
+        End Try
         ClearPanel()
-        RefreshPenaltyData()
-    End Sub
-
-    Private Sub txtUserID_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtUserID.KeyPress
-        ' Allow control keys (backspace, etc.) and digits only
-        If Not Char.IsControl(e.KeyChar) AndAlso Not Char.IsDigit(e.KeyChar) Then
-            e.Handled = True
-        End If
-        ' Block further typing once 6 digits are already entered
-        If txtUserID.Text.Length >= 6 AndAlso Not Char.IsControl(e.KeyChar) Then
-            e.Handled = True
-        End If
+        RefreshPenaltyData(txtSearch.Text)
     End Sub
 
     Private Sub btnMarkAsNotPaid_Click(sender As Object, e As EventArgs) Handles btnMarkAsNotPaid.Click
@@ -219,19 +130,11 @@ Public Class frmPenaltyManagement
     End Sub
 
     Private Sub ClearPanel()
+        selectedTransactionId = 0
         txtUserID.Clear()
-        ComboBox1.SelectedIndex = -1
-        ComboBox1.Text = ""
-        ComboBox2.SelectedIndex = -1
-        ComboBox2.Text = ""
-        ComboBox3.SelectedIndex = -1
-        ComboBox3.Text = ""
-        ListViewPenaltyRecords.SelectedIndices.Clear()
+        ComboBox1.SelectedIndex = -1 : ComboBox1.Text = ""
+        ComboBox2.SelectedIndex = -1 : ComboBox2.Text = ""
+        ComboBox3.SelectedIndex = -1 : ComboBox3.Text = ""
+        DataGridView1.ClearSelection()
     End Sub
-
-    Private Sub btnBack_Click(sender As Object, e As EventArgs)
-        frmLibrarianMenu.Show()
-        Me.Hide()
-    End Sub
-
 End Class

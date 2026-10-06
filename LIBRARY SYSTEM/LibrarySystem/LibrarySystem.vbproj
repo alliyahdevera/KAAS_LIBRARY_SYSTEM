@@ -123,9 +123,10 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AccountStore.vb" />
+    <Compile Include="BookData.vb" />
+    <Compile Include="BorrowData.vb" />
+    <Compile Include="DashboardData.vb" />
     <Compile Include="DBConnection.vb" />
-    <Compile Include="ExcelExporter.vb" />
     <Compile Include="ExcelImporter.vb" />
     <Compile Include="Form1.vb">
       <SubType>Form</SubType>
@@ -138,12 +139,6 @@
       <DependentUpon>frmReports.vb</DependentUpon>
     </Compile>
     <Compile Include="frmReports.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmUserManagement.Designer.vb">
-      <DependentUpon>frmUserManagement.vb</DependentUpon>
-    </Compile>
-    <Compile Include="frmUserManagement.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmAdminDashboard.Designer.vb">
@@ -260,6 +255,7 @@
     <Compile Include="frmStudentPenalty.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Helpers.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -275,7 +271,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="StudentAccount.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Form1.resx">
@@ -283,9 +278,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmReports.resx">
       <DependentUpon>frmReports.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmUserManagement.resx">
-      <DependentUpon>frmUserManagement.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmAdminDashboard.resx">
       <DependentUpon>frmAdminDashboard.vb</DependentUpon>

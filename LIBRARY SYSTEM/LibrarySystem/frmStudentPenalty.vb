@@ -2,13 +2,13 @@
 
 Public Class frmStudentPenalty
 
-    Private Sub btnBack_Click(sender As Object, e As EventArgs)
-        frmStudentMenu.Show()
-        Me.Hide()
-    End Sub
-
     Private Sub frmStudentPenalty_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Me.CenterToScreen()
+        With DataGridView1
+            .ReadOnly = True
+            .AllowUserToAddRows = False
+            .AllowUserToDeleteRows = False
+            .SelectionMode = DataGridViewSelectionMode.FullRowSelect
+        End With
         RefreshPenalties()
     End Sub
 
@@ -17,62 +17,50 @@ Public Class frmStudentPenalty
     End Sub
 
     Public Sub RefreshPenalties()
-        Using conn = DBConnection.GetConnection()
-            conn.Open()
-            LoadPenaltyDetails(conn)
-            LoadSummary(conn)
-        End Using
+        DataGridView1.Rows.Clear()
+        Dim unpaid As Decimal = 0D, paid As Decimal = 0D
+        If Not AppSession.MemberId.HasValue Then Exit Sub
+
+        Try
+            Using conn = DBConnection.GetConnection()
+                conn.Open()
+                Using cmd As New MySqlCommand(
+                    "SELECT b.isbn, b.title, b.edition, p.penalty_reason, t.return_condition, p.penalty_amount, p.penalty_status " &
+                    "FROM Penalty p " &
+                    "JOIN BorrowTransaction t ON t.transaction_id = p.transaction_id " &
+                    "JOIN BookCopies c ON c.copy_id = t.copy_id " &
+                    "JOIN BookInfo b ON b.book_id = c.book_id " &
+                    "WHERE t.member_id = @m ORDER BY p.penalty_id DESC", conn)
+                    cmd.Parameters.AddWithValue("@m", AppSession.MemberId.Value)
+                    Using r As MySqlDataReader = cmd.ExecuteReader()
+                        While r.Read()
+                            Dim amount As Decimal = Convert.ToDecimal(r("penalty_amount"))
+                            Dim status As String = r("penalty_status").ToString()
+                            If status = "Paid" Then
+                                paid += amount
+                            ElseIf status = "Unpaid" OrElse status = "Pending" Then
+                                unpaid += amount
+                            End If
+
+                            Dim row As DataGridViewRow = DataGridView1.Rows(DataGridView1.Rows.Add())
+                            row.Cells("ISBN").Value = r("isbn").ToString()
+                            row.Cells("BookTitle").Value = r("title").ToString()
+                            row.Cells("Edition").Value = If(IsDBNull(r("edition")), "", r("edition").ToString())
+                            row.Cells("Reason").Value = r("penalty_reason").ToString().Replace(",", " + ")
+                            row.Cells("BookCondition").Value = If(IsDBNull(r("return_condition")), "Pending", r("return_condition").ToString())
+                            row.Cells("Amount").Value = ChrW(&H20B1) & amount.ToString("N2")
+                            row.Cells("PenaltyStatus").Value = status
+                        End While
+                    End Using
+                End Using
+            End Using
+        Catch ex As Exception
+            MsgBox("Could not load your penalties: " & ex.Message, vbCritical, "My Penalties")
+        End Try
+
+        lblt_due.Text = ChrW(&H20B1) & unpaid.ToString("N2")              ' Pending Penalty (unpaid)
+        lblp_penalty.Text = ChrW(&H20B1) & paid.ToString("N2")            ' Total Paid
+        lbl_pend_penalty.Text = ChrW(&H20B1) & (unpaid + paid).ToString("N2") ' Total Penalty
+        DataGridView1.ClearSelection()
     End Sub
-
-    Private Sub LoadPenaltyDetails(conn As MySqlConnection)
-        ListView1.Items.Clear()
-        Dim cmd As New MySqlCommand(
-            "SELECT t.transaction_id, b.isbn, b.title, b.edition, t.due_date, t.return_date, " &
-            "t.condition_status, t.penalty_amount, t.penalty_status " &
-            "FROM tbl_transaction t JOIN tbl_book b ON b.book_id = t.book_id " &
-            "WHERE t.account_id = @aid AND t.penalty_amount > 0 ORDER BY t.transaction_id DESC", conn)
-        cmd.Parameters.AddWithValue("@aid", Form1.CurrentAccountId)
-
-        Using reader As MySqlDataReader = cmd.ExecuteReader()
-            While reader.Read()
-                Dim condition As String = reader("condition_status").ToString()
-                If String.IsNullOrWhiteSpace(condition) Then condition = "Pending"
-
-                Dim isOverdue As Boolean = Not IsDBNull(reader("return_date")) AndAlso
-                    Convert.ToDateTime(reader("return_date")) > Convert.ToDateTime(reader("due_date"))
-
-                Dim reasonParts As New List(Of String)
-                If isOverdue Then reasonParts.Add("Overdue")
-                If condition = "Damaged" OrElse condition = "Lost" Then reasonParts.Add("Book Condition")
-                Dim reason As String = If(reasonParts.Count > 0, String.Join(" + ", reasonParts), "Overdue")
-
-                Dim item As New ListViewItem(reader("isbn").ToString())
-                item.SubItems.Add(reader("title").ToString())
-                item.SubItems.Add(reader("edition").ToString())
-                item.SubItems.Add(reason)
-                item.SubItems.Add(condition)
-                item.SubItems.Add(Convert.ToDecimal(reader("penalty_amount")).ToString("₱0.00"))
-                item.SubItems.Add(reader("penalty_status").ToString())
-                item.Tag = Convert.ToInt32(reader("transaction_id"))
-                ListView1.Items.Add(item)
-            End While
-        End Using
-    End Sub
-
-    Private Sub LoadSummary(conn As MySqlConnection)
-        Dim dueCmd As New MySqlCommand(
-            "SELECT COALESCE(SUM(penalty_amount),0) FROM tbl_transaction WHERE account_id=@aid AND penalty_status='Unpaid'", conn)
-        dueCmd.Parameters.AddWithValue("@aid", Form1.CurrentAccountId)
-        lblt_due.Text = Convert.ToDecimal(dueCmd.ExecuteScalar()).ToString("0.00")
-
-        Dim paidCmd As New MySqlCommand(
-            "SELECT COALESCE(SUM(penalty_amount),0) FROM tbl_transaction WHERE account_id=@aid AND penalty_status='Paid'", conn)
-        paidCmd.Parameters.AddWithValue("@aid", Form1.CurrentAccountId)
-        lblp_penalty.Text = Convert.ToDecimal(paidCmd.ExecuteScalar()).ToString("0.00")
-
-        ' Penalty Status no longer has a "Pending" state now that upload/verify-by-photo
-        ' is gone — this always resolves to 0.00, kept for the summary box you already have.
-        lbl_pend_penalty.Text = Val(lblt_due.Text) + Val(lblp_penalty.Text)
-    End Sub
-
 End Class

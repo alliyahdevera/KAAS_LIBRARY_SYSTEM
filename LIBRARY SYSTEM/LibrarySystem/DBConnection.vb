@@ -1,7 +1,7 @@
 ﻿Imports MySql.Data.MySqlClient
 
 Module DBConnection
-    Public Const PenaltyRatePerDay As Decimal = 150
+
     Private ReadOnly ConnString As String =
         "Server=localhost;Port=3306;Database=library_system;Uid=root;Pwd=;"
 
@@ -14,17 +14,17 @@ Module DBConnection
             Using conn = GetConnection()
                 conn.Open()
                 Using cmd As New MySqlCommand(
-                    "INSERT INTO tblactivitylogs (account_id, action, description, data_time) " &
-                    "VALUES (@accountId, @action, @description, @dataTime)", conn)
-                    cmd.Parameters.AddWithValue("@accountId", Form1.CurrentAccountId)
-                    cmd.Parameters.AddWithValue("@action", action)
-                    cmd.Parameters.AddWithValue("@description", description)
-                    cmd.Parameters.AddWithValue("@dataTime", DateTime.Now)
+                    "INSERT INTO ActivityLogs (user_id, action, description, log_time) " &
+                    "VALUES (@uid, @a, @d, NOW())", conn)
+                    cmd.Parameters.AddWithValue("@uid",
+                        If(AppSession.UserId > 0, CObj(AppSession.UserId), DBNull.Value))
+                    cmd.Parameters.AddWithValue("@a", action)
+                    cmd.Parameters.AddWithValue("@d", description)
                     cmd.ExecuteNonQuery()
                 End Using
             End Using
         Catch ex As Exception
-            ' Swallow logging errors so a failed log never blocks the actual action
+            ' A failed log must never block the real action
         End Try
     End Sub
 End Module

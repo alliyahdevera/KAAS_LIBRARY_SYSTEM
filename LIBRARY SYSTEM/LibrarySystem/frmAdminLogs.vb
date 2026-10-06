@@ -2,82 +2,49 @@
 
 Public Class frmAdminLogs
 
-    Private Sub frmAdminLogs_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Me.CenterToScreen()
-        SetupColumns()
-        LoadLogs()
-    End Sub
-
     Private Sub frmAdminLogs_VisibleChanged(sender As Object, e As EventArgs) Handles Me.VisibleChanged
-        If Me.Visible Then
-            LoadLogs()
-        End If
+        If Not Me.Visible Then Exit Sub
+        UiHelpers.FillHeader(Me)
+        DashboardData.SetupReadOnlyGrid(DataGridView1)
+        Label14.Text = "SEARCH BY USER, ACTION OR DESCRIPTION"
+        AccountID.HeaderText = "Account"
+        LoadLogs(txtSearch.Text)
     End Sub
 
-    Private Sub SetupColumns()
-        Dim lv As ListView = GetListViewControl()
-        If lv Is Nothing Then Exit Sub
-
-        lv.View = View.Details
-        lv.FullRowSelect = True
-        lv.GridLines = True
-        lv.Columns.Clear()
-
-        lv.Columns.Add("Log ID", 110)
-        lv.Columns.Add("Account ID", 110)
-        lv.Columns.Add("Action", 180)
-        lv.Columns.Add("Description", 300)
-        lv.Columns.Add("Date and Time", 180)
-    End Sub
-
-    Public Sub LoadLogs()
-        Dim lv As ListView = GetListViewControl()
-        If lv Is Nothing Then Exit Sub
-
-        lv.Items.Clear()
-
-        Using conn = DBConnection.GetConnection()
-            conn.Open()
-            Dim query As String = "SELECT log_id, account_id, action, description, data_time FROM tblactivitylogs ORDER BY data_time DESC"
-            Dim cmd As New MySqlCommand(query, conn)
-
-            Using reader As MySqlDataReader = cmd.ExecuteReader()
-                While reader.Read()
-                    Dim item As New ListViewItem(reader("log_id").ToString())
-
-                    If Not IsDBNull(reader("account_id")) Then
-                        item.SubItems.Add(reader("account_id").ToString())
-                    Else
-                        item.SubItems.Add("")
-                    End If
-
-                    item.SubItems.Add(reader("action").ToString())
-                    item.SubItems.Add(reader("description").ToString())
-
-                    If Not IsDBNull(reader("data_time")) Then
-                        item.SubItems.Add(Convert.ToDateTime(reader("data_time")).ToString("MM/dd/yyyy hh:mm:ss tt"))
-                    Else
-                        item.SubItems.Add("")
-                    End If
-
-                    lv.Items.Add(item)
-                End While
+    Public Sub LoadLogs(Optional keyword As String = "")
+        DataGridView1.Rows.Clear()
+        Dim kw As String = If(keyword, "").Trim()
+        Try
+            Using conn = DBConnection.GetConnection()
+                conn.Open()
+                Using cmd As New MySqlCommand(
+                    "SELECT l.log_id, l.user_id, u.username, l.action, l.description, l.log_time " &
+                    "FROM ActivityLogs l LEFT JOIN Users u ON u.user_id = l.user_id " &
+                    "WHERE (@kw = '' OR u.username LIKE CONCAT('%',@kw,'%') OR l.action LIKE CONCAT('%',@kw,'%') " &
+                    " OR l.description LIKE CONCAT('%',@kw,'%')) " &
+                    "ORDER BY l.log_id DESC LIMIT 1000", conn)
+                    cmd.Parameters.AddWithValue("@kw", kw)
+                    Using r As MySqlDataReader = cmd.ExecuteReader()
+                        While r.Read()
+                            Dim row As DataGridViewRow = DataGridView1.Rows(DataGridView1.Rows.Add())
+                            row.Cells("LogID").Value = r("log_id").ToString()
+                            row.Cells("AccountID").Value = If(IsDBNull(r("user_id")), "-",
+                                If(IsDBNull(r("username")), "", r("username").ToString()) & " (#" & r("user_id").ToString() & ")")
+                            row.Cells("nAction").Value = If(IsDBNull(r("action")), "", r("action").ToString())
+                            row.Cells("dDescription").Value = If(IsDBNull(r("description")), "", r("description").ToString())
+                            row.Cells("DateTime").Value = If(IsDBNull(r("log_time")), "",
+                                Convert.ToDateTime(r("log_time")).ToString("MM/dd/yyyy hh:mm:ss tt"))
+                        End While
+                    End Using
+                End Using
             End Using
-        End Using
+        Catch ex As Exception
+            MsgBox("Could not load the activity logs: " & ex.Message, vbCritical, "Activity Logs")
+        End Try
+        DataGridView1.ClearSelection()
     End Sub
 
-    Private Function GetListViewControl() As ListView
-        For Each ctrl As Control In Me.Controls
-            If TypeOf ctrl Is ListView Then
-                Return DirectCast(ctrl, ListView)
-            End If
-        Next
-        Return Nothing
-    End Function
-
-    Private Sub btnExit_Click(sender As Object, e As EventArgs) 
-        frmAdminMenu.Show()
-        Me.Hide()
+    Private Sub txtSearch_TextChanged(sender As Object, e As EventArgs) Handles txtSearch.TextChanged
+        LoadLogs(txtSearch.Text)
     End Sub
-
 End Class

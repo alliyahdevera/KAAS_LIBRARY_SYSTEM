@@ -1,92 +1,69 @@
-﻿Imports System.Data
-Imports MySql.Data.MySqlClient
+﻿Imports MySql.Data.MySqlClient
 
 Public Class frmAvailBooks
 
     Private Sub frmAvailBooks_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Me.CenterToScreen()
-
-        lvAvailBooks.View = View.Details
-        lvAvailBooks.FullRowSelect = True
-        lvAvailBooks.GridLines = True
-
-        If lvAvailBooks.Columns.Count = 0 Then
-            lvAvailBooks.Columns.Add("ISBN", 100)
-            lvAvailBooks.Columns.Add("Title", 160)
-            lvAvailBooks.Columns.Add("Author", 130)
-            lvAvailBooks.Columns.Add("Publisher", 120)
-            lvAvailBooks.Columns.Add("Category", 110)
-            lvAvailBooks.Columns.Add("Edition", 80)
-            lvAvailBooks.Columns.Add("Year Published", 100)
-            lvAvailBooks.Columns.Add("Price", 80)
-            lvAvailBooks.Columns.Add("Copies", 70)
-        End If
-
+        SetupGrid()
+        UiHelpers.FillHeader(Me)
         LoadAvailableBooks()
     End Sub
 
     Private Sub frmAvailBooks_VisibleChanged(sender As Object, e As EventArgs) Handles Me.VisibleChanged
-        If Me.Visible Then
-            LoadAvailableBooks()
-        End If
+        If Me.Visible Then LoadAvailableBooks(TextBox1.Text)
+    End Sub
+
+    Private Sub SetupGrid()
+        With DataGridView1
+            .ReadOnly = True
+            .AllowUserToAddRows = False
+            .AllowUserToDeleteRows = False
+            .MultiSelect = False
+            .SelectionMode = DataGridViewSelectionMode.FullRowSelect
+        End With
     End Sub
 
     Public Sub LoadAvailableBooks(Optional keyword As String = "")
-        lvAvailBooks.Items.Clear()
+        SetupGrid()
+        DataGridView1.Rows.Clear()
         Dim kw As String = If(keyword, "").Trim()
 
-        Using conn = DBConnection.GetConnection()
-            conn.Open()
-            Dim cmd As New MySqlCommand(
-                "SELECT b.isbn, b.title, b.author, b.publisher, b.category, b.edition, b.year_published, b.price, " &
-                "COUNT(b.book_id) AS copies " &
-                "FROM tbl_book b " &
-                "WHERE b.book_id NOT IN (SELECT book_id FROM tbl_transaction WHERE return_date IS NULL) " &
-                "AND (@kw = '' OR b.isbn LIKE CONCAT('%',@kw,'%') OR b.title LIKE CONCAT('%',@kw,'%') " &
-                "     OR b.author LIKE CONCAT('%',@kw,'%') OR b.publisher LIKE CONCAT('%',@kw,'%') OR b.category LIKE CONCAT('%',@kw,'%')) " &
-                "GROUP BY b.isbn, b.title, b.author, b.publisher, b.category, b.edition, b.year_published, b.price " &
-                "HAVING copies > 0", conn)
-            cmd.Parameters.AddWithValue("@kw", kw)
+        Try
+            Using conn = DBConnection.GetConnection()
+                conn.Open()
+                Using cmd As New MySqlCommand(
+                    "SELECT isbn, title, authors, publisher_name, categories, edition, year_published, price, available_copies " &
+                    "FROM vw_BookCatalog " &
+                    "WHERE available_copies > 0 " &
+                    "AND (@kw = '' OR isbn LIKE CONCAT('%',@kw,'%') OR title LIKE CONCAT('%',@kw,'%') " &
+                    "     OR authors LIKE CONCAT('%',@kw,'%') OR publisher_name LIKE CONCAT('%',@kw,'%') " &
+                    "     OR categories LIKE CONCAT('%',@kw,'%')) " &
+                    "ORDER BY title", conn)
+                    cmd.Parameters.AddWithValue("@kw", kw)
 
-            Using reader As MySqlDataReader = cmd.ExecuteReader()
-                While reader.Read()
-                    Dim item As New ListViewItem(reader("isbn").ToString())
-                    item.SubItems.Add(reader("title").ToString())
-                    item.SubItems.Add(reader("author").ToString())
-                    item.SubItems.Add(reader("publisher").ToString())
-                    item.SubItems.Add(reader("category").ToString())
-                    item.SubItems.Add(reader("edition").ToString())
-                    item.SubItems.Add(reader("year_published").ToString())
-                    item.SubItems.Add(reader("price").ToString())
-                    item.SubItems.Add(reader("copies").ToString())
-                    lvAvailBooks.Items.Add(item)
-                End While
+                    Using r As MySqlDataReader = cmd.ExecuteReader()
+                        While r.Read()
+                            Dim i As Integer = DataGridView1.Rows.Add()
+                            Dim row As DataGridViewRow = DataGridView1.Rows(i)
+                            row.Cells("ISBN").Value = r("isbn").ToString()
+                            row.Cells("BookTitle").Value = r("title").ToString()
+                            row.Cells("BookAuthor").Value = If(IsDBNull(r("authors")), "", r("authors").ToString())
+                            row.Cells("Publisher").Value = If(IsDBNull(r("publisher_name")), "", r("publisher_name").ToString())
+                            row.Cells("Category").Value = If(IsDBNull(r("categories")), "", r("categories").ToString())
+                            row.Cells("Edition").Value = If(IsDBNull(r("edition")), "", r("edition").ToString())
+                            row.Cells("YearPublished").Value = If(IsDBNull(r("year_published")), "", r("year_published").ToString())
+                            row.Cells("Price").Value = If(IsDBNull(r("price")), "", Convert.ToDecimal(r("price")).ToString("0.00"))
+                            row.Cells("Copies").Value = r("available_copies").ToString()
+                        End While
+                    End Using
+                End Using
             End Using
-        End Using
+        Catch ex As Exception
+            MsgBox("Could not load books: " & ex.Message, vbCritical, "Available Books")
+        End Try
+        DataGridView1.ClearSelection()
     End Sub
 
-    Private Sub btnSearch_Click(sender As Object, e As EventArgs)
-        LoadAvailableBooks(txtSearch.Text)
+    Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles TextBox1.TextChanged
+        LoadAvailableBooks(TextBox1.Text)
     End Sub
-
-    Private Sub txtSearch_TextChanged(sender As Object, e As EventArgs)
-        LoadAvailableBooks(txtSearch.Text)
-    End Sub
-
-    Private Sub txtSearch_KeyDown(sender As Object, e As KeyEventArgs)
-        If e.KeyCode = Keys.Enter Then
-            LoadAvailableBooks(txtSearch.Text)
-            e.SuppressKeyPress = True
-        End If
-    End Sub
-
-    Private Sub lvAvailBooks_SelectedIndexChanged(sender As Object, e As EventArgs)
-        ' Handle selection if needed
-    End Sub
-
-    Private Sub btnExit_Click(sender As Object, e As EventArgs) 
-        frmStudentMenu.Show()
-        Me.Hide()
-    End Sub
-
 End Class
