@@ -3,7 +3,6 @@
 
     Private Sub frmStudentMainMenu_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.CenterToScreen()
-        ' Wire every menu button by its caption (the designer's button names do not match their captions)
         For Each b As Button In UiHelpers.AllButtons(Me)
             AddHandler b.Click, AddressOf MenuButton_Click
         Next
@@ -19,7 +18,7 @@
             Case "Available Books" : FormHost.LoadInto(Panel3, frmAvailBooks)
             Case "Borrow History" : FormHost.LoadInto(Panel3, frmStudentHistory)
             Case "My Penalties" : FormHost.LoadInto(Panel3, frmStudentPenalty)
-            Case "Help" : FormHost.LoadInto(Panel3, frmHelp)
+            Case "Need Help?" : FormHost.LoadInto(Panel3, frmHelp)
             Case "Logout" : DoLogout()
         End Select
     End Sub

@@ -25,55 +25,55 @@ Partial Class frmHelp
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmHelp))
         Me.Label19 = New System.Windows.Forms.Label()
         Me.Panel5 = New System.Windows.Forms.Panel()
+        Me.PictureBox3 = New System.Windows.Forms.PictureBox()
         Me.Label16 = New System.Windows.Forms.Label()
         Me.Label14 = New System.Windows.Forms.Label()
         Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.PictureBox4 = New System.Windows.Forms.PictureBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Panel4 = New System.Windows.Forms.Panel()
+        Me.PictureBox5 = New System.Windows.Forms.PictureBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Panel6 = New System.Windows.Forms.Panel()
+        Me.PictureBox6 = New System.Windows.Forms.PictureBox()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Panel7 = New System.Windows.Forms.Panel()
+        Me.PictureBox7 = New System.Windows.Forms.PictureBox()
         Me.Label13 = New System.Windows.Forms.Label()
         Me.Label15 = New System.Windows.Forms.Label()
         Me.Panel8 = New System.Windows.Forms.Panel()
         Me.Label17 = New System.Windows.Forms.Label()
         Me.Label18 = New System.Windows.Forms.Label()
-        Me.PictureBox7 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox6 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox5 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox4 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox3 = New System.Windows.Forms.PictureBox()
         Me.Panel5.SuspendLayout()
-        Me.Panel3.SuspendLayout()
-        Me.Panel4.SuspendLayout()
-        Me.Panel6.SuspendLayout()
-        Me.Panel2.SuspendLayout()
-        Me.Panel7.SuspendLayout()
-        Me.Panel8.SuspendLayout()
-        CType(Me.PictureBox7, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel3.SuspendLayout()
+        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel4.SuspendLayout()
+        CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel6.SuspendLayout()
+        CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel2.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel7.SuspendLayout()
+        CType(Me.PictureBox7, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel8.SuspendLayout()
         Me.SuspendLayout()
         '
         'Label19
         '
         Me.Label19.AutoSize = True
-        Me.Label19.Font = New System.Drawing.Font("Segoe UI Semibold", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label19.Font = New System.Drawing.Font("Segoe UI", 19.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label19.ForeColor = System.Drawing.Color.FromArgb(CType(CType(90, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(60, Byte), Integer))
-        Me.Label19.Location = New System.Drawing.Point(12, 17)
+        Me.Label19.Location = New System.Drawing.Point(17, 31)
         Me.Label19.Name = "Label19"
-        Me.Label19.Size = New System.Drawing.Size(227, 30)
+        Me.Label19.Size = New System.Drawing.Size(301, 37)
         Me.Label19.TabIndex = 79
         Me.Label19.Text = "STUDENT HELP GUIDE"
         '
@@ -86,10 +86,22 @@ Partial Class frmHelp
         Me.Panel5.Controls.Add(Me.Label16)
         Me.Panel5.Controls.Add(Me.Label14)
         Me.Panel5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Panel5.Location = New System.Drawing.Point(17, 80)
+        Me.Panel5.Location = New System.Drawing.Point(22, 93)
         Me.Panel5.Name = "Panel5"
         Me.Panel5.Size = New System.Drawing.Size(345, 131)
         Me.Panel5.TabIndex = 21
+        '
+        'PictureBox3
+        '
+        Me.PictureBox3.BackColor = System.Drawing.Color.Transparent
+        Me.PictureBox3.Image = Global.LibrarySystem.My.Resources.Resources.icons__16_3
+        Me.PictureBox3.InitialImage = Global.LibrarySystem.My.Resources.Resources.tbook
+        Me.PictureBox3.Location = New System.Drawing.Point(18, 14)
+        Me.PictureBox3.Name = "PictureBox3"
+        Me.PictureBox3.Size = New System.Drawing.Size(40, 40)
+        Me.PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox3.TabIndex = 49
+        Me.PictureBox3.TabStop = False
         '
         'Label16
         '
@@ -125,10 +137,22 @@ Partial Class frmHelp
         Me.Panel3.Controls.Add(Me.Label1)
         Me.Panel3.Controls.Add(Me.Label5)
         Me.Panel3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Panel3.Location = New System.Drawing.Point(17, 227)
+        Me.Panel3.Location = New System.Drawing.Point(22, 245)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(345, 182)
+        Me.Panel3.Size = New System.Drawing.Size(345, 204)
         Me.Panel3.TabIndex = 50
+        '
+        'PictureBox4
+        '
+        Me.PictureBox4.BackColor = System.Drawing.Color.Transparent
+        Me.PictureBox4.Image = Global.LibrarySystem.My.Resources.Resources.icons__12_3
+        Me.PictureBox4.InitialImage = Global.LibrarySystem.My.Resources.Resources.tbook
+        Me.PictureBox4.Location = New System.Drawing.Point(18, 14)
+        Me.PictureBox4.Name = "PictureBox4"
+        Me.PictureBox4.Size = New System.Drawing.Size(40, 40)
+        Me.PictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox4.TabIndex = 50
+        Me.PictureBox4.TabStop = False
         '
         'Label1
         '
@@ -136,7 +160,7 @@ Partial Class frmHelp
         Me.Label1.BackColor = System.Drawing.Color.Transparent
         Me.Label1.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.Black
-        Me.Label1.Location = New System.Drawing.Point(16, 61)
+        Me.Label1.Location = New System.Drawing.Point(15, 67)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(235, 102)
         Me.Label1.TabIndex = 44
@@ -163,10 +187,22 @@ Partial Class frmHelp
         Me.Panel4.Controls.Add(Me.Label6)
         Me.Panel4.Controls.Add(Me.Label7)
         Me.Panel4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Panel4.Location = New System.Drawing.Point(17, 428)
+        Me.Panel4.Location = New System.Drawing.Point(22, 470)
         Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(345, 185)
+        Me.Panel4.Size = New System.Drawing.Size(345, 204)
         Me.Panel4.TabIndex = 51
+        '
+        'PictureBox5
+        '
+        Me.PictureBox5.BackColor = System.Drawing.Color.Transparent
+        Me.PictureBox5.Image = Global.LibrarySystem.My.Resources.Resources.icons__1_3
+        Me.PictureBox5.InitialImage = Global.LibrarySystem.My.Resources.Resources.tbook
+        Me.PictureBox5.Location = New System.Drawing.Point(18, 18)
+        Me.PictureBox5.Name = "PictureBox5"
+        Me.PictureBox5.Size = New System.Drawing.Size(40, 40)
+        Me.PictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox5.TabIndex = 51
+        Me.PictureBox5.TabStop = False
         '
         'Label6
         '
@@ -174,7 +210,7 @@ Partial Class frmHelp
         Me.Label6.BackColor = System.Drawing.Color.Transparent
         Me.Label6.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label6.ForeColor = System.Drawing.Color.Black
-        Me.Label6.Location = New System.Drawing.Point(15, 63)
+        Me.Label6.Location = New System.Drawing.Point(15, 75)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(266, 102)
         Me.Label6.TabIndex = 44
@@ -201,10 +237,22 @@ Partial Class frmHelp
         Me.Panel6.Controls.Add(Me.Label8)
         Me.Panel6.Controls.Add(Me.Label10)
         Me.Panel6.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Panel6.Location = New System.Drawing.Point(382, 80)
+        Me.Panel6.Location = New System.Drawing.Point(387, 93)
         Me.Panel6.Name = "Panel6"
-        Me.Panel6.Size = New System.Drawing.Size(339, 201)
+        Me.Panel6.Size = New System.Drawing.Size(339, 207)
         Me.Panel6.TabIndex = 52
+        '
+        'PictureBox6
+        '
+        Me.PictureBox6.BackColor = System.Drawing.Color.Transparent
+        Me.PictureBox6.Image = Global.LibrarySystem.My.Resources.Resources.icons__5_2
+        Me.PictureBox6.InitialImage = Global.LibrarySystem.My.Resources.Resources.tbook
+        Me.PictureBox6.Location = New System.Drawing.Point(18, 15)
+        Me.PictureBox6.Name = "PictureBox6"
+        Me.PictureBox6.Size = New System.Drawing.Size(40, 40)
+        Me.PictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox6.TabIndex = 51
+        Me.PictureBox6.TabStop = False
         '
         'Label8
         '
@@ -212,7 +260,7 @@ Partial Class frmHelp
         Me.Label8.BackColor = System.Drawing.Color.Transparent
         Me.Label8.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label8.ForeColor = System.Drawing.Color.Black
-        Me.Label8.Location = New System.Drawing.Point(15, 63)
+        Me.Label8.Location = New System.Drawing.Point(17, 60)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(199, 119)
         Me.Label8.TabIndex = 44
@@ -225,7 +273,7 @@ Partial Class frmHelp
         Me.Label10.BackColor = System.Drawing.Color.Transparent
         Me.Label10.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label10.ForeColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(25, Byte), Integer))
-        Me.Label10.Location = New System.Drawing.Point(61, 25)
+        Me.Label10.Location = New System.Drawing.Point(61, 22)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(180, 25)
         Me.Label10.TabIndex = 18
@@ -240,10 +288,22 @@ Partial Class frmHelp
         Me.Panel2.Controls.Add(Me.Label2)
         Me.Panel2.Controls.Add(Me.Label3)
         Me.Panel2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Panel2.Location = New System.Drawing.Point(382, 302)
+        Me.Panel2.Location = New System.Drawing.Point(387, 321)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(339, 149)
+        Me.Panel2.Size = New System.Drawing.Size(339, 171)
         Me.Panel2.TabIndex = 50
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.BackColor = System.Drawing.Color.Transparent
+        Me.PictureBox1.Image = Global.LibrarySystem.My.Resources.Resources.icons__10_1
+        Me.PictureBox1.InitialImage = Global.LibrarySystem.My.Resources.Resources.tbook
+        Me.PictureBox1.Location = New System.Drawing.Point(18, 14)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(40, 40)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox1.TabIndex = 49
+        Me.PictureBox1.TabStop = False
         '
         'Label2
         '
@@ -280,10 +340,22 @@ Partial Class frmHelp
         Me.Panel7.Controls.Add(Me.Label13)
         Me.Panel7.Controls.Add(Me.Label15)
         Me.Panel7.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Panel7.Location = New System.Drawing.Point(382, 474)
+        Me.Panel7.Location = New System.Drawing.Point(387, 516)
         Me.Panel7.Name = "Panel7"
-        Me.Panel7.Size = New System.Drawing.Size(339, 139)
+        Me.Panel7.Size = New System.Drawing.Size(339, 158)
         Me.Panel7.TabIndex = 51
+        '
+        'PictureBox7
+        '
+        Me.PictureBox7.BackColor = System.Drawing.Color.Transparent
+        Me.PictureBox7.Image = Global.LibrarySystem.My.Resources.Resources.icons__7_1
+        Me.PictureBox7.InitialImage = Global.LibrarySystem.My.Resources.Resources.tbook
+        Me.PictureBox7.Location = New System.Drawing.Point(18, 22)
+        Me.PictureBox7.Name = "PictureBox7"
+        Me.PictureBox7.Size = New System.Drawing.Size(40, 40)
+        Me.PictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox7.TabIndex = 49
+        Me.PictureBox7.TabStop = False
         '
         'Label13
         '
@@ -317,9 +389,9 @@ Partial Class frmHelp
         Me.Panel8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Panel8.Controls.Add(Me.Label17)
         Me.Panel8.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Panel8.Location = New System.Drawing.Point(750, 80)
+        Me.Panel8.Location = New System.Drawing.Point(755, 93)
         Me.Panel8.Name = "Panel8"
-        Me.Panel8.Size = New System.Drawing.Size(467, 533)
+        Me.Panel8.Size = New System.Drawing.Size(467, 580)
         Me.Panel8.TabIndex = 53
         '
         'Label17
@@ -337,92 +409,20 @@ Partial Class frmHelp
         'Label18
         '
         Me.Label18.AutoSize = True
-        Me.Label18.Font = New System.Drawing.Font("Segoe UI Semibold", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label18.Font = New System.Drawing.Font("Segoe UI", 19.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label18.ForeColor = System.Drawing.Color.FromArgb(CType(CType(90, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(60, Byte), Integer))
-        Me.Label18.Location = New System.Drawing.Point(745, 17)
+        Me.Label18.Location = New System.Drawing.Point(750, 31)
         Me.Label18.Name = "Label18"
-        Me.Label18.Size = New System.Drawing.Size(62, 30)
+        Me.Label18.Size = New System.Drawing.Size(81, 37)
         Me.Label18.TabIndex = 80
         Me.Label18.Text = "FAQs"
-        '
-        'PictureBox7
-        '
-        Me.PictureBox7.BackColor = System.Drawing.Color.Transparent
-        Me.PictureBox7.Image = Global.LibrarySystem.My.Resources.Resources.icons__7_1
-        Me.PictureBox7.InitialImage = Global.LibrarySystem.My.Resources.Resources.tbook
-        Me.PictureBox7.Location = New System.Drawing.Point(18, 22)
-        Me.PictureBox7.Name = "PictureBox7"
-        Me.PictureBox7.Size = New System.Drawing.Size(40, 40)
-        Me.PictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox7.TabIndex = 49
-        Me.PictureBox7.TabStop = False
-        '
-        'PictureBox1
-        '
-        Me.PictureBox1.BackColor = System.Drawing.Color.Transparent
-        Me.PictureBox1.Image = Global.LibrarySystem.My.Resources.Resources.icons__10_1
-        Me.PictureBox1.InitialImage = Global.LibrarySystem.My.Resources.Resources.tbook
-        Me.PictureBox1.Location = New System.Drawing.Point(18, 14)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(40, 40)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox1.TabIndex = 49
-        Me.PictureBox1.TabStop = False
-        '
-        'PictureBox6
-        '
-        Me.PictureBox6.BackColor = System.Drawing.Color.Transparent
-        Me.PictureBox6.Image = Global.LibrarySystem.My.Resources.Resources.icons__5_2
-        Me.PictureBox6.InitialImage = Global.LibrarySystem.My.Resources.Resources.tbook
-        Me.PictureBox6.Location = New System.Drawing.Point(18, 18)
-        Me.PictureBox6.Name = "PictureBox6"
-        Me.PictureBox6.Size = New System.Drawing.Size(40, 40)
-        Me.PictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox6.TabIndex = 51
-        Me.PictureBox6.TabStop = False
-        '
-        'PictureBox5
-        '
-        Me.PictureBox5.BackColor = System.Drawing.Color.Transparent
-        Me.PictureBox5.Image = Global.LibrarySystem.My.Resources.Resources.icons__1_3
-        Me.PictureBox5.InitialImage = Global.LibrarySystem.My.Resources.Resources.tbook
-        Me.PictureBox5.Location = New System.Drawing.Point(18, 18)
-        Me.PictureBox5.Name = "PictureBox5"
-        Me.PictureBox5.Size = New System.Drawing.Size(40, 40)
-        Me.PictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox5.TabIndex = 51
-        Me.PictureBox5.TabStop = False
-        '
-        'PictureBox4
-        '
-        Me.PictureBox4.BackColor = System.Drawing.Color.Transparent
-        Me.PictureBox4.Image = Global.LibrarySystem.My.Resources.Resources.icons__12_3
-        Me.PictureBox4.InitialImage = Global.LibrarySystem.My.Resources.Resources.tbook
-        Me.PictureBox4.Location = New System.Drawing.Point(18, 14)
-        Me.PictureBox4.Name = "PictureBox4"
-        Me.PictureBox4.Size = New System.Drawing.Size(40, 40)
-        Me.PictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox4.TabIndex = 50
-        Me.PictureBox4.TabStop = False
-        '
-        'PictureBox3
-        '
-        Me.PictureBox3.BackColor = System.Drawing.Color.Transparent
-        Me.PictureBox3.Image = Global.LibrarySystem.My.Resources.Resources.icons__16_3
-        Me.PictureBox3.InitialImage = Global.LibrarySystem.My.Resources.Resources.tbook
-        Me.PictureBox3.Location = New System.Drawing.Point(18, 14)
-        Me.PictureBox3.Name = "PictureBox3"
-        Me.PictureBox3.Size = New System.Drawing.Size(40, 40)
-        Me.PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox3.TabIndex = 49
-        Me.PictureBox3.TabStop = False
         '
         'frmHelp
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(253, Byte), Integer), CType(CType(251, Byte), Integer), CType(CType(248, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(1247, 712)
+        Me.ClientSize = New System.Drawing.Size(1245, 778)
         Me.Controls.Add(Me.Label18)
         Me.Controls.Add(Me.Panel8)
         Me.Controls.Add(Me.Panel7)
@@ -437,24 +437,24 @@ Partial Class frmHelp
         Me.Text = "frmHelp"
         Me.Panel5.ResumeLayout(False)
         Me.Panel5.PerformLayout()
+        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel3.ResumeLayout(False)
         Me.Panel3.PerformLayout()
+        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel4.ResumeLayout(False)
         Me.Panel4.PerformLayout()
+        CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel6.ResumeLayout(False)
         Me.Panel6.PerformLayout()
+        CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel7.ResumeLayout(False)
         Me.Panel7.PerformLayout()
+        CType(Me.PictureBox7, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel8.ResumeLayout(False)
         Me.Panel8.PerformLayout()
-        CType(Me.PictureBox7, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

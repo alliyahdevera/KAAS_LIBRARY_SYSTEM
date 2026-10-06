@@ -23,8 +23,10 @@ Partial Class frmLibrarianMainMenu
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim PictureBox2 As System.Windows.Forms.PictureBox
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmLibrarianMainMenu))
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.btnpenaltyman = New System.Windows.Forms.Button()
         Me.btnbookman = New System.Windows.Forms.Button()
         Me.btnborrowman = New System.Windows.Forms.Button()
         Me.btndashb = New System.Windows.Forms.Button()
@@ -35,7 +37,7 @@ Partial Class frmLibrarianMainMenu
         Me.lblt_datetime = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label11 = New System.Windows.Forms.Label()
-        Me.btnpenaltyman = New System.Windows.Forms.Button()
+        Me.Label1 = New System.Windows.Forms.Label()
         PictureBox2 = New System.Windows.Forms.PictureBox()
         CType(PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel2.SuspendLayout()
@@ -76,6 +78,24 @@ Partial Class frmLibrarianMainMenu
         Me.Panel2.Size = New System.Drawing.Size(223, 778)
         Me.Panel2.TabIndex = 59
         '
+        'btnpenaltyman
+        '
+        Me.btnpenaltyman.BackColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.btnpenaltyman.Dock = System.Windows.Forms.DockStyle.Top
+        Me.btnpenaltyman.FlatAppearance.BorderSize = 0
+        Me.btnpenaltyman.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnpenaltyman.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnpenaltyman.ForeColor = System.Drawing.Color.White
+        Me.btnpenaltyman.Image = CType(resources.GetObject("btnpenaltyman.Image"), System.Drawing.Image)
+        Me.btnpenaltyman.Location = New System.Drawing.Point(0, 150)
+        Me.btnpenaltyman.Name = "btnpenaltyman"
+        Me.btnpenaltyman.Size = New System.Drawing.Size(223, 50)
+        Me.btnpenaltyman.TabIndex = 64
+        Me.btnpenaltyman.Text = "     Penalty Management"
+        Me.btnpenaltyman.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnpenaltyman.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.btnpenaltyman.UseVisualStyleBackColor = False
+        '
         'btnbookman
         '
         Me.btnbookman.BackColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(25, Byte), Integer))
@@ -84,11 +104,14 @@ Partial Class frmLibrarianMainMenu
         Me.btnbookman.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnbookman.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnbookman.ForeColor = System.Drawing.Color.White
+        Me.btnbookman.Image = CType(resources.GetObject("btnbookman.Image"), System.Drawing.Image)
         Me.btnbookman.Location = New System.Drawing.Point(0, 100)
         Me.btnbookman.Name = "btnbookman"
         Me.btnbookman.Size = New System.Drawing.Size(223, 50)
         Me.btnbookman.TabIndex = 63
-        Me.btnbookman.Text = "Book Management "
+        Me.btnbookman.Text = "     Book Management "
+        Me.btnbookman.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnbookman.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.btnbookman.UseVisualStyleBackColor = False
         '
         'btnborrowman
@@ -99,11 +122,14 @@ Partial Class frmLibrarianMainMenu
         Me.btnborrowman.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnborrowman.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnborrowman.ForeColor = System.Drawing.Color.White
+        Me.btnborrowman.Image = CType(resources.GetObject("btnborrowman.Image"), System.Drawing.Image)
         Me.btnborrowman.Location = New System.Drawing.Point(0, 50)
         Me.btnborrowman.Name = "btnborrowman"
         Me.btnborrowman.Size = New System.Drawing.Size(223, 50)
         Me.btnborrowman.TabIndex = 60
-        Me.btnborrowman.Text = "Borrow Records Management "
+        Me.btnborrowman.Text = "     Borrow Management "
+        Me.btnborrowman.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnborrowman.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.btnborrowman.UseVisualStyleBackColor = False
         '
         'btndashb
@@ -114,11 +140,14 @@ Partial Class frmLibrarianMainMenu
         Me.btndashb.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btndashb.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btndashb.ForeColor = System.Drawing.Color.White
+        Me.btndashb.Image = CType(resources.GetObject("btndashb.Image"), System.Drawing.Image)
         Me.btndashb.Location = New System.Drawing.Point(0, 0)
         Me.btndashb.Name = "btndashb"
         Me.btndashb.Size = New System.Drawing.Size(223, 50)
         Me.btndashb.TabIndex = 61
-        Me.btndashb.Text = "Dashboard"
+        Me.btndashb.Text = "        Dashboard"
+        Me.btndashb.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btndashb.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.btndashb.UseVisualStyleBackColor = False
         '
         'btnlogout
@@ -129,11 +158,14 @@ Partial Class frmLibrarianMainMenu
         Me.btnlogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnlogout.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnlogout.ForeColor = System.Drawing.Color.White
+        Me.btnlogout.Image = CType(resources.GetObject("btnlogout.Image"), System.Drawing.Image)
         Me.btnlogout.Location = New System.Drawing.Point(0, 728)
         Me.btnlogout.Name = "btnlogout"
         Me.btnlogout.Size = New System.Drawing.Size(223, 50)
         Me.btnlogout.TabIndex = 59
-        Me.btnlogout.Text = "Logout"
+        Me.btnlogout.Text = "     Logout"
+        Me.btnlogout.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnlogout.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.btnlogout.UseVisualStyleBackColor = False
         '
         'Panel8
@@ -149,6 +181,7 @@ Partial Class frmLibrarianMainMenu
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(254, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(231, Byte), Integer))
+        Me.Panel1.Controls.Add(Me.Label1)
         Me.Panel1.Controls.Add(Me.lbl_dT)
         Me.Panel1.Controls.Add(Me.lblt_datetime)
         Me.Panel1.Controls.Add(Me.Label4)
@@ -205,20 +238,17 @@ Partial Class frmLibrarianMainMenu
         Me.Label11.TabIndex = 38
         Me.Label11.Text = "LIBRARY"
         '
-        'btnpenaltyman
+        'Label1
         '
-        Me.btnpenaltyman.BackColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(25, Byte), Integer))
-        Me.btnpenaltyman.Dock = System.Windows.Forms.DockStyle.Top
-        Me.btnpenaltyman.FlatAppearance.BorderSize = 0
-        Me.btnpenaltyman.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnpenaltyman.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnpenaltyman.ForeColor = System.Drawing.Color.White
-        Me.btnpenaltyman.Location = New System.Drawing.Point(0, 150)
-        Me.btnpenaltyman.Name = "btnpenaltyman"
-        Me.btnpenaltyman.Size = New System.Drawing.Size(223, 50)
-        Me.btnpenaltyman.TabIndex = 64
-        Me.btnpenaltyman.Text = "Penalty Management"
-        Me.btnpenaltyman.UseVisualStyleBackColor = False
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(90, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(60, Byte), Integer))
+        Me.Label1.Location = New System.Drawing.Point(-4, 64)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(1539, 20)
+        Me.Label1.TabIndex = 60
+        Me.Label1.Text = "—————————————————————————————————————————————————————————————————————————————————" &
+    "—————————————————————"
         '
         'frmLibrarianMainMenu
         '
@@ -229,6 +259,7 @@ Partial Class frmLibrarianMainMenu
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.Panel1)
         Me.Name = "frmLibrarianMainMenu"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "frmLibrarianMainMenu"
         CType(PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel2.ResumeLayout(False)
@@ -251,4 +282,5 @@ Partial Class frmLibrarianMainMenu
     Friend WithEvents btnborrowman As Button
     Friend WithEvents btndashb As Button
     Friend WithEvents btnpenaltyman As Button
+    Friend WithEvents Label1 As Label
 End Class

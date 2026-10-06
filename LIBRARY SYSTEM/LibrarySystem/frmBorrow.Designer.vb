@@ -23,24 +23,23 @@ Partial Class frmBorrow
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.lblBorrowDate = New System.Windows.Forms.Label()
+        Me.PictureBox3 = New System.Windows.Forms.PictureBox()
         Me.btnBorrow = New System.Windows.Forms.Button()
         Me.Panel6 = New System.Windows.Forms.Panel()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.lblSelectedCount = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Panel5 = New System.Windows.Forms.Panel()
         Me.lblDueDate = New System.Windows.Forms.Label()
+        Me.PictureBox4 = New System.Windows.Forms.PictureBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.btnClear = New System.Windows.Forms.Button()
         Me.Label14 = New System.Windows.Forms.Label()
         Me.txtSearch = New System.Windows.Forms.TextBox()
-        Me.PictureBox4 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox3 = New System.Windows.Forms.PictureBox()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.dgvAvailableBooks = New System.Windows.Forms.DataGridView()
         Me.colSelect = New System.Windows.Forms.DataGridViewCheckBoxColumn()
@@ -61,37 +60,26 @@ Partial Class frmBorrow
         Me.Label27 = New System.Windows.Forms.Label()
         Me.Label28 = New System.Windows.Forms.Label()
         Me.lblposition = New System.Windows.Forms.Label()
-        Me.Panel2.SuspendLayout()
         Me.Panel4.SuspendLayout()
+        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel6.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel5.SuspendLayout()
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel3.SuspendLayout()
         CType(Me.dgvAvailableBooks, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel8.SuspendLayout()
         Me.Panel13.SuspendLayout()
         Me.SuspendLayout()
         '
-        'Panel2
-        '
-        Me.Panel2.BackColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(25, Byte), Integer))
-        Me.Panel2.Controls.Add(Me.Label1)
-        Me.Panel2.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Panel2.Location = New System.Drawing.Point(0, 0)
-        Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(1245, 58)
-        Me.Panel2.TabIndex = 15
-        '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Segoe UI", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.ForeColor = System.Drawing.Color.White
-        Me.Label1.Location = New System.Drawing.Point(502, 12)
+        Me.Label1.Font = New System.Drawing.Font("Segoe UI", 19.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.Label1.Location = New System.Drawing.Point(27, 26)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(219, 32)
+        Me.Label1.Size = New System.Drawing.Size(245, 37)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "BORROW A BOOK"
         '
@@ -108,7 +96,7 @@ Partial Class frmBorrow
         '
         'Panel4
         '
-        Me.Panel4.BackColor = System.Drawing.Color.FromArgb(CType(CType(253, Byte), Integer), CType(CType(250, Byte), Integer), CType(CType(247, Byte), Integer))
+        Me.Panel4.BackColor = System.Drawing.Color.White
         Me.Panel4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Panel4.Controls.Add(Me.lblBorrowDate)
@@ -129,6 +117,16 @@ Partial Class frmBorrow
         Me.lblBorrowDate.Size = New System.Drawing.Size(148, 32)
         Me.lblBorrowDate.TabIndex = 42
         Me.lblBorrowDate.Text = "07/30/2026"
+        '
+        'PictureBox3
+        '
+        Me.PictureBox3.Image = Global.LibrarySystem.My.Resources.Resources.icons__15_1
+        Me.PictureBox3.Location = New System.Drawing.Point(19, 20)
+        Me.PictureBox3.Name = "PictureBox3"
+        Me.PictureBox3.Size = New System.Drawing.Size(55, 55)
+        Me.PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox3.TabIndex = 41
+        Me.PictureBox3.TabStop = False
         '
         'btnBorrow
         '
@@ -156,6 +154,16 @@ Partial Class frmBorrow
         Me.Panel6.Size = New System.Drawing.Size(318, 96)
         Me.Panel6.TabIndex = 54
         '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = Global.LibrarySystem.My.Resources.Resources.icons__16_
+        Me.PictureBox1.Location = New System.Drawing.Point(19, 19)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(55, 55)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox1.TabIndex = 24
+        Me.PictureBox1.TabStop = False
+        '
         'lblSelectedCount
         '
         Me.lblSelectedCount.AutoSize = True
@@ -180,7 +188,7 @@ Partial Class frmBorrow
         '
         'Panel5
         '
-        Me.Panel5.BackColor = System.Drawing.Color.FromArgb(CType(CType(253, Byte), Integer), CType(CType(250, Byte), Integer), CType(CType(247, Byte), Integer))
+        Me.Panel5.BackColor = System.Drawing.Color.White
         Me.Panel5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Panel5.Controls.Add(Me.lblDueDate)
@@ -201,6 +209,16 @@ Partial Class frmBorrow
         Me.lblDueDate.Size = New System.Drawing.Size(148, 32)
         Me.lblDueDate.TabIndex = 43
         Me.lblDueDate.Text = "08/02/2026"
+        '
+        'PictureBox4
+        '
+        Me.PictureBox4.Image = Global.LibrarySystem.My.Resources.Resources.icons__5_1
+        Me.PictureBox4.Location = New System.Drawing.Point(19, 20)
+        Me.PictureBox4.Name = "PictureBox4"
+        Me.PictureBox4.Size = New System.Drawing.Size(55, 55)
+        Me.PictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox4.TabIndex = 41
+        Me.PictureBox4.TabStop = False
         '
         'Label2
         '
@@ -245,36 +263,6 @@ Partial Class frmBorrow
         Me.txtSearch.Size = New System.Drawing.Size(189, 29)
         Me.txtSearch.TabIndex = 55
         '
-        'PictureBox4
-        '
-        Me.PictureBox4.Image = Global.LibrarySystem.My.Resources.Resources.icons__5_1
-        Me.PictureBox4.Location = New System.Drawing.Point(19, 20)
-        Me.PictureBox4.Name = "PictureBox4"
-        Me.PictureBox4.Size = New System.Drawing.Size(55, 55)
-        Me.PictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox4.TabIndex = 41
-        Me.PictureBox4.TabStop = False
-        '
-        'PictureBox1
-        '
-        Me.PictureBox1.Image = Global.LibrarySystem.My.Resources.Resources.icons__16_
-        Me.PictureBox1.Location = New System.Drawing.Point(19, 19)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(55, 55)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox1.TabIndex = 24
-        Me.PictureBox1.TabStop = False
-        '
-        'PictureBox3
-        '
-        Me.PictureBox3.Image = Global.LibrarySystem.My.Resources.Resources.icons__15_1
-        Me.PictureBox3.Location = New System.Drawing.Point(19, 20)
-        Me.PictureBox3.Name = "PictureBox3"
-        Me.PictureBox3.Size = New System.Drawing.Size(55, 55)
-        Me.PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox3.TabIndex = 41
-        Me.PictureBox3.TabStop = False
-        '
         'Panel3
         '
         Me.Panel3.BackColor = System.Drawing.Color.FromArgb(CType(CType(253, Byte), Integer), CType(CType(250, Byte), Integer), CType(CType(247, Byte), Integer))
@@ -307,60 +295,70 @@ Partial Class frmBorrow
         Me.dgvAvailableBooks.Location = New System.Drawing.Point(0, 43)
         Me.dgvAvailableBooks.Name = "dgvAvailableBooks"
         Me.dgvAvailableBooks.RowHeadersVisible = False
+        Me.dgvAvailableBooks.RowHeadersWidth = 51
         Me.dgvAvailableBooks.Size = New System.Drawing.Size(1183, 402)
         Me.dgvAvailableBooks.TabIndex = 0
         '
         'colSelect
         '
         Me.colSelect.HeaderText = "Select"
+        Me.colSelect.MinimumWidth = 6
         Me.colSelect.Name = "colSelect"
         Me.colSelect.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
         '
         'colIsbn
         '
         Me.colIsbn.HeaderText = "ISBN"
+        Me.colIsbn.MinimumWidth = 6
         Me.colIsbn.Name = "colIsbn"
         Me.colIsbn.ReadOnly = True
         '
         'colTitle
         '
         Me.colTitle.HeaderText = "Title"
+        Me.colTitle.MinimumWidth = 6
         Me.colTitle.Name = "colTitle"
         Me.colTitle.ReadOnly = True
         '
         'colAuthor
         '
         Me.colAuthor.HeaderText = "Author"
+        Me.colAuthor.MinimumWidth = 6
         Me.colAuthor.Name = "colAuthor"
         Me.colAuthor.ReadOnly = True
         '
         'colPublisher
         '
         Me.colPublisher.HeaderText = "Publisher"
+        Me.colPublisher.MinimumWidth = 6
         Me.colPublisher.Name = "colPublisher"
         Me.colPublisher.ReadOnly = True
         '
         'colCategory
         '
         Me.colCategory.HeaderText = "Category"
+        Me.colCategory.MinimumWidth = 6
         Me.colCategory.Name = "colCategory"
         Me.colCategory.ReadOnly = True
         '
         'colEdition
         '
         Me.colEdition.HeaderText = "Edition"
+        Me.colEdition.MinimumWidth = 6
         Me.colEdition.Name = "colEdition"
         Me.colEdition.ReadOnly = True
         '
         'colYear
         '
         Me.colYear.HeaderText = "Year Published"
+        Me.colYear.MinimumWidth = 6
         Me.colYear.Name = "colYear"
         Me.colYear.ReadOnly = True
         '
         'colCopies
         '
         Me.colCopies.HeaderText = "Copies"
+        Me.colCopies.MinimumWidth = 6
         Me.colCopies.Name = "colCopies"
         Me.colCopies.ReadOnly = True
         '
@@ -478,6 +476,7 @@ Partial Class frmBorrow
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(253, Byte), Integer), CType(CType(251, Byte), Integer), CType(CType(248, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(1245, 778)
+        Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Panel13)
         Me.Controls.Add(Me.Label14)
         Me.Controls.Add(Me.btnClear)
@@ -487,21 +486,18 @@ Partial Class frmBorrow
         Me.Controls.Add(Me.Panel6)
         Me.Controls.Add(Me.Panel4)
         Me.Controls.Add(Me.Panel3)
-        Me.Controls.Add(Me.Panel2)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "frmBorrow"
         Me.Text = "frmBorrow"
-        Me.Panel2.ResumeLayout(False)
-        Me.Panel2.PerformLayout()
         Me.Panel4.ResumeLayout(False)
         Me.Panel4.PerformLayout()
+        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel6.ResumeLayout(False)
         Me.Panel6.PerformLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel5.ResumeLayout(False)
         Me.Panel5.PerformLayout()
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel3.ResumeLayout(False)
         CType(Me.dgvAvailableBooks, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel8.ResumeLayout(False)
@@ -512,7 +508,6 @@ Partial Class frmBorrow
         Me.PerformLayout()
 
     End Sub
-    Friend WithEvents Panel2 As Panel
     Friend WithEvents Label6 As Label
     Friend WithEvents Label1 As Label
     Friend WithEvents btnBorrow As Button

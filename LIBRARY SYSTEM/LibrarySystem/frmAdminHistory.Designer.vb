@@ -24,19 +24,11 @@ Partial Class frmAdminHistory
     Private Sub InitializeComponent()
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.lblTitle = New System.Windows.Forms.Label()
         Me.btnExportExcel = New System.Windows.Forms.Button()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.Panel3 = New System.Windows.Forms.Panel()
-        Me.Panel13 = New System.Windows.Forms.Panel()
-        Me.lblname = New System.Windows.Forms.Label()
-        Me.lbldatetime = New System.Windows.Forms.Label()
-        Me.Label29 = New System.Windows.Forms.Label()
-        Me.Label27 = New System.Windows.Forms.Label()
-        Me.Label28 = New System.Windows.Forms.Label()
-        Me.lblposition = New System.Windows.Forms.Label()
         Me.Label14 = New System.Windows.Forms.Label()
         Me.txtSearch = New System.Windows.Forms.TextBox()
+        Me.lblTitle = New System.Windows.Forms.Label()
+        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.TransactionID = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Username = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Type = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -49,6 +41,12 @@ Partial Class frmAdminHistory
         Me.ReturnDate = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.BookCondition = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Penalty = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.Panel13 = New System.Windows.Forms.Panel()
+        Me.lblname = New System.Windows.Forms.Label()
+        Me.Label29 = New System.Windows.Forms.Label()
+        Me.Label28 = New System.Windows.Forms.Label()
+        Me.lblposition = New System.Windows.Forms.Label()
         Me.Panel2.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel3.SuspendLayout()
@@ -57,7 +55,7 @@ Partial Class frmAdminHistory
         '
         'Panel2
         '
-        Me.Panel2.BackColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.Panel2.BackColor = System.Drawing.Color.White
         Me.Panel2.Controls.Add(Me.btnExportExcel)
         Me.Panel2.Controls.Add(Me.Label14)
         Me.Panel2.Controls.Add(Me.txtSearch)
@@ -67,17 +65,6 @@ Partial Class frmAdminHistory
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(1245, 50)
         Me.Panel2.TabIndex = 22
-        '
-        'lblTitle
-        '
-        Me.lblTitle.AutoSize = True
-        Me.lblTitle.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTitle.ForeColor = System.Drawing.Color.White
-        Me.lblTitle.Location = New System.Drawing.Point(12, 13)
-        Me.lblTitle.Name = "lblTitle"
-        Me.lblTitle.Size = New System.Drawing.Size(223, 25)
-        Me.lblTitle.TabIndex = 0
-        Me.lblTitle.Text = "ALL BORROW RECORDS"
         '
         'btnExportExcel
         '
@@ -92,6 +79,36 @@ Partial Class frmAdminHistory
         Me.btnExportExcel.TabIndex = 39
         Me.btnExportExcel.Text = "Export Excel"
         Me.btnExportExcel.UseVisualStyleBackColor = False
+        '
+        'Label14
+        '
+        Me.Label14.AutoSize = True
+        Me.Label14.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label14.ForeColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.Label14.Location = New System.Drawing.Point(734, 17)
+        Me.Label14.Name = "Label14"
+        Me.Label14.Size = New System.Drawing.Size(170, 17)
+        Me.Label14.TabIndex = 58
+        Me.Label14.Text = "SEARCH BY ISBN OR TITLE"
+        '
+        'txtSearch
+        '
+        Me.txtSearch.Font = New System.Drawing.Font("Segoe UI", 12.0!)
+        Me.txtSearch.Location = New System.Drawing.Point(910, 11)
+        Me.txtSearch.Name = "txtSearch"
+        Me.txtSearch.Size = New System.Drawing.Size(189, 29)
+        Me.txtSearch.TabIndex = 57
+        '
+        'lblTitle
+        '
+        Me.lblTitle.AutoSize = True
+        Me.lblTitle.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblTitle.ForeColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.lblTitle.Location = New System.Drawing.Point(12, 13)
+        Me.lblTitle.Name = "lblTitle"
+        Me.lblTitle.Size = New System.Drawing.Size(223, 25)
+        Me.lblTitle.TabIndex = 0
+        Me.lblTitle.Text = "ALL BORROW RECORDS"
         '
         'DataGridView1
         '
@@ -110,8 +127,81 @@ Partial Class frmAdminHistory
         Me.DataGridView1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DataGridView1.Location = New System.Drawing.Point(0, 0)
         Me.DataGridView1.Name = "DataGridView1"
+        Me.DataGridView1.RowHeadersWidth = 51
         Me.DataGridView1.Size = New System.Drawing.Size(1245, 728)
         Me.DataGridView1.TabIndex = 24
+        '
+        'TransactionID
+        '
+        Me.TransactionID.HeaderText = "TransactionID"
+        Me.TransactionID.MinimumWidth = 6
+        Me.TransactionID.Name = "TransactionID"
+        '
+        'Username
+        '
+        Me.Username.HeaderText = "Username"
+        Me.Username.MinimumWidth = 6
+        Me.Username.Name = "Username"
+        '
+        'Type
+        '
+        Me.Type.HeaderText = "Type"
+        Me.Type.MinimumWidth = 6
+        Me.Type.Name = "Type"
+        '
+        'BorrowStatus
+        '
+        Me.BorrowStatus.HeaderText = "Borrow Status"
+        Me.BorrowStatus.MinimumWidth = 6
+        Me.BorrowStatus.Name = "BorrowStatus"
+        '
+        'ISBN
+        '
+        Me.ISBN.HeaderText = "ISBN"
+        Me.ISBN.MinimumWidth = 6
+        Me.ISBN.Name = "ISBN"
+        '
+        'BookTitle
+        '
+        Me.BookTitle.HeaderText = "Book Title"
+        Me.BookTitle.MinimumWidth = 6
+        Me.BookTitle.Name = "BookTitle"
+        '
+        'BookAuthor
+        '
+        Me.BookAuthor.HeaderText = "Book Author"
+        Me.BookAuthor.MinimumWidth = 6
+        Me.BookAuthor.Name = "BookAuthor"
+        '
+        'BorrowDate
+        '
+        Me.BorrowDate.HeaderText = "Borrow Date"
+        Me.BorrowDate.MinimumWidth = 6
+        Me.BorrowDate.Name = "BorrowDate"
+        '
+        'DueDate
+        '
+        Me.DueDate.HeaderText = "Due Date"
+        Me.DueDate.MinimumWidth = 6
+        Me.DueDate.Name = "DueDate"
+        '
+        'ReturnDate
+        '
+        Me.ReturnDate.HeaderText = "Return Date"
+        Me.ReturnDate.MinimumWidth = 6
+        Me.ReturnDate.Name = "ReturnDate"
+        '
+        'BookCondition
+        '
+        Me.BookCondition.HeaderText = "Book Condition"
+        Me.BookCondition.MinimumWidth = 6
+        Me.BookCondition.Name = "BookCondition"
+        '
+        'Penalty
+        '
+        Me.Penalty.HeaderText = "Penalty"
+        Me.Penalty.MinimumWidth = 6
+        Me.Penalty.Name = "Penalty"
         '
         'Panel3
         '
@@ -126,9 +216,7 @@ Partial Class frmAdminHistory
         '
         Me.Panel13.BackColor = System.Drawing.Color.White
         Me.Panel13.Controls.Add(Me.lblname)
-        Me.Panel13.Controls.Add(Me.lbldatetime)
         Me.Panel13.Controls.Add(Me.Label29)
-        Me.Panel13.Controls.Add(Me.Label27)
         Me.Panel13.Controls.Add(Me.Label28)
         Me.Panel13.Controls.Add(Me.lblposition)
         Me.Panel13.Dock = System.Windows.Forms.DockStyle.Bottom
@@ -149,18 +237,6 @@ Partial Class frmAdminHistory
         Me.lblname.TabIndex = 64
         Me.lblname.Text = "Name"
         '
-        'lbldatetime
-        '
-        Me.lbldatetime.AutoSize = True
-        Me.lbldatetime.BackColor = System.Drawing.Color.Transparent
-        Me.lbldatetime.Font = New System.Drawing.Font("Segoe UI Semibold", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbldatetime.ForeColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(25, Byte), Integer))
-        Me.lbldatetime.Location = New System.Drawing.Point(575, 3)
-        Me.lbldatetime.Name = "lbldatetime"
-        Me.lbldatetime.Size = New System.Drawing.Size(16, 21)
-        Me.lbldatetime.TabIndex = 68
-        Me.lbldatetime.Text = "-"
-        '
         'Label29
         '
         Me.Label29.AutoSize = True
@@ -172,18 +248,6 @@ Partial Class frmAdminHistory
         Me.Label29.Size = New System.Drawing.Size(55, 21)
         Me.Label29.TabIndex = 63
         Me.Label29.Text = "Name:"
-        '
-        'Label27
-        '
-        Me.Label27.AutoSize = True
-        Me.Label27.BackColor = System.Drawing.Color.Transparent
-        Me.Label27.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label27.ForeColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(25, Byte), Integer))
-        Me.Label27.Location = New System.Drawing.Point(504, 3)
-        Me.Label27.Name = "Label27"
-        Me.Label27.Size = New System.Drawing.Size(65, 21)
-        Me.Label27.TabIndex = 67
-        Me.Label27.Text = "Today is"
         '
         'Label28
         '
@@ -208,85 +272,6 @@ Partial Class frmAdminHistory
         Me.lblposition.Size = New System.Drawing.Size(82, 21)
         Me.lblposition.TabIndex = 66
         Me.lblposition.Text = "NPosition"
-        '
-        'Label14
-        '
-        Me.Label14.AutoSize = True
-        Me.Label14.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label14.ForeColor = System.Drawing.Color.White
-        Me.Label14.Location = New System.Drawing.Point(734, 17)
-        Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(170, 17)
-        Me.Label14.TabIndex = 58
-        Me.Label14.Text = "SEARCH BY ISBN OR TITLE"
-        '
-        'txtSearch
-        '
-        Me.txtSearch.Font = New System.Drawing.Font("Segoe UI", 12.0!)
-        Me.txtSearch.Location = New System.Drawing.Point(910, 11)
-        Me.txtSearch.Name = "txtSearch"
-        Me.txtSearch.Size = New System.Drawing.Size(189, 29)
-        Me.txtSearch.TabIndex = 57
-        '
-        'TransactionID
-        '
-        Me.TransactionID.HeaderText = "TransactionID"
-        Me.TransactionID.Name = "TransactionID"
-        '
-        'Username
-        '
-        Me.Username.HeaderText = "Username"
-        Me.Username.Name = "Username"
-        '
-        'Type
-        '
-        Me.Type.HeaderText = "Type"
-        Me.Type.Name = "Type"
-        '
-        'BorrowStatus
-        '
-        Me.BorrowStatus.HeaderText = "Borrow Status"
-        Me.BorrowStatus.Name = "BorrowStatus"
-        '
-        'ISBN
-        '
-        Me.ISBN.HeaderText = "ISBN"
-        Me.ISBN.Name = "ISBN"
-        '
-        'BookTitle
-        '
-        Me.BookTitle.HeaderText = "Book Title"
-        Me.BookTitle.Name = "BookTitle"
-        '
-        'BookAuthor
-        '
-        Me.BookAuthor.HeaderText = "Book Author"
-        Me.BookAuthor.Name = "BookAuthor"
-        '
-        'BorrowDate
-        '
-        Me.BorrowDate.HeaderText = "Borrow Date"
-        Me.BorrowDate.Name = "BorrowDate"
-        '
-        'DueDate
-        '
-        Me.DueDate.HeaderText = "Due Date"
-        Me.DueDate.Name = "DueDate"
-        '
-        'ReturnDate
-        '
-        Me.ReturnDate.HeaderText = "Return Date"
-        Me.ReturnDate.Name = "ReturnDate"
-        '
-        'BookCondition
-        '
-        Me.BookCondition.HeaderText = "Book Condition"
-        Me.BookCondition.Name = "BookCondition"
-        '
-        'Penalty
-        '
-        Me.Penalty.HeaderText = "Penalty"
-        Me.Penalty.Name = "Penalty"
         '
         'frmAdminHistory
         '
@@ -315,9 +300,7 @@ Partial Class frmAdminHistory
     Friend WithEvents Panel3 As Panel
     Friend WithEvents Panel13 As Panel
     Friend WithEvents lblname As Label
-    Friend WithEvents lbldatetime As Label
     Friend WithEvents Label29 As Label
-    Friend WithEvents Label27 As Label
     Friend WithEvents Label28 As Label
     Friend WithEvents lblposition As Label
     Friend WithEvents Label14 As Label

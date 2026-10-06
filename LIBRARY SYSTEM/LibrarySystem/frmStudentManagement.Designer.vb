@@ -22,8 +22,10 @@ Partial Class frmStudentManagement
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Panel4 = New System.Windows.Forms.Panel()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.txtEmail = New System.Windows.Forms.TextBox()
         Me.cboCourse = New System.Windows.Forms.ComboBox()
         Me.Label19 = New System.Windows.Forms.Label()
         Me.cboYear_Level = New System.Windows.Forms.ComboBox()
@@ -45,9 +47,7 @@ Partial Class frmStudentManagement
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Panel13 = New System.Windows.Forms.Panel()
         Me.lblname = New System.Windows.Forms.Label()
-        Me.lbldatetime = New System.Windows.Forms.Label()
         Me.Label29 = New System.Windows.Forms.Label()
-        Me.Label27 = New System.Windows.Forms.Label()
         Me.Label28 = New System.Windows.Forms.Label()
         Me.lblposition = New System.Windows.Forms.Label()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
@@ -61,8 +61,6 @@ Partial Class frmStudentManagement
         Me.Course = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Year = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.txtEmail = New System.Windows.Forms.TextBox()
-        Me.Label2 = New System.Windows.Forms.Label()
         Me.txtconfirmpassword = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.txtusername = New System.Windows.Forms.TextBox()
@@ -70,6 +68,8 @@ Partial Class frmStudentManagement
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.cboStatus = New System.Windows.Forms.ComboBox()
+        Me.Label16 = New System.Windows.Forms.Label()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.Label14 = New System.Windows.Forms.Label()
         Me.txtSearch = New System.Windows.Forms.TextBox()
@@ -77,8 +77,6 @@ Partial Class frmStudentManagement
         Me.btnDelete = New System.Windows.Forms.Button()
         Me.btnUpdate = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
-        Me.cboStatus = New System.Windows.Forms.ComboBox()
-        Me.Label16 = New System.Windows.Forms.Label()
         Me.Panel4.SuspendLayout()
         Me.Panel13.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -110,17 +108,35 @@ Partial Class frmStudentManagement
         Me.Panel4.Controls.Add(Me.Label12)
         Me.Panel4.Controls.Add(Me.Label13)
         Me.Panel4.Controls.Add(Me.Label8)
-        Me.Panel4.Location = New System.Drawing.Point(342, 64)
+        Me.Panel4.Location = New System.Drawing.Point(367, 71)
         Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(650, 234)
+        Me.Panel4.Size = New System.Drawing.Size(632, 234)
         Me.Panel4.TabIndex = 66
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(409, 165)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(39, 17)
+        Me.Label2.TabIndex = 69
+        Me.Label2.Text = "Email"
+        '
+        'txtEmail
+        '
+        Me.txtEmail.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtEmail.Location = New System.Drawing.Point(409, 184)
+        Me.txtEmail.Name = "txtEmail"
+        Me.txtEmail.Size = New System.Drawing.Size(198, 25)
+        Me.txtEmail.TabIndex = 68
         '
         'cboCourse
         '
         Me.cboCourse.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboCourse.FormattingEnabled = True
         Me.cboCourse.Items.AddRange(New Object() {"BS Psychology", "BS Accountancy", "BS Customs Administration", "BS Business Administration", "BS Computer Science", "BS Information Technology", "BS Criminology", "Bachelor of Elementary Education", "Bachelor of Secondary Education", "Bachelor of Technical Vocational Teacher Education", "BS Computer Engineering", "BS Industrial Engineering", "Juris Doctor", "BS Real Estate Management", "BS Hospitality Management", "BS Tourism Management"})
-        Me.cboCourse.Location = New System.Drawing.Point(212, 129)
+        Me.cboCourse.Location = New System.Drawing.Point(202, 129)
         Me.cboCourse.Name = "cboCourse"
         Me.cboCourse.Size = New System.Drawing.Size(192, 25)
         Me.cboCourse.TabIndex = 67
@@ -129,7 +145,7 @@ Partial Class frmStudentManagement
         '
         Me.Label19.AutoSize = True
         Me.Label19.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label19.Location = New System.Drawing.Point(212, 165)
+        Me.Label19.Location = New System.Drawing.Point(202, 165)
         Me.Label19.Name = "Label19"
         Me.Label19.Size = New System.Drawing.Size(33, 17)
         Me.Label19.TabIndex = 66
@@ -140,7 +156,7 @@ Partial Class frmStudentManagement
         Me.cboYear_Level.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboYear_Level.FormattingEnabled = True
         Me.cboYear_Level.Items.AddRange(New Object() {"1st year", "2nd year", "3rd year", "4th year"})
-        Me.cboYear_Level.Location = New System.Drawing.Point(212, 184)
+        Me.cboYear_Level.Location = New System.Drawing.Point(202, 184)
         Me.cboYear_Level.Name = "cboYear_Level"
         Me.cboYear_Level.Size = New System.Drawing.Size(192, 25)
         Me.cboYear_Level.TabIndex = 65
@@ -168,7 +184,7 @@ Partial Class frmStudentManagement
         '
         Me.DateTimePicker1.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.DateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DateTimePicker1.Location = New System.Drawing.Point(428, 75)
+        Me.DateTimePicker1.Location = New System.Drawing.Point(409, 75)
         Me.DateTimePicker1.Name = "DateTimePicker1"
         Me.DateTimePicker1.Size = New System.Drawing.Size(198, 27)
         Me.DateTimePicker1.TabIndex = 61
@@ -185,7 +201,7 @@ Partial Class frmStudentManagement
         '
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(212, 110)
+        Me.Label6.Location = New System.Drawing.Point(202, 110)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(49, 17)
         Me.Label6.TabIndex = 37
@@ -195,7 +211,7 @@ Partial Class frmStudentManagement
         '
         Me.Label10.AutoSize = True
         Me.Label10.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label10.Location = New System.Drawing.Point(428, 112)
+        Me.Label10.Location = New System.Drawing.Point(409, 112)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(104, 17)
         Me.Label10.TabIndex = 44
@@ -214,7 +230,7 @@ Partial Class frmStudentManagement
         'txtContactNum
         '
         Me.txtContactNum.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtContactNum.Location = New System.Drawing.Point(428, 131)
+        Me.txtContactNum.Location = New System.Drawing.Point(409, 131)
         Me.txtContactNum.Name = "txtContactNum"
         Me.txtContactNum.Size = New System.Drawing.Size(198, 25)
         Me.txtContactNum.TabIndex = 43
@@ -223,7 +239,7 @@ Partial Class frmStudentManagement
         '
         Me.Label15.AutoSize = True
         Me.Label15.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label15.Location = New System.Drawing.Point(211, 53)
+        Me.Label15.Location = New System.Drawing.Point(201, 53)
         Me.Label15.Name = "Label15"
         Me.Label15.Size = New System.Drawing.Size(39, 17)
         Me.Label15.TabIndex = 59
@@ -234,7 +250,7 @@ Partial Class frmStudentManagement
         Me.cboGender.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboGender.FormattingEnabled = True
         Me.cboGender.Items.AddRange(New Object() {"Female", "Male", "Prefer not to say"})
-        Me.cboGender.Location = New System.Drawing.Point(319, 72)
+        Me.cboGender.Location = New System.Drawing.Point(309, 72)
         Me.cboGender.Name = "cboGender"
         Me.cboGender.Size = New System.Drawing.Size(85, 25)
         Me.cboGender.TabIndex = 47
@@ -243,7 +259,7 @@ Partial Class frmStudentManagement
         '
         Me.Label9.AutoSize = True
         Me.Label9.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.Location = New System.Drawing.Point(428, 53)
+        Me.Label9.Location = New System.Drawing.Point(409, 53)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(60, 17)
         Me.Label9.TabIndex = 42
@@ -260,7 +276,7 @@ Partial Class frmStudentManagement
         'txtSuffix
         '
         Me.txtSuffix.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtSuffix.Location = New System.Drawing.Point(213, 72)
+        Me.txtSuffix.Location = New System.Drawing.Point(203, 72)
         Me.txtSuffix.Name = "txtSuffix"
         Me.txtSuffix.Size = New System.Drawing.Size(76, 25)
         Me.txtSuffix.TabIndex = 58
@@ -289,7 +305,7 @@ Partial Class frmStudentManagement
         '
         Me.Label8.AutoSize = True
         Me.Label8.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(316, 52)
+        Me.Label8.Location = New System.Drawing.Point(306, 52)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(51, 17)
         Me.Label8.TabIndex = 40
@@ -299,15 +315,13 @@ Partial Class frmStudentManagement
         '
         Me.Panel13.BackColor = System.Drawing.Color.White
         Me.Panel13.Controls.Add(Me.lblname)
-        Me.Panel13.Controls.Add(Me.lbldatetime)
         Me.Panel13.Controls.Add(Me.Label29)
-        Me.Panel13.Controls.Add(Me.Label27)
         Me.Panel13.Controls.Add(Me.Label28)
         Me.Panel13.Controls.Add(Me.lblposition)
         Me.Panel13.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.Panel13.Location = New System.Drawing.Point(0, 751)
         Me.Panel13.Name = "Panel13"
-        Me.Panel13.Size = New System.Drawing.Size(1245, 27)
+        Me.Panel13.Size = New System.Drawing.Size(1221, 27)
         Me.Panel13.TabIndex = 158
         '
         'lblname
@@ -322,18 +336,6 @@ Partial Class frmStudentManagement
         Me.lblname.TabIndex = 64
         Me.lblname.Text = "Name"
         '
-        'lbldatetime
-        '
-        Me.lbldatetime.AutoSize = True
-        Me.lbldatetime.BackColor = System.Drawing.Color.Transparent
-        Me.lbldatetime.Font = New System.Drawing.Font("Segoe UI Semibold", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbldatetime.ForeColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(25, Byte), Integer))
-        Me.lbldatetime.Location = New System.Drawing.Point(575, 3)
-        Me.lbldatetime.Name = "lbldatetime"
-        Me.lbldatetime.Size = New System.Drawing.Size(16, 21)
-        Me.lbldatetime.TabIndex = 68
-        Me.lbldatetime.Text = "-"
-        '
         'Label29
         '
         Me.Label29.AutoSize = True
@@ -345,18 +347,6 @@ Partial Class frmStudentManagement
         Me.Label29.Size = New System.Drawing.Size(55, 21)
         Me.Label29.TabIndex = 63
         Me.Label29.Text = "Name:"
-        '
-        'Label27
-        '
-        Me.Label27.AutoSize = True
-        Me.Label27.BackColor = System.Drawing.Color.Transparent
-        Me.Label27.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label27.ForeColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(25, Byte), Integer))
-        Me.Label27.Location = New System.Drawing.Point(504, 3)
-        Me.Label27.Name = "Label27"
-        Me.Label27.Size = New System.Drawing.Size(65, 21)
-        Me.Label27.TabIndex = 67
-        Me.Label27.Text = "Today is"
         '
         'Label28
         '
@@ -388,107 +378,99 @@ Partial Class frmStudentManagement
         Me.DataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Username, Me.Password, Me.FullName, Me.Gender, Me.Birthdate, Me.ContactNo, Me.Email, Me.Course, Me.Year})
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridView1.DefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridView1.DefaultCellStyle = DataGridViewCellStyle4
         Me.DataGridView1.Location = New System.Drawing.Point(19, 357)
         Me.DataGridView1.Name = "DataGridView1"
+        Me.DataGridView1.RowHeadersWidth = 51
         Me.DataGridView1.Size = New System.Drawing.Size(1187, 370)
         Me.DataGridView1.TabIndex = 159
         '
         'Username
         '
         Me.Username.HeaderText = "Username"
+        Me.Username.MinimumWidth = 6
         Me.Username.Name = "Username"
         '
         'Password
         '
         Me.Password.HeaderText = "Password"
+        Me.Password.MinimumWidth = 6
         Me.Password.Name = "Password"
         '
         'FullName
         '
         Me.FullName.HeaderText = "Full Name"
+        Me.FullName.MinimumWidth = 6
         Me.FullName.Name = "FullName"
         '
         'Gender
         '
         Me.Gender.HeaderText = "Gender"
+        Me.Gender.MinimumWidth = 6
         Me.Gender.Name = "Gender"
         '
         'Birthdate
         '
         Me.Birthdate.HeaderText = "Birthdate"
+        Me.Birthdate.MinimumWidth = 6
         Me.Birthdate.Name = "Birthdate"
         '
         'ContactNo
         '
         Me.ContactNo.HeaderText = "Contact No."
+        Me.ContactNo.MinimumWidth = 6
         Me.ContactNo.Name = "ContactNo"
         '
         'Email
         '
         Me.Email.HeaderText = "Email"
+        Me.Email.MinimumWidth = 6
         Me.Email.Name = "Email"
         '
         'Course
         '
         Me.Course.HeaderText = "Course"
+        Me.Course.MinimumWidth = 6
         Me.Course.Name = "Course"
         '
         'Year
         '
         Me.Year.HeaderText = "Year"
+        Me.Year.MinimumWidth = 6
         Me.Year.Name = "Year"
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Segoe UI", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Font = New System.Drawing.Font("Segoe UI", 19.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(90, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(60, Byte), Integer))
         Me.Label1.Location = New System.Drawing.Point(14, 17)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(266, 30)
+        Me.Label1.Size = New System.Drawing.Size(348, 37)
         Me.Label1.TabIndex = 160
-        Me.Label1.Text = "STUDENT MANAGEMENT"
-        '
-        'txtEmail
-        '
-        Me.txtEmail.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtEmail.Location = New System.Drawing.Point(428, 184)
-        Me.txtEmail.Name = "txtEmail"
-        Me.txtEmail.Size = New System.Drawing.Size(198, 25)
-        Me.txtEmail.TabIndex = 68
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(428, 165)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(39, 17)
-        Me.Label2.TabIndex = 69
-        Me.Label2.Text = "Email"
+        Me.Label1.Text = "ACCOUNT MANAGEMENT"
         '
         'txtconfirmpassword
         '
         Me.txtconfirmpassword.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.txtconfirmpassword.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtconfirmpassword.Location = New System.Drawing.Point(154, 138)
+        Me.txtconfirmpassword.Location = New System.Drawing.Point(154, 144)
         Me.txtconfirmpassword.Name = "txtconfirmpassword"
-        Me.txtconfirmpassword.Size = New System.Drawing.Size(128, 25)
+        Me.txtconfirmpassword.Size = New System.Drawing.Size(153, 25)
         Me.txtconfirmpassword.TabIndex = 165
         '
         'Label3
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(23, 140)
+        Me.Label3.Location = New System.Drawing.Point(23, 146)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(118, 17)
         Me.Label3.TabIndex = 166
@@ -500,7 +482,7 @@ Partial Class frmStudentManagement
         Me.txtusername.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtusername.Location = New System.Drawing.Point(154, 52)
         Me.txtusername.Name = "txtusername"
-        Me.txtusername.Size = New System.Drawing.Size(128, 25)
+        Me.txtusername.Size = New System.Drawing.Size(153, 25)
         Me.txtusername.TabIndex = 161
         '
         'txtpassword
@@ -509,7 +491,7 @@ Partial Class frmStudentManagement
         Me.txtpassword.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtpassword.Location = New System.Drawing.Point(154, 95)
         Me.txtpassword.Name = "txtpassword"
-        Me.txtpassword.Size = New System.Drawing.Size(128, 25)
+        Me.txtpassword.Size = New System.Drawing.Size(153, 25)
         Me.txtpassword.TabIndex = 162
         '
         'Label4
@@ -535,6 +517,7 @@ Partial Class frmStudentManagement
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(251, Byte), Integer), CType(CType(243, Byte), Integer), CType(CType(235, Byte), Integer))
+        Me.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Panel1.Controls.Add(Me.cboStatus)
         Me.Panel1.Controls.Add(Me.Label16)
         Me.Panel1.Controls.Add(Me.Label11)
@@ -544,10 +527,29 @@ Partial Class frmStudentManagement
         Me.Panel1.Controls.Add(Me.txtpassword)
         Me.Panel1.Controls.Add(Me.Label4)
         Me.Panel1.Controls.Add(Me.Label5)
-        Me.Panel1.Location = New System.Drawing.Point(20, 64)
+        Me.Panel1.Location = New System.Drawing.Point(20, 71)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(307, 233)
+        Me.Panel1.Size = New System.Drawing.Size(328, 233)
         Me.Panel1.TabIndex = 167
+        '
+        'cboStatus
+        '
+        Me.cboStatus.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cboStatus.FormattingEnabled = True
+        Me.cboStatus.Location = New System.Drawing.Point(154, 188)
+        Me.cboStatus.Name = "cboStatus"
+        Me.cboStatus.Size = New System.Drawing.Size(153, 25)
+        Me.cboStatus.TabIndex = 172
+        '
+        'Label16
+        '
+        Me.Label16.AutoSize = True
+        Me.Label16.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label16.Location = New System.Drawing.Point(23, 191)
+        Me.Label16.Name = "Label16"
+        Me.Label16.Size = New System.Drawing.Size(46, 17)
+        Me.Label16.TabIndex = 171
+        Me.Label16.Text = "Status"
         '
         'Label11
         '
@@ -585,7 +587,7 @@ Partial Class frmStudentManagement
         Me.btnClear.FlatAppearance.BorderSize = 0
         Me.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnClear.Font = New System.Drawing.Font("Segoe UI Semibold", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnClear.Location = New System.Drawing.Point(1021, 248)
+        Me.btnClear.Location = New System.Drawing.Point(1021, 254)
         Me.btnClear.Name = "btnClear"
         Me.btnClear.Size = New System.Drawing.Size(168, 30)
         Me.btnClear.TabIndex = 72
@@ -599,7 +601,7 @@ Partial Class frmStudentManagement
         Me.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnDelete.Font = New System.Drawing.Font("Segoe UI Semibold", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnDelete.ForeColor = System.Drawing.Color.White
-        Me.btnDelete.Location = New System.Drawing.Point(1021, 190)
+        Me.btnDelete.Location = New System.Drawing.Point(1021, 197)
         Me.btnDelete.Name = "btnDelete"
         Me.btnDelete.Size = New System.Drawing.Size(168, 34)
         Me.btnDelete.TabIndex = 71
@@ -613,7 +615,7 @@ Partial Class frmStudentManagement
         Me.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnUpdate.Font = New System.Drawing.Font("Segoe UI Semibold", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnUpdate.ForeColor = System.Drawing.Color.White
-        Me.btnUpdate.Location = New System.Drawing.Point(1021, 136)
+        Me.btnUpdate.Location = New System.Drawing.Point(1021, 142)
         Me.btnUpdate.Name = "btnUpdate"
         Me.btnUpdate.Size = New System.Drawing.Size(168, 34)
         Me.btnUpdate.TabIndex = 70
@@ -627,37 +629,18 @@ Partial Class frmStudentManagement
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button1.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button1.ForeColor = System.Drawing.Color.White
-        Me.Button1.Location = New System.Drawing.Point(1021, 85)
+        Me.Button1.Location = New System.Drawing.Point(1021, 92)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(168, 33)
         Me.Button1.TabIndex = 170
         Me.Button1.Text = "Add Account"
         Me.Button1.UseVisualStyleBackColor = False
         '
-        'cboStatus
-        '
-        Me.cboStatus.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cboStatus.FormattingEnabled = True
-        Me.cboStatus.Location = New System.Drawing.Point(154, 188)
-        Me.cboStatus.Name = "cboStatus"
-        Me.cboStatus.Size = New System.Drawing.Size(128, 25)
-        Me.cboStatus.TabIndex = 172
-        '
-        'Label16
-        '
-        Me.Label16.AutoSize = True
-        Me.Label16.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label16.Location = New System.Drawing.Point(23, 191)
-        Me.Label16.Name = "Label16"
-        Me.Label16.Size = New System.Drawing.Size(46, 17)
-        Me.Label16.TabIndex = 171
-        Me.Label16.Text = "Status"
-        '
         'frmStudentManagement
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1245, 778)
+        Me.ClientSize = New System.Drawing.Size(1221, 778)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.btnClear)
         Me.Controls.Add(Me.Label14)
@@ -706,9 +689,7 @@ Partial Class frmStudentManagement
     Friend WithEvents Label8 As Label
     Friend WithEvents Panel13 As Panel
     Friend WithEvents lblname As Label
-    Friend WithEvents lbldatetime As Label
     Friend WithEvents Label29 As Label
-    Friend WithEvents Label27 As Label
     Friend WithEvents Label28 As Label
     Friend WithEvents lblposition As Label
     Friend WithEvents DataGridView1 As DataGridView

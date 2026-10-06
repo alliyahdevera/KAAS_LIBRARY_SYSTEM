@@ -22,7 +22,7 @@ Partial Class frmLibrarianHistory
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.lblTitle = New System.Windows.Forms.Label()
         Me.btnExportExcel = New System.Windows.Forms.Button()
@@ -47,13 +47,21 @@ Partial Class frmLibrarianHistory
         Me.Penalty = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Label14 = New System.Windows.Forms.Label()
         Me.txtSearch = New System.Windows.Forms.TextBox()
+        Me.Panel13 = New System.Windows.Forms.Panel()
+        Me.lblname = New System.Windows.Forms.Label()
+        Me.lbldatetime = New System.Windows.Forms.Label()
+        Me.Label29 = New System.Windows.Forms.Label()
+        Me.Label27 = New System.Windows.Forms.Label()
+        Me.Label28 = New System.Windows.Forms.Label()
+        Me.lblposition = New System.Windows.Forms.Label()
         Me.Panel2.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel13.SuspendLayout()
         Me.SuspendLayout()
         '
         'Panel2
         '
-        Me.Panel2.BackColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.Panel2.BackColor = System.Drawing.Color.White
         Me.Panel2.Controls.Add(Me.lblTitle)
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel2.Location = New System.Drawing.Point(0, 0)
@@ -65,8 +73,8 @@ Partial Class frmLibrarianHistory
         '
         Me.lblTitle.AutoSize = True
         Me.lblTitle.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTitle.ForeColor = System.Drawing.Color.White
-        Me.lblTitle.Location = New System.Drawing.Point(473, 14)
+        Me.lblTitle.ForeColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(10, Byte), Integer))
+        Me.lblTitle.Location = New System.Drawing.Point(21, 15)
         Me.lblTitle.Name = "lblTitle"
         Me.lblTitle.Size = New System.Drawing.Size(365, 25)
         Me.lblTitle.TabIndex = 0
@@ -78,7 +86,7 @@ Partial Class frmLibrarianHistory
         Me.btnExportExcel.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnExportExcel.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnExportExcel.ForeColor = System.Drawing.Color.White
-        Me.btnExportExcel.Location = New System.Drawing.Point(1084, 162)
+        Me.btnExportExcel.Location = New System.Drawing.Point(1088, 162)
         Me.btnExportExcel.Name = "btnExportExcel"
         Me.btnExportExcel.Size = New System.Drawing.Size(143, 32)
         Me.btnExportExcel.TabIndex = 39
@@ -100,7 +108,7 @@ Partial Class frmLibrarianHistory
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(23, 167)
+        Me.Label3.Location = New System.Drawing.Point(355, 121)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(89, 17)
         Me.Label3.TabIndex = 89
@@ -110,7 +118,7 @@ Partial Class frmLibrarianHistory
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(23, 123)
+        Me.Label2.Location = New System.Drawing.Point(23, 121)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(97, 17)
         Me.Label2.TabIndex = 88
@@ -121,7 +129,7 @@ Partial Class frmLibrarianHistory
         Me.ComboBox2.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ComboBox2.FormattingEnabled = True
         Me.ComboBox2.Items.AddRange(New Object() {"Pending", "Returned", "Penalty"})
-        Me.ComboBox2.Location = New System.Drawing.Point(135, 164)
+        Me.ComboBox2.Location = New System.Drawing.Point(467, 118)
         Me.ComboBox2.Name = "ComboBox2"
         Me.ComboBox2.Size = New System.Drawing.Size(187, 25)
         Me.ComboBox2.TabIndex = 87
@@ -131,7 +139,7 @@ Partial Class frmLibrarianHistory
         Me.ComboBox1.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ComboBox1.FormattingEnabled = True
         Me.ComboBox1.Items.AddRange(New Object() {"Pending", "Good", "Damaged", "Lost"})
-        Me.ComboBox1.Location = New System.Drawing.Point(135, 120)
+        Me.ComboBox1.Location = New System.Drawing.Point(135, 118)
         Me.ComboBox1.Name = "ComboBox1"
         Me.ComboBox1.Size = New System.Drawing.Size(187, 25)
         Me.ComboBox1.TabIndex = 86
@@ -142,7 +150,7 @@ Partial Class frmLibrarianHistory
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button1.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button1.ForeColor = System.Drawing.Color.White
-        Me.Button1.Location = New System.Drawing.Point(352, 115)
+        Me.Button1.Location = New System.Drawing.Point(681, 113)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(158, 32)
         Me.Button1.TabIndex = 40
@@ -155,7 +163,7 @@ Partial Class frmLibrarianHistory
         Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button2.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button2.ForeColor = System.Drawing.Color.Black
-        Me.Button2.Location = New System.Drawing.Point(352, 162)
+        Me.Button2.Location = New System.Drawing.Point(857, 113)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(158, 32)
         Me.Button2.TabIndex = 90
@@ -168,73 +176,84 @@ Partial Class frmLibrarianHistory
         Me.DataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Username, Me.Type, Me.BorrowStatus, Me.ISBN, Me.BookTitle, Me.BookAuthor, Me.BorrowDate, Me.DueDate, Me.ReturnDate, Me.BookCondition, Me.Penalty})
-        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridView1.DefaultCellStyle = DataGridViewCellStyle4
-        Me.DataGridView1.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.DataGridView1.Location = New System.Drawing.Point(0, 254)
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridView1.DefaultCellStyle = DataGridViewCellStyle1
+        Me.DataGridView1.Location = New System.Drawing.Point(0, 218)
         Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(1245, 524)
+        Me.DataGridView1.RowHeadersWidth = 51
+        Me.DataGridView1.Size = New System.Drawing.Size(1245, 533)
         Me.DataGridView1.TabIndex = 92
         '
         'Username
         '
         Me.Username.HeaderText = "Username"
+        Me.Username.MinimumWidth = 6
         Me.Username.Name = "Username"
         '
         'Type
         '
         Me.Type.HeaderText = "Type"
+        Me.Type.MinimumWidth = 6
         Me.Type.Name = "Type"
         '
         'BorrowStatus
         '
         Me.BorrowStatus.HeaderText = "Borrow Status"
+        Me.BorrowStatus.MinimumWidth = 6
         Me.BorrowStatus.Name = "BorrowStatus"
         '
         'ISBN
         '
         Me.ISBN.HeaderText = "ISBN"
+        Me.ISBN.MinimumWidth = 6
         Me.ISBN.Name = "ISBN"
         '
         'BookTitle
         '
         Me.BookTitle.HeaderText = "Book Title"
+        Me.BookTitle.MinimumWidth = 6
         Me.BookTitle.Name = "BookTitle"
         '
         'BookAuthor
         '
         Me.BookAuthor.HeaderText = "Book Author"
+        Me.BookAuthor.MinimumWidth = 6
         Me.BookAuthor.Name = "BookAuthor"
         '
         'BorrowDate
         '
         Me.BorrowDate.HeaderText = "Borrow Date"
+        Me.BorrowDate.MinimumWidth = 6
         Me.BorrowDate.Name = "BorrowDate"
         '
         'DueDate
         '
         Me.DueDate.HeaderText = "Due Date"
+        Me.DueDate.MinimumWidth = 6
         Me.DueDate.Name = "DueDate"
         '
         'ReturnDate
         '
         Me.ReturnDate.HeaderText = "Return Date"
+        Me.ReturnDate.MinimumWidth = 6
         Me.ReturnDate.Name = "ReturnDate"
         '
         'BookCondition
         '
         Me.BookCondition.HeaderText = "Book Condition"
+        Me.BookCondition.MinimumWidth = 6
         Me.BookCondition.Name = "BookCondition"
         '
         'Penalty
         '
         Me.Penalty.HeaderText = "Penalty"
+        Me.Penalty.MinimumWidth = 6
         Me.Penalty.Name = "Penalty"
         '
         'Label14
@@ -242,7 +261,7 @@ Partial Class frmLibrarianHistory
         Me.Label14.AutoSize = True
         Me.Label14.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label14.ForeColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(10, Byte), Integer))
-        Me.Label14.Location = New System.Drawing.Point(23, 214)
+        Me.Label14.Location = New System.Drawing.Point(21, 170)
         Me.Label14.Name = "Label14"
         Me.Label14.Size = New System.Drawing.Size(170, 17)
         Me.Label14.TabIndex = 94
@@ -251,10 +270,97 @@ Partial Class frmLibrarianHistory
         'txtSearch
         '
         Me.txtSearch.Font = New System.Drawing.Font("Segoe UI", 12.0!)
-        Me.txtSearch.Location = New System.Drawing.Point(199, 208)
+        Me.txtSearch.Location = New System.Drawing.Point(197, 164)
         Me.txtSearch.Name = "txtSearch"
         Me.txtSearch.Size = New System.Drawing.Size(189, 29)
         Me.txtSearch.TabIndex = 93
+        '
+        'Panel13
+        '
+        Me.Panel13.BackColor = System.Drawing.Color.White
+        Me.Panel13.Controls.Add(Me.lblname)
+        Me.Panel13.Controls.Add(Me.lbldatetime)
+        Me.Panel13.Controls.Add(Me.Label29)
+        Me.Panel13.Controls.Add(Me.Label27)
+        Me.Panel13.Controls.Add(Me.Label28)
+        Me.Panel13.Controls.Add(Me.lblposition)
+        Me.Panel13.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.Panel13.Location = New System.Drawing.Point(0, 751)
+        Me.Panel13.Name = "Panel13"
+        Me.Panel13.Size = New System.Drawing.Size(1245, 27)
+        Me.Panel13.TabIndex = 160
+        '
+        'lblname
+        '
+        Me.lblname.AutoSize = True
+        Me.lblname.BackColor = System.Drawing.Color.Transparent
+        Me.lblname.Font = New System.Drawing.Font("Segoe UI Semibold", 12.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblname.ForeColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.lblname.Location = New System.Drawing.Point(54, 3)
+        Me.lblname.Name = "lblname"
+        Me.lblname.Size = New System.Drawing.Size(53, 21)
+        Me.lblname.TabIndex = 64
+        Me.lblname.Text = "Name"
+        '
+        'lbldatetime
+        '
+        Me.lbldatetime.AutoSize = True
+        Me.lbldatetime.BackColor = System.Drawing.Color.Transparent
+        Me.lbldatetime.Font = New System.Drawing.Font("Segoe UI Semibold", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbldatetime.ForeColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.lbldatetime.Location = New System.Drawing.Point(575, 3)
+        Me.lbldatetime.Name = "lbldatetime"
+        Me.lbldatetime.Size = New System.Drawing.Size(16, 21)
+        Me.lbldatetime.TabIndex = 68
+        Me.lbldatetime.Text = "-"
+        '
+        'Label29
+        '
+        Me.Label29.AutoSize = True
+        Me.Label29.BackColor = System.Drawing.Color.Transparent
+        Me.Label29.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label29.ForeColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.Label29.Location = New System.Drawing.Point(4, 3)
+        Me.Label29.Name = "Label29"
+        Me.Label29.Size = New System.Drawing.Size(55, 21)
+        Me.Label29.TabIndex = 63
+        Me.Label29.Text = "Name:"
+        '
+        'Label27
+        '
+        Me.Label27.AutoSize = True
+        Me.Label27.BackColor = System.Drawing.Color.Transparent
+        Me.Label27.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label27.ForeColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.Label27.Location = New System.Drawing.Point(504, 3)
+        Me.Label27.Name = "Label27"
+        Me.Label27.Size = New System.Drawing.Size(65, 21)
+        Me.Label27.TabIndex = 67
+        Me.Label27.Text = "Today is"
+        '
+        'Label28
+        '
+        Me.Label28.AutoSize = True
+        Me.Label28.BackColor = System.Drawing.Color.Transparent
+        Me.Label28.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label28.ForeColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.Label28.Location = New System.Drawing.Point(249, 3)
+        Me.Label28.Name = "Label28"
+        Me.Label28.Size = New System.Drawing.Size(68, 21)
+        Me.Label28.TabIndex = 65
+        Me.Label28.Text = "Position:"
+        '
+        'lblposition
+        '
+        Me.lblposition.AutoSize = True
+        Me.lblposition.BackColor = System.Drawing.Color.Transparent
+        Me.lblposition.Font = New System.Drawing.Font("Segoe UI Semibold", 12.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblposition.ForeColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.lblposition.Location = New System.Drawing.Point(315, 3)
+        Me.lblposition.Name = "lblposition"
+        Me.lblposition.Size = New System.Drawing.Size(82, 21)
+        Me.lblposition.TabIndex = 66
+        Me.lblposition.Text = "NPosition"
         '
         'frmLibrarianHistory
         '
@@ -262,6 +368,7 @@ Partial Class frmLibrarianHistory
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(253, Byte), Integer), CType(CType(251, Byte), Integer), CType(CType(248, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(1245, 778)
+        Me.Controls.Add(Me.Panel13)
         Me.Controls.Add(Me.Label14)
         Me.Controls.Add(Me.txtSearch)
         Me.Controls.Add(Me.DataGridView1)
@@ -280,6 +387,8 @@ Partial Class frmLibrarianHistory
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel13.ResumeLayout(False)
+        Me.Panel13.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -308,4 +417,11 @@ Partial Class frmLibrarianHistory
     Friend WithEvents Penalty As DataGridViewTextBoxColumn
     Friend WithEvents Label14 As Label
     Friend WithEvents txtSearch As TextBox
+    Friend WithEvents Panel13 As Panel
+    Friend WithEvents lblname As Label
+    Friend WithEvents lbldatetime As Label
+    Friend WithEvents Label29 As Label
+    Friend WithEvents Label27 As Label
+    Friend WithEvents Label28 As Label
+    Friend WithEvents lblposition As Label
 End Class

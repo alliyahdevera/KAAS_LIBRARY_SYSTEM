@@ -252,9 +252,7 @@
     <Compile Include="frmStudentPenalty.Designer.vb">
       <DependentUpon>frmStudentPenalty.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmStudentPenalty.vb">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="frmStudentPenalty.vb" />
     <Compile Include="Helpers.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">

@@ -100,11 +100,11 @@ Partial Class frmReports
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Segoe UI", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Font = New System.Drawing.Font("Segoe UI", 19.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(90, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(60, Byte), Integer))
-        Me.Label1.Location = New System.Drawing.Point(21, 19)
+        Me.Label1.Location = New System.Drawing.Point(19, 24)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(105, 30)
+        Me.Label1.Size = New System.Drawing.Size(134, 37)
         Me.Label1.TabIndex = 161
         Me.Label1.Text = "REPORTS"
         '
@@ -113,7 +113,7 @@ Partial Class frmReports
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(90, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(60, Byte), Integer))
-        Me.Label3.Location = New System.Drawing.Point(23, 79)
+        Me.Label3.Location = New System.Drawing.Point(23, 82)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(170, 17)
         Me.Label3.TabIndex = 163
@@ -122,7 +122,7 @@ Partial Class frmReports
         'TextBox1
         '
         Me.TextBox1.Font = New System.Drawing.Font("Segoe UI", 12.0!)
-        Me.TextBox1.Location = New System.Drawing.Point(199, 73)
+        Me.TextBox1.Location = New System.Drawing.Point(199, 76)
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.Size = New System.Drawing.Size(189, 29)
         Me.TextBox1.TabIndex = 162
@@ -143,69 +143,81 @@ Partial Class frmReports
         Me.DataGridView1.DefaultCellStyle = DataGridViewCellStyle1
         Me.DataGridView1.Location = New System.Drawing.Point(26, 167)
         Me.DataGridView1.Name = "DataGridView1"
+        Me.DataGridView1.RowHeadersWidth = 51
         Me.DataGridView1.Size = New System.Drawing.Size(1195, 579)
         Me.DataGridView1.TabIndex = 164
         '
         'Username
         '
         Me.Username.HeaderText = "Username"
+        Me.Username.MinimumWidth = 6
         Me.Username.Name = "Username"
         '
         'Type
         '
         Me.Type.HeaderText = "Type"
+        Me.Type.MinimumWidth = 6
         Me.Type.Name = "Type"
         '
         'BorrowStatus
         '
         Me.BorrowStatus.HeaderText = "Borrow Status"
+        Me.BorrowStatus.MinimumWidth = 6
         Me.BorrowStatus.Name = "BorrowStatus"
         '
         'ISBN
         '
         Me.ISBN.HeaderText = "ISBN"
+        Me.ISBN.MinimumWidth = 6
         Me.ISBN.Name = "ISBN"
         '
         'BookTitle
         '
         Me.BookTitle.HeaderText = "Book Title"
+        Me.BookTitle.MinimumWidth = 6
         Me.BookTitle.Name = "BookTitle"
         '
         'BookAuthor
         '
         Me.BookAuthor.HeaderText = "Book Author"
+        Me.BookAuthor.MinimumWidth = 6
         Me.BookAuthor.Name = "BookAuthor"
         '
         'BorrowDate
         '
         Me.BorrowDate.HeaderText = "Borrow Date"
+        Me.BorrowDate.MinimumWidth = 6
         Me.BorrowDate.Name = "BorrowDate"
         '
         'DueDate
         '
         Me.DueDate.HeaderText = "Due Date"
+        Me.DueDate.MinimumWidth = 6
         Me.DueDate.Name = "DueDate"
         '
         'ReturnDate
         '
         Me.ReturnDate.HeaderText = "Return Date"
+        Me.ReturnDate.MinimumWidth = 6
         Me.ReturnDate.Name = "ReturnDate"
         '
         'BookCondition
         '
         Me.BookCondition.HeaderText = "Book Condition"
+        Me.BookCondition.MinimumWidth = 6
         Me.BookCondition.Name = "BookCondition"
         '
         'Penalty
         '
         Me.Penalty.HeaderText = "Penalty"
+        Me.Penalty.MinimumWidth = 6
         Me.Penalty.Name = "Penalty"
         '
         'frmReports
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1245, 778)
+        Me.ClientSize = New System.Drawing.Size(1241, 778)
         Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.TextBox1)

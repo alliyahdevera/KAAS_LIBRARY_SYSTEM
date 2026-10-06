@@ -22,8 +22,10 @@ Partial Class frmAvailBooks
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.ISBN = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -42,8 +44,6 @@ Partial Class frmAvailBooks
         Me.Label27 = New System.Windows.Forms.Label()
         Me.Label28 = New System.Windows.Forms.Label()
         Me.lblposition = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.Panel2.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel13.SuspendLayout()
@@ -51,7 +51,7 @@ Partial Class frmAvailBooks
         '
         'Panel2
         '
-        Me.Panel2.BackColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.Panel2.BackColor = System.Drawing.Color.White
         Me.Panel2.Controls.Add(Me.Label2)
         Me.Panel2.Controls.Add(Me.TextBox1)
         Me.Panel2.Controls.Add(Me.Label1)
@@ -61,12 +61,31 @@ Partial Class frmAvailBooks
         Me.Panel2.Size = New System.Drawing.Size(1245, 45)
         Me.Panel2.TabIndex = 16
         '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.Label2.Location = New System.Drawing.Point(871, 14)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(170, 17)
+        Me.Label2.TabIndex = 62
+        Me.Label2.Text = "SEARCH BY ISBN OR TITLE"
+        '
+        'TextBox1
+        '
+        Me.TextBox1.Font = New System.Drawing.Font("Segoe UI", 12.0!)
+        Me.TextBox1.Location = New System.Drawing.Point(1047, 8)
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(189, 29)
+        Me.TextBox1.TabIndex = 61
+        '
         'Label1
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.ForeColor = System.Drawing.Color.White
-        Me.Label1.Location = New System.Drawing.Point(10, 11)
+        Me.Label1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.Label1.Location = New System.Drawing.Point(10, 10)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(216, 25)
         Me.Label1.TabIndex = 0
@@ -78,63 +97,73 @@ Partial Class frmAvailBooks
         Me.DataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ISBN, Me.BookTitle, Me.BookAuthor, Me.Publisher, Me.Category, Me.Edition, Me.YearPublished, Me.Price, Me.Copies})
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridView1.DefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridView1.DefaultCellStyle = DataGridViewCellStyle1
         Me.DataGridView1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DataGridView1.Location = New System.Drawing.Point(0, 45)
         Me.DataGridView1.Name = "DataGridView1"
+        Me.DataGridView1.RowHeadersWidth = 51
         Me.DataGridView1.Size = New System.Drawing.Size(1245, 733)
         Me.DataGridView1.TabIndex = 22
         '
         'ISBN
         '
         Me.ISBN.HeaderText = "ISBN"
+        Me.ISBN.MinimumWidth = 6
         Me.ISBN.Name = "ISBN"
         '
         'BookTitle
         '
         Me.BookTitle.HeaderText = "Book Title"
+        Me.BookTitle.MinimumWidth = 6
         Me.BookTitle.Name = "BookTitle"
         '
         'BookAuthor
         '
         Me.BookAuthor.HeaderText = "Book Author"
+        Me.BookAuthor.MinimumWidth = 6
         Me.BookAuthor.Name = "BookAuthor"
         '
         'Publisher
         '
         Me.Publisher.HeaderText = "Publisher"
+        Me.Publisher.MinimumWidth = 6
         Me.Publisher.Name = "Publisher"
         '
         'Category
         '
         Me.Category.HeaderText = "Category"
+        Me.Category.MinimumWidth = 6
         Me.Category.Name = "Category"
         '
         'Edition
         '
         Me.Edition.HeaderText = "Edition"
+        Me.Edition.MinimumWidth = 6
         Me.Edition.Name = "Edition"
         '
         'YearPublished
         '
         Me.YearPublished.HeaderText = "Year Published"
+        Me.YearPublished.MinimumWidth = 6
         Me.YearPublished.Name = "YearPublished"
         '
         'Price
         '
         Me.Price.HeaderText = "Price"
+        Me.Price.MinimumWidth = 6
         Me.Price.Name = "Price"
         '
         'Copies
         '
         Me.Copies.HeaderText = "Copies"
+        Me.Copies.MinimumWidth = 6
         Me.Copies.Name = "Copies"
         '
         'Panel13
@@ -223,25 +252,6 @@ Partial Class frmAvailBooks
         Me.lblposition.Size = New System.Drawing.Size(82, 21)
         Me.lblposition.TabIndex = 66
         Me.lblposition.Text = "NPosition"
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.ForeColor = System.Drawing.Color.White
-        Me.Label2.Location = New System.Drawing.Point(871, 14)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(170, 17)
-        Me.Label2.TabIndex = 62
-        Me.Label2.Text = "SEARCH BY ISBN OR TITLE"
-        '
-        'TextBox1
-        '
-        Me.TextBox1.Font = New System.Drawing.Font("Segoe UI", 12.0!)
-        Me.TextBox1.Location = New System.Drawing.Point(1047, 8)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(189, 29)
-        Me.TextBox1.TabIndex = 61
         '
         'frmAvailBooks
         '

@@ -88,7 +88,7 @@ Partial Class frmRegister
         Me.btnExit.FlatAppearance.BorderSize = 0
         Me.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnExit.ForeColor = System.Drawing.Color.White
-        Me.btnExit.Location = New System.Drawing.Point(1265, 9)
+        Me.btnExit.Location = New System.Drawing.Point(1197, 12)
         Me.btnExit.Name = "btnExit"
         Me.btnExit.Size = New System.Drawing.Size(25, 25)
         Me.btnExit.TabIndex = 12
@@ -567,11 +567,12 @@ Partial Class frmRegister
         Me.BackColor = System.Drawing.Color.LightSteelBlue
         Me.BackgroundImage = Global.LibrarySystem.My.Resources.Resources.LIB_BG1
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(1300, 750)
+        Me.ClientSize = New System.Drawing.Size(1234, 750)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.btnExit)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "frmRegister"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "frmRegister"
         CType(PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)

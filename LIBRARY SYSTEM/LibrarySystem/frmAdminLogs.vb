@@ -6,8 +6,6 @@ Public Class frmAdminLogs
         If Not Me.Visible Then Exit Sub
         UiHelpers.FillHeader(Me)
         DashboardData.SetupReadOnlyGrid(DataGridView1)
-        Label14.Text = "SEARCH BY USER, ACTION OR DESCRIPTION"
-        AccountID.HeaderText = "Account"
         LoadLogs(txtSearch.Text)
     End Sub
 
