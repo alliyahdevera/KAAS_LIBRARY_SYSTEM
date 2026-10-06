@@ -41,4 +41,5 @@ Public Class frmStudentDashboard
             MsgBox("Could not load the dashboard: " & ex.Message, vbCritical, "Dashboard")
         End Try
     End Sub
+
 End Class

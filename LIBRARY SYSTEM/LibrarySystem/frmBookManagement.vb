@@ -47,6 +47,7 @@ Public Class frmBookManagement
     End Sub
 
     ' ------------------------------------------------------------ list
+    ' Search only matches the ISBN and the Book Title.
     Public Sub LoadBooks(Optional keyword As String = "")
         SetupGrid()
         DataGridView1.Rows.Clear()
@@ -59,10 +60,7 @@ Public Class frmBookManagement
                     "SELECT v.book_id, v.isbn, v.title, v.authors, v.publisher_name, v.categories, v.edition, " &
                     "       v.year_published, v.price, b.date_added, v.total_copies, v.available_copies " &
                     "FROM vw_BookCatalog v JOIN BookInfo b ON b.book_id = v.book_id " &
-                    "WHERE (@kw = '' OR v.isbn LIKE CONCAT('%',@kw,'%') OR v.title LIKE CONCAT('%',@kw,'%') " &
-                    "   OR v.authors LIKE CONCAT('%',@kw,'%') OR v.publisher_name LIKE CONCAT('%',@kw,'%') " &
-                    "   OR v.categories LIKE CONCAT('%',@kw,'%') OR v.edition LIKE CONCAT('%',@kw,'%') " &
-                    "   OR v.year_published LIKE CONCAT('%',@kw,'%')) " &
+                    "WHERE (@kw = '' OR v.isbn LIKE CONCAT('%',@kw,'%') OR v.title LIKE CONCAT('%',@kw,'%')) " &
                     "AND (v.total_copies > 0 OR NOT EXISTS (SELECT 1 FROM BookCopies c WHERE c.book_id = v.book_id)) " &
                     "ORDER BY v.title", conn)
                     cmd.Parameters.AddWithValue("@kw", kw)

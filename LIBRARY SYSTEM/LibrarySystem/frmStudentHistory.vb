@@ -22,6 +22,7 @@ Public Class frmStudentHistory
         End With
     End Sub
 
+    ' Search only matches the ISBN and the Book Title.
     Public Sub LoadHistory(Optional keyword As String = "")
         DataGridView1.Rows.Clear()
         If Not AppSession.MemberId.HasValue Then Exit Sub
@@ -37,8 +38,7 @@ Public Class frmStudentHistory
                     "JOIN BookCopies c ON c.copy_id = t.copy_id " &
                     "JOIN vw_BookCatalog v ON v.book_id = c.book_id " &
                     "LEFT JOIN Penalty p ON p.transaction_id = t.transaction_id " &
-                    "WHERE t.member_id = @m AND (@kw = '' OR v.isbn LIKE CONCAT('%',@kw,'%') OR v.title LIKE CONCAT('%',@kw,'%') " &
-                    "   OR v.authors LIKE CONCAT('%',@kw,'%') OR (" & BorrowData.StatusSql & ") LIKE CONCAT('%',@kw,'%')) " &
+                    "WHERE t.member_id = @m AND (@kw = '' OR v.isbn LIKE CONCAT('%',@kw,'%') OR v.title LIKE CONCAT('%',@kw,'%')) " &
                     "ORDER BY t.borrow_date DESC, t.transaction_id DESC", conn)
                     cmd.Parameters.AddWithValue("@m", AppSession.MemberId.Value)
                     cmd.Parameters.AddWithValue("@kw", kw)

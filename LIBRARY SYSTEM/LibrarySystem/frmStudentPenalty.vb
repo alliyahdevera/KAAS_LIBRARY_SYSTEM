@@ -9,12 +9,25 @@ Public Class frmStudentPenalty
             .AllowUserToDeleteRows = False
             .SelectionMode = DataGridViewSelectionMode.FullRowSelect
         End With
+        UiHelpers.FillHeader(Me)          ' name, position, today
         RefreshPenalties()
     End Sub
 
     Private Sub frmStudentPenalty_VisibleChanged(sender As Object, e As EventArgs) Handles Me.VisibleChanged
-        If Me.Visible Then RefreshPenalties()
+        If Me.Visible Then
+            UiHelpers.FillHeader(Me)
+            RefreshPenalties()
+        End If
     End Sub
+
+    ' True if the Penalty table has a payment_date column.
+    Private Function HasPaymentDateColumn(conn As MySqlConnection) As Boolean
+        Using chk As New MySqlCommand(
+            "SELECT COUNT(*) FROM INFORMATION_SCHEMA.COLUMNS " &
+            "WHERE TABLE_SCHEMA = DATABASE() AND TABLE_NAME = 'Penalty' AND COLUMN_NAME = 'payment_date'", conn)
+            Return Convert.ToInt32(chk.ExecuteScalar()) > 0
+        End Using
+    End Function
 
     Public Sub RefreshPenalties()
         DataGridView1.Rows.Clear()
@@ -24,8 +37,16 @@ Public Class frmStudentPenalty
         Try
             Using conn = DBConnection.GetConnection()
                 conn.Open()
+
+                ' Payment date: the stored payment_date; if a Paid record has none
+                ' (older records), fall back to the date the book was returned so a date is always shown.
+                Dim payExpr As String = If(HasPaymentDateColumn(conn),
+                                           "COALESCE(p.payment_date, t.return_date, t.due_date)",
+                                           "COALESCE(t.return_date, t.due_date)")
+
                 Using cmd As New MySqlCommand(
-                    "SELECT b.isbn, b.title, b.edition, p.penalty_reason, t.return_condition, p.penalty_amount, p.penalty_status " &
+                    "SELECT b.isbn, b.title, b.edition, p.penalty_reason, t.return_condition, p.penalty_amount, p.penalty_status, " &
+                    payExpr & " AS pay_date " &
                     "FROM Penalty p " &
                     "JOIN BorrowTransaction t ON t.transaction_id = p.transaction_id " &
                     "JOIN BookCopies c ON c.copy_id = t.copy_id " &
@@ -50,6 +71,13 @@ Public Class frmStudentPenalty
                             row.Cells("BookCondition").Value = If(IsDBNull(r("return_condition")), "Pending", r("return_condition").ToString())
                             row.Cells("Amount").Value = ChrW(&H20B1) & amount.ToString("N2")
                             row.Cells("PenaltyStatus").Value = status
+
+                            ' Paid -> always show a payment date; not paid -> blank
+                            If status = "Paid" AndAlso Not IsDBNull(r("pay_date")) Then
+                                row.Cells("PaymentDate").Value = Convert.ToDateTime(r("pay_date")).ToString("MM/dd/yyyy")
+                            Else
+                                row.Cells("PaymentDate").Value = ""
+                            End If
                         End While
                     End Using
                 End Using

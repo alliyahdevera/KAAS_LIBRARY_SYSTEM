@@ -22,7 +22,7 @@ Partial Class frmStudentPenalty
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmStudentPenalty))
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
@@ -37,13 +37,6 @@ Partial Class frmStudentPenalty
         Me.PictureBox3 = New System.Windows.Forms.PictureBox()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.ISBN = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.BookTitle = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Edition = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Reason = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.BookCondition = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Amount = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.PenaltyStatus = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Panel5 = New System.Windows.Forms.Panel()
         Me.PictureBox7 = New System.Windows.Forms.PictureBox()
         Me.PictureBox8 = New System.Windows.Forms.PictureBox()
@@ -65,6 +58,14 @@ Partial Class frmStudentPenalty
         Me.Label27 = New System.Windows.Forms.Label()
         Me.Label28 = New System.Windows.Forms.Label()
         Me.lblposition = New System.Windows.Forms.Label()
+        Me.ISBN = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.BookTitle = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Edition = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Reason = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.BookCondition = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Amount = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.PenaltyStatus = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.PaymentDate = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Panel4.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel6.SuspendLayout()
@@ -151,7 +152,7 @@ Partial Class frmStudentPenalty
         Me.Panel6.Controls.Add(Me.PictureBox4)
         Me.Panel6.Controls.Add(Me.Label7)
         Me.Panel6.Controls.Add(Me.lblp_penalty)
-        Me.Panel6.Location = New System.Drawing.Point(845, 105)
+        Me.Panel6.Location = New System.Drawing.Point(827, 105)
         Me.Panel6.Margin = New System.Windows.Forms.Padding(4)
         Me.Panel6.Name = "Panel6"
         Me.Panel6.Size = New System.Drawing.Size(353, 135)
@@ -201,7 +202,7 @@ Partial Class frmStudentPenalty
         Me.Panel3.Controls.Add(Me.PictureBox3)
         Me.Panel3.Controls.Add(Me.Label8)
         Me.Panel3.Controls.Add(Me.lblt_due)
-        Me.Panel3.Location = New System.Drawing.Point(443, 105)
+        Me.Panel3.Location = New System.Drawing.Point(434, 105)
         Me.Panel3.Margin = New System.Windows.Forms.Padding(4)
         Me.Panel3.Name = "Panel3"
         Me.Panel3.Size = New System.Drawing.Size(353, 135)
@@ -236,63 +237,21 @@ Partial Class frmStudentPenalty
         Me.DataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.DataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ISBN, Me.BookTitle, Me.Edition, Me.Reason, Me.BookCondition, Me.Amount, Me.PenaltyStatus})
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridView1.DefaultCellStyle = DataGridViewCellStyle2
+        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ISBN, Me.BookTitle, Me.Edition, Me.Reason, Me.BookCondition, Me.Amount, Me.PenaltyStatus, Me.PaymentDate})
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridView1.DefaultCellStyle = DataGridViewCellStyle1
         Me.DataGridView1.Location = New System.Drawing.Point(35, 274)
         Me.DataGridView1.Margin = New System.Windows.Forms.Padding(4)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.RowHeadersWidth = 51
-        Me.DataGridView1.Size = New System.Drawing.Size(1164, 613)
+        Me.DataGridView1.Size = New System.Drawing.Size(1145, 613)
         Me.DataGridView1.TabIndex = 67
-        '
-        'ISBN
-        '
-        Me.ISBN.HeaderText = "ISBN"
-        Me.ISBN.MinimumWidth = 6
-        Me.ISBN.Name = "ISBN"
-        '
-        'BookTitle
-        '
-        Me.BookTitle.HeaderText = "Book Title"
-        Me.BookTitle.MinimumWidth = 6
-        Me.BookTitle.Name = "BookTitle"
-        '
-        'Edition
-        '
-        Me.Edition.HeaderText = "Edition"
-        Me.Edition.MinimumWidth = 6
-        Me.Edition.Name = "Edition"
-        '
-        'Reason
-        '
-        Me.Reason.HeaderText = "Reason"
-        Me.Reason.MinimumWidth = 6
-        Me.Reason.Name = "Reason"
-        '
-        'BookCondition
-        '
-        Me.BookCondition.HeaderText = "Book Condition"
-        Me.BookCondition.MinimumWidth = 6
-        Me.BookCondition.Name = "BookCondition"
-        '
-        'Amount
-        '
-        Me.Amount.HeaderText = "Amount"
-        Me.Amount.MinimumWidth = 6
-        Me.Amount.Name = "Amount"
-        '
-        'PenaltyStatus
-        '
-        Me.PenaltyStatus.HeaderText = "Penalty Status"
-        Me.PenaltyStatus.MinimumWidth = 6
-        Me.PenaltyStatus.Name = "PenaltyStatus"
         '
         'Panel5
         '
@@ -311,10 +270,10 @@ Partial Class frmStudentPenalty
         Me.Panel5.Controls.Add(Me.Label3)
         Me.Panel5.Controls.Add(Me.Label10)
         Me.Panel5.Controls.Add(Me.Label12)
-        Me.Panel5.Location = New System.Drawing.Point(1213, 105)
+        Me.Panel5.Location = New System.Drawing.Point(1206, 105)
         Me.Panel5.Margin = New System.Windows.Forms.Padding(4)
         Me.Panel5.Name = "Panel5"
-        Me.Panel5.Size = New System.Drawing.Size(386, 782)
+        Me.Panel5.Size = New System.Drawing.Size(376, 782)
         Me.Panel5.TabIndex = 65
         '
         'PictureBox7
@@ -552,6 +511,54 @@ Partial Class frmStudentPenalty
         Me.lblposition.TabIndex = 66
         Me.lblposition.Text = "NPosition"
         '
+        'ISBN
+        '
+        Me.ISBN.HeaderText = "ISBN"
+        Me.ISBN.MinimumWidth = 6
+        Me.ISBN.Name = "ISBN"
+        '
+        'BookTitle
+        '
+        Me.BookTitle.HeaderText = "Book Title"
+        Me.BookTitle.MinimumWidth = 6
+        Me.BookTitle.Name = "BookTitle"
+        '
+        'Edition
+        '
+        Me.Edition.HeaderText = "Edition"
+        Me.Edition.MinimumWidth = 6
+        Me.Edition.Name = "Edition"
+        '
+        'Reason
+        '
+        Me.Reason.HeaderText = "Reason"
+        Me.Reason.MinimumWidth = 6
+        Me.Reason.Name = "Reason"
+        '
+        'BookCondition
+        '
+        Me.BookCondition.HeaderText = "Book Condition"
+        Me.BookCondition.MinimumWidth = 6
+        Me.BookCondition.Name = "BookCondition"
+        '
+        'Amount
+        '
+        Me.Amount.HeaderText = "Amount"
+        Me.Amount.MinimumWidth = 6
+        Me.Amount.Name = "Amount"
+        '
+        'PenaltyStatus
+        '
+        Me.PenaltyStatus.HeaderText = "Penalty Status"
+        Me.PenaltyStatus.MinimumWidth = 6
+        Me.PenaltyStatus.Name = "PenaltyStatus"
+        '
+        'PaymentDate
+        '
+        Me.PaymentDate.HeaderText = "PaymentDate"
+        Me.PaymentDate.MinimumWidth = 6
+        Me.PaymentDate.Name = "PaymentDate"
+        '
         'frmStudentPenalty
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -608,13 +615,6 @@ Partial Class frmStudentPenalty
     Friend WithEvents PictureBox4 As PictureBox
     Friend WithEvents PictureBox3 As PictureBox
     Friend WithEvents DataGridView1 As DataGridView
-    Friend WithEvents ISBN As DataGridViewTextBoxColumn
-    Friend WithEvents BookTitle As DataGridViewTextBoxColumn
-    Friend WithEvents Edition As DataGridViewTextBoxColumn
-    Friend WithEvents Reason As DataGridViewTextBoxColumn
-    Friend WithEvents BookCondition As DataGridViewTextBoxColumn
-    Friend WithEvents Amount As DataGridViewTextBoxColumn
-    Friend WithEvents PenaltyStatus As DataGridViewTextBoxColumn
     Friend WithEvents Label1 As Label
     Friend WithEvents Label9 As Label
     Friend WithEvents Label6 As Label
@@ -633,4 +633,12 @@ Partial Class frmStudentPenalty
     Friend WithEvents PictureBox6 As PictureBox
     Friend WithEvents PictureBox5 As PictureBox
     Friend WithEvents PictureBox2 As PictureBox
+    Friend WithEvents ISBN As DataGridViewTextBoxColumn
+    Friend WithEvents BookTitle As DataGridViewTextBoxColumn
+    Friend WithEvents Edition As DataGridViewTextBoxColumn
+    Friend WithEvents Reason As DataGridViewTextBoxColumn
+    Friend WithEvents BookCondition As DataGridViewTextBoxColumn
+    Friend WithEvents Amount As DataGridViewTextBoxColumn
+    Friend WithEvents PenaltyStatus As DataGridViewTextBoxColumn
+    Friend WithEvents PaymentDate As DataGridViewTextBoxColumn
 End Class

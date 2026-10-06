@@ -17,22 +17,20 @@ Public Class frmAccManagement
         Public Contact As String
         Public EmailText As String
         Public Role As String
-        Public MemberType As String      ' "" when there is no borrower profile
+        Public MemberType As String
         Public CourseText As String
         Public YearLevel As Integer
         Public Dept As String
         Public StatusText As String
     End Class
 
-    ' These point at the controls you added in the designer:
-    '   txtSchoolID (ID No.), cboMemberType (Account Type), chkBorrower (Also a borrower?)
     Private schoolBox As TextBox
     Private typeBox As ComboBox
     Private borrowerBox As CheckBox
     Private selectedUserId As Integer = 0
+    Private Const LibraryDept As String = "Library"     ' every librarian belongs to the Library department
     Private pageLoaded As Boolean = False
 
-    ' ------------------------------------------------------------ setup
     Private Sub frmAccManagement_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         UiHelpers.FillHeader(Me)
         BuildExtraControls()
@@ -51,13 +49,10 @@ Public Class frmAccManagement
         pageLoaded = True
     End Sub
 
-    ' The page is reused, so refresh the list every time it is shown again.
     Private Sub frmAccManagement_VisibleChanged(sender As Object, e As EventArgs) Handles Me.VisibleChanged
         If Me.Visible AndAlso pageLoaded Then LoadAccounts(txtSearch.Text)
     End Sub
 
-    ' Connects the code to the three controls you placed in the designer
-    ' (ID No., Account Type, Also a borrower?). Nothing is created at run time.
     Private Sub BuildExtraControls()
         Dim everything As List(Of Control) = AllControls(Me)
 
@@ -134,6 +129,15 @@ Public Class frmAccManagement
         borrowerBox.Enabled = (t = "Librarian")
         If t <> "Librarian" Then borrowerBox.Checked = False
         Label6.Text = If(isStudent, "Course", "Department")
+
+        If t = "Librarian" Then
+            cboCourse.SelectedIndex = -1
+            cboCourse.Text = LibraryDept
+            cboCourse.Enabled = False
+        Else
+            cboCourse.Enabled = True
+            If cboCourse.Text = LibraryDept Then cboCourse.Text = ""
+        End If
     End Sub
 
     ' ------------------------------------------------------------ list
@@ -191,7 +195,7 @@ Public Class frmAccManagement
                             row.Cells("Birthdate").Value = If(info.Birth.HasValue, info.Birth.Value.ToString("MM/dd/yyyy"), "")
                             row.Cells("ContactNo").Value = info.Contact
                             row.Cells("Email").Value = info.EmailText
-                            row.Cells("Course").Value = If(info.MemberType = "Student", info.CourseText, info.Dept)
+                            row.Cells("Course").Value = If(info.Role = "Librarian", LibraryDept, If(info.MemberType = "Student", info.CourseText, info.Dept))
                             row.Cells("Year").Value = If(info.YearLevel >= 1 AndAlso info.YearLevel <= 4, cboYear_Level.Items(info.YearLevel - 1).ToString(), "")
                             row.Cells("colStatus").Value = info.StatusText
                             If info.StatusText <> "Active" Then row.DefaultCellStyle.ForeColor = Color.Firebrick
@@ -230,7 +234,7 @@ Public Class frmAccManagement
         End If
         txtContactNum.Text = info.Contact
         txtEmail.Text = info.EmailText
-        cboCourse.Text = If(info.MemberType = "Student", info.CourseText, info.Dept)
+        cboCourse.Text = If(info.Role = "Librarian", LibraryDept, If(info.MemberType = "Student", info.CourseText, info.Dept))
         If info.YearLevel >= 1 AndAlso info.YearLevel <= 4 Then cboYear_Level.SelectedIndex = info.YearLevel - 1 Else cboYear_Level.SelectedIndex = -1
         txtusername.Text = info.Uname
         txtpassword.Clear()
@@ -300,7 +304,7 @@ Public Class frmAccManagement
         If t = "Student" Then
             If cboCourse.Items.IndexOf(cboCourse.Text) = -1 Then Return Fail("Please pick a Course from the list.", cboCourse)
             If cboYear_Level.SelectedIndex = -1 Then Return Fail("Please select the Year level.", cboYear_Level)
-        Else
+        ElseIf t <> "Librarian" Then          ' librarians are fixed to the Library department
             If String.IsNullOrWhiteSpace(cboCourse.Text) Then Return Fail("Please enter the Department.", cboCourse)
         End If
 
@@ -341,7 +345,7 @@ Public Class frmAccManagement
         cmd.Parameters.AddWithValue("@mt", BorrowerType())
         cmd.Parameters.AddWithValue("@course", If(isStudent, CObj(cboCourse.Text.Trim()), DBNull.Value))
         cmd.Parameters.AddWithValue("@yr", If(isStudent, CObj(cboYear_Level.SelectedIndex + 1), DBNull.Value))
-        cmd.Parameters.AddWithValue("@dept", If(isStudent, DBNull.Value, CObj(cboCourse.Text.Trim())))
+        cmd.Parameters.AddWithValue("@dept", If(isStudent, DBNull.Value, CObj(If(typeBox.Text = "Librarian", LibraryDept, cboCourse.Text.Trim()))))
     End Sub
 
     ' ------------------------------------------------------------ add

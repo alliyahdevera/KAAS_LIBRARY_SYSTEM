@@ -22,11 +22,11 @@ Public Class frmAdminHistory
         Try
             Using conn = DBConnection.GetConnection()
                 conn.Open()
+                ' Search works on the Transaction ID (exact number) or the Username (partial match) only.
                 Using cmd As New MySqlCommand(
                     DashboardData.RecordsSelect & DashboardData.RecordsFrom &
-                    "WHERE (@kw = '' OR v.isbn LIKE CONCAT('%',@kw,'%') OR v.title LIKE CONCAT('%',@kw,'%') " &
-                    " OR v.authors LIKE CONCAT('%',@kw,'%') OR u.username LIKE CONCAT('%',@kw,'%') " &
-                    " OR m.member_type LIKE CONCAT('%',@kw,'%') OR (" & BorrowData.StatusSql & ") LIKE CONCAT('%',@kw,'%')) " &
+                    "WHERE (@kw = '' OR CAST(t.transaction_id AS CHAR) = @kw " &
+                    " OR u.username LIKE CONCAT('%',@kw,'%')) " &
                     "AND (@useDates = 0 OR t.borrow_date BETWEEN @fromDate AND @toDate) " &
                     "ORDER BY t.borrow_date DESC, t.transaction_id DESC", conn)
                     cmd.Parameters.AddWithValue("@kw", kw)

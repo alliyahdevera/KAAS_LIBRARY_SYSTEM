@@ -61,19 +61,20 @@ Partial Class frmStudentHistory
         Me.Panel2.Controls.Add(Me.lblTitle)
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel2.Location = New System.Drawing.Point(0, 0)
-        Me.Panel2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Panel2.Margin = New System.Windows.Forms.Padding(4)
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(1660, 65)
         Me.Panel2.TabIndex = 18
         '
         'btnExportExcel
         '
+        Me.btnExportExcel.Anchor = System.Windows.Forms.AnchorStyles.Right
         Me.btnExportExcel.BackColor = System.Drawing.Color.White
         Me.btnExportExcel.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnExportExcel.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnExportExcel.ForeColor = System.Drawing.Color.Black
         Me.btnExportExcel.Location = New System.Drawing.Point(1484, 15)
-        Me.btnExportExcel.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btnExportExcel.Margin = New System.Windows.Forms.Padding(4)
         Me.btnExportExcel.Name = "btnExportExcel"
         Me.btnExportExcel.Size = New System.Drawing.Size(160, 36)
         Me.btnExportExcel.TabIndex = 61
@@ -82,6 +83,7 @@ Partial Class frmStudentHistory
         '
         'Label14
         '
+        Me.Label14.Anchor = System.Windows.Forms.AnchorStyles.Right
         Me.Label14.AutoSize = True
         Me.Label14.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label14.ForeColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(10, Byte), Integer))
@@ -94,9 +96,10 @@ Partial Class frmStudentHistory
         '
         'txtSearch
         '
+        Me.txtSearch.Anchor = System.Windows.Forms.AnchorStyles.Right
         Me.txtSearch.Font = New System.Drawing.Font("Segoe UI", 12.0!)
         Me.txtSearch.Location = New System.Drawing.Point(1211, 15)
-        Me.txtSearch.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtSearch.Margin = New System.Windows.Forms.Padding(4)
         Me.txtSearch.Name = "txtSearch"
         Me.txtSearch.Size = New System.Drawing.Size(251, 34)
         Me.txtSearch.TabIndex = 59
@@ -129,7 +132,7 @@ Partial Class frmStudentHistory
         Me.DataGridView1.DefaultCellStyle = DataGridViewCellStyle1
         Me.DataGridView1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DataGridView1.Location = New System.Drawing.Point(0, 65)
-        Me.DataGridView1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.DataGridView1.Margin = New System.Windows.Forms.Padding(4)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.RowHeadersWidth = 51
         Me.DataGridView1.Size = New System.Drawing.Size(1660, 893)
@@ -304,7 +307,7 @@ Partial Class frmStudentHistory
         Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.Panel2)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "frmStudentHistory"
         Me.Text = "frmStudentHistory"
         Me.Panel2.ResumeLayout(False)
