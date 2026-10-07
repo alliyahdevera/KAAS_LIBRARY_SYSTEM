@@ -2,6 +2,7 @@
     Private loggingOut As Boolean = False
 
     Private Sub frmStudentMainMenu_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        ScreenFit.Apply(Me, 1924, 1052)
         Me.CenterToScreen()
         For Each b As Button In UiHelpers.AllButtons(Me)
             AddHandler b.Click, AddressOf MenuButton_Click

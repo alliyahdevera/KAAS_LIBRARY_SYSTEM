@@ -125,6 +125,7 @@
   <ItemGroup>
     <Compile Include="BookData.vb" />
     <Compile Include="BorrowData.vb" />
+    <Compile Include="CopyData.vb" />
     <Compile Include="DashboardData.vb" />
     <Compile Include="DBConnection.vb" />
     <Compile Include="ExcelImporter.vb" />
@@ -133,6 +134,18 @@
     </Compile>
     <Compile Include="Form1.Designer.vb">
       <DependentUpon>Form1.vb</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAdminBookCopies.Designer.vb">
+      <DependentUpon>frmAdminBookCopies.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmAdminBookCopies.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLostDamagedBooks.Designer.vb">
+      <DependentUpon>frmLostDamagedBooks.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmLostDamagedBooks.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmReports.Designer.vb">
@@ -271,10 +284,17 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="ScreenFit.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAdminBookCopies.resx">
+      <DependentUpon>frmAdminBookCopies.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLostDamagedBooks.resx">
+      <DependentUpon>frmLostDamagedBooks.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmReports.resx">
       <DependentUpon>frmReports.vb</DependentUpon>

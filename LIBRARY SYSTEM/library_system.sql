@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 06, 2026 at 07:17 AM
+-- Generation Time: Oct 07, 2026 at 01:45 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -115,7 +115,16 @@ INSERT INTO `activitylogs` (`log_id`, `user_id`, `action`, `description`, `log_t
 (73, 1, 'Logout', 'A_admin logged out.', '2026-10-06 12:50:41'),
 (74, 10, 'Logout', 'librarian logged out.', '2026-10-06 12:51:19'),
 (75, 6, 'Return', 'Tailor returned 1 book(s).', '2026-10-06 13:06:06'),
-(76, 6, 'Logout', 'Tailor logged out.', '2026-10-06 13:12:37');
+(76, 6, 'Logout', 'Tailor logged out.', '2026-10-06 13:12:37'),
+(77, 10, 'Logout', 'librarian logged out.', '2026-10-07 14:44:32'),
+(78, 10, 'Logout', 'librarian logged out.', '2026-10-07 15:01:34'),
+(79, 6, 'Logout', 'Tailor logged out.', '2026-10-07 16:14:57'),
+(80, 10, 'Logout', 'librarian logged out.', '2026-10-07 16:15:37'),
+(81, 1, 'Recovered Book', 'Book no. 6 marked as recovered / repaired', '2026-10-07 19:31:00'),
+(82, 1, 'Recovered Book', 'Book no. 9 marked as recovered / repaired', '2026-10-07 19:36:22'),
+(83, 1, 'Logout', 'A_admin logged out.', '2026-10-07 19:37:17'),
+(84, 3, 'Logout', 'A_Librarian logged out.', '2026-10-07 19:38:40'),
+(85, 3, 'Logout', 'A_Librarian logged out.', '2026-10-07 19:39:02');
 
 -- --------------------------------------------------------
 
@@ -264,6 +273,7 @@ CREATE TABLE `bookcopies` (
   `book_id` int(11) NOT NULL,
   `accession_no` varchar(30) NOT NULL,
   `copy_status` enum('Available','Borrowed','Lost','Damaged','Archived') NOT NULL DEFAULT 'Available',
+  `book_condition` enum('New','Good','Fair','Poor','Damaged','Lost') NOT NULL DEFAULT 'Good',
   `date_added` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -271,81 +281,81 @@ CREATE TABLE `bookcopies` (
 -- Dumping data for table `bookcopies`
 --
 
-INSERT INTO `bookcopies` (`copy_id`, `book_id`, `accession_no`, `copy_status`, `date_added`) VALUES
-(1, 16, 'ACC-00001', 'Available', '2026-07-31 10:02:59'),
-(2, 10, 'ACC-00002', 'Lost', '2026-07-31 10:02:59'),
-(3, 20, 'ACC-00003', 'Available', '2026-07-31 10:02:59'),
-(4, 19, 'ACC-00004', 'Available', '2026-07-31 10:02:59'),
-(5, 18, 'ACC-00005', 'Available', '2026-07-31 10:02:59'),
-(6, 1, 'ACC-00006', 'Available', '2026-07-31 10:02:59'),
-(7, 2, 'ACC-00007', 'Available', '2026-07-31 10:02:59'),
-(8, 13, 'ACC-00008', 'Available', '2026-07-31 10:02:59'),
-(9, 14, 'ACC-00009', 'Lost', '2026-07-31 10:02:59'),
-(10, 15, 'ACC-00010', 'Available', '2026-07-31 10:02:59'),
-(11, 3, 'ACC-00011', 'Available', '2026-07-31 10:02:59'),
-(12, 23, 'ACC-00012', 'Available', '2026-07-31 10:02:59'),
-(13, 11, 'ACC-00013', 'Available', '2026-07-31 10:02:59'),
-(14, 9, 'ACC-00014', 'Available', '2026-07-31 10:02:59'),
-(15, 6, 'ACC-00015', 'Damaged', '2026-07-31 10:02:59'),
-(16, 8, 'ACC-00016', 'Available', '2026-07-31 10:02:59'),
-(17, 4, 'ACC-00017', 'Lost', '2026-07-31 10:02:59'),
-(18, 21, 'ACC-00018', 'Available', '2026-07-31 10:02:59'),
-(19, 5, 'ACC-00019', 'Available', '2026-07-31 10:02:59'),
-(20, 7, 'ACC-00020', 'Available', '2026-07-31 10:02:59'),
-(21, 17, 'ACC-00021', 'Available', '2026-07-31 10:02:59'),
-(22, 24, 'ACC-00022', 'Available', '2026-07-31 10:02:59'),
-(23, 12, 'ACC-00023', 'Available', '2026-07-31 10:02:59'),
-(24, 22, 'ACC-00024', 'Available', '2026-07-31 10:02:59'),
-(25, 10, 'ACC-00025', 'Available', '2026-07-31 10:03:23'),
-(26, 16, 'ACC-00026', 'Available', '2026-08-01 11:28:08'),
-(27, 10, 'ACC-00027', 'Available', '2026-08-01 11:28:08'),
-(28, 20, 'ACC-00028', 'Available', '2026-08-01 11:28:08'),
-(29, 19, 'ACC-00029', 'Available', '2026-08-01 11:28:08'),
-(30, 18, 'ACC-00030', 'Available', '2026-08-01 11:28:08'),
-(31, 1, 'ACC-00031', 'Borrowed', '2026-08-01 11:28:08'),
-(32, 2, 'ACC-00032', 'Available', '2026-08-01 11:28:08'),
-(33, 13, 'ACC-00033', 'Available', '2026-08-01 11:28:08'),
-(34, 14, 'ACC-00034', 'Available', '2026-08-01 11:28:08'),
-(35, 15, 'ACC-00035', 'Available', '2026-08-01 11:28:08'),
-(36, 3, 'ACC-00036', 'Available', '2026-08-01 11:28:08'),
-(37, 23, 'ACC-00037', 'Available', '2026-08-01 11:28:08'),
-(38, 11, 'ACC-00038', 'Available', '2026-08-01 11:28:08'),
-(39, 9, 'ACC-00039', 'Available', '2026-08-01 11:28:08'),
-(40, 6, 'ACC-00040', 'Available', '2026-08-01 11:28:08'),
-(41, 8, 'ACC-00041', 'Available', '2026-08-01 11:28:08'),
-(42, 4, 'ACC-00042', 'Available', '2026-08-01 11:28:08'),
-(43, 21, 'ACC-00043', 'Available', '2026-08-01 11:28:08'),
-(44, 5, 'ACC-00044', 'Available', '2026-08-01 11:28:08'),
-(45, 7, 'ACC-00045', 'Available', '2026-08-01 11:28:08'),
-(46, 17, 'ACC-00046', 'Available', '2026-08-01 11:28:08'),
-(47, 24, 'ACC-00047', 'Available', '2026-08-01 11:28:08'),
-(48, 12, 'ACC-00048', 'Available', '2026-08-01 11:28:08'),
-(49, 22, 'ACC-00049', 'Available', '2026-08-01 11:28:08'),
-(50, 16, 'ACC-00050', 'Available', '2026-08-01 11:29:46'),
-(51, 10, 'ACC-00051', 'Available', '2026-08-01 11:29:46'),
-(52, 20, 'ACC-00052', 'Available', '2026-08-01 11:29:46'),
-(53, 19, 'ACC-00053', 'Available', '2026-08-01 11:29:46'),
-(54, 18, 'ACC-00054', 'Available', '2026-08-01 11:29:46'),
-(55, 1, 'ACC-00055', 'Available', '2026-08-01 11:29:46'),
-(56, 2, 'ACC-00056', 'Available', '2026-08-01 11:29:46'),
-(57, 13, 'ACC-00057', 'Available', '2026-08-01 11:29:46'),
-(58, 14, 'ACC-00058', 'Available', '2026-08-01 11:29:46'),
-(59, 15, 'ACC-00059', 'Available', '2026-08-01 11:29:46'),
-(60, 3, 'ACC-00060', 'Available', '2026-08-01 11:29:46'),
-(61, 23, 'ACC-00061', 'Available', '2026-08-01 11:29:46'),
-(62, 11, 'ACC-00062', 'Available', '2026-08-01 11:29:46'),
-(63, 9, 'ACC-00063', 'Available', '2026-08-01 11:29:46'),
-(64, 6, 'ACC-00064', 'Available', '2026-08-01 11:29:46'),
-(65, 8, 'ACC-00065', 'Available', '2026-08-01 11:29:46'),
-(66, 4, 'ACC-00066', 'Available', '2026-08-01 11:29:46'),
-(67, 21, 'ACC-00067', 'Available', '2026-08-01 11:29:46'),
-(68, 5, 'ACC-00068', 'Available', '2026-08-01 11:29:46'),
-(69, 7, 'ACC-00069', 'Available', '2026-08-01 11:29:46'),
-(70, 17, 'ACC-00070', 'Available', '2026-08-01 11:29:46'),
-(71, 24, 'ACC-00071', 'Available', '2026-08-01 11:29:46'),
-(72, 12, 'ACC-00072', 'Available', '2026-08-01 11:29:46'),
-(73, 22, 'ACC-00073', 'Available', '2026-08-01 11:29:46'),
-(74, 7, 'ACC-00074', 'Available', '2026-08-02 06:47:55');
+INSERT INTO `bookcopies` (`copy_id`, `book_id`, `accession_no`, `copy_status`, `book_condition`, `date_added`) VALUES
+(1, 16, 'ACC-00001', 'Available', 'Good', '2026-07-31 10:02:59'),
+(2, 10, 'ACC-00002', 'Lost', 'Lost', '2026-07-31 10:02:59'),
+(3, 20, 'ACC-00003', 'Available', 'Good', '2026-07-31 10:02:59'),
+(4, 19, 'ACC-00004', 'Available', 'Good', '2026-07-31 10:02:59'),
+(5, 18, 'ACC-00005', 'Available', 'Good', '2026-07-31 10:02:59'),
+(6, 1, 'ACC-00006', 'Available', 'Good', '2026-07-31 10:02:59'),
+(7, 2, 'ACC-00007', 'Available', 'Good', '2026-07-31 10:02:59'),
+(8, 13, 'ACC-00008', 'Available', 'Good', '2026-07-31 10:02:59'),
+(9, 14, 'ACC-00009', 'Available', 'Good', '2026-07-31 10:02:59'),
+(10, 15, 'ACC-00010', 'Damaged', 'Damaged', '2026-07-31 10:02:59'),
+(11, 3, 'ACC-00011', 'Available', 'Good', '2026-07-31 10:02:59'),
+(12, 23, 'ACC-00012', 'Available', 'Good', '2026-07-31 10:02:59'),
+(13, 11, 'ACC-00013', 'Available', 'Good', '2026-07-31 10:02:59'),
+(14, 9, 'ACC-00014', 'Available', 'Good', '2026-07-31 10:02:59'),
+(15, 6, 'ACC-00015', 'Damaged', 'Damaged', '2026-07-31 10:02:59'),
+(16, 8, 'ACC-00016', 'Available', 'Good', '2026-07-31 10:02:59'),
+(17, 4, 'ACC-00017', 'Lost', 'Lost', '2026-07-31 10:02:59'),
+(18, 21, 'ACC-00018', 'Available', 'Good', '2026-07-31 10:02:59'),
+(19, 5, 'ACC-00019', 'Available', 'Good', '2026-07-31 10:02:59'),
+(20, 7, 'ACC-00020', 'Available', 'Good', '2026-07-31 10:02:59'),
+(21, 17, 'ACC-00021', 'Available', 'Good', '2026-07-31 10:02:59'),
+(22, 24, 'ACC-00022', 'Damaged', 'Damaged', '2026-07-31 10:02:59'),
+(23, 12, 'ACC-00023', 'Available', 'Good', '2026-07-31 10:02:59'),
+(24, 22, 'ACC-00024', 'Available', 'Good', '2026-07-31 10:02:59'),
+(25, 10, 'ACC-00025', 'Available', 'Good', '2026-07-31 10:03:23'),
+(26, 16, 'ACC-00026', 'Available', 'Good', '2026-08-01 11:28:08'),
+(27, 10, 'ACC-00027', 'Available', 'Good', '2026-08-01 11:28:08'),
+(28, 20, 'ACC-00028', 'Available', 'Good', '2026-08-01 11:28:08'),
+(29, 19, 'ACC-00029', 'Available', 'Good', '2026-08-01 11:28:08'),
+(30, 18, 'ACC-00030', 'Available', 'Good', '2026-08-01 11:28:08'),
+(31, 1, 'ACC-00031', 'Borrowed', 'Good', '2026-08-01 11:28:08'),
+(32, 2, 'ACC-00032', 'Available', 'Good', '2026-08-01 11:28:08'),
+(33, 13, 'ACC-00033', 'Available', 'Good', '2026-08-01 11:28:08'),
+(34, 14, 'ACC-00034', 'Available', 'Good', '2026-08-01 11:28:08'),
+(35, 15, 'ACC-00035', 'Available', 'Good', '2026-08-01 11:28:08'),
+(36, 3, 'ACC-00036', 'Available', 'Good', '2026-08-01 11:28:08'),
+(37, 23, 'ACC-00037', 'Available', 'Good', '2026-08-01 11:28:08'),
+(38, 11, 'ACC-00038', 'Available', 'Good', '2026-08-01 11:28:08'),
+(39, 9, 'ACC-00039', 'Available', 'Good', '2026-08-01 11:28:08'),
+(40, 6, 'ACC-00040', 'Available', 'Good', '2026-08-01 11:28:08'),
+(41, 8, 'ACC-00041', 'Available', 'Good', '2026-08-01 11:28:08'),
+(42, 4, 'ACC-00042', 'Available', 'Good', '2026-08-01 11:28:08'),
+(43, 21, 'ACC-00043', 'Available', 'Good', '2026-08-01 11:28:08'),
+(44, 5, 'ACC-00044', 'Available', 'Good', '2026-08-01 11:28:08'),
+(45, 7, 'ACC-00045', 'Available', 'Good', '2026-08-01 11:28:08'),
+(46, 17, 'ACC-00046', 'Available', 'Good', '2026-08-01 11:28:08'),
+(47, 24, 'ACC-00047', 'Available', 'Good', '2026-08-01 11:28:08'),
+(48, 12, 'ACC-00048', 'Available', 'Good', '2026-08-01 11:28:08'),
+(49, 22, 'ACC-00049', 'Available', 'Good', '2026-08-01 11:28:08'),
+(50, 16, 'ACC-00050', 'Available', 'Good', '2026-08-01 11:29:46'),
+(51, 10, 'ACC-00051', 'Available', 'Good', '2026-08-01 11:29:46'),
+(52, 20, 'ACC-00052', 'Available', 'Good', '2026-08-01 11:29:46'),
+(53, 19, 'ACC-00053', 'Available', 'Good', '2026-08-01 11:29:46'),
+(54, 18, 'ACC-00054', 'Available', 'Good', '2026-08-01 11:29:46'),
+(55, 1, 'ACC-00055', 'Available', 'Good', '2026-08-01 11:29:46'),
+(56, 2, 'ACC-00056', 'Available', 'Good', '2026-08-01 11:29:46'),
+(57, 13, 'ACC-00057', 'Available', 'Good', '2026-08-01 11:29:46'),
+(58, 14, 'ACC-00058', 'Available', 'Good', '2026-08-01 11:29:46'),
+(59, 15, 'ACC-00059', 'Available', 'Good', '2026-08-01 11:29:46'),
+(60, 3, 'ACC-00060', 'Available', 'Good', '2026-08-01 11:29:46'),
+(61, 23, 'ACC-00061', 'Available', 'Good', '2026-08-01 11:29:46'),
+(62, 11, 'ACC-00062', 'Available', 'Good', '2026-08-01 11:29:46'),
+(63, 9, 'ACC-00063', 'Available', 'Good', '2026-08-01 11:29:46'),
+(64, 6, 'ACC-00064', 'Available', 'Good', '2026-08-01 11:29:46'),
+(65, 8, 'ACC-00065', 'Available', 'Good', '2026-08-01 11:29:46'),
+(66, 4, 'ACC-00066', 'Available', 'Good', '2026-08-01 11:29:46'),
+(67, 21, 'ACC-00067', 'Available', 'Good', '2026-08-01 11:29:46'),
+(68, 5, 'ACC-00068', 'Available', 'Good', '2026-08-01 11:29:46'),
+(69, 7, 'ACC-00069', 'Available', 'Good', '2026-08-01 11:29:46'),
+(70, 17, 'ACC-00070', 'Available', 'Good', '2026-08-01 11:29:46'),
+(71, 24, 'ACC-00071', 'Available', 'Good', '2026-08-01 11:29:46'),
+(72, 12, 'ACC-00072', 'Available', 'Good', '2026-08-01 11:29:46'),
+(73, 22, 'ACC-00073', 'Available', 'Good', '2026-08-01 11:29:46'),
+(74, 7, 'ACC-00074', 'Available', 'Good', '2026-08-02 06:47:55');
 
 -- --------------------------------------------------------
 
@@ -528,7 +538,52 @@ INSERT INTO `loginlogs` (`login_log_id`, `user_id`, `username`, `status`, `attem
 (23, 1, 'A_admin', 'Success', '2026-10-06 12:47:08'),
 (24, 10, 'librarian', 'Success', '2026-10-06 12:50:49'),
 (25, 1, 'A_admin', 'Success', '2026-10-06 12:51:28'),
-(26, 6, 'Tailor', 'Success', '2026-10-06 13:05:58');
+(26, 6, 'Tailor', 'Success', '2026-10-06 13:05:58'),
+(27, 10, 'librarian', 'Success', '2026-10-07 14:40:27'),
+(28, 10, 'librarian', 'Success', '2026-10-07 14:44:43'),
+(29, 6, 'Tailor', 'Success', '2026-10-07 16:05:21'),
+(30, 1, 'A_admin', 'Success', '2026-10-07 16:10:47'),
+(31, 6, 'Tailor', 'Success', '2026-10-07 16:14:45'),
+(32, 10, 'librarian', 'Success', '2026-10-07 16:15:09'),
+(33, 10, 'librarian', 'Success', '2026-10-07 18:31:54'),
+(34, 1, 'A_admin', 'Success', '2026-10-07 19:19:47'),
+(35, 1, 'A_admin', 'Success', '2026-10-07 19:29:52'),
+(36, 3, 'A_Librarian', 'Success', '2026-10-07 19:37:28'),
+(37, 3, 'A_Librarian', 'Success', '2026-10-07 19:38:58'),
+(38, 1, 'A_admin', 'Success', '2026-10-07 19:39:10');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `lostdamagedbooks`
+--
+
+CREATE TABLE `lostdamagedbooks` (
+  `incident_id` int(11) NOT NULL,
+  `copy_id` int(11) NOT NULL,
+  `transaction_id` int(11) DEFAULT NULL,
+  `member_id` int(11) DEFAULT NULL,
+  `incident_type` enum('Lost','Damaged') NOT NULL,
+  `incident_date` date NOT NULL,
+  `reported_by` int(11) DEFAULT NULL,
+  `remarks` varchar(255) DEFAULT NULL,
+  `is_resolved` tinyint(1) NOT NULL DEFAULT 0,
+  `resolved_date` date DEFAULT NULL,
+  `date_recorded` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `lostdamagedbooks`
+--
+
+INSERT INTO `lostdamagedbooks` (`incident_id`, `copy_id`, `transaction_id`, `member_id`, `incident_type`, `incident_date`, `reported_by`, `remarks`, `is_resolved`, `resolved_date`, `date_recorded`) VALUES
+(1, 2, 12, 2, 'Lost', '2026-08-02', NULL, 'Imported from borrow history', 0, NULL, '2026-10-07 10:24:15'),
+(2, 9, 17, 6, 'Lost', '2026-08-02', NULL, 'Imported from borrow history', 1, '2026-10-07', '2026-10-07 10:24:15'),
+(3, 17, 23, 7, 'Lost', '2026-10-06', 10, 'Imported from borrow history', 0, NULL, '2026-10-07 10:24:15'),
+(4, 15, 24, 7, 'Damaged', '2026-10-06', 10, 'Imported from borrow history', 0, NULL, '2026-10-07 10:24:15'),
+(8, 6, 14, 2, 'Damaged', '2026-08-02', NULL, 'Imported from borrow history', 1, '2026-10-07', '2026-10-07 11:29:03'),
+(9, 22, 15, 2, 'Damaged', '2026-08-02', NULL, 'Imported from borrow history', 0, NULL, '2026-10-07 11:29:03'),
+(10, 10, 18, 6, 'Damaged', '2026-08-02', NULL, 'Imported from borrow history', 0, NULL, '2026-10-07 11:29:03');
 
 -- --------------------------------------------------------
 
@@ -891,7 +946,6 @@ CREATE TABLE `users` (
   `last_name` varchar(50) NOT NULL,
   `suffix` varchar(20) DEFAULT NULL,
   `gender` varchar(20) NOT NULL,
-  `birthdate` date DEFAULT NULL,
   `contact_num` varchar(20) NOT NULL,
   `email` varchar(100) NOT NULL,
   `role` enum('Admin','Librarian','Member') NOT NULL DEFAULT 'Member',
@@ -904,16 +958,16 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`user_id`, `school_id`, `username`, `password`, `first_name`, `middle_name`, `last_name`, `suffix`, `gender`, `birthdate`, `contact_num`, `email`, `role`, `account_status`, `attempts`, `date_registered`) VALUES
-(1, '000001', 'A_admin', 'PBKDF2$10000$NrTQBK4IdmIhaej6po29Hg==$38sfNoF9tGa8jlK9PvCHFk5D94wNDZ8TWsI1egt7b1U=', 'Alliyah', NULL, 'De Vera', NULL, 'Female', '2006-05-31', '09612345678', 'Alli@gmail.com', 'Admin', 'Active', 3, '2026-07-30 08:22:38'),
-(2, '139524', 'sphciao', '12345678', 'Sophia Cassandra', 'Villacorte', 'Solis', NULL, 'Female', '2006-01-16', '09690141523', 'sphciao@gmail.com', 'Member', 'Active', 3, '2026-07-30 12:01:34'),
-(3, '120824', 'A_Librarian', '12345678', 'Andrea', NULL, 'Para', NULL, 'Female', '2006-01-16', '09690141523', 'andreapara@gmail.com', 'Librarian', 'Active', 3, '2026-07-31 10:46:59'),
-(5, '278024', 'kcer', 'PBKDF2$10000$Vsjcxw11jWlIJZhLA1y/ww==$IMmw/9JxTv5bJrKtKjOwKPeoQHNP0H5UI1Ivqqf52UY=', 'Kevin', NULL, 'Roque', NULL, 'Male', '2005-11-17', '09876475843', 'kev@gmail.com', 'Member', 'Active', 3, '2026-08-02 11:28:30'),
-(6, '132724', 'Tailor', 'PBKDF2$10000$kNzE2FjtrXh84HVUrNeyQg==$raLhUT/Q8tRISW00suyKMHB5zU9+2/h6r8VLkVNGouw=', 'Jonnidel', NULL, 'Reales', NULL, 'Male', '2004-07-06', '09603758429', 'jonnidel@gmail.com', 'Member', 'Active', 3, '2026-08-02 11:46:51'),
-(7, '278624', 'kevinn', 'PBKDF2$10000$K7x+Ldwc6BQrT/wrfMNBtA==$hiD8QnjGz5FbFV1ZR7F8ad5wZaxr/G3+ODU7m3hgBXA=', 'kevinn', NULL, 'roque', NULL, 'Male', '2006-01-01', '12345678901', 'kevin@gmail.com', 'Member', 'Active', 3, '2026-10-06 04:21:02'),
-(8, '123424', 'alliyah', 'PBKDF2$10000$kgMBpVl2lMx4T4A+yhWQIA==$q/zulRmS6yBgEMpzZH1P3MhXdR8fKaal4Tn8W7ACiNM=', 'alliyah', NULL, 'de vera', NULL, 'Female', '2004-06-01', '12345678901', 'alli@gmail.com', 'Member', 'Active', 3, '2026-10-06 04:29:15'),
-(9, '123456', 'teacher', 'PBKDF2$10000$Us5P45760hl6qf2QgtksIA==$uxCVbC7GW3ipYTqDf/gIVRPTJmoD1YUpcEjKLYK7D7k=', 'teacher', NULL, 'teacher', NULL, 'Male', '1990-10-06', '12345678901', 'teacehr@gmail.com', 'Member', 'Active', 3, '2026-10-06 04:30:32'),
-(10, '234567', 'librarian', 'PBKDF2$10000$ih9FzlV4hvpGlYD4kV42Rg==$eBxkl/TQgle/kfTFNhYAollzplVOAyjfqbpwp2Wb3Oo=', 'librarian', NULL, 'librarian', NULL, 'Female', '1990-10-06', '12345678901', 'librarian@gmail.com', 'Librarian', 'Active', 3, '2026-10-06 04:32:41');
+INSERT INTO `users` (`user_id`, `school_id`, `username`, `password`, `first_name`, `middle_name`, `last_name`, `suffix`, `gender`, `contact_num`, `email`, `role`, `account_status`, `attempts`, `date_registered`) VALUES
+(1, '000001', 'A_admin', 'PBKDF2$10000$NrTQBK4IdmIhaej6po29Hg==$38sfNoF9tGa8jlK9PvCHFk5D94wNDZ8TWsI1egt7b1U=', 'Alliyah', NULL, 'De Vera', NULL, 'Female', '09612345678', 'Alli@gmail.com', 'Admin', 'Active', 3, '2026-07-30 08:22:38'),
+(2, '139524', 'sphciao', '12345678', 'Sophia Cassandra', 'Villacorte', 'Solis', NULL, 'Female', '09690141523', 'sphciao@gmail.com', 'Member', 'Active', 3, '2026-07-30 12:01:34'),
+(3, '120824', 'A_Librarian', 'PBKDF2$10000$pIAY0fT28kClzK+Cr7bUmA==$NPqxGQ8A3k7QRunHNv8oP9AyIc4IGN7c5SxvwWRsxg4=', 'Andrea', NULL, 'Para', NULL, 'Female', '09690141523', 'andreapara@gmail.com', 'Librarian', 'Active', 3, '2026-07-31 10:46:59'),
+(5, '278024', 'kcer', 'PBKDF2$10000$Vsjcxw11jWlIJZhLA1y/ww==$IMmw/9JxTv5bJrKtKjOwKPeoQHNP0H5UI1Ivqqf52UY=', 'Kevin', NULL, 'Roque', NULL, 'Male', '09876475843', 'kev@gmail.com', 'Member', 'Active', 3, '2026-08-02 11:28:30'),
+(6, '132724', 'Tailor', 'PBKDF2$10000$kNzE2FjtrXh84HVUrNeyQg==$raLhUT/Q8tRISW00suyKMHB5zU9+2/h6r8VLkVNGouw=', 'Jonnidel', NULL, 'Reales', NULL, 'Male', '09603758429', 'jonnidel@gmail.com', 'Member', 'Active', 3, '2026-08-02 11:46:51'),
+(7, '278624', 'kevinn', 'PBKDF2$10000$K7x+Ldwc6BQrT/wrfMNBtA==$hiD8QnjGz5FbFV1ZR7F8ad5wZaxr/G3+ODU7m3hgBXA=', 'kevinn', NULL, 'roque', NULL, 'Male', '12345678901', 'kevin@gmail.com', 'Member', 'Active', 3, '2026-10-06 04:21:02'),
+(8, '123424', 'alliyah', 'PBKDF2$10000$kgMBpVl2lMx4T4A+yhWQIA==$q/zulRmS6yBgEMpzZH1P3MhXdR8fKaal4Tn8W7ACiNM=', 'alliyah', NULL, 'de vera', NULL, 'Female', '12345678901', 'alli@gmail.com', 'Member', 'Active', 3, '2026-10-06 04:29:15'),
+(9, '123456', 'teacher', 'PBKDF2$10000$Us5P45760hl6qf2QgtksIA==$uxCVbC7GW3ipYTqDf/gIVRPTJmoD1YUpcEjKLYK7D7k=', 'teacher', NULL, 'teacher', NULL, 'Male', '12345678901', 'teacehr@gmail.com', 'Member', 'Active', 3, '2026-10-06 04:30:32'),
+(10, '234567', 'librarian', 'PBKDF2$10000$ih9FzlV4hvpGlYD4kV42Rg==$eBxkl/TQgle/kfTFNhYAollzplVOAyjfqbpwp2Wb3Oo=', 'librarian', NULL, 'librarian', NULL, 'Female', '12345678901', 'librarian@gmail.com', 'Librarian', 'Active', 3, '2026-10-06 04:32:41');
 
 -- --------------------------------------------------------
 
@@ -973,7 +1027,7 @@ CREATE TABLE `vw_borrowdetails` (
 --
 DROP TABLE IF EXISTS `vw_bookcatalog`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vw_bookcatalog`  AS SELECT `b`.`book_id` AS `book_id`, `b`.`isbn` AS `isbn`, `b`.`title` AS `title`, (select group_concat(`a`.`author_name` order by `ba`.`author_order` ASC separator ' & ') from (`bookauthors` `ba` join `authors` `a` on(`a`.`author_id` = `ba`.`author_id`)) where `ba`.`book_id` = `b`.`book_id`) AS `authors`, (select group_concat(`c`.`category_name` order by `c`.`category_name` ASC separator ', ') from (`bookcategories` `bc` join `categories` `c` on(`c`.`category_id` = `bc`.`category_id`)) where `bc`.`book_id` = `b`.`book_id`) AS `categories`, `p`.`publisher_name` AS `publisher_name`, `b`.`edition` AS `edition`, `b`.`year_published` AS `year_published`, `b`.`price` AS `price`, (select count(0) from `bookcopies` `x` where `x`.`book_id` = `b`.`book_id` and `x`.`copy_status` <> 'Archived') AS `total_copies`, (select count(0) from `bookcopies` `x` where `x`.`book_id` = `b`.`book_id` and `x`.`copy_status` = 'Available') AS `available_copies` FROM (`bookinfo` `b` left join `publishers` `p` on(`p`.`publisher_id` = `b`.`publisher_id`)) ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vw_bookcatalog`  AS SELECT `b`.`book_id` AS `book_id`, `b`.`isbn` AS `isbn`, `b`.`title` AS `title`, (select group_concat(`a`.`author_name` order by `ba`.`author_order` ASC separator ' & ') from (`bookauthors` `ba` join `authors` `a` on(`a`.`author_id` = `ba`.`author_id`)) where `ba`.`book_id` = `b`.`book_id`) AS `authors`, (select group_concat(`c`.`category_name` order by `c`.`category_name` ASC separator ', ') from (`bookcategories` `bc` join `categories` `c` on(`c`.`category_id` = `bc`.`category_id`)) where `bc`.`book_id` = `b`.`book_id`) AS `categories`, `p`.`publisher_name` AS `publisher_name`, `b`.`edition` AS `edition`, `b`.`year_published` AS `year_published`, `b`.`price` AS `price`, (select count(0) from `bookcopies` `x` where `x`.`book_id` = `b`.`book_id` and `x`.`copy_status` not in ('Archived','Lost','Damaged') and !exists(select 1 from `lostdamagedbooks` `i` where `i`.`copy_id` = `x`.`copy_id` and `i`.`is_resolved` = 0 limit 1)) AS `total_copies`, (select count(0) from `bookcopies` `x` where `x`.`book_id` = `b`.`book_id` and `x`.`copy_status` = 'Available' and !exists(select 1 from `lostdamagedbooks` `i` where `i`.`copy_id` = `x`.`copy_id` and `i`.`is_resolved` = 0 limit 1)) AS `available_copies` FROM (`bookinfo` `b` left join `publishers` `p` on(`p`.`publisher_id` = `b`.`publisher_id`)) ;
 
 -- --------------------------------------------------------
 
@@ -1059,6 +1113,17 @@ ALTER TABLE `loginlogs`
   ADD KEY `idx_loginlog_user` (`user_id`);
 
 --
+-- Indexes for table `lostdamagedbooks`
+--
+ALTER TABLE `lostdamagedbooks`
+  ADD PRIMARY KEY (`incident_id`),
+  ADD KEY `idx_ld_copy` (`copy_id`),
+  ADD KEY `idx_ld_tx` (`transaction_id`),
+  ADD KEY `idx_ld_date` (`incident_date`),
+  ADD KEY `fk_ld_member` (`member_id`),
+  ADD KEY `fk_ld_user` (`reported_by`);
+
+--
 -- Indexes for table `members`
 --
 ALTER TABLE `members`
@@ -1130,7 +1195,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `activitylogs`
 --
 ALTER TABLE `activitylogs`
-  MODIFY `log_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
+  MODIFY `log_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=86;
 
 --
 -- AUTO_INCREMENT for table `authors`
@@ -1166,7 +1231,13 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT for table `loginlogs`
 --
 ALTER TABLE `loginlogs`
-  MODIFY `login_log_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `login_log_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+
+--
+-- AUTO_INCREMENT for table `lostdamagedbooks`
+--
+ALTER TABLE `lostdamagedbooks`
+  MODIFY `incident_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `members`
@@ -1272,6 +1343,15 @@ ALTER TABLE `borrowtransaction`
 --
 ALTER TABLE `loginlogs`
   ADD CONSTRAINT `fk_loginlog_user` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE SET NULL;
+
+--
+-- Constraints for table `lostdamagedbooks`
+--
+ALTER TABLE `lostdamagedbooks`
+  ADD CONSTRAINT `fk_ld_copy` FOREIGN KEY (`copy_id`) REFERENCES `bookcopies` (`copy_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_ld_member` FOREIGN KEY (`member_id`) REFERENCES `members` (`member_id`) ON DELETE SET NULL ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_ld_tx` FOREIGN KEY (`transaction_id`) REFERENCES `borrowtransaction` (`transaction_id`) ON DELETE SET NULL ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_ld_user` FOREIGN KEY (`reported_by`) REFERENCES `users` (`user_id`) ON DELETE SET NULL ON UPDATE CASCADE;
 
 --
 -- Constraints for table `members`

@@ -12,6 +12,7 @@ Public Class Form1
     Private isPasswordVisible As Boolean = False
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        ScreenFit.Apply(Me, 1163, 750)
         Me.CenterToScreen()
         lockoutTimer.Interval = 1000
         lblAttempts.Text = ""

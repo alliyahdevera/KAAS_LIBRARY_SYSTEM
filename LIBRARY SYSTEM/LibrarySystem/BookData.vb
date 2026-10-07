@@ -81,13 +81,15 @@ Module BookData
     End Sub
 
     ' Adds physical copies with accession numbers ACC-00075, ACC-00076, ...
-    Public Sub AddCopies(conn As MySqlConnection, tx As MySqlTransaction, bookId As Integer, count As Integer)
+    Public Sub AddCopies(conn As MySqlConnection, tx As MySqlTransaction, bookId As Integer, count As Integer,
+                         Optional condition As String = "Good")
         For i As Integer = 1 To count
             Dim newId As Integer
             Using ins As New MySqlCommand(
-                "INSERT INTO BookCopies (book_id, accession_no, copy_status) VALUES (@b, @tmp, 'Available')", conn, tx)
+                "INSERT INTO BookCopies (book_id, accession_no, copy_status, book_condition) VALUES (@b, @tmp, 'Available', @cond)", conn, tx)
                 ins.Parameters.AddWithValue("@b", bookId)
                 ins.Parameters.AddWithValue("@tmp", "TMP-" & Guid.NewGuid().ToString("N").Substring(0, 20))
+                ins.Parameters.AddWithValue("@cond", condition)
                 ins.ExecuteNonQuery()
                 newId = Convert.ToInt32(ins.LastInsertedId)
             End Using
@@ -98,12 +100,33 @@ Module BookData
             End Using
         Next
     End Sub
+
+    ' One search clause used by every book list (needs a parameter named @kw).
+    ' Matches ISBN, title, author, publisher, category, edition and year published.
+    Public Function BookSearchSql(Optional tableAlias As String = "") As String
+        Dim p As String = If(tableAlias = "", "", tableAlias & ".")
+        Dim like1 As String = " LIKE CONCAT('%',@kw,'%')"
+        Return "(@kw = '' OR " &
+               p & "isbn" & like1 & " OR " &
+               p & "title" & like1 & " OR " &
+               p & "authors" & like1 & " OR " &
+               p & "publisher_name" & like1 & " OR " &
+               p & "categories" & like1 & " OR " &
+               p & "edition" & like1 & " OR " &
+               "CAST(" & p & "year_published AS CHAR)" & like1 & ")"
+    End Function
 End Module
 
 ' ---------------------------------------------------------------
 ' Small UI helpers shared by all forms
 ' ---------------------------------------------------------------
 Module UiHelpers
+
+    ' Yes/No confirmation used before add, update, delete and export actions
+    Public Function Confirm(action As String, subject As String, caption As String) As Boolean
+        Return MsgBox("Are you sure you want to " & action & " " & subject & "?",
+                      vbQuestion + vbYesNo + vbDefaultButton2, caption) = vbYes
+    End Function
 
     ' Fills lblname / lblposition / lbldatetime in a form's header, if it has them
     Public Sub FillHeader(f As Form)

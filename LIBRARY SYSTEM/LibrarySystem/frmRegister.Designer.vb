@@ -31,7 +31,6 @@ Partial Class frmRegister
         Me.Label25 = New System.Windows.Forms.Label()
         Me.Label24 = New System.Windows.Forms.Label()
         Me.Label23 = New System.Windows.Forms.Label()
-        Me.Label22 = New System.Windows.Forms.Label()
         Me.Label21 = New System.Windows.Forms.Label()
         Me.Label20 = New System.Windows.Forms.Label()
         Me.Label19 = New System.Windows.Forms.Label()
@@ -41,7 +40,6 @@ Partial Class frmRegister
         Me.Label15 = New System.Windows.Forms.Label()
         Me.txtSuffix = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
         Me.Label14 = New System.Windows.Forms.Label()
         Me.txtLastName = New System.Windows.Forms.TextBox()
         Me.Label13 = New System.Windows.Forms.Label()
@@ -55,7 +53,6 @@ Partial Class frmRegister
         Me.btnAccount = New System.Windows.Forms.Button()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.txtContactNum = New System.Windows.Forms.TextBox()
-        Me.Label9 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.txtFirstName = New System.Windows.Forms.TextBox()
@@ -106,7 +103,6 @@ Partial Class frmRegister
         Me.Panel1.Controls.Add(Me.Label25)
         Me.Panel1.Controls.Add(Me.Label24)
         Me.Panel1.Controls.Add(Me.Label23)
-        Me.Panel1.Controls.Add(Me.Label22)
         Me.Panel1.Controls.Add(Me.Label21)
         Me.Panel1.Controls.Add(Me.Label20)
         Me.Panel1.Controls.Add(Me.Label19)
@@ -116,7 +112,6 @@ Partial Class frmRegister
         Me.Panel1.Controls.Add(Me.Label15)
         Me.Panel1.Controls.Add(Me.txtSuffix)
         Me.Panel1.Controls.Add(Me.Label1)
-        Me.Panel1.Controls.Add(Me.DateTimePicker1)
         Me.Panel1.Controls.Add(Me.Label14)
         Me.Panel1.Controls.Add(Me.txtLastName)
         Me.Panel1.Controls.Add(Me.Label13)
@@ -131,7 +126,6 @@ Partial Class frmRegister
         Me.Panel1.Controls.Add(Me.btnAccount)
         Me.Panel1.Controls.Add(Me.Label10)
         Me.Panel1.Controls.Add(Me.txtContactNum)
-        Me.Panel1.Controls.Add(Me.Label9)
         Me.Panel1.Controls.Add(Me.Label8)
         Me.Panel1.Controls.Add(Me.Label7)
         Me.Panel1.Controls.Add(Me.txtFirstName)
@@ -210,17 +204,6 @@ Partial Class frmRegister
         Me.Label23.Size = New System.Drawing.Size(15, 20)
         Me.Label23.TabIndex = 57
         Me.Label23.Text = "*"
-        '
-        'Label22
-        '
-        Me.Label22.AutoSize = True
-        Me.Label22.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label22.ForeColor = System.Drawing.Color.Red
-        Me.Label22.Location = New System.Drawing.Point(109, 378)
-        Me.Label22.Name = "Label22"
-        Me.Label22.Size = New System.Drawing.Size(15, 20)
-        Me.Label22.TabIndex = 56
-        Me.Label22.Text = "*"
         '
         'Label21
         '
@@ -317,14 +300,6 @@ Partial Class frmRegister
         Me.Label1.Size = New System.Drawing.Size(75, 20)
         Me.Label1.TabIndex = 47
         Me.Label1.Text = "Course/Yr."
-        '
-        'DateTimePicker1
-        '
-        Me.DateTimePicker1.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.DateTimePicker1.Location = New System.Drawing.Point(141, 377)
-        Me.DateTimePicker1.Name = "DateTimePicker1"
-        Me.DateTimePicker1.Size = New System.Drawing.Size(257, 27)
-        Me.DateTimePicker1.TabIndex = 45
         '
         'Label14
         '
@@ -452,16 +427,6 @@ Partial Class frmRegister
         Me.txtContactNum.Name = "txtContactNum"
         Me.txtContactNum.Size = New System.Drawing.Size(249, 27)
         Me.txtContactNum.TabIndex = 21
-        '
-        'Label9
-        '
-        Me.Label9.AutoSize = True
-        Me.Label9.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.Location = New System.Drawing.Point(44, 378)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(70, 20)
-        Me.Label9.TabIndex = 20
-        Me.Label9.Text = "Birthdate"
         '
         'Label8
         '
@@ -594,7 +559,6 @@ Partial Class frmRegister
     Friend WithEvents txtUserID As TextBox
     Friend WithEvents Label10 As Label
     Friend WithEvents txtContactNum As TextBox
-    Friend WithEvents Label9 As Label
     Friend WithEvents Label8 As Label
     Friend WithEvents Label5 As Label
     Friend WithEvents btnAccount As Button
@@ -607,14 +571,12 @@ Partial Class frmRegister
     Friend WithEvents Label13 As Label
     Friend WithEvents txtMiddleName As TextBox
     Friend WithEvents Label12 As Label
-    Friend WithEvents DateTimePicker1 As DateTimePicker
     Friend WithEvents Label15 As Label
     Friend WithEvents txtSuffix As TextBox
     Friend WithEvents Label1 As Label
     Friend WithEvents Label25 As Label
     Friend WithEvents Label24 As Label
     Friend WithEvents Label23 As Label
-    Friend WithEvents Label22 As Label
     Friend WithEvents Label21 As Label
     Friend WithEvents Label20 As Label
     Friend WithEvents Label19 As Label

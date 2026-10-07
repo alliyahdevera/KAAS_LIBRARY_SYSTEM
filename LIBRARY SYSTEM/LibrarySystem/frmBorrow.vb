@@ -65,9 +65,7 @@ Public Class frmBorrow
                 Using cmd As New MySqlCommand(
                     "SELECT isbn, title, authors, publisher_name, categories, edition, year_published, available_copies " &
                     "FROM vw_BookCatalog WHERE available_copies > 0 " &
-                    "AND (@kw = '' OR isbn LIKE CONCAT('%',@kw,'%') OR title LIKE CONCAT('%',@kw,'%') " &
-                    "     OR authors LIKE CONCAT('%',@kw,'%') OR publisher_name LIKE CONCAT('%',@kw,'%') " &
-                    "     OR categories LIKE CONCAT('%',@kw,'%')) ORDER BY title", conn)
+                    "AND " & BookData.BookSearchSql() & " ORDER BY title", conn)
                     cmd.Parameters.AddWithValue("@kw", kw)
                     Using r As MySqlDataReader = cmd.ExecuteReader()
                         While r.Read()

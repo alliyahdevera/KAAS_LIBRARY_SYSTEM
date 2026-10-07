@@ -104,11 +104,19 @@ Public Class frmLibrarianHistory
             MsgBox("Select a record from the list first.", vbExclamation, "Verify Record")
             Exit Sub
         End If
+
         Dim row As DataGridViewRow = DataGridView1.SelectedRows(0)
         If Convert.ToString(row.Cells("ReturnDate").Value) = "" Then
             MsgBox("This book hasn't been returned yet - there's nothing to verify.", vbExclamation, "Verify Record")
             Exit Sub
         End If
+
+        If String.IsNullOrWhiteSpace(ComboBox1.Text) Then
+            MsgBox("Please select a valid return condition (Good, Damaged, or Lost).", vbExclamation, "Verify Record")
+            Exit Sub
+        End If
+
+        If Not UiHelpers.Confirm("update", "this record condition", "Verify Record") Then Exit Sub
 
         Dim tid As Integer = Convert.ToInt32(row.Tag)
         Try
@@ -116,7 +124,7 @@ Public Class frmLibrarianHistory
             DBConnection.LogActivity("Verify Record",
                 "Verified transaction #" & tid & " as " & ComboBox1.Text &
                 If(total > 0, " - penalty " & ChrW(&H20B1) & total.ToString("N2"), " - no penalty"))
-            MsgBox("Record updated.", vbInformation, "Verify Record")
+            MsgBox("Record updated successfully.", vbInformation, "Verify Record")
         Catch ex As InvalidOperationException
             MsgBox(ex.Message, vbExclamation, "Verify Record")
             Exit Sub
@@ -124,6 +132,7 @@ Public Class frmLibrarianHistory
             MsgBox("Could not update the record: " & ex.Message, vbCritical, "Verify Record")
             Exit Sub
         End Try
+
         ClearPanel()
         RefreshHistory(txtSearch.Text)
     End Sub
@@ -143,4 +152,5 @@ Public Class frmLibrarianHistory
     Private Sub btnExportExcel_Click(sender As Object, e As EventArgs) Handles btnExportExcel.Click
         BorrowData.ExportGridToCsv(DataGridView1, "All_Borrow_Records")
     End Sub
+
 End Class

@@ -192,12 +192,14 @@ Public Class frmPenaltyManagement
             End If
         End If
 
+        If Not UiHelpers.Confirm("update", "this penalty record", "Update Penalty") Then Exit Sub
+
         Try
             Dim total As Decimal = BorrowData.ApplyVerification(selectedTransactionId, ComboBox1.Text, ComboBox3.Text, txtUserID.Text.Trim())
             DBConnection.LogActivity("Update Penalty",
                 "Updated transaction #" & selectedTransactionId & " - condition " & ComboBox1.Text &
                 ", amount " & ChrW(&H20B1) & total.ToString("N2") & ", status " & If(total = 0, "None", ComboBox3.Text))
-            MsgBox("Penalty record updated.", vbInformation, "Update Penalty")
+            MsgBox("Penalty record updated successfully.", vbInformation, "Update Penalty")
         Catch ex As InvalidOperationException
             MsgBox(ex.Message, vbExclamation, "Update Penalty")
             Exit Sub

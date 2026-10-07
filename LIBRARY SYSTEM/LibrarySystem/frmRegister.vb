@@ -4,8 +4,9 @@ Imports MySql.Data.MySqlClient
 Public Class frmRegister
 
     Private Sub frmRegister_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        ScreenFit.Apply(Me, 1234, 750)
         Me.CenterToScreen()
-        DateTimePicker1.MaxDate = DateTime.Now.Date
+
     End Sub
 
     Private Sub btnRegister_Click(sender As Object, e As EventArgs) Handles btnRegister.Click
@@ -35,13 +36,7 @@ Public Class frmRegister
             cboGender.Focus() : Exit Sub
         End If
 
-        Dim birthdate As Date = DateTimePicker1.Value.Date
-        Dim age As Integer = DateTime.Now.Year - birthdate.Year
-        If birthdate > DateTime.Now.AddYears(-age) Then age -= 1
-        If birthdate > DateTime.Now.Date OrElse age < 5 OrElse age > 100 Then
-            MsgBox("Please enter a valid birthdate.", vbExclamation, "Registration")
-            DateTimePicker1.Focus() : Exit Sub
-        End If
+
 
         If Not Regex.IsMatch(txtContactNum.Text.Trim(), "^\d{11}$") Then
             MsgBox("Contact Number must be exactly 11 digits (numbers only).", vbExclamation, "Registration")
@@ -88,8 +83,8 @@ Public Class frmRegister
                         Dim newUserId As Integer
                         Using ins As New MySqlCommand(
                             "INSERT INTO Users (school_id, username, password, first_name, middle_name, last_name, suffix, " &
-                            "gender, birthdate, contact_num, email, role, account_status, attempts) " &
-                            "VALUES (@sid, @u, @p, @fn, @mn, @ln, @sf, @g, @bd, @cn, @em, 'Member', 'Active', 3)", conn, tx)
+                            "gender, contact_num, email, role, account_status, attempts) " &
+                            "VALUES (@sid, @u, @p, @fn, @mn, @ln, @sf, @g, @cn, @em, 'Member', 'Active', 3)", conn, tx)
                             ins.Parameters.AddWithValue("@sid", txtUserID.Text.Trim())
                             ins.Parameters.AddWithValue("@u", txtUsername.Text.Trim())
                             ins.Parameters.AddWithValue("@p", Security.HashPassword(txtPassword.Text))
@@ -98,7 +93,7 @@ Public Class frmRegister
                             ins.Parameters.AddWithValue("@ln", txtLastName.Text.Trim())
                             ins.Parameters.AddWithValue("@sf", If(String.IsNullOrWhiteSpace(txtSuffix.Text), DBNull.Value, CObj(txtSuffix.Text.Trim())))
                             ins.Parameters.AddWithValue("@g", cboGender.Text)
-                            ins.Parameters.AddWithValue("@bd", birthdate)
+
                             ins.Parameters.AddWithValue("@cn", txtContactNum.Text.Trim())
                             ins.Parameters.AddWithValue("@em", txtEmail.Text.Trim())
                             ins.ExecuteNonQuery()
@@ -146,4 +141,5 @@ Public Class frmRegister
         Form1.Show()
         Me.Hide()
     End Sub
+
 End Class

@@ -2,7 +2,12 @@
     Private loggingOut As Boolean = False
 
     Private Sub frmLibrarianMainMenu_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        ScreenFit.Apply(Me, 1924, 1052)      ' Task 3: delete this line if you have not added the ScreenFit module
         Me.CenterToScreen()
+
+        ' new sidebar button: must be created BEFORE the click handlers below are attached
+        MenuBuilder.AddMenuButton(Me, "btnpenaltyman", "Lost and Damaged")
+
         For Each b As Button In UiHelpers.AllButtons(Me)
             AddHandler b.Click, AddressOf MenuButton_Click
         Next
@@ -16,6 +21,7 @@
             Case "Book Management" : FormHost.LoadInto(Panel3, frmBookManagement)
             Case "Borrow Management" : FormHost.LoadInto(Panel3, frmLibrarianHistory)
             Case "Penalty Management" : FormHost.LoadInto(Panel3, frmPenaltyManagement)
+            Case "Lost and Damaged" : FormHost.LoadInto(Panel3, frmLostDamagedBooks)
             Case "Logout" : DoLogout()
         End Select
     End Sub

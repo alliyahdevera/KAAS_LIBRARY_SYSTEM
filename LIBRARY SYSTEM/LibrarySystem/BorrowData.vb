@@ -241,13 +241,24 @@ Module BorrowData
                         upd.ExecuteNonQuery()
                     End Using
 
-                    ' 2. the physical copy
+                    ' 2. the physical copy (status + condition)
+                    ' A "Good" verification never puts a copy back on the shelf while it still has an
+                    ' unrecovered Lost/Damaged report from another return - only "Mark Recovered" does that.
                     Using upd As New MySqlCommand(
-                        "UPDATE BookCopies SET copy_status = @s WHERE copy_id = @c AND copy_status <> 'Borrowed'", conn, tx)
+                        "UPDATE BookCopies SET copy_status = @s, " &
+                        "book_condition = CASE WHEN @s = 'Available' " &
+                        "  THEN IF(book_condition IN ('Damaged','Lost'), 'Good', book_condition) ELSE @s END " &
+                        "WHERE copy_id = @c AND copy_status <> 'Borrowed' " &
+                        "AND (@s <> 'Available' OR NOT EXISTS (SELECT 1 FROM LostDamagedBooks i " &
+                        "     WHERE i.copy_id = @c AND i.is_resolved = 0 AND IFNULL(i.transaction_id, 0) <> @t))", conn, tx)
                         upd.Parameters.AddWithValue("@s", If(newCondition = "Good", "Available", newCondition))
                         upd.Parameters.AddWithValue("@c", copyId)
+                        upd.Parameters.AddWithValue("@t", transactionId)
                         upd.ExecuteNonQuery()
                     End Using
+
+                    ' 2b. lost / damaged log
+                    CopyData.LogReturnIncident(conn, tx, transactionId, newCondition)
 
                     ' 3. the penalty row
                     If total > 0 Then
@@ -300,11 +311,14 @@ Module BorrowData
     End Function
 
     ' ---------------------------------------------------------------- EXPORT
-    Public Sub ExportGridToCsv(grid As DataGridView, baseName As String)
+    ' askFirst = True shows a Yes/No confirmation before the save dialog.
+    Public Sub ExportGridToCsv(grid As DataGridView, baseName As String, Optional askFirst As Boolean = True)
         If grid.Rows.Count = 0 Then
             MsgBox("No records available to export.", vbExclamation, "Export Failed")
             Exit Sub
         End If
+        If askFirst AndAlso Not UiHelpers.Confirm("export", "these records to Excel (CSV)", "Export") Then Exit Sub
+
         Using sfd As New SaveFileDialog()
             sfd.Filter = "CSV File (*.csv)|*.csv"
             sfd.FileName = $"{baseName}_{DateTime.Now:yyyyMMdd_HHmmss}.csv"
@@ -328,4 +342,5 @@ Module BorrowData
     Private Function Quote(s As String) As String
         Return """" & If(s, "").Replace("""", """""") & """"
     End Function
+
 End Module

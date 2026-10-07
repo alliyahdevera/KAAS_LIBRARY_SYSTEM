@@ -2,11 +2,17 @@
     Private loggingOut As Boolean = False
 
     Private Sub frmAdminMenu_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        ScreenFit.Apply(Me, 1924, 1052)      ' Task 3: delete this line if you have not added the ScreenFit module
         Me.CenterToScreen()
         lblc_name.Text = AppSession.FullName
         tmrDateTime.Interval = 1000
         tmrDateTime.Enabled = True
         UpdateClock()
+
+        ' new sidebar buttons: must be created BEFORE the click handlers below are attached
+        MenuBuilder.AddMenuButton(Me, "btnbookman", "Book Copies")
+        MenuBuilder.AddMenuButton(Me, "btnBookCopies", "Lost and Damaged")
+
         For Each b As Button In UiHelpers.AllButtons(Me)
             AddHandler b.Click, AddressOf MenuButton_Click
         Next
@@ -18,6 +24,8 @@
         Select Case caption
             Case "Dashboard" : FormHost.LoadInto(Panel3, frmAdminDashboard)
             Case "Book Management" : FormHost.LoadInto(Panel3, frmBookManagement)
+            Case "Book Copies" : FormHost.LoadInto(Panel3, frmAdminBookCopies)
+            Case "Lost and Damaged" : FormHost.LoadInto(Panel3, frmLostDamagedBooks)
             Case "Account Management" : FormHost.LoadInto(Panel3, frmAccManagement)
             Case "Borrow History Records" : FormHost.LoadInto(Panel3, frmAdminHistory)
             Case "Activity Logs" : FormHost.LoadInto(Panel3, frmAdminLogs)

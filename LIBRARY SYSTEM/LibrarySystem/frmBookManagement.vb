@@ -47,7 +47,7 @@ Public Class frmBookManagement
     End Sub
 
     ' ------------------------------------------------------------ list
-    ' Search only matches the ISBN and the Book Title.
+    ' Search matches ISBN, title, author, publisher, category, edition and year published.
     Public Sub LoadBooks(Optional keyword As String = "")
         SetupGrid()
         DataGridView1.Rows.Clear()
@@ -60,8 +60,9 @@ Public Class frmBookManagement
                     "SELECT v.book_id, v.isbn, v.title, v.authors, v.publisher_name, v.categories, v.edition, " &
                     "       v.year_published, v.price, b.date_added, v.total_copies, v.available_copies " &
                     "FROM vw_BookCatalog v JOIN BookInfo b ON b.book_id = v.book_id " &
-                    "WHERE (@kw = '' OR v.isbn LIKE CONCAT('%',@kw,'%') OR v.title LIKE CONCAT('%',@kw,'%')) " &
-                    "AND (v.total_copies > 0 OR NOT EXISTS (SELECT 1 FROM BookCopies c WHERE c.book_id = v.book_id)) " &
+                    "WHERE " & BookData.BookSearchSql("v") & " " &
+                    "AND (EXISTS (SELECT 1 FROM BookCopies c WHERE c.book_id = v.book_id AND c.copy_status <> 'Archived') " &
+"     OR NOT EXISTS (SELECT 1 FROM BookCopies c WHERE c.book_id = v.book_id)) " &
                     "ORDER BY v.title", conn)
                     cmd.Parameters.AddWithValue("@kw", kw)
 
@@ -175,6 +176,7 @@ Public Class frmBookManagement
     Private Sub btnAdd_Click(sender As Object, e As EventArgs) Handles btnAdd.Click
         Dim inp As BookInput = ReadInput()
         If inp Is Nothing Then Exit Sub
+        If Not UiHelpers.Confirm("add", "this book", "Book Management") Then Exit Sub
 
         Dim copyText As String = InputBox("How many physical copies are you adding?", "Book Management", "1")
         If copyText = "" Then Exit Sub
@@ -231,7 +233,7 @@ Public Class frmBookManagement
         End Try
 
         DBConnection.LogActivity("Add Book", If(addedToExisting, "Added " & copies & " copy/copies to '", "Added '") &
-                                 inp.Title & "' (ISBN " & inp.Isbn & ")" & If(addedToExisting, "", " with " & copies & " copy/copies"))
+                                   inp.Title & "' (ISBN " & inp.Isbn & ")" & If(addedToExisting, "", " with " & copies & " copy/copies"))
         MsgBox("Saved successfully!", vbInformation, "Book Management")
         LoadBooks()
         ClearFields()
@@ -245,6 +247,7 @@ Public Class frmBookManagement
         End If
         Dim inp As BookInput = ReadInput()
         If inp Is Nothing Then Exit Sub
+        If Not UiHelpers.Confirm("update", "this book", "Book Management") Then Exit Sub
 
         Try
             Using conn = DBConnection.GetConnection()

@@ -13,7 +13,7 @@ Public Class frmAccManagement
         Public Last As String
         Public Suffix As String
         Public GenderText As String
-        Public Birth As Date?
+
         Public Contact As String
         Public EmailText As String
         Public Role As String
@@ -37,7 +37,7 @@ Public Class frmAccManagement
         SetupGrid()
         txtpassword.UseSystemPasswordChar = True
         txtconfirmpassword.UseSystemPasswordChar = True
-        DateTimePicker1.MaxDate = Date.Today
+
         cboGender.DropDownStyle = ComboBoxStyle.DropDownList
         cboYear_Level.DropDownStyle = ComboBoxStyle.DropDownList
         cboCourse.DropDownStyle = ComboBoxStyle.DropDown        ' students pick a course, others type a department
@@ -149,7 +149,7 @@ Public Class frmAccManagement
                 conn.Open()
                 Using cmd As New MySqlCommand(
                     "SELECT u.user_id, u.school_id, u.username, u.first_name, u.middle_name, u.last_name, u.suffix, " &
-                    " u.gender, u.birthdate, u.contact_num, u.email, u.role, u.account_status, u.attempts, " &
+                    " u.gender, u.contact_num, u.email, u.role, u.account_status, u.attempts, " &
                     " m.member_type, m.course, m.year_level, m.department " &
                     "FROM Users u LEFT JOIN Members m ON m.user_id = u.user_id " &
                     "WHERE u.role <> 'Admin' AND (@kw = '' OR u.username LIKE CONCAT('%',@kw,'%') " &
@@ -176,7 +176,7 @@ Public Class frmAccManagement
                                 .YearLevel = If(IsDBNull(r("year_level")), 0, Convert.ToInt32(r("year_level"))),
                                 .Dept = If(IsDBNull(r("department")), "", r("department").ToString())
                             }
-                            If Not IsDBNull(r("birthdate")) Then info.Birth = Convert.ToDateTime(r("birthdate")).Date
+
                             Dim attempts As Integer = If(IsDBNull(r("attempts")), 3, Convert.ToInt32(r("attempts")))
                             info.StatusText = If(attempts <= 0, "Locked", r("account_status").ToString())
 
@@ -192,7 +192,7 @@ Public Class frmAccManagement
                             row.Cells("Username").Value = info.Uname
                             row.Cells("FullName").Value = fullName
                             row.Cells("Gender").Value = info.GenderText
-                            row.Cells("Birthdate").Value = If(info.Birth.HasValue, info.Birth.Value.ToString("MM/dd/yyyy"), "")
+
                             row.Cells("ContactNo").Value = info.Contact
                             row.Cells("Email").Value = info.EmailText
                             row.Cells("Course").Value = If(info.Role = "Librarian", LibraryDept, If(info.MemberType = "Student", info.CourseText, info.Dept))
@@ -227,11 +227,7 @@ Public Class frmAccManagement
         txtLastName.Text = info.Last
         txtSuffix.Text = info.Suffix
         SelectItem(cboGender, info.GenderText)
-        If info.Birth.HasValue AndAlso info.Birth.Value >= DateTimePicker1.MinDate AndAlso info.Birth.Value <= DateTimePicker1.MaxDate Then
-            DateTimePicker1.Value = info.Birth.Value
-        Else
-            DateTimePicker1.Value = Date.Today
-        End If
+
         txtContactNum.Text = info.Contact
         txtEmail.Text = info.EmailText
         cboCourse.Text = If(info.Role = "Librarian", LibraryDept, If(info.MemberType = "Student", info.CourseText, info.Dept))
@@ -254,7 +250,7 @@ Public Class frmAccManagement
         borrowerBox.Checked = False
         txtFirstName.Clear() : txtMiddleName.Clear() : txtLastName.Clear() : txtSuffix.Clear()
         cboGender.SelectedIndex = -1
-        DateTimePicker1.Value = Date.Today
+
         txtContactNum.Clear() : txtEmail.Clear()
         cboCourse.SelectedIndex = -1 : cboCourse.Text = ""
         cboYear_Level.SelectedIndex = -1
@@ -292,11 +288,6 @@ Public Class frmAccManagement
         End If
 
         If cboGender.SelectedIndex = -1 Then Return Fail("Please select a gender.", cboGender)
-
-        Dim bd As Date = DateTimePicker1.Value.Date
-        Dim age As Integer = Date.Today.Year - bd.Year
-        If bd > Date.Today.AddYears(-age) Then age -= 1
-        If age < 5 OrElse age > 100 Then Return Fail("Please enter a valid birthdate.", DateTimePicker1)
 
         If Not Regex.IsMatch(txtContactNum.Text.Trim(), "^\d{11}$") Then Return Fail("Contact Number must be exactly 11 digits.", txtContactNum)
         If Not Regex.IsMatch(txtEmail.Text.Trim(), "^[^@\s]+@[^@\s]+\.[^@\s]+$") Then Return Fail("Please enter a valid email address.", txtEmail)
@@ -351,6 +342,8 @@ Public Class frmAccManagement
     ' ------------------------------------------------------------ add
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click      ' Add Account
         If Not InputsAreValid(True) Then Exit Sub
+        If Not UiHelpers.Confirm("add", "this account", "Account Management") Then Exit Sub
+
         Dim inactive As Boolean = (cboStatus.Text = "Inactive")
         Try
             Using conn = DBConnection.GetConnection()
@@ -366,9 +359,9 @@ Public Class frmAccManagement
 
                         Dim newId As Integer
                         Using ins As New MySqlCommand(
-                            "INSERT INTO Users (school_id, username, password, first_name, middle_name, last_name, suffix, gender, birthdate, " &
+                            "INSERT INTO Users (school_id, username, password, first_name, middle_name, last_name, suffix, gender, " &
                             "contact_num, email, role, account_status, attempts) " &
-                            "VALUES (@sid, @u, @p, @fn, @mn, @ln, @sf, @g, @bd, @cn, @em, @role, @st, 3)", conn, tx)
+                            "VALUES (@sid, @u, @p, @fn, @mn, @ln, @sf, @g, @cn, @em, @role, @st, 3)", conn, tx)
                             ins.Parameters.AddWithValue("@sid", schoolBox.Text.Trim())
                             ins.Parameters.AddWithValue("@u", txtusername.Text.Trim())
                             ins.Parameters.AddWithValue("@p", Security.HashPassword(txtpassword.Text))
@@ -377,7 +370,7 @@ Public Class frmAccManagement
                             ins.Parameters.AddWithValue("@ln", txtLastName.Text.Trim())
                             ins.Parameters.AddWithValue("@sf", Opt(txtSuffix.Text))
                             ins.Parameters.AddWithValue("@g", cboGender.Text)
-                            ins.Parameters.AddWithValue("@bd", DateTimePicker1.Value.Date)
+
                             ins.Parameters.AddWithValue("@cn", txtContactNum.Text.Trim())
                             ins.Parameters.AddWithValue("@em", txtEmail.Text.Trim())
                             ins.Parameters.AddWithValue("@role", RoleValue())
@@ -419,6 +412,7 @@ Public Class frmAccManagement
             Exit Sub
         End If
         If Not InputsAreValid(False) Then Exit Sub
+        If Not UiHelpers.Confirm("update", "this account", "Account Management") Then Exit Sub
 
         ' Active unlocks (attempts back to 3), Locked sets attempts to 0, Inactive keeps the attempts as they are
         Dim accStatus As String = If(cboStatus.Text = "Inactive", "Inactive", "Active")
@@ -441,7 +435,7 @@ Public Class frmAccManagement
                         Dim changePwd As Boolean = (txtpassword.Text <> "")
                         Using upd As New MySqlCommand(
                             "UPDATE Users SET school_id=@sid, username=@u, first_name=@fn, middle_name=@mn, last_name=@ln, suffix=@sf, " &
-                            "gender=@g, birthdate=@bd, contact_num=@cn, email=@em, role=@role, account_status=@st, " &
+                            "gender=@g, contact_num=@cn, email=@em, role=@role, account_status=@st, " &
                             "attempts = IFNULL(@att, attempts)" & If(changePwd, ", password=@p", "") & " WHERE user_id=@id", conn, tx)
                             upd.Parameters.AddWithValue("@sid", schoolBox.Text.Trim())
                             upd.Parameters.AddWithValue("@u", txtusername.Text.Trim())
@@ -450,7 +444,7 @@ Public Class frmAccManagement
                             upd.Parameters.AddWithValue("@ln", txtLastName.Text.Trim())
                             upd.Parameters.AddWithValue("@sf", Opt(txtSuffix.Text))
                             upd.Parameters.AddWithValue("@g", cboGender.Text)
-                            upd.Parameters.AddWithValue("@bd", DateTimePicker1.Value.Date)
+
                             upd.Parameters.AddWithValue("@cn", txtContactNum.Text.Trim())
                             upd.Parameters.AddWithValue("@em", txtEmail.Text.Trim())
                             upd.Parameters.AddWithValue("@role", RoleValue())
@@ -502,6 +496,7 @@ Public Class frmAccManagement
             Exit Sub
         Catch ex As Exception
             MsgBox("Could not update the account: " & ex.Message, vbCritical, "Account Management")
+
             Exit Sub
         End Try
 
@@ -564,4 +559,5 @@ Public Class frmAccManagement
     Private Sub btnClear_Click(sender As Object, e As EventArgs) Handles btnClear.Click
         ClearForm()
     End Sub
+
 End Class
