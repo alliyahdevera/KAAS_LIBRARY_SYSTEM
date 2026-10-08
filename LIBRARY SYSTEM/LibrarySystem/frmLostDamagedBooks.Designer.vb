@@ -71,19 +71,19 @@ Partial Class frmLostDamagedBooks
         Me.dgvIncidents.AllowUserToAddRows = False
         Me.dgvIncidents.AllowUserToDeleteRows = False
         Me.dgvIncidents.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.dgvIncidents.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
         Me.dgvIncidents.BackgroundColor = System.Drawing.Color.White
         DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(25, Byte), Integer))
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle1.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(25, Byte), Integer))
-        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgvIncidents.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
+        Me.dgvIncidents.DefaultCellStyle = DataGridViewCellStyle1
         Me.dgvIncidents.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvIncidents.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ReportNo, Me.BookNo, Me.Accession, Me.ISBN, Me.BookTitle, Me.BookAuthor, Me.IncidentType, Me.DateReported, Me.Borrower, Me.Penalty, Me.CopyStatus, Me.Recovered, Me.Remarks})
         Me.dgvIncidents.Dock = System.Windows.Forms.DockStyle.Top
-        Me.dgvIncidents.EnableHeadersVisualStyles = False
         Me.dgvIncidents.Location = New System.Drawing.Point(0, 122)
         Me.dgvIncidents.MultiSelect = False
         Me.dgvIncidents.Name = "dgvIncidents"

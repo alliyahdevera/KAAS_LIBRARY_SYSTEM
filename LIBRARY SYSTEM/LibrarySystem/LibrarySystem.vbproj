@@ -136,10 +136,10 @@
       <DependentUpon>Form1.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmAdminBookCopies.Designer.vb">
-      <DependentUpon>frmAdminBookCopies.vb</DependentUpon>
+    <Compile Include="frmAdminBookInventory.Designer.vb">
+      <DependentUpon>frmAdminBookInventory.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmAdminBookCopies.vb">
+    <Compile Include="frmAdminBookInventory.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmLostDamagedBooks.Designer.vb">
@@ -291,8 +291,8 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmAdminBookCopies.resx">
-      <DependentUpon>frmAdminBookCopies.vb</DependentUpon>
+    <EmbeddedResource Include="frmAdminBookInventory.resx">
+      <DependentUpon>frmAdminBookInventory.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLostDamagedBooks.resx">
       <DependentUpon>frmLostDamagedBooks.vb</DependentUpon>

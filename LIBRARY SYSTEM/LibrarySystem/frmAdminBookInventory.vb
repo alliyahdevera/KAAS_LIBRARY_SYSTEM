@@ -1,13 +1,13 @@
 ﻿Imports MySql.Data.MySqlClient
 
-' The LAYOUT of this form lives in frmAdminBookCopies.Designer.vb -- open the form in the
+' The LAYOUT of this form lives in frmAdminBookInventory.Designer.vb -- open the form in the
 ' Visual Studio designer to move, resize or restyle anything. This file only holds behaviour.
-Public Class frmAdminBookCopies
+Public Class frmAdminBookInventory
 
     Private selectedCopyId As Integer = 0
     Private isReady As Boolean = False      ' stays False until Load finishes, so setting up the filters runs no query
 
-    Private Sub frmAdminBookCopies_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Sub frmAdminBookInventory_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         cboCondition.Items.AddRange(CopyData.AllConditions)   ' single source of truth for the condition list
         cboFilter.SelectedIndex = 0
         isReady = True
@@ -63,7 +63,7 @@ Public Class frmAdminBookCopies
                 End Using
             End Using
         Catch ex As Exception
-            MsgBox("Could not load the book copies: " & ex.Message, vbCritical, "Book Copies")
+            MsgBox("Could not load the book copies: " & ex.Message, vbCritical, "Book Inventory")
         End Try
         dgvCopies.ClearSelection()
     End Sub
@@ -104,22 +104,22 @@ Public Class frmAdminBookCopies
     Private Sub btnAdd_Click(sender As Object, e As EventArgs) Handles btnAdd.Click
         Dim isbn As String = txtIsbn.Text.Trim()
         If isbn = "" Then
-            MsgBox("Enter the ISBN of the book you are adding copies to (or click a row to use its ISBN).", vbExclamation, "Book Copies")
+            MsgBox("Enter the ISBN of the book you are adding copies to (or click a row to use its ISBN).", vbExclamation, "Book Inventory")
             Exit Sub
         End If
         If cboCondition.SelectedIndex = -1 Then
-            MsgBox("Select the condition of the new copies.", vbExclamation, "Book Copies")
+            MsgBox("Select the condition of the new copies.", vbExclamation, "Book Inventory")
             Exit Sub
         End If
         If Array.IndexOf(CopyData.AddConditions, cboCondition.Text) < 0 Then
             MsgBox("New copies can only be New, Good, Fair or Poor." & vbCrLf &
                    "Damaged and Lost are recorded when a borrowed book is returned, or by updating an existing copy.",
-                   vbExclamation, "Book Copies")
+                   vbExclamation, "Book Inventory")
             Exit Sub
         End If
 
         Dim n As Integer = CInt(numCopies.Value)
-        If Not UiHelpers.Confirm("add", n & If(n = 1, " copy", " copies") & " of ISBN " & isbn, "Book Copies") Then Exit Sub
+        If Not UiHelpers.Confirm("add", n & If(n = 1, " copy", " copies") & " of ISBN " & isbn, "Book Inventory") Then Exit Sub
 
         Try
             Using conn = DBConnection.GetConnection()
@@ -128,7 +128,7 @@ Public Class frmAdminBookCopies
                     Try
                         Dim bookId As Integer = BookData.FindBookIdByIsbn(conn, tx, isbn)
                         If bookId = 0 Then
-                            MsgBox("That ISBN is not in the catalog. Add the book first in Book Management.", vbExclamation, "Book Copies")
+                            MsgBox("That ISBN is not in the catalog. Add the book first in Book Management.", vbExclamation, "Book Inventory")
                             tx.Rollback()
                             Exit Sub
                         End If
@@ -141,12 +141,12 @@ Public Class frmAdminBookCopies
                 End Using
             End Using
         Catch ex As Exception
-            MsgBox("Could not add the copies: " & ex.Message, vbCritical, "Book Copies")
+            MsgBox("Could not add the copies: " & ex.Message, vbCritical, "Book Inventory")
             Exit Sub
         End Try
 
         DBConnection.LogActivity("Add Book Copy", "Added " & n & " copy/copies (" & cboCondition.Text & ") to ISBN " & isbn)
-        MsgBox("Saved successfully!", vbInformation, "Book Copies")
+        MsgBox("Saved successfully!", vbInformation, "Book Inventory")
         LoadCopies()
         ClearFields()
     End Sub
@@ -154,14 +154,14 @@ Public Class frmAdminBookCopies
     ' ------------------------------------------------------------ update condition
     Private Sub btnUpdate_Click(sender As Object, e As EventArgs) Handles btnUpdate.Click
         If selectedCopyId = 0 Then
-            MsgBox("Select a copy from the list first.", vbExclamation, "Book Copies")
+            MsgBox("Select a copy from the list first.", vbExclamation, "Book Inventory")
             Exit Sub
         End If
         If cboCondition.SelectedIndex = -1 Then
-            MsgBox("Select the new condition.", vbExclamation, "Book Copies")
+            MsgBox("Select the new condition.", vbExclamation, "Book Inventory")
             Exit Sub
         End If
-        If Not UiHelpers.Confirm("update", "the condition of book no. " & selectedCopyId, "Book Copies") Then Exit Sub
+        If Not UiHelpers.Confirm("update", "the condition of book no. " & selectedCopyId, "Book Inventory") Then Exit Sub
 
         Dim newCond As String = cboCondition.Text
         Try
@@ -176,13 +176,13 @@ Public Class frmAdminBookCopies
                             If o IsNot Nothing AndAlso Not IsDBNull(o) Then oldStatus = o.ToString()
                         End Using
                         If oldStatus Is Nothing Then
-                            MsgBox("That copy no longer exists.", vbExclamation, "Book Copies")
+                            MsgBox("That copy no longer exists.", vbExclamation, "Book Inventory")
                             tx.Rollback()
                             Exit Sub
                         End If
                         If oldStatus = "Borrowed" AndAlso (newCond = "Damaged" OrElse newCond = "Lost") Then
                             MsgBox("This copy is currently borrowed. Damaged or Lost is recorded by the librarian when it is returned.",
-                                   vbExclamation, "Book Copies")
+                                   vbExclamation, "Book Inventory")
                             tx.Rollback()
                             Exit Sub
                         End If
@@ -213,7 +213,7 @@ Public Class frmAdminBookCopies
                             If newStatus = "Lost" OrElse newStatus = "Damaged" Then
                                 Using ins As New MySqlCommand(
                                     "INSERT INTO LostDamagedBooks (copy_id, incident_type, incident_date, reported_by, remarks) " &
-                                    "VALUES (@c, @t, CURDATE(), @u, 'Recorded by the admin in Book Copies')", conn, tx)
+                                    "VALUES (@c, @t, CURDATE(), @u, 'Recorded by the admin in Book Inventory')", conn, tx)
                                     ins.Parameters.AddWithValue("@c", selectedCopyId)
                                     ins.Parameters.AddWithValue("@t", newStatus)
                                     ins.Parameters.AddWithValue("@u", If(AppSession.UserId > 0, CObj(AppSession.UserId), DBNull.Value))
@@ -229,12 +229,12 @@ Public Class frmAdminBookCopies
                 End Using
             End Using
         Catch ex As Exception
-            MsgBox("Could not update the copy: " & ex.Message, vbCritical, "Book Copies")
+            MsgBox("Could not update the copy: " & ex.Message, vbCritical, "Book Inventory")
             Exit Sub
         End Try
 
         DBConnection.LogActivity("Update Book Copy", "Book no. " & selectedCopyId & " condition set to " & newCond)
-        MsgBox("Copy updated successfully!", vbInformation, "Book Copies")
+        MsgBox("Copy updated successfully!", vbInformation, "Book Inventory")
         LoadCopies()
         ClearFields()
     End Sub
@@ -242,7 +242,7 @@ Public Class frmAdminBookCopies
     ' ------------------------------------------------------------ delete / archive
     Private Sub btnDelete_Click(sender As Object, e As EventArgs) Handles btnDelete.Click
         If selectedCopyId = 0 Then
-            MsgBox("Select a copy from the list first.", vbExclamation, "Book Copies")
+            MsgBox("Select a copy from the list first.", vbExclamation, "Book Inventory")
             Exit Sub
         End If
 
@@ -257,7 +257,7 @@ Public Class frmAdminBookCopies
                     cmd.Parameters.AddWithValue("@c", selectedCopyId)
                     Using r As MySqlDataReader = cmd.ExecuteReader()
                         If Not r.Read() Then
-                            MsgBox("That copy no longer exists.", vbExclamation, "Book Copies")
+                            MsgBox("That copy no longer exists.", vbExclamation, "Book Inventory")
                             Exit Sub
                         End If
                         status = r.GetString(0)
@@ -266,20 +266,20 @@ Public Class frmAdminBookCopies
                 End Using
 
                 If status = "Borrowed" Then
-                    MsgBox("This copy is currently borrowed and cannot be removed.", vbExclamation, "Book Copies")
+                    MsgBox("This copy is currently borrowed and cannot be removed.", vbExclamation, "Book Inventory")
                     Exit Sub
                 End If
 
                 If history > 0 Then
                     If Not UiHelpers.Confirm("archive", "book no. " & selectedCopyId &
-                                             " (it has borrow history, so it is hidden and the history is kept)", "Book Copies") Then Exit Sub
+                                             " (it has borrow history, so it is hidden and the history is kept)", "Book Inventory") Then Exit Sub
                     Using cmd As New MySqlCommand("UPDATE BookCopies SET copy_status = 'Archived' WHERE copy_id = @c", conn)
                         cmd.Parameters.AddWithValue("@c", selectedCopyId)
                         cmd.ExecuteNonQuery()
                     End Using
                     DBConnection.LogActivity("Archive Book Copy", "Archived book no. " & selectedCopyId)
                 Else
-                    If Not UiHelpers.Confirm("delete", "book no. " & selectedCopyId, "Book Copies") Then Exit Sub
+                    If Not UiHelpers.Confirm("delete", "book no. " & selectedCopyId, "Book Inventory") Then Exit Sub
                     Using cmd As New MySqlCommand("DELETE FROM BookCopies WHERE copy_id = @c", conn)
                         cmd.Parameters.AddWithValue("@c", selectedCopyId)
                         cmd.ExecuteNonQuery()
@@ -288,17 +288,17 @@ Public Class frmAdminBookCopies
                 End If
             End Using
         Catch ex As Exception
-            MsgBox("Could not remove the copy: " & ex.Message, vbCritical, "Book Copies")
+            MsgBox("Could not remove the copy: " & ex.Message, vbCritical, "Book Inventory")
             Exit Sub
         End Try
 
-        MsgBox("Done.", vbInformation, "Book Copies")
+        MsgBox("Done.", vbInformation, "Book Inventory")
         LoadCopies()
         ClearFields()
     End Sub
 
     Private Sub btnClear_Click(sender As Object, e As EventArgs) Handles btnClear.Click
-        If UiHelpers.Confirm("clear", "all fields", "Book Copies") Then ClearFields()
+        If UiHelpers.Confirm("clear", "all fields", "Book Inventory") Then ClearFields()
     End Sub
 
     Private Sub ClearFields()
@@ -315,6 +315,6 @@ Public Class frmAdminBookCopies
     End Sub
 
     Private Sub btnExport_Click(sender As Object, e As EventArgs) Handles btnExport.Click
-        BorrowData.ExportGridToCsv(dgvCopies, "Book_Copies")
+        BorrowData.ExportGridToCsv(dgvCopies, "Book_Inventory")
     End Sub
 End Class

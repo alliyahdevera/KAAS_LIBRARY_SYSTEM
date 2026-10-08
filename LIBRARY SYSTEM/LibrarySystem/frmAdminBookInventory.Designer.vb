@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class frmAdminBookCopies
+Partial Class frmAdminBookInventory
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -74,19 +74,19 @@ Partial Class frmAdminBookCopies
         Me.dgvCopies.AllowUserToAddRows = False
         Me.dgvCopies.AllowUserToDeleteRows = False
         Me.dgvCopies.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.dgvCopies.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
         Me.dgvCopies.BackgroundColor = System.Drawing.Color.White
         DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(25, Byte), Integer))
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle1.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(25, Byte), Integer))
-        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgvCopies.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
+        Me.dgvCopies.DefaultCellStyle = DataGridViewCellStyle1
         Me.dgvCopies.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvCopies.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.BookNo, Me.Accession, Me.ISBN, Me.BookTitle, Me.BookAuthor, Me.Publisher, Me.Edition, Me.YearPublished, Me.BookCondition, Me.CopyStatus, Me.DateAdded})
         Me.dgvCopies.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.dgvCopies.EnableHeadersVisualStyles = False
         Me.dgvCopies.Location = New System.Drawing.Point(0, 169)
         Me.dgvCopies.MultiSelect = False
         Me.dgvCopies.Name = "dgvCopies"
@@ -452,7 +452,7 @@ Partial Class frmAdminBookCopies
         Me.lblTitle.Name = "lblTitle"
         Me.lblTitle.Size = New System.Drawing.Size(149, 32)
         Me.lblTitle.TabIndex = 0
-        Me.lblTitle.Text = "Book Copies"
+        Me.lblTitle.Text = "Book Inventory"
         '
         'lblSearch
         '
@@ -498,7 +498,7 @@ Partial Class frmAdminBookCopies
         Me.cboFilter.Size = New System.Drawing.Size(186, 25)
         Me.cboFilter.TabIndex = 4
         '
-        'frmAdminBookCopies
+        'frmAdminBookInventory
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(254, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(231, Byte), Integer))
@@ -509,8 +509,8 @@ Partial Class frmAdminBookCopies
         Me.Controls.Add(Me.pnlTop)
         Me.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
-        Me.Name = "frmAdminBookCopies"
-        Me.Text = "frmAdminBookCopies"
+        Me.Name = "frmAdminBookInventory"
+        Me.Text = "frmAdminBookInventory"
         CType(Me.dgvCopies, System.ComponentModel.ISupportInitialize).EndInit()
         Me.pnlButtons.ResumeLayout(False)
         Me.pnlForm.ResumeLayout(False)
