@@ -142,6 +142,12 @@
     <Compile Include="frmAdminBookCopies.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmBookManage.Designer.vb">
+      <DependentUpon>frmBookManage.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmBookManage.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmLostDamagedBooks.Designer.vb">
       <DependentUpon>frmLostDamagedBooks.vb</DependentUpon>
     </Compile>
@@ -285,6 +291,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="ScreenFit.vb" />
+    <Compile Include="UIHelper.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Form1.resx">
@@ -292,6 +299,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmAdminBookCopies.resx">
       <DependentUpon>frmAdminBookCopies.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmBookManage.resx">
+      <DependentUpon>frmBookManage.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLostDamagedBooks.resx">
       <DependentUpon>frmLostDamagedBooks.vb</DependentUpon>

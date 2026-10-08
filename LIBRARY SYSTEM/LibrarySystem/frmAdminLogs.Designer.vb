@@ -60,7 +60,7 @@ Partial Class frmAdminLogs
         Me.Label14.AutoSize = True
         Me.Label14.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label14.ForeColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(25, Byte), Integer))
-        Me.Label14.Location = New System.Drawing.Point(764, 15)
+        Me.Label14.Location = New System.Drawing.Point(756, 15)
         Me.Label14.Name = "Label14"
         Me.Label14.Size = New System.Drawing.Size(279, 17)
         Me.Label14.TabIndex = 62
@@ -69,7 +69,7 @@ Partial Class frmAdminLogs
         'txtSearch
         '
         Me.txtSearch.Font = New System.Drawing.Font("Segoe UI", 12.0!)
-        Me.txtSearch.Location = New System.Drawing.Point(1049, 8)
+        Me.txtSearch.Location = New System.Drawing.Point(1041, 8)
         Me.txtSearch.Name = "txtSearch"
         Me.txtSearch.Size = New System.Drawing.Size(189, 29)
         Me.txtSearch.TabIndex = 61
@@ -99,11 +99,10 @@ Partial Class frmAdminLogs
         DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.DataGridView1.DefaultCellStyle = DataGridViewCellStyle1
-        Me.DataGridView1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DataGridView1.Location = New System.Drawing.Point(0, 45)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.RowHeadersWidth = 51
-        Me.DataGridView1.Size = New System.Drawing.Size(1245, 733)
+        Me.DataGridView1.Size = New System.Drawing.Size(1245, 706)
         Me.DataGridView1.TabIndex = 25
         '
         'LogID

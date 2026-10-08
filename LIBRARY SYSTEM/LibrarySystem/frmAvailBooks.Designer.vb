@@ -66,11 +66,11 @@ Partial Class frmAvailBooks
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(25, Byte), Integer))
-        Me.Label2.Location = New System.Drawing.Point(871, 14)
+        Me.Label2.Location = New System.Drawing.Point(809, 14)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(170, 17)
+        Me.Label2.Size = New System.Drawing.Size(232, 17)
         Me.Label2.TabIndex = 62
-        Me.Label2.Text = "SEARCH BY ISBN OR TITLE"
+        Me.Label2.Text = "SEARCH BY ISBN, TITLE OR AUTHOR"
         '
         'TextBox1
         '

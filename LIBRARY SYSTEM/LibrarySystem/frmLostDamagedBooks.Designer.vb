@@ -24,10 +24,24 @@ Partial Class frmLostDamagedBooks
     Private Sub InitializeComponent()
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.dgvIncidents = New System.Windows.Forms.DataGridView()
-        Me.pnlButtons = New System.Windows.Forms.Panel()
+        Me.ReportNo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.BookNo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Accession = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ISBN = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.BookTitle = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.BookAuthor = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.IncidentType = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DateReported = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Borrower = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Penalty = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.CopyStatus = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Recovered = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Remarks = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.btnFilter = New System.Windows.Forms.Button()
+        Me.btnReset = New System.Windows.Forms.Button()
+        Me.btnRecover = New System.Windows.Forms.Button()
+        Me.btnExport = New System.Windows.Forms.Button()
         Me.pnlFilter = New System.Windows.Forms.Panel()
-        Me.pnlTop = New System.Windows.Forms.Panel()
-        Me.lblTitle = New System.Windows.Forms.Label()
         Me.lblSearch = New System.Windows.Forms.Label()
         Me.txtSearch = New System.Windows.Forms.TextBox()
         Me.lblType = New System.Windows.Forms.Label()
@@ -37,25 +51,9 @@ Partial Class frmLostDamagedBooks
         Me.lblDateTo = New System.Windows.Forms.Label()
         Me.dtpTo = New System.Windows.Forms.DateTimePicker()
         Me.chkRecovered = New System.Windows.Forms.CheckBox()
-        Me.btnFilter = New System.Windows.Forms.Button()
-        Me.btnReset = New System.Windows.Forms.Button()
-        Me.btnRecover = New System.Windows.Forms.Button()
-        Me.btnExport = New System.Windows.Forms.Button()
-        Me.colReportNo = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.colBookNo = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.colAccession = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.colIsbn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.colBookTitle = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.colBookAuthor = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.colIncidentType = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.colDateReported = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.colBorrower = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.colPenalty = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.colCopyStatus = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.colRecovered = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.colRemarks = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.pnlTop = New System.Windows.Forms.Panel()
+        Me.lblTitle = New System.Windows.Forms.Label()
         CType(Me.dgvIncidents, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.pnlButtons.SuspendLayout()
         Me.pnlFilter.SuspendLayout()
         Me.pnlTop.SuspendLayout()
         Me.SuspendLayout()
@@ -68,161 +66,120 @@ Partial Class frmLostDamagedBooks
         Me.dgvIncidents.BackgroundColor = System.Drawing.Color.White
         DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(25, Byte), Integer))
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         DataGridViewCellStyle1.ForeColor = System.Drawing.Color.White
         DataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(25, Byte), Integer))
         DataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White
         DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.dgvIncidents.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.dgvIncidents.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvIncidents.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.colReportNo, Me.colBookNo, Me.colAccession, Me.colIsbn, Me.colBookTitle, Me.colBookAuthor, Me.colIncidentType, Me.colDateReported, Me.colBorrower, Me.colPenalty, Me.colCopyStatus, Me.colRecovered, Me.colRemarks})
+        Me.dgvIncidents.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ReportNo, Me.BookNo, Me.Accession, Me.ISBN, Me.BookTitle, Me.BookAuthor, Me.IncidentType, Me.DateReported, Me.Borrower, Me.Penalty, Me.CopyStatus, Me.Recovered, Me.Remarks})
         Me.dgvIncidents.Dock = System.Windows.Forms.DockStyle.Fill
         Me.dgvIncidents.EnableHeadersVisualStyles = False
-        Me.dgvIncidents.Location = New System.Drawing.Point(0, 182)
+        Me.dgvIncidents.Location = New System.Drawing.Point(0, 122)
         Me.dgvIncidents.MultiSelect = False
         Me.dgvIncidents.Name = "dgvIncidents"
         Me.dgvIncidents.ReadOnly = True
         Me.dgvIncidents.RowHeadersVisible = False
         Me.dgvIncidents.RowHeadersWidth = 51
         Me.dgvIncidents.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgvIncidents.Size = New System.Drawing.Size(1700, 718)
+        Me.dgvIncidents.Size = New System.Drawing.Size(1700, 778)
         Me.dgvIncidents.TabIndex = 3
         '
-        'pnlButtons
+        'ReportNo
         '
-        Me.pnlButtons.Dock = System.Windows.Forms.DockStyle.Top
-        Me.pnlButtons.Location = New System.Drawing.Point(0, 128)
-        Me.pnlButtons.Name = "pnlButtons"
-        Me.pnlButtons.Size = New System.Drawing.Size(1700, 54)
-        Me.pnlButtons.TabIndex = 2
-        Me.pnlButtons.Controls.Add(Me.btnFilter)
-        Me.pnlButtons.Controls.Add(Me.btnReset)
-        Me.pnlButtons.Controls.Add(Me.btnRecover)
-        Me.pnlButtons.Controls.Add(Me.btnExport)
+        Me.ReportNo.FillWeight = 60.0!
+        Me.ReportNo.HeaderText = "Report No."
+        Me.ReportNo.MinimumWidth = 6
+        Me.ReportNo.Name = "ReportNo"
+        Me.ReportNo.ReadOnly = True
         '
-        'pnlFilter
+        'BookNo
         '
-        Me.pnlFilter.Dock = System.Windows.Forms.DockStyle.Top
-        Me.pnlFilter.Location = New System.Drawing.Point(0, 64)
-        Me.pnlFilter.Name = "pnlFilter"
-        Me.pnlFilter.Size = New System.Drawing.Size(1700, 64)
-        Me.pnlFilter.TabIndex = 1
-        Me.pnlFilter.Controls.Add(Me.lblSearch)
-        Me.pnlFilter.Controls.Add(Me.txtSearch)
-        Me.pnlFilter.Controls.Add(Me.lblType)
-        Me.pnlFilter.Controls.Add(Me.cboType)
-        Me.pnlFilter.Controls.Add(Me.lblDateFrom)
-        Me.pnlFilter.Controls.Add(Me.dtpFrom)
-        Me.pnlFilter.Controls.Add(Me.lblDateTo)
-        Me.pnlFilter.Controls.Add(Me.dtpTo)
-        Me.pnlFilter.Controls.Add(Me.chkRecovered)
+        Me.BookNo.FillWeight = 60.0!
+        Me.BookNo.HeaderText = "Book No."
+        Me.BookNo.MinimumWidth = 6
+        Me.BookNo.Name = "BookNo"
+        Me.BookNo.ReadOnly = True
         '
-        'pnlTop
+        'Accession
         '
-        Me.pnlTop.Dock = System.Windows.Forms.DockStyle.Top
-        Me.pnlTop.Location = New System.Drawing.Point(0, 0)
-        Me.pnlTop.Name = "pnlTop"
-        Me.pnlTop.Size = New System.Drawing.Size(1700, 64)
-        Me.pnlTop.TabIndex = 0
-        Me.pnlTop.Controls.Add(Me.lblTitle)
+        Me.Accession.HeaderText = "Accession No."
+        Me.Accession.MinimumWidth = 6
+        Me.Accession.Name = "Accession"
+        Me.Accession.ReadOnly = True
         '
-        'lblTitle
+        'ISBN
         '
-        Me.lblTitle.AutoSize = True
-        Me.lblTitle.Font = New System.Drawing.Font("Segoe UI Semibold", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTitle.ForeColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(25, Byte), Integer))
-        Me.lblTitle.Location = New System.Drawing.Point(16, 14)
-        Me.lblTitle.Name = "lblTitle"
-        Me.lblTitle.Size = New System.Drawing.Size(299, 32)
-        Me.lblTitle.Text = "Lost and Damaged Books"
-        Me.lblTitle.TabIndex = 0
+        Me.ISBN.HeaderText = "ISBN"
+        Me.ISBN.MinimumWidth = 6
+        Me.ISBN.Name = "ISBN"
+        Me.ISBN.ReadOnly = True
         '
-        'lblSearch
+        'BookTitle
         '
-        Me.lblSearch.Font = New System.Drawing.Font("Segoe UI Semibold", 9.5!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblSearch.ForeColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(25, Byte), Integer))
-        Me.lblSearch.AutoSize = True
-        Me.lblSearch.Location = New System.Drawing.Point(16, 4)
-        Me.lblSearch.Name = "lblSearch"
-        Me.lblSearch.Size = New System.Drawing.Size(253, 17)
-        Me.lblSearch.Text = "Search (ISBN, title, book no., student)"
-        Me.lblSearch.TabIndex = 0
+        Me.BookTitle.FillWeight = 200.0!
+        Me.BookTitle.HeaderText = "Book Title"
+        Me.BookTitle.MinimumWidth = 6
+        Me.BookTitle.Name = "BookTitle"
+        Me.BookTitle.ReadOnly = True
         '
-        'txtSearch
+        'BookAuthor
         '
-        Me.txtSearch.Location = New System.Drawing.Point(16, 26)
-        Me.txtSearch.Name = "txtSearch"
-        Me.txtSearch.Size = New System.Drawing.Size(330, 27)
-        Me.txtSearch.TabIndex = 1
+        Me.BookAuthor.HeaderText = "Author"
+        Me.BookAuthor.MinimumWidth = 6
+        Me.BookAuthor.Name = "BookAuthor"
+        Me.BookAuthor.ReadOnly = True
         '
-        'lblType
+        'IncidentType
         '
-        Me.lblType.Font = New System.Drawing.Font("Segoe UI Semibold", 9.5!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblType.ForeColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(25, Byte), Integer))
-        Me.lblType.AutoSize = True
-        Me.lblType.Location = New System.Drawing.Point(358, 4)
-        Me.lblType.Name = "lblType"
-        Me.lblType.Size = New System.Drawing.Size(34, 17)
-        Me.lblType.Text = "Type"
-        Me.lblType.TabIndex = 2
+        Me.IncidentType.HeaderText = "Type"
+        Me.IncidentType.MinimumWidth = 6
+        Me.IncidentType.Name = "IncidentType"
+        Me.IncidentType.ReadOnly = True
         '
-        'cboType
+        'DateReported
         '
-        Me.cboType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cboType.FormattingEnabled = True
-        Me.cboType.Items.AddRange(New Object() {"All", "Lost", "Damaged"})
-        Me.cboType.Location = New System.Drawing.Point(358, 26)
-        Me.cboType.Name = "cboType"
-        Me.cboType.Size = New System.Drawing.Size(140, 28)
-        Me.cboType.TabIndex = 3
+        Me.DateReported.HeaderText = "Date Reported"
+        Me.DateReported.MinimumWidth = 6
+        Me.DateReported.Name = "DateReported"
+        Me.DateReported.ReadOnly = True
         '
-        'lblDateFrom
+        'Borrower
         '
-        Me.lblDateFrom.Font = New System.Drawing.Font("Segoe UI Semibold", 9.5!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblDateFrom.ForeColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(25, Byte), Integer))
-        Me.lblDateFrom.AutoSize = True
-        Me.lblDateFrom.Location = New System.Drawing.Point(510, 4)
-        Me.lblDateFrom.Name = "lblDateFrom"
-        Me.lblDateFrom.Size = New System.Drawing.Size(63, 17)
-        Me.lblDateFrom.Text = "Date From"
-        Me.lblDateFrom.TabIndex = 4
+        Me.Borrower.HeaderText = "Reported By (Student)"
+        Me.Borrower.MinimumWidth = 6
+        Me.Borrower.Name = "Borrower"
+        Me.Borrower.ReadOnly = True
         '
-        'dtpFrom
+        'Penalty
         '
-        Me.dtpFrom.Format = System.Windows.Forms.DateTimePickerFormat.Short
-        Me.dtpFrom.Location = New System.Drawing.Point(510, 26)
-        Me.dtpFrom.Name = "dtpFrom"
-        Me.dtpFrom.Size = New System.Drawing.Size(140, 27)
-        Me.dtpFrom.TabIndex = 5
+        Me.Penalty.HeaderText = "Penalty"
+        Me.Penalty.MinimumWidth = 6
+        Me.Penalty.Name = "Penalty"
+        Me.Penalty.ReadOnly = True
         '
-        'lblDateTo
+        'CopyStatus
         '
-        Me.lblDateTo.Font = New System.Drawing.Font("Segoe UI Semibold", 9.5!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblDateTo.ForeColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(25, Byte), Integer))
-        Me.lblDateTo.AutoSize = True
-        Me.lblDateTo.Location = New System.Drawing.Point(662, 4)
-        Me.lblDateTo.Name = "lblDateTo"
-        Me.lblDateTo.Size = New System.Drawing.Size(50, 17)
-        Me.lblDateTo.Text = "Date To"
-        Me.lblDateTo.TabIndex = 6
+        Me.CopyStatus.HeaderText = "Copy Status"
+        Me.CopyStatus.MinimumWidth = 6
+        Me.CopyStatus.Name = "CopyStatus"
+        Me.CopyStatus.ReadOnly = True
         '
-        'dtpTo
+        'Recovered
         '
-        Me.dtpTo.Format = System.Windows.Forms.DateTimePickerFormat.Short
-        Me.dtpTo.Location = New System.Drawing.Point(662, 26)
-        Me.dtpTo.Name = "dtpTo"
-        Me.dtpTo.Size = New System.Drawing.Size(140, 27)
-        Me.dtpTo.TabIndex = 7
+        Me.Recovered.HeaderText = "Recovered / Repaired"
+        Me.Recovered.MinimumWidth = 6
+        Me.Recovered.Name = "Recovered"
+        Me.Recovered.ReadOnly = True
         '
-        'chkRecovered
+        'Remarks
         '
-        Me.chkRecovered.AutoSize = True
-        Me.chkRecovered.ForeColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(25, Byte), Integer))
-        Me.chkRecovered.Location = New System.Drawing.Point(814, 30)
-        Me.chkRecovered.Name = "chkRecovered"
-        Me.chkRecovered.Size = New System.Drawing.Size(215, 23)
-        Me.chkRecovered.Text = "Include recovered / repaired"
-        Me.chkRecovered.UseVisualStyleBackColor = True
-        Me.chkRecovered.TabIndex = 8
+        Me.Remarks.FillWeight = 160.0!
+        Me.Remarks.HeaderText = "Remarks"
+        Me.Remarks.MinimumWidth = 6
+        Me.Remarks.Name = "Remarks"
+        Me.Remarks.ReadOnly = True
         '
         'btnFilter
         '
@@ -232,12 +189,12 @@ Partial Class frmLostDamagedBooks
         Me.btnFilter.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnFilter.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnFilter.ForeColor = System.Drawing.Color.White
-        Me.btnFilter.Location = New System.Drawing.Point(16, 6)
+        Me.btnFilter.Location = New System.Drawing.Point(1018, 10)
         Me.btnFilter.Name = "btnFilter"
         Me.btnFilter.Size = New System.Drawing.Size(160, 38)
+        Me.btnFilter.TabIndex = 0
         Me.btnFilter.Text = "Filter by Date"
         Me.btnFilter.UseVisualStyleBackColor = False
-        Me.btnFilter.TabIndex = 0
         '
         'btnReset
         '
@@ -247,12 +204,12 @@ Partial Class frmLostDamagedBooks
         Me.btnReset.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnReset.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnReset.ForeColor = System.Drawing.Color.White
-        Me.btnReset.Location = New System.Drawing.Point(186, 6)
+        Me.btnReset.Location = New System.Drawing.Point(1188, 10)
         Me.btnReset.Name = "btnReset"
         Me.btnReset.Size = New System.Drawing.Size(160, 38)
+        Me.btnReset.TabIndex = 1
         Me.btnReset.Text = "Show All Dates"
         Me.btnReset.UseVisualStyleBackColor = False
-        Me.btnReset.TabIndex = 1
         '
         'btnRecover
         '
@@ -262,12 +219,12 @@ Partial Class frmLostDamagedBooks
         Me.btnRecover.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnRecover.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnRecover.ForeColor = System.Drawing.Color.White
-        Me.btnRecover.Location = New System.Drawing.Point(356, 6)
+        Me.btnRecover.Location = New System.Drawing.Point(1358, 10)
         Me.btnRecover.Name = "btnRecover"
         Me.btnRecover.Size = New System.Drawing.Size(160, 38)
+        Me.btnRecover.TabIndex = 2
         Me.btnRecover.Text = "Mark Recovered"
         Me.btnRecover.UseVisualStyleBackColor = False
-        Me.btnRecover.TabIndex = 2
         '
         'btnExport
         '
@@ -277,107 +234,143 @@ Partial Class frmLostDamagedBooks
         Me.btnExport.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnExport.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnExport.ForeColor = System.Drawing.Color.White
-        Me.btnExport.Location = New System.Drawing.Point(526, 6)
+        Me.btnExport.Location = New System.Drawing.Point(1528, 10)
         Me.btnExport.Name = "btnExport"
         Me.btnExport.Size = New System.Drawing.Size(160, 38)
+        Me.btnExport.TabIndex = 3
         Me.btnExport.Text = "Export"
         Me.btnExport.UseVisualStyleBackColor = False
-        Me.btnExport.TabIndex = 3
         '
-        'colReportNo
+        'pnlFilter
         '
-        Me.colReportNo.FillWeight = 60.0!
-        Me.colReportNo.HeaderText = "Report No."
-        Me.colReportNo.MinimumWidth = 6
-        Me.colReportNo.Name = "ReportNo"
-        Me.colReportNo.ReadOnly = True
+        Me.pnlFilter.BackColor = System.Drawing.Color.White
+        Me.pnlFilter.Controls.Add(Me.lblSearch)
+        Me.pnlFilter.Controls.Add(Me.txtSearch)
+        Me.pnlFilter.Controls.Add(Me.lblType)
+        Me.pnlFilter.Controls.Add(Me.cboType)
+        Me.pnlFilter.Controls.Add(Me.lblDateFrom)
+        Me.pnlFilter.Controls.Add(Me.dtpFrom)
+        Me.pnlFilter.Controls.Add(Me.lblDateTo)
+        Me.pnlFilter.Controls.Add(Me.dtpTo)
+        Me.pnlFilter.Controls.Add(Me.chkRecovered)
+        Me.pnlFilter.Dock = System.Windows.Forms.DockStyle.Top
+        Me.pnlFilter.Location = New System.Drawing.Point(0, 58)
+        Me.pnlFilter.Name = "pnlFilter"
+        Me.pnlFilter.Size = New System.Drawing.Size(1700, 64)
+        Me.pnlFilter.TabIndex = 1
         '
-        'colBookNo
+        'lblSearch
         '
-        Me.colBookNo.FillWeight = 60.0!
-        Me.colBookNo.HeaderText = "Book No."
-        Me.colBookNo.MinimumWidth = 6
-        Me.colBookNo.Name = "BookNo"
-        Me.colBookNo.ReadOnly = True
+        Me.lblSearch.AutoSize = True
+        Me.lblSearch.Font = New System.Drawing.Font("Segoe UI Semibold", 9.5!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblSearch.ForeColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.lblSearch.Location = New System.Drawing.Point(15, 10)
+        Me.lblSearch.Name = "lblSearch"
+        Me.lblSearch.Size = New System.Drawing.Size(234, 17)
+        Me.lblSearch.TabIndex = 0
+        Me.lblSearch.Text = "Search (ISBN, title, book no., student)"
         '
-        'colAccession
+        'txtSearch
         '
-        Me.colAccession.HeaderText = "Accession No."
-        Me.colAccession.MinimumWidth = 6
-        Me.colAccession.Name = "Accession"
-        Me.colAccession.ReadOnly = True
+        Me.txtSearch.Location = New System.Drawing.Point(15, 32)
+        Me.txtSearch.Name = "txtSearch"
+        Me.txtSearch.Size = New System.Drawing.Size(330, 25)
+        Me.txtSearch.TabIndex = 1
         '
-        'colIsbn
+        'lblType
         '
-        Me.colIsbn.HeaderText = "ISBN"
-        Me.colIsbn.MinimumWidth = 6
-        Me.colIsbn.Name = "ISBN"
-        Me.colIsbn.ReadOnly = True
+        Me.lblType.AutoSize = True
+        Me.lblType.Font = New System.Drawing.Font("Segoe UI Semibold", 9.5!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblType.ForeColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.lblType.Location = New System.Drawing.Point(357, 10)
+        Me.lblType.Name = "lblType"
+        Me.lblType.Size = New System.Drawing.Size(36, 17)
+        Me.lblType.TabIndex = 2
+        Me.lblType.Text = "Type"
         '
-        'colBookTitle
+        'cboType
         '
-        Me.colBookTitle.FillWeight = 200.0!
-        Me.colBookTitle.HeaderText = "Book Title"
-        Me.colBookTitle.MinimumWidth = 6
-        Me.colBookTitle.Name = "BookTitle"
-        Me.colBookTitle.ReadOnly = True
+        Me.cboType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cboType.FormattingEnabled = True
+        Me.cboType.Items.AddRange(New Object() {"All", "Lost", "Damaged"})
+        Me.cboType.Location = New System.Drawing.Point(357, 32)
+        Me.cboType.Name = "cboType"
+        Me.cboType.Size = New System.Drawing.Size(140, 25)
+        Me.cboType.TabIndex = 3
         '
-        'colBookAuthor
+        'lblDateFrom
         '
-        Me.colBookAuthor.HeaderText = "Author"
-        Me.colBookAuthor.MinimumWidth = 6
-        Me.colBookAuthor.Name = "BookAuthor"
-        Me.colBookAuthor.ReadOnly = True
+        Me.lblDateFrom.AutoSize = True
+        Me.lblDateFrom.Font = New System.Drawing.Font("Segoe UI Semibold", 9.5!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblDateFrom.ForeColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.lblDateFrom.Location = New System.Drawing.Point(509, 10)
+        Me.lblDateFrom.Name = "lblDateFrom"
+        Me.lblDateFrom.Size = New System.Drawing.Size(72, 17)
+        Me.lblDateFrom.TabIndex = 4
+        Me.lblDateFrom.Text = "Date From"
         '
-        'colIncidentType
+        'dtpFrom
         '
-        Me.colIncidentType.HeaderText = "Type"
-        Me.colIncidentType.MinimumWidth = 6
-        Me.colIncidentType.Name = "IncidentType"
-        Me.colIncidentType.ReadOnly = True
+        Me.dtpFrom.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.dtpFrom.Location = New System.Drawing.Point(509, 32)
+        Me.dtpFrom.Name = "dtpFrom"
+        Me.dtpFrom.Size = New System.Drawing.Size(140, 25)
+        Me.dtpFrom.TabIndex = 5
         '
-        'colDateReported
+        'lblDateTo
         '
-        Me.colDateReported.HeaderText = "Date Reported"
-        Me.colDateReported.MinimumWidth = 6
-        Me.colDateReported.Name = "DateReported"
-        Me.colDateReported.ReadOnly = True
+        Me.lblDateTo.AutoSize = True
+        Me.lblDateTo.Font = New System.Drawing.Font("Segoe UI Semibold", 9.5!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblDateTo.ForeColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.lblDateTo.Location = New System.Drawing.Point(661, 10)
+        Me.lblDateTo.Name = "lblDateTo"
+        Me.lblDateTo.Size = New System.Drawing.Size(54, 17)
+        Me.lblDateTo.TabIndex = 6
+        Me.lblDateTo.Text = "Date To"
         '
-        'colBorrower
+        'dtpTo
         '
-        Me.colBorrower.HeaderText = "Reported By (Student)"
-        Me.colBorrower.MinimumWidth = 6
-        Me.colBorrower.Name = "Borrower"
-        Me.colBorrower.ReadOnly = True
+        Me.dtpTo.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.dtpTo.Location = New System.Drawing.Point(661, 32)
+        Me.dtpTo.Name = "dtpTo"
+        Me.dtpTo.Size = New System.Drawing.Size(140, 25)
+        Me.dtpTo.TabIndex = 7
         '
-        'colPenalty
+        'chkRecovered
         '
-        Me.colPenalty.HeaderText = "Penalty"
-        Me.colPenalty.MinimumWidth = 6
-        Me.colPenalty.Name = "Penalty"
-        Me.colPenalty.ReadOnly = True
+        Me.chkRecovered.AutoSize = True
+        Me.chkRecovered.ForeColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.chkRecovered.Location = New System.Drawing.Point(813, 36)
+        Me.chkRecovered.Name = "chkRecovered"
+        Me.chkRecovered.Size = New System.Drawing.Size(199, 23)
+        Me.chkRecovered.TabIndex = 8
+        Me.chkRecovered.Text = "Include recovered / repaired"
+        Me.chkRecovered.UseVisualStyleBackColor = True
         '
-        'colCopyStatus
+        'pnlTop
         '
-        Me.colCopyStatus.HeaderText = "Copy Status"
-        Me.colCopyStatus.MinimumWidth = 6
-        Me.colCopyStatus.Name = "CopyStatus"
-        Me.colCopyStatus.ReadOnly = True
+        Me.pnlTop.BackColor = System.Drawing.Color.White
+        Me.pnlTop.Controls.Add(Me.btnFilter)
+        Me.pnlTop.Controls.Add(Me.lblTitle)
+        Me.pnlTop.Controls.Add(Me.btnReset)
+        Me.pnlTop.Controls.Add(Me.btnExport)
+        Me.pnlTop.Controls.Add(Me.btnRecover)
+        Me.pnlTop.Dock = System.Windows.Forms.DockStyle.Top
+        Me.pnlTop.Location = New System.Drawing.Point(0, 0)
+        Me.pnlTop.Name = "pnlTop"
+        Me.pnlTop.Size = New System.Drawing.Size(1700, 58)
+        Me.pnlTop.TabIndex = 0
         '
-        'colRecovered
+        'lblTitle
         '
-        Me.colRecovered.HeaderText = "Recovered / Repaired"
-        Me.colRecovered.MinimumWidth = 6
-        Me.colRecovered.Name = "Recovered"
-        Me.colRecovered.ReadOnly = True
-        '
-        'colRemarks
-        '
-        Me.colRemarks.FillWeight = 160.0!
-        Me.colRemarks.HeaderText = "Remarks"
-        Me.colRemarks.MinimumWidth = 6
-        Me.colRemarks.Name = "Remarks"
-        Me.colRemarks.ReadOnly = True
+        Me.lblTitle.AutoSize = True
+        Me.lblTitle.Font = New System.Drawing.Font("Segoe UI Semibold", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblTitle.ForeColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.lblTitle.Location = New System.Drawing.Point(11, 14)
+        Me.lblTitle.Name = "lblTitle"
+        Me.lblTitle.Size = New System.Drawing.Size(292, 32)
+        Me.lblTitle.TabIndex = 0
+        Me.lblTitle.Text = "Lost and Damaged Books"
         '
         'frmLostDamagedBooks
         '
@@ -385,7 +378,6 @@ Partial Class frmLostDamagedBooks
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(254, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(231, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(1700, 900)
         Me.Controls.Add(Me.dgvIncidents)
-        Me.Controls.Add(Me.pnlButtons)
         Me.Controls.Add(Me.pnlFilter)
         Me.Controls.Add(Me.pnlTop)
         Me.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -393,18 +385,15 @@ Partial Class frmLostDamagedBooks
         Me.Name = "frmLostDamagedBooks"
         Me.Text = "frmLostDamagedBooks"
         CType(Me.dgvIncidents, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.pnlTop.ResumeLayout(False)
-        Me.pnlTop.PerformLayout()
         Me.pnlFilter.ResumeLayout(False)
         Me.pnlFilter.PerformLayout()
-        Me.pnlButtons.ResumeLayout(False)
-        Me.pnlButtons.PerformLayout()
+        Me.pnlTop.ResumeLayout(False)
+        Me.pnlTop.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
 
     Friend WithEvents dgvIncidents As System.Windows.Forms.DataGridView
-    Friend WithEvents pnlButtons As System.Windows.Forms.Panel
     Friend WithEvents pnlFilter As System.Windows.Forms.Panel
     Friend WithEvents pnlTop As System.Windows.Forms.Panel
     Friend WithEvents lblTitle As System.Windows.Forms.Label
@@ -434,4 +423,17 @@ Partial Class frmLostDamagedBooks
     Friend WithEvents colCopyStatus As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents colRecovered As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents colRemarks As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents ReportNo As DataGridViewTextBoxColumn
+    Friend WithEvents BookNo As DataGridViewTextBoxColumn
+    Friend WithEvents Accession As DataGridViewTextBoxColumn
+    Friend WithEvents ISBN As DataGridViewTextBoxColumn
+    Friend WithEvents BookTitle As DataGridViewTextBoxColumn
+    Friend WithEvents BookAuthor As DataGridViewTextBoxColumn
+    Friend WithEvents IncidentType As DataGridViewTextBoxColumn
+    Friend WithEvents DateReported As DataGridViewTextBoxColumn
+    Friend WithEvents Borrower As DataGridViewTextBoxColumn
+    Friend WithEvents Penalty As DataGridViewTextBoxColumn
+    Friend WithEvents CopyStatus As DataGridViewTextBoxColumn
+    Friend WithEvents Recovered As DataGridViewTextBoxColumn
+    Friend WithEvents Remarks As DataGridViewTextBoxColumn
 End Class

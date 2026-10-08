@@ -118,7 +118,7 @@ Partial Class Form1
         Me.txtPassword.Location = New System.Drawing.Point(35, 7)
         Me.txtPassword.Name = "txtPassword"
         Me.txtPassword.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
-        Me.txtPassword.Size = New System.Drawing.Size(225, 25)
+        Me.txtPassword.Size = New System.Drawing.Size(225, 20)
         Me.txtPassword.TabIndex = 5
         '
         'btnViewPassword
@@ -161,7 +161,7 @@ Partial Class Form1
         Me.txtUsername.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtUsername.Location = New System.Drawing.Point(34, 7)
         Me.txtUsername.Name = "txtUsername"
-        Me.txtUsername.Size = New System.Drawing.Size(254, 25)
+        Me.txtUsername.Size = New System.Drawing.Size(254, 20)
         Me.txtUsername.TabIndex = 3
         '
         'lblAttempts
@@ -170,7 +170,7 @@ Partial Class Form1
         Me.lblAttempts.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblAttempts.Location = New System.Drawing.Point(97, 376)
         Me.lblAttempts.Name = "lblAttempts"
-        Me.lblAttempts.Size = New System.Drawing.Size(96, 20)
+        Me.lblAttempts.Size = New System.Drawing.Size(76, 15)
         Me.lblAttempts.TabIndex = 41
         Me.lblAttempts.Text = "Attempts left"
         '
@@ -181,7 +181,7 @@ Partial Class Form1
         Me.Label4.Font = New System.Drawing.Font("Segoe UI Light", 13.0!)
         Me.Label4.Location = New System.Drawing.Point(193, 150)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(127, 30)
+        Me.Label4.Size = New System.Drawing.Size(103, 25)
         Me.Label4.TabIndex = 39
         Me.Label4.Text = "THE K.A.A.S."
         '
@@ -192,7 +192,7 @@ Partial Class Form1
         Me.Label11.ForeColor = System.Drawing.Color.FromArgb(CType(CType(90, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(60, Byte), Integer))
         Me.Label11.Location = New System.Drawing.Point(166, 176)
         Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(205, 45)
+        Me.Label11.Size = New System.Drawing.Size(160, 36)
         Me.Label11.TabIndex = 38
         Me.Label11.Text = "LIBRARY"
         '
@@ -212,7 +212,7 @@ Partial Class Form1
         Me.lblRegister.Font = New System.Drawing.Font("Segoe UI", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblRegister.Location = New System.Drawing.Point(280, 479)
         Me.lblRegister.Name = "lblRegister"
-        Me.lblRegister.Size = New System.Drawing.Size(71, 23)
+        Me.lblRegister.Size = New System.Drawing.Size(58, 19)
         Me.lblRegister.TabIndex = 10
         Me.lblRegister.TabStop = True
         Me.lblRegister.Text = "Register"
@@ -223,7 +223,7 @@ Partial Class Form1
         Me.Label6.Font = New System.Drawing.Font("Segoe UI", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label6.Location = New System.Drawing.Point(156, 479)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(149, 23)
+        Me.Label6.Size = New System.Drawing.Size(118, 19)
         Me.Label6.TabIndex = 9
         Me.Label6.Text = "Need an account?"
         '
@@ -233,7 +233,7 @@ Partial Class Form1
         Me.Label8.Font = New System.Drawing.Font("Segoe UI", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label8.Location = New System.Drawing.Point(95, 309)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(87, 25)
+        Me.Label8.Size = New System.Drawing.Size(70, 20)
         Me.Label8.TabIndex = 8
         Me.Label8.Text = "Password"
         '
@@ -243,7 +243,7 @@ Partial Class Form1
         Me.Label9.Font = New System.Drawing.Font("Segoe UI", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label9.Location = New System.Drawing.Point(96, 232)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(91, 25)
+        Me.Label9.Size = New System.Drawing.Size(75, 20)
         Me.Label9.TabIndex = 7
         Me.Label9.Text = "Username"
         '
@@ -265,7 +265,7 @@ Partial Class Form1
         Me.lnklblForgotPass.Font = New System.Drawing.Font("Segoe UI", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lnklblForgotPass.Location = New System.Drawing.Point(280, 372)
         Me.lnklblForgotPass.Name = "lnklblForgotPass"
-        Me.lnklblForgotPass.Size = New System.Drawing.Size(143, 23)
+        Me.lnklblForgotPass.Size = New System.Drawing.Size(118, 19)
         Me.lnklblForgotPass.TabIndex = 42
         Me.lnklblForgotPass.TabStop = True
         Me.lnklblForgotPass.Text = "Forgot Password?"
@@ -292,7 +292,7 @@ Partial Class Form1
         Me.Label1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(25, Byte), Integer))
         Me.Label1.Location = New System.Drawing.Point(145, 145)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(465, 180)
+        Me.Label1.Size = New System.Drawing.Size(376, 146)
         Me.Label1.TabIndex = 2
         Me.Label1.Text = "The world's " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "knowledge,"
         '
@@ -315,7 +315,7 @@ Partial Class Form1
         Me.Label2.ForeColor = System.Drawing.Color.SaddleBrown
         Me.Label2.Location = New System.Drawing.Point(153, 333)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(300, 37)
+        Me.Label2.Size = New System.Drawing.Size(233, 30)
         Me.Label2.TabIndex = 6
         Me.Label2.Text = "just a single click away!"
         '
@@ -335,7 +335,6 @@ Partial Class Form1
         Me.Name = "Form1"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Form1"
-        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         CType(PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()

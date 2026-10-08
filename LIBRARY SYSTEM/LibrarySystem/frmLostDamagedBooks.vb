@@ -1,21 +1,17 @@
 ﻿Imports MySql.Data.MySqlClient
 
-' The LAYOUT of this form lives in frmLostDamagedBooks.Designer.vb -- open the form in the
-' Visual Studio designer to move, resize or restyle anything. This file only holds behaviour.
 Public Class frmLostDamagedBooks
 
     Private useDateRange As Boolean = False
-    Private isReady As Boolean = False      ' stays False until Load finishes, so setting up the filters runs no query
+    Private isReady As Boolean = False
 
     Private Sub frmLostDamagedBooks_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         cboType.SelectedIndex = 0
         isReady = True
     End Sub
-
-    ' ------------------------------------------------------------ list
     Private Sub OnVisible(sender As Object, e As EventArgs) Handles MyBase.VisibleChanged
         If Me.DesignMode OrElse Not Me.Visible Then Exit Sub
-        useDateRange = False                                   ' every visit starts with all records
+        useDateRange = False
         dtpFrom.Value = New Date(Date.Today.Year, Date.Today.Month, 1)
         dtpTo.Value = Date.Today
         LoadIncidents()
@@ -102,8 +98,6 @@ Public Class frmLostDamagedBooks
         useDateRange = False
         LoadIncidents()
     End Sub
-
-    ' Puts a found / repaired copy back into the library (the penalty is not changed)
     Private Sub btnRecover_Click(sender As Object, e As EventArgs) Handles btnRecover.Click
         If dgvIncidents.SelectedRows.Count = 0 Then
             MsgBox("Select a record from the list first.", vbExclamation, "Lost and Damaged Books")

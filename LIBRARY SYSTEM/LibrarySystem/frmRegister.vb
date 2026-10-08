@@ -82,18 +82,16 @@ Public Class frmRegister
                     Try
                         Dim newUserId As Integer
                         Using ins As New MySqlCommand(
-                            "INSERT INTO Users (school_id, username, password, first_name, middle_name, last_name, suffix, " &
+                            "INSERT INTO Users (school_id, username, password, first_name, middle_name, last_name, " &
                             "gender, contact_num, email, role, account_status, attempts) " &
-                            "VALUES (@sid, @u, @p, @fn, @mn, @ln, @sf, @g, @cn, @em, 'Member', 'Active', 3)", conn, tx)
+                            "VALUES (@sid, @u, @p, @fn, @mn, @ln, @g, @cn, @em, 'Member', 'Active', 3)", conn, tx)
                             ins.Parameters.AddWithValue("@sid", txtUserID.Text.Trim())
                             ins.Parameters.AddWithValue("@u", txtUsername.Text.Trim())
                             ins.Parameters.AddWithValue("@p", Security.HashPassword(txtPassword.Text))
                             ins.Parameters.AddWithValue("@fn", txtFirstName.Text.Trim())
                             ins.Parameters.AddWithValue("@mn", If(String.IsNullOrWhiteSpace(txtMiddleName.Text), DBNull.Value, CObj(txtMiddleName.Text.Trim())))
                             ins.Parameters.AddWithValue("@ln", txtLastName.Text.Trim())
-                            ins.Parameters.AddWithValue("@sf", If(String.IsNullOrWhiteSpace(txtSuffix.Text), DBNull.Value, CObj(txtSuffix.Text.Trim())))
                             ins.Parameters.AddWithValue("@g", cboGender.Text)
-
                             ins.Parameters.AddWithValue("@cn", txtContactNum.Text.Trim())
                             ins.Parameters.AddWithValue("@em", txtEmail.Text.Trim())
                             ins.ExecuteNonQuery()
@@ -123,7 +121,7 @@ Public Class frmRegister
 
         MsgBox("Successfully registered. You can now log in.", vbInformation, "USER REGISTRATION")
 
-        txtFirstName.Clear() : txtMiddleName.Clear() : txtLastName.Clear() : txtSuffix.Clear()
+        txtFirstName.Clear() : txtMiddleName.Clear() : txtLastName.Clear()
         txtUserID.Clear() : cboCourse.SelectedIndex = -1 : cboYear.SelectedIndex = -1
         txtContactNum.Clear() : txtEmail.Clear() : cboGender.SelectedIndex = -1
         txtUsername.Clear() : txtPassword.Clear()

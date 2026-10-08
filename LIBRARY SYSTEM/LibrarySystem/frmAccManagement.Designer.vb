@@ -22,7 +22,7 @@ Partial Class frmAccManagement
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Label20 = New System.Windows.Forms.Label()
@@ -52,6 +52,14 @@ Partial Class frmAccManagement
         Me.Label28 = New System.Windows.Forms.Label()
         Me.lblposition = New System.Windows.Forms.Label()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.Username = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Password = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.FullName = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Gender = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ContactNo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Email = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Course = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Year = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.txtconfirmpassword = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
@@ -71,14 +79,6 @@ Partial Class frmAccManagement
         Me.btnClear = New System.Windows.Forms.Button()
         Me.btnDelete = New System.Windows.Forms.Button()
         Me.btnUpdate = New System.Windows.Forms.Button()
-        Me.Username = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Password = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.FullName = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Gender = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ContactNo = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Email = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Course = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Year = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Panel4.SuspendLayout()
         Me.Panel13.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -393,19 +393,67 @@ Partial Class frmAccManagement
         Me.DataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Username, Me.Password, Me.FullName, Me.Gender, Me.ContactNo, Me.Email, Me.Course, Me.Year})
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridView1.DefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridView1.DefaultCellStyle = DataGridViewCellStyle1
         Me.DataGridView1.Location = New System.Drawing.Point(19, 390)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.RowHeadersWidth = 51
         Me.DataGridView1.Size = New System.Drawing.Size(1187, 336)
         Me.DataGridView1.TabIndex = 159
+        '
+        'Username
+        '
+        Me.Username.HeaderText = "Username"
+        Me.Username.MinimumWidth = 6
+        Me.Username.Name = "Username"
+        '
+        'Password
+        '
+        Me.Password.HeaderText = "Password"
+        Me.Password.MinimumWidth = 6
+        Me.Password.Name = "Password"
+        '
+        'FullName
+        '
+        Me.FullName.HeaderText = "Full Name"
+        Me.FullName.MinimumWidth = 6
+        Me.FullName.Name = "FullName"
+        '
+        'Gender
+        '
+        Me.Gender.HeaderText = "Gender"
+        Me.Gender.MinimumWidth = 6
+        Me.Gender.Name = "Gender"
+        '
+        'ContactNo
+        '
+        Me.ContactNo.HeaderText = "Contact No."
+        Me.ContactNo.MinimumWidth = 6
+        Me.ContactNo.Name = "ContactNo"
+        '
+        'Email
+        '
+        Me.Email.HeaderText = "Email"
+        Me.Email.MinimumWidth = 6
+        Me.Email.Name = "Email"
+        '
+        'Course
+        '
+        Me.Course.HeaderText = "Course"
+        Me.Course.MinimumWidth = 6
+        Me.Course.Name = "Course"
+        '
+        'Year
+        '
+        Me.Year.HeaderText = "Year"
+        Me.Year.MinimumWidth = 6
+        Me.Year.Name = "Year"
         '
         'Label1
         '
@@ -615,58 +663,11 @@ Partial Class frmAccManagement
         Me.btnUpdate.Text = "Update Account"
         Me.btnUpdate.UseVisualStyleBackColor = False
         '
-        'Username
-        '
-        Me.Username.HeaderText = "Username"
-        Me.Username.MinimumWidth = 6
-        Me.Username.Name = "Username"
-        '
-        'Password
-        '
-        Me.Password.HeaderText = "Password"
-        Me.Password.MinimumWidth = 6
-        Me.Password.Name = "Password"
-        '
-        'FullName
-        '
-        Me.FullName.HeaderText = "Full Name"
-        Me.FullName.MinimumWidth = 6
-        Me.FullName.Name = "FullName"
-        '
-        'Gender
-        '
-        Me.Gender.HeaderText = "Gender"
-        Me.Gender.MinimumWidth = 6
-        Me.Gender.Name = "Gender"
-        '
-        'ContactNo
-        '
-        Me.ContactNo.HeaderText = "Contact No."
-        Me.ContactNo.MinimumWidth = 6
-        Me.ContactNo.Name = "ContactNo"
-        '
-        'Email
-        '
-        Me.Email.HeaderText = "Email"
-        Me.Email.MinimumWidth = 6
-        Me.Email.Name = "Email"
-        '
-        'Course
-        '
-        Me.Course.HeaderText = "Course"
-        Me.Course.MinimumWidth = 6
-        Me.Course.Name = "Course"
-        '
-        'Year
-        '
-        Me.Year.HeaderText = "Year"
-        Me.Year.MinimumWidth = 6
-        Me.Year.Name = "Year"
-        '
         'frmAccManagement
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(1221, 778)
         Me.Controls.Add(Me.btnClear)
         Me.Controls.Add(Me.Label14)
