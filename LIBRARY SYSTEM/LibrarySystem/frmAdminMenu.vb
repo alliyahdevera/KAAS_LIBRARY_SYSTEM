@@ -10,8 +10,8 @@
         UpdateClock()
 
         ' new sidebar buttons: must be created BEFORE the click handlers below are attached
-        MenuBuilder.AddMenuButton(Me, "btnbookman", "Book Copies")
-        MenuBuilder.AddMenuButton(Me, "btnBookCopies", "Lost and Damaged")
+        MenuBuilder.AddMenuButton(Me, "btnborrowh", "Book Inventory")
+        MenuBuilder.AddMenuButton(Me, "btnBookInventory", "Lost and Damaged")
 
         For Each b As Button In UiHelpers.AllButtons(Me)
             AddHandler b.Click, AddressOf MenuButton_Click
@@ -24,7 +24,7 @@
         Select Case caption
             Case "Dashboard" : FormHost.LoadInto(Panel3, frmAdminDashboard)
             Case "Book Management" : FormHost.LoadInto(Panel3, frmBookManagement)
-            Case "Book Copies" : FormHost.LoadInto(Panel3, frmAdminBookCopies)
+            Case "Book Inventory" : FormHost.LoadInto(Panel3, frmAdminBookInventory)
             Case "Lost and Damaged" : FormHost.LoadInto(Panel3, frmLostDamagedBooks)
             Case "Account Management" : FormHost.LoadInto(Panel3, frmAccManagement)
             Case "Borrow History Records" : FormHost.LoadInto(Panel3, frmAdminHistory)
@@ -56,5 +56,4 @@
     Private Sub frmAdminMenu_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
         If Not loggingOut Then Application.Exit()
     End Sub
-
 End Class

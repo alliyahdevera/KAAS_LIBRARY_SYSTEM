@@ -26,6 +26,7 @@ Partial Class frmAdminMenu
         Dim PictureBox2 As System.Windows.Forms.PictureBox
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmAdminMenu))
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.btnactlog = New System.Windows.Forms.Button()
         Me.a = New System.Windows.Forms.Button()
         Me.btnlogout = New System.Windows.Forms.Button()
         Me.Panel8 = New System.Windows.Forms.Panel()
@@ -48,7 +49,6 @@ Partial Class frmAdminMenu
         Me.Label15 = New System.Windows.Forms.Label()
         Me.tmrDateTime = New System.Windows.Forms.Timer(Me.components)
         Me.Panel3 = New System.Windows.Forms.Panel()
-        Me.btnactlog = New System.Windows.Forms.Button()
         PictureBox2 = New System.Windows.Forms.PictureBox()
         CType(PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel2.SuspendLayout()
@@ -83,6 +83,25 @@ Partial Class frmAdminMenu
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(223, 778)
         Me.Panel2.TabIndex = 17
+        '
+        'btnactlog
+        '
+        Me.btnactlog.BackColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.btnactlog.Dock = System.Windows.Forms.DockStyle.Top
+        Me.btnactlog.FlatAppearance.BorderSize = 0
+        Me.btnactlog.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnactlog.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnactlog.ForeColor = System.Drawing.Color.White
+        Me.btnactlog.Image = CType(resources.GetObject("btnactlog.Image"), System.Drawing.Image)
+        Me.btnactlog.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnactlog.Location = New System.Drawing.Point(0, 250)
+        Me.btnactlog.Name = "btnactlog"
+        Me.btnactlog.Size = New System.Drawing.Size(223, 50)
+        Me.btnactlog.TabIndex = 55
+        Me.btnactlog.Text = "     Activity Logs"
+        Me.btnactlog.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnactlog.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.btnactlog.UseVisualStyleBackColor = False
         '
         'a
         '
@@ -380,25 +399,6 @@ Partial Class frmAdminMenu
         Me.Panel3.Name = "Panel3"
         Me.Panel3.Size = New System.Drawing.Size(1220, 778)
         Me.Panel3.TabIndex = 54
-        '
-        'btnactlog
-        '
-        Me.btnactlog.BackColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(25, Byte), Integer))
-        Me.btnactlog.Dock = System.Windows.Forms.DockStyle.Top
-        Me.btnactlog.FlatAppearance.BorderSize = 0
-        Me.btnactlog.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnactlog.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnactlog.ForeColor = System.Drawing.Color.White
-        Me.btnactlog.Image = CType(resources.GetObject("btnactlog.Image"), System.Drawing.Image)
-        Me.btnactlog.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnactlog.Location = New System.Drawing.Point(0, 250)
-        Me.btnactlog.Name = "btnactlog"
-        Me.btnactlog.Size = New System.Drawing.Size(223, 50)
-        Me.btnactlog.TabIndex = 55
-        Me.btnactlog.Text = "     Activity Logs"
-        Me.btnactlog.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnactlog.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.btnactlog.UseVisualStyleBackColor = False
         '
         'frmAdminMenu
         '
