@@ -142,12 +142,6 @@
     <Compile Include="frmAdminBookCopies.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmBookManage.Designer.vb">
-      <DependentUpon>frmBookManage.vb</DependentUpon>
-    </Compile>
-    <Compile Include="frmBookManage.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="frmLostDamagedBooks.Designer.vb">
       <DependentUpon>frmLostDamagedBooks.vb</DependentUpon>
     </Compile>
@@ -208,10 +202,10 @@
     <Compile Include="frmHelp.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmLibrarianHistory.Designer.vb">
-      <DependentUpon>frmLibrarianHistory.vb</DependentUpon>
+    <Compile Include="frmLibrarianBorrowManagement.Designer.vb">
+      <DependentUpon>frmLibrarianBorrowManagement.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmLibrarianHistory.vb">
+    <Compile Include="frmLibrarianBorrowManagement.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmLibrarianMainMenu.Designer.vb">
@@ -300,9 +294,6 @@
     <EmbeddedResource Include="frmAdminBookCopies.resx">
       <DependentUpon>frmAdminBookCopies.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmBookManage.resx">
-      <DependentUpon>frmBookManage.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="frmLostDamagedBooks.resx">
       <DependentUpon>frmLostDamagedBooks.vb</DependentUpon>
     </EmbeddedResource>
@@ -333,8 +324,8 @@
     <EmbeddedResource Include="frmHelp.resx">
       <DependentUpon>frmHelp.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmLibrarianHistory.resx">
-      <DependentUpon>frmLibrarianHistory.vb</DependentUpon>
+    <EmbeddedResource Include="frmLibrarianBorrowManagement.resx">
+      <DependentUpon>frmLibrarianBorrowManagement.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLibrarianMainMenu.resx">
       <DependentUpon>frmLibrarianMainMenu.vb</DependentUpon>

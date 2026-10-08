@@ -1,6 +1,6 @@
 ﻿Imports MySql.Data.MySqlClient
 
-Public Class frmLibrarianHistory
+Public Class frmLibrarianBorrowManagement
 
     Private Sub frmLibrarianHistory_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         UiHelpers.FillHeader(Me)          ' name, position, today
