@@ -27,10 +27,10 @@ Partial Class frmAdminMenu
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmAdminMenu))
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.btnactlog = New System.Windows.Forms.Button()
-        Me.a = New System.Windows.Forms.Button()
+        Me.btnLostDamaged = New System.Windows.Forms.Button()
         Me.btnlogout = New System.Windows.Forms.Button()
         Me.Panel8 = New System.Windows.Forms.Panel()
-        Me.btnbookman = New System.Windows.Forms.Button()
+        Me.btnbookinventory = New System.Windows.Forms.Button()
         Me.btnborrowh = New System.Windows.Forms.Button()
         Me.btnaccman = New System.Windows.Forms.Button()
         Me.btndash = New System.Windows.Forms.Button()
@@ -71,10 +71,10 @@ Partial Class frmAdminMenu
         '
         Me.Panel2.BackColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(25, Byte), Integer))
         Me.Panel2.Controls.Add(Me.btnactlog)
-        Me.Panel2.Controls.Add(Me.a)
+        Me.Panel2.Controls.Add(Me.btnLostDamaged)
         Me.Panel2.Controls.Add(Me.btnlogout)
         Me.Panel2.Controls.Add(Me.Panel8)
-        Me.Panel2.Controls.Add(Me.btnbookman)
+        Me.Panel2.Controls.Add(Me.btnbookinventory)
         Me.Panel2.Controls.Add(Me.btnborrowh)
         Me.Panel2.Controls.Add(Me.btnaccman)
         Me.Panel2.Controls.Add(Me.btndash)
@@ -103,24 +103,24 @@ Partial Class frmAdminMenu
         Me.btnactlog.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.btnactlog.UseVisualStyleBackColor = False
         '
-        'a
+        'btnLostDamaged
         '
-        Me.a.BackColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(25, Byte), Integer))
-        Me.a.Dock = System.Windows.Forms.DockStyle.Top
-        Me.a.FlatAppearance.BorderSize = 0
-        Me.a.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.a.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.a.ForeColor = System.Drawing.Color.White
-        Me.a.Image = CType(resources.GetObject("a.Image"), System.Drawing.Image)
-        Me.a.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.a.Location = New System.Drawing.Point(0, 200)
-        Me.a.Name = "a"
-        Me.a.Size = New System.Drawing.Size(223, 50)
-        Me.a.TabIndex = 54
-        Me.a.Text = "    Lost and Damaged Books"
-        Me.a.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.a.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.a.UseVisualStyleBackColor = False
+        Me.btnLostDamaged.BackColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.btnLostDamaged.Dock = System.Windows.Forms.DockStyle.Top
+        Me.btnLostDamaged.FlatAppearance.BorderSize = 0
+        Me.btnLostDamaged.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnLostDamaged.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnLostDamaged.ForeColor = System.Drawing.Color.White
+        Me.btnLostDamaged.Image = CType(resources.GetObject("btnLostDamaged.Image"), System.Drawing.Image)
+        Me.btnLostDamaged.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnLostDamaged.Location = New System.Drawing.Point(0, 200)
+        Me.btnLostDamaged.Name = "btnLostDamaged"
+        Me.btnLostDamaged.Size = New System.Drawing.Size(223, 50)
+        Me.btnLostDamaged.TabIndex = 54
+        Me.btnLostDamaged.Text = "    Lost and Damaged Books"
+        Me.btnLostDamaged.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnLostDamaged.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.btnLostDamaged.UseVisualStyleBackColor = False
         '
         'btnlogout
         '
@@ -151,24 +151,24 @@ Partial Class frmAdminMenu
         Me.Panel8.Size = New System.Drawing.Size(280, 34)
         Me.Panel8.TabIndex = 52
         '
-        'btnbookman
+        'btnbookinventory
         '
-        Me.btnbookman.BackColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(25, Byte), Integer))
-        Me.btnbookman.Dock = System.Windows.Forms.DockStyle.Top
-        Me.btnbookman.FlatAppearance.BorderSize = 0
-        Me.btnbookman.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnbookman.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnbookman.ForeColor = System.Drawing.Color.White
-        Me.btnbookman.Image = CType(resources.GetObject("btnbookman.Image"), System.Drawing.Image)
-        Me.btnbookman.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnbookman.Location = New System.Drawing.Point(0, 150)
-        Me.btnbookman.Name = "btnbookman"
-        Me.btnbookman.Size = New System.Drawing.Size(223, 50)
-        Me.btnbookman.TabIndex = 7
-        Me.btnbookman.Text = "     Book Inventory"
-        Me.btnbookman.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnbookman.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.btnbookman.UseVisualStyleBackColor = False
+        Me.btnbookinventory.BackColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.btnbookinventory.Dock = System.Windows.Forms.DockStyle.Top
+        Me.btnbookinventory.FlatAppearance.BorderSize = 0
+        Me.btnbookinventory.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnbookinventory.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnbookinventory.ForeColor = System.Drawing.Color.White
+        Me.btnbookinventory.Image = CType(resources.GetObject("btnbookinventory.Image"), System.Drawing.Image)
+        Me.btnbookinventory.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnbookinventory.Location = New System.Drawing.Point(0, 150)
+        Me.btnbookinventory.Name = "btnbookinventory"
+        Me.btnbookinventory.Size = New System.Drawing.Size(223, 50)
+        Me.btnbookinventory.TabIndex = 7
+        Me.btnbookinventory.Text = "     Book Inventory"
+        Me.btnbookinventory.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnbookinventory.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.btnbookinventory.UseVisualStyleBackColor = False
         '
         'btnborrowh
         '
@@ -431,7 +431,7 @@ Partial Class frmAdminMenu
     Friend WithEvents Panel1 As Panel
     Friend WithEvents Label4 As Label
     Friend WithEvents Label11 As Label
-    Friend WithEvents btnbookman As Button
+    Friend WithEvents btnbookinventory As Button
     Friend WithEvents Panel8 As Panel
     Friend WithEvents Panel9 As Panel
     Friend WithEvents lblc_name As Label
@@ -445,7 +445,7 @@ Partial Class frmAdminMenu
     Friend WithEvents lbl_dT As Label
     Friend WithEvents btnlogout As Button
     Friend WithEvents Panel3 As Panel
-    Friend WithEvents a As Button
+    Friend WithEvents btnLostDamaged As Button
     Friend WithEvents Label1 As Label
     Friend WithEvents btnactlog As Button
 End Class

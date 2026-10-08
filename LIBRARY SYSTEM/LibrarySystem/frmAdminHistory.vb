@@ -3,12 +3,13 @@ Imports MySql.Data.MySqlClient
 Public Class frmAdminHistory
 
     Private useDateRange As Boolean = False
+    Private pager As GridPager
 
     Private Sub frmAdminHistory_VisibleChanged(sender As Object, e As EventArgs) Handles Me.VisibleChanged
         If Not Me.Visible Then Exit Sub
         UiHelpers.FillHeader(Me)
         DashboardData.SetupReadOnlyGrid(DataGridView1)
-
+        If pager Is Nothing Then pager = New GridPager(DataGridView1)
         useDateRange = False                                   ' every visit starts with all records
         DateTimePicker1.Value = New Date(Date.Today.Year, Date.Today.Month, 1)   ' 1st of this month
         DateTimePicker2.Value = Date.Today
@@ -44,6 +45,7 @@ Public Class frmAdminHistory
             MsgBox("Could not load records: " & ex.Message, vbCritical, "Borrow History Records")
         End Try
         DataGridView1.ClearSelection()
+        If pager IsNot Nothing Then pager.Apply()
     End Sub
 
     Private Sub btnGenerateReport_Click(sender As Object, e As EventArgs) Handles btnGenerateReport.Click
@@ -73,4 +75,5 @@ Public Class frmAdminHistory
         End If
         BorrowData.ExportGridToCsv(DataGridView1, name)
     End Sub
+
 End Class

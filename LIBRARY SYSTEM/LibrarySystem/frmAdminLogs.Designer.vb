@@ -24,6 +24,7 @@ Partial Class frmAdminLogs
     Private Sub InitializeComponent()
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.cbodate = New System.Windows.Forms.ComboBox()
         Me.Label14 = New System.Windows.Forms.Label()
         Me.txtSearch = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -39,7 +40,6 @@ Partial Class frmAdminLogs
         Me.Label28 = New System.Windows.Forms.Label()
         Me.lblposition = New System.Windows.Forms.Label()
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
-        Me.cbodate = New System.Windows.Forms.ComboBox()
         Me.Panel2.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel13.SuspendLayout()
@@ -57,6 +57,14 @@ Partial Class frmAdminLogs
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(1245, 45)
         Me.Panel2.TabIndex = 23
+        '
+        'cbodate
+        '
+        Me.cbodate.FormattingEnabled = True
+        Me.cbodate.Location = New System.Drawing.Point(613, 11)
+        Me.cbodate.Name = "cbodate"
+        Me.cbodate.Size = New System.Drawing.Size(121, 21)
+        Me.cbodate.TabIndex = 63
         '
         'Label14
         '
@@ -206,14 +214,6 @@ Partial Class frmAdminLogs
         Me.ComboBox1.Name = "ComboBox1"
         Me.ComboBox1.Size = New System.Drawing.Size(121, 21)
         Me.ComboBox1.TabIndex = 158
-        '
-        'cbodate
-        '
-        Me.cbodate.FormattingEnabled = True
-        Me.cbodate.Location = New System.Drawing.Point(613, 11)
-        Me.cbodate.Name = "cbodate"
-        Me.cbodate.Size = New System.Drawing.Size(121, 21)
-        Me.cbodate.TabIndex = 63
         '
         'frmAdminLogs
         '

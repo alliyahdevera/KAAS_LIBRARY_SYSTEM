@@ -9,10 +9,6 @@
         tmrDateTime.Enabled = True
         UpdateClock()
 
-        ' new sidebar buttons: must be created BEFORE the click handlers below are attached
-        MenuBuilder.AddMenuButton(Me, "btnborrowh", "Book Inventory")
-        MenuBuilder.AddMenuButton(Me, "btnBookInventory", "Lost and Damaged")
-
         For Each b As Button In UiHelpers.AllButtons(Me)
             AddHandler b.Click, AddressOf MenuButton_Click
         Next
@@ -56,4 +52,5 @@
     Private Sub frmAdminMenu_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
         If Not loggingOut Then Application.Exit()
     End Sub
+
 End Class

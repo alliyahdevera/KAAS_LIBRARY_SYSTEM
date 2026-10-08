@@ -22,11 +22,15 @@ Public Class frmAdminDashboard
                 "SELECT copy_status, COUNT(*) FROM BookCopies WHERE copy_status <> 'Archived' GROUP BY copy_status"),
                 SeriesChartType.Doughnut, True)
 
+            ' Book Categories: number of COPIES per category, shown as a bar graph
             DashboardData.FillChart(chartb_categories, DashboardData.Table(
-                "SELECT c.category_name, COUNT(*) FROM BookCategories bc " &
-                "JOIN Categories c ON c.category_id = bc.category_id " &
-                "GROUP BY c.category_id, c.category_name ORDER BY COUNT(*) DESC LIMIT 6"),
-                SeriesChartType.Pie, True)
+    "SELECT c.category_name, SUM(v.total_copies) " &
+    "FROM BookCategories bc " &
+    "JOIN Categories c ON c.category_id = bc.category_id " &
+    "JOIN vw_BookCatalog v ON v.book_id = bc.book_id " &
+    "GROUP BY c.category_id, c.category_name " &
+    "ORDER BY SUM(v.total_copies) DESC LIMIT 6"),
+    SeriesChartType.Column, False)
 
             DashboardData.FillChart(chartb_mborrowed, DashboardData.Table(DashboardData.TopBooksSql),
                 SeriesChartType.Bar, False)
@@ -35,5 +39,9 @@ Public Class frmAdminDashboard
         Catch ex As Exception
             MsgBox("Could not load the dashboard: " & ex.Message, vbCritical, "Dashboard")
         End Try
+    End Sub
+
+    Private Sub frmAdminDashboard_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
     End Sub
 End Class
