@@ -38,6 +38,8 @@ Partial Class frmAdminLogs
         Me.Label29 = New System.Windows.Forms.Label()
         Me.Label28 = New System.Windows.Forms.Label()
         Me.lblposition = New System.Windows.Forms.Label()
+        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.cbodate = New System.Windows.Forms.ComboBox()
         Me.Panel2.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel13.SuspendLayout()
@@ -46,6 +48,7 @@ Partial Class frmAdminLogs
         'Panel2
         '
         Me.Panel2.BackColor = System.Drawing.Color.White
+        Me.Panel2.Controls.Add(Me.cbodate)
         Me.Panel2.Controls.Add(Me.Label14)
         Me.Panel2.Controls.Add(Me.txtSearch)
         Me.Panel2.Controls.Add(Me.Label1)
@@ -196,11 +199,28 @@ Partial Class frmAdminLogs
         Me.lblposition.TabIndex = 66
         Me.lblposition.Text = "NPosition"
         '
+        'ComboBox1
+        '
+        Me.ComboBox1.FormattingEnabled = True
+        Me.ComboBox1.Location = New System.Drawing.Point(0, 0)
+        Me.ComboBox1.Name = "ComboBox1"
+        Me.ComboBox1.Size = New System.Drawing.Size(121, 21)
+        Me.ComboBox1.TabIndex = 158
+        '
+        'cbodate
+        '
+        Me.cbodate.FormattingEnabled = True
+        Me.cbodate.Location = New System.Drawing.Point(613, 11)
+        Me.cbodate.Name = "cbodate"
+        Me.cbodate.Size = New System.Drawing.Size(121, 21)
+        Me.cbodate.TabIndex = 63
+        '
         'frmAdminLogs
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1245, 778)
+        Me.Controls.Add(Me.ComboBox1)
         Me.Controls.Add(Me.Panel13)
         Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.Panel2)
@@ -230,4 +250,6 @@ Partial Class frmAdminLogs
     Friend WithEvents lblposition As Label
     Friend WithEvents Label14 As Label
     Friend WithEvents txtSearch As TextBox
+    Friend WithEvents cbodate As ComboBox
+    Friend WithEvents ComboBox1 As ComboBox
 End Class
