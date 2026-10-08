@@ -2,6 +2,7 @@
 
 Public Class frmPenaltyManagement
     Private selectedTransactionId As Integer = 0
+    Private pager As GridPager
 
     ' Date range pickers and the Generate Report button are located by type/text, so the
     ' designer control names do not matter (left picker = From, right picker = To).
@@ -86,6 +87,7 @@ Public Class frmPenaltyManagement
     ' Search matches the username only. If Generate Report was clicked, the grid is
     ' also limited to the chosen date range (Penalty Date column).
     Public Sub RefreshPenaltyData(Optional keyword As String = "")
+        If pager Is Nothing Then pager = PagerHelper.Create(DataGridView1)
         DataGridView1.Rows.Clear()
         Dim kw As String = If(keyword, "").Trim()
 
@@ -131,6 +133,7 @@ Public Class frmPenaltyManagement
             MsgBox("Could not load penalties: " & ex.Message, vbCritical, "Penalty Management")
         End Try
         DataGridView1.ClearSelection()
+        pager.Apply()
     End Sub
 
     Private Sub txtSearch_TextChanged(sender As Object, e As EventArgs) Handles txtSearch.TextChanged

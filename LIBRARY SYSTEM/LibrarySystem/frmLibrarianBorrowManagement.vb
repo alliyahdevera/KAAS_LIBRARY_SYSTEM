@@ -2,6 +2,8 @@
 
 Public Class frmLibrarianBorrowManagement
 
+    Private pager As GridPager
+
     Private Sub frmLibrarianHistory_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         UiHelpers.FillHeader(Me)          ' name, position, today
         With DataGridView1
@@ -24,6 +26,7 @@ Public Class frmLibrarianBorrowManagement
     End Sub
 
     Public Sub RefreshHistory(Optional keyword As String = "")
+        If pager Is Nothing Then pager = PagerHelper.Create(DataGridView1)
         DataGridView1.Rows.Clear()
         Dim kw As String = If(keyword, "").Trim()
 
@@ -75,6 +78,7 @@ Public Class frmLibrarianBorrowManagement
             MsgBox("Could not load records: " & ex.Message, vbCritical, "Borrow Records")
         End Try
         DataGridView1.ClearSelection()
+        pager.Apply()
     End Sub
 
     Private Sub txtSearch_TextChanged(sender As Object, e As EventArgs) Handles txtSearch.TextChanged
@@ -152,5 +156,4 @@ Public Class frmLibrarianBorrowManagement
     Private Sub btnExportExcel_Click(sender As Object, e As EventArgs) Handles btnExportExcel.Click
         BorrowData.ExportGridToCsv(DataGridView1, "All_Borrow_Records")
     End Sub
-
 End Class

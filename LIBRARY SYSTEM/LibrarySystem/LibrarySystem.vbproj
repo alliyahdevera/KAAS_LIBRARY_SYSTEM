@@ -285,6 +285,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="PagerHelper.vb" />
     <Compile Include="ScreenFit.vb" />
     <Compile Include="UIHelper.vb" />
   </ItemGroup>

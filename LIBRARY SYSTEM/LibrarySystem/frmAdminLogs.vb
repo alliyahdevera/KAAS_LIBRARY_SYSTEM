@@ -10,7 +10,7 @@ Public Class frmAdminLogs
         UiHelpers.FillHeader(Me)
         DashboardData.SetupReadOnlyGrid(DataGridView1)
 
-        If pager Is Nothing Then pager = New GridPager(DataGridView1)
+        If pager Is Nothing Then pager = PagerHelper.Create(DataGridView1)
 
         If Not isReady Then
             cbodate.DropDownStyle = ComboBoxStyle.DropDownList

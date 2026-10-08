@@ -9,7 +9,7 @@ Public Class frmAdminHistory
         If Not Me.Visible Then Exit Sub
         UiHelpers.FillHeader(Me)
         DashboardData.SetupReadOnlyGrid(DataGridView1)
-        If pager Is Nothing Then pager = New GridPager(DataGridView1)
+        If pager Is Nothing Then pager = PagerHelper.Create(DataGridView1)
         useDateRange = False                                   ' every visit starts with all records
         DateTimePicker1.Value = New Date(Date.Today.Year, Date.Today.Month, 1)   ' 1st of this month
         DateTimePicker2.Value = Date.Today
@@ -75,5 +75,4 @@ Public Class frmAdminHistory
         End If
         BorrowData.ExportGridToCsv(DataGridView1, name)
     End Sub
-
 End Class

@@ -30,6 +30,7 @@ Public Class frmAccManagement
     Private selectedUserId As Integer = 0
     Private Const LibraryDept As String = "Library"     ' every librarian belongs to the Library department
     Private pageLoaded As Boolean = False
+    Private pager As GridPager
 
     Private Sub frmAccManagement_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         UiHelpers.FillHeader(Me)
@@ -142,6 +143,7 @@ Public Class frmAccManagement
 
     ' ------------------------------------------------------------ list
     Public Sub LoadAccounts(Optional keyword As String = "")
+        If pager Is Nothing Then pager = PagerHelper.Create(DataGridView1)
         DataGridView1.Rows.Clear()
         Dim kw As String = If(keyword, "").Trim()
         Try
@@ -208,6 +210,7 @@ Public Class frmAccManagement
             MsgBox("Could not load accounts: " & ex.Message, vbCritical, "Account Management")
         End Try
         DataGridView1.ClearSelection()
+        pager.Apply()
     End Sub
 
     Private Sub txtSearch_TextChanged(sender As Object, e As EventArgs) Handles txtSearch.TextChanged

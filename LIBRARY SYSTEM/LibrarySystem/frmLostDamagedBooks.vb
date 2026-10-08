@@ -4,11 +4,13 @@ Public Class frmLostDamagedBooks
 
     Private useDateRange As Boolean = False
     Private isReady As Boolean = False
+    Private pager As GridPager
 
     Private Sub frmLostDamagedBooks_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         cboType.SelectedIndex = 0
         isReady = True
     End Sub
+
     Private Sub OnVisible(sender As Object, e As EventArgs) Handles MyBase.VisibleChanged
         If Me.DesignMode OrElse Not Me.Visible Then Exit Sub
         useDateRange = False
@@ -24,6 +26,7 @@ Public Class frmLostDamagedBooks
     End Sub
 
     Private Sub LoadIncidents()
+        If pager Is Nothing Then pager = PagerHelper.Create(dgvIncidents)
         dgvIncidents.Rows.Clear()
         Dim kw As String = txtSearch.Text.Trim()
         Dim typ As String = If(cboType.Text = "All", "", cboType.Text)
@@ -78,6 +81,7 @@ Public Class frmLostDamagedBooks
             MsgBox("Could not load the lost and damaged books: " & ex.Message, vbCritical, "Lost and Damaged Books")
         End Try
         dgvIncidents.ClearSelection()
+        pager.Apply()
     End Sub
 
     ' ------------------------------------------------------------ buttons
@@ -98,6 +102,7 @@ Public Class frmLostDamagedBooks
         useDateRange = False
         LoadIncidents()
     End Sub
+
     Private Sub btnRecover_Click(sender As Object, e As EventArgs) Handles btnRecover.Click
         If dgvIncidents.SelectedRows.Count = 0 Then
             MsgBox("Select a record from the list first.", vbExclamation, "Lost and Damaged Books")

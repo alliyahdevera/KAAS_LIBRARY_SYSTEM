@@ -5,6 +5,8 @@
 Public Class frmAdminBookInventory
 
     Private selectedCopyId As Integer = 0
+    Private pager As GridPager
+
     Private isReady As Boolean = False      ' stays False until Load finishes, so setting up the filters runs no query
 
     Private Sub frmAdminBookInventory_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -25,6 +27,7 @@ Public Class frmAdminBookInventory
     End Sub
 
     Private Sub LoadCopies()
+        If pager Is Nothing Then pager = PagerHelper.Create(dgvCopies)
         dgvCopies.Rows.Clear()
         Dim kw As String = txtSearch.Text.Trim()
         Dim st As String = If(cboFilter.Text = "All", "", cboFilter.Text)
@@ -66,6 +69,7 @@ Public Class frmAdminBookInventory
             MsgBox("Could not load the book copies: " & ex.Message, vbCritical, "Book Inventory")
         End Try
         dgvCopies.ClearSelection()
+        pager.Apply()
     End Sub
 
     Private Sub dgvCopies_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvCopies.CellClick

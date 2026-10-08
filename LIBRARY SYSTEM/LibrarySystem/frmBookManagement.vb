@@ -6,6 +6,7 @@ Public Class frmBookManagement
     Private ReadOnly authorSeps() As Char = {"&"c, ";"c}
     Private ReadOnly categorySeps() As Char = {","c, ";"c}
     Private selectedBookId As Integer = 0
+    Private pager As GridPager
 
     Private Class BookInput
         Public Isbn As String
@@ -49,6 +50,7 @@ Public Class frmBookManagement
     ' Search matches ISBN, title, author, publisher, category, edition and year published.
     Public Sub LoadBooks(Optional keyword As String = "")
         SetupGrid()
+        If pager Is Nothing Then pager = PagerHelper.Create(DataGridView1)
         DataGridView1.Rows.Clear()
         Dim kw As String = If(keyword, "").Trim()
 
@@ -61,7 +63,7 @@ Public Class frmBookManagement
                     "FROM vw_BookCatalog v JOIN BookInfo b ON b.book_id = v.book_id " &
                     "WHERE " & BookData.BookSearchSql("v") & " " &
                     "AND (EXISTS (SELECT 1 FROM BookCopies c WHERE c.book_id = v.book_id AND c.copy_status <> 'Archived') " &
-"     OR NOT EXISTS (SELECT 1 FROM BookCopies c WHERE c.book_id = v.book_id)) " &
+                    "     OR NOT EXISTS (SELECT 1 FROM BookCopies c WHERE c.book_id = v.book_id)) " &
                     "ORDER BY v.title", conn)
                     cmd.Parameters.AddWithValue("@kw", kw)
 
@@ -89,6 +91,7 @@ Public Class frmBookManagement
             MsgBox("Could not load books: " & ex.Message, vbCritical, "Book Management")
         End Try
         DataGridView1.ClearSelection()
+        pager.Apply()
     End Sub
 
     Private Sub txtSearch_TextChanged(sender As Object, e As EventArgs)

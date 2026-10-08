@@ -2,6 +2,8 @@
 
 Public Class frmAvailBooks
 
+    Private pager As GridPager
+
     Private Sub frmAvailBooks_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         SetupGrid()
         UiHelpers.FillHeader(Me)
@@ -24,6 +26,7 @@ Public Class frmAvailBooks
 
     Public Sub LoadAvailableBooks(Optional keyword As String = "")
         SetupGrid()
+        If pager Is Nothing Then pager = PagerHelper.Create(DataGridView1)
         DataGridView1.Rows.Clear()
         Dim kw As String = If(keyword, "").Trim()
 
@@ -59,6 +62,7 @@ Public Class frmAvailBooks
             MsgBox("Could not load books: " & ex.Message, vbCritical, "Available Books")
         End Try
         DataGridView1.ClearSelection()
+        pager.Apply()
     End Sub
 
     Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles TextBox1.TextChanged
