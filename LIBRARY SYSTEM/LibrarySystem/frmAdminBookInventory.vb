@@ -17,7 +17,10 @@ Public Class frmAdminBookInventory
 
     ' ------------------------------------------------------------ list
     Private Sub OnVisible(sender As Object, e As EventArgs) Handles MyBase.VisibleChanged
-        If Not Me.DesignMode AndAlso Me.Visible Then LoadCopies()
+        If Not Me.DesignMode AndAlso Me.Visible Then
+            LoadCopies()
+            UiHelpers.FillHeader(Me)
+        End If
     End Sub
 
     Private Sub Filter_Changed(sender As Object, e As EventArgs) _

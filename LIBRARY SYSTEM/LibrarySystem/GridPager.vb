@@ -60,12 +60,7 @@ Public Class GridPager
         bar.Padding = New Padding(6, 0, 0, 0)
         bar.Controls.AddRange(New Control() {btnFirst, btnPrev, lblInfo, btnNext, btnLast, lblSize, cboSize})
 
-        ' put the bar under the grid, above any "name / position" footer panel
-        Dim host As Control = grid.Parent
-        host.Controls.Add(bar)
-        grid.Dock = DockStyle.Fill
-        host.Controls.SetChildIndex(bar, 0)
-        grid.BringToFront()
+
 
         AddHandler btnFirst.Click, Sub() GoTo1(1)
         AddHandler btnPrev.Click, Sub() GoTo1(page - 1)
@@ -77,7 +72,11 @@ Public Class GridPager
                 Apply()
             End Sub
     End Sub
-
+    Public ReadOnly Property BarControl As Control
+        Get
+            Return bar
+        End Get
+    End Property
     Private Sub GoTo1(target As Integer)
         page = target
         Apply(True)

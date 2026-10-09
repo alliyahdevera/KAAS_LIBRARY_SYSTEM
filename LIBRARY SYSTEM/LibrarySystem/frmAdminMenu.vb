@@ -16,16 +16,14 @@
     End Sub
 
     Private Sub MenuButton_Click(sender As Object, e As EventArgs)
-        Dim caption As String = DirectCast(sender, Button).Text.Trim()
-        Select Case caption
-            Case "Dashboard" : FormHost.LoadInto(Panel3, frmAdminDashboard)
-            Case "Book Management" : FormHost.LoadInto(Panel3, frmBookManagement)
-            Case "Book Inventory" : FormHost.LoadInto(Panel3, frmAdminBookInventory)
-            Case "Lost and Damaged" : FormHost.LoadInto(Panel3, frmLostDamagedBooks)
-            Case "Account Management" : FormHost.LoadInto(Panel3, frmAccManagement)
-            Case "Borrow History Records" : FormHost.LoadInto(Panel3, frmAdminHistory)
-            Case "Activity Logs" : FormHost.LoadInto(Panel3, frmAdminLogs)
-            Case "Logout" : DoLogout()
+        Select Case True
+            Case sender Is btndash : FormHost.LoadInto(Panel3, frmAdminDashboard)
+            Case sender Is btnaccman : FormHost.LoadInto(Panel3, frmAccManagement)
+            Case sender Is btnborrowh : FormHost.LoadInto(Panel3, frmAdminHistory)
+            Case sender Is btnbookinventory : FormHost.LoadInto(Panel3, frmAdminBookInventory)
+            Case sender Is btnLostDamaged : FormHost.LoadInto(Panel3, frmLostDamagedBooks)
+            Case sender Is btnactlog : FormHost.LoadInto(Panel3, frmAdminLogs)
+            Case sender Is btnlogout : DoLogout()
         End Select
     End Sub
 
