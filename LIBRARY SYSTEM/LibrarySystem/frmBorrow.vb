@@ -23,6 +23,16 @@ Public Class frmBorrow
             .MultiSelect = False
             .SelectionMode = DataGridViewSelectionMode.FullRowSelect
             .ReadOnly = False
+
+            ' Set cell text color to black
+            .DefaultCellStyle.ForeColor = Color.Black
+
+            ' Set selected row text color to black
+            .DefaultCellStyle.SelectionForeColor = Color.Black
+
+            ' Set column header text color to black (optional)
+            .ColumnHeadersDefaultCellStyle.ForeColor = Color.Black
+
             For Each c As DataGridViewColumn In .Columns
                 c.ReadOnly = (c.Name <> "colSelect")
             Next
