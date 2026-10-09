@@ -94,11 +94,11 @@ Public Class frmBookManagement
         pager.Apply()
     End Sub
 
-    Private Sub txtSearch_TextChanged(sender As Object, e As EventArgs)
+    Private Sub txtSearch_TextChanged(sender As Object, e As EventArgs) Handles txtSearch.TextChanged
         LoadBooks(txtSearch.Text)
     End Sub
 
-    Private Sub DataGridView1_CellClick(sender As Object, e As DataGridViewCellEventArgs)
+    Private Sub DataGridView1_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellClick
         If e.RowIndex < 0 Then Exit Sub
         Dim row As DataGridViewRow = DataGridView1.Rows(e.RowIndex)
         selectedBookId = Convert.ToInt32(row.Cells("BookID").Value)
@@ -129,7 +129,7 @@ Public Class frmBookManagement
 
         Dim authors = BookData.ParseNames(txtAuthor.Text, authorSeps)
         If authors.Count < 1 OrElse authors.Count > 2 Then
-            MsgBox("A book can have 1 or 2 authors. Separate two authors with &  (example: Kurose & Ross).", vbExclamation, "Book Management")
+            MsgBox("A book can have 1 or 2 authors. Separate two authors with & (example: Kurose & Ross).", vbExclamation, "Book Management")
             Return Nothing
         End If
         For Each a As String In authors
@@ -175,7 +175,7 @@ Public Class frmBookManagement
     End Function
 
     ' ------------------------------------------------------------ add
-    Private Sub btnAdd_Click(sender As Object, e As EventArgs)
+    Private Sub btnAdd_Click(sender As Object, e As EventArgs) Handles btnAdd.Click
         Dim inp As BookInput = ReadInput()
         If inp Is Nothing Then Exit Sub
         If Not UiHelpers.Confirm("add", "this book", "Book Management") Then Exit Sub
@@ -242,7 +242,7 @@ Public Class frmBookManagement
     End Sub
 
     ' ------------------------------------------------------------ update
-    Private Sub btnUpdate_Click(sender As Object, e As EventArgs)
+    Private Sub btnUpdate_Click(sender As Object, e As EventArgs) Handles btnUpdate.Click
         If selectedBookId = 0 Then
             MsgBox("Please select a book to update.", vbExclamation, "Book Management")
             Exit Sub
@@ -299,7 +299,7 @@ Public Class frmBookManagement
     End Sub
 
     ' ------------------------------------------------------------ delete / archive
-    Private Sub btnDelete_Click(sender As Object, e As EventArgs)
+    Private Sub btnDelete_Click(sender As Object, e As EventArgs) Handles btnDelete.Click
         If selectedBookId = 0 Then
             MsgBox("Please select a book to delete.", vbExclamation, "Book Management")
             Exit Sub
@@ -356,7 +356,7 @@ Public Class frmBookManagement
         ClearFields()
     End Sub
 
-    Private Sub btnClear_Click(sender As Object, e As EventArgs)
+    Private Sub btnClear_Click(sender As Object, e As EventArgs) Handles btnClear.Click
         If MsgBox("Are you sure you want to clear all fields?", vbQuestion + vbYesNo, "Book Management") = vbYes Then
             ClearFields()
         End If
@@ -378,9 +378,6 @@ Public Class frmBookManagement
     End Sub
 
     ' ------------------------------------------------------------ Excel import
-    ' Columns: ISBN, Title, Author, Publisher, Edition, Year Published, Category, Price, Copies (optional)
-    ' Two authors: "Name & Name".  Several categories: "Science, History".
-    ' New ISBN -> new book (Copies column, default 1).  Existing ISBN -> adds copies only if a Copies column exists.
     Private Sub btnImport_Click(sender As Object, e As EventArgs)
         Using dlg As New OpenFileDialog()
             dlg.Filter = "Excel Files|*.xlsx"
