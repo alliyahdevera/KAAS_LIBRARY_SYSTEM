@@ -50,6 +50,7 @@ Partial Class frmAdminMenu
         Me.Label15 = New System.Windows.Forms.Label()
         Me.tmrDateTime = New System.Windows.Forms.Timer(Me.components)
         Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.cboSchoolYear = New System.Windows.Forms.ComboBox()
         PictureBox2 = New System.Windows.Forms.PictureBox()
         CType(PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel2.SuspendLayout()
@@ -240,7 +241,7 @@ Partial Class frmAdminMenu
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(1469, 77)
+        Me.Panel1.Size = New System.Drawing.Size(1454, 77)
         Me.Panel1.TabIndex = 16
         '
         'TableLayoutPanel1
@@ -255,7 +256,7 @@ Partial Class frmAdminMenu
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
         Me.TableLayoutPanel1.RowCount = 1
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(1467, 75)
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(1452, 75)
         Me.TableLayoutPanel1.TabIndex = 58
         '
         'TableLayoutPanel2
@@ -269,12 +270,13 @@ Partial Class frmAdminMenu
         Me.TableLayoutPanel2.Controls.Add(Me.lbl_dT, 1, 0)
         Me.TableLayoutPanel2.Controls.Add(Me.Label11, 0, 0)
         Me.TableLayoutPanel2.Controls.Add(Me.Label4, 0, 1)
+        Me.TableLayoutPanel2.Controls.Add(Me.cboSchoolYear, 1, 1)
         Me.TableLayoutPanel2.Location = New System.Drawing.Point(58, 3)
         Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
         Me.TableLayoutPanel2.RowCount = 2
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 53.73134!))
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 46.26866!))
-        Me.TableLayoutPanel2.Size = New System.Drawing.Size(1406, 69)
+        Me.TableLayoutPanel2.Size = New System.Drawing.Size(1391, 69)
         Me.TableLayoutPanel2.TabIndex = 38
         '
         'lbl_dT
@@ -284,7 +286,7 @@ Partial Class frmAdminMenu
         Me.lbl_dT.BackColor = System.Drawing.Color.Transparent
         Me.lbl_dT.Font = New System.Drawing.Font("Segoe UI Semibold", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbl_dT.ForeColor = System.Drawing.Color.FromArgb(CType(CType(90, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(60, Byte), Integer))
-        Me.lbl_dT.Location = New System.Drawing.Point(1320, 16)
+        Me.lbl_dT.Location = New System.Drawing.Point(1305, 16)
         Me.lbl_dT.Name = "lbl_dT"
         Me.lbl_dT.Size = New System.Drawing.Size(83, 21)
         Me.lbl_dT.TabIndex = 58
@@ -311,7 +313,7 @@ Partial Class frmAdminMenu
         Me.Label4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(90, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(60, Byte), Integer))
         Me.Label4.Location = New System.Drawing.Point(3, 37)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(136, 15)
+        Me.Label4.Size = New System.Drawing.Size(134, 15)
         Me.Label4.TabIndex = 39
         Me.Label4.Text = "MANAGEMENT SYSTEM"
         '
@@ -424,8 +426,16 @@ Partial Class frmAdminMenu
         Me.Panel3.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel3.Location = New System.Drawing.Point(223, 77)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(1246, 1109)
+        Me.Panel3.Size = New System.Drawing.Size(1231, 1109)
         Me.Panel3.TabIndex = 54
+        '
+        'cboSchoolYear
+        '
+        Me.cboSchoolYear.FormattingEnabled = True
+        Me.cboSchoolYear.Location = New System.Drawing.Point(698, 40)
+        Me.cboSchoolYear.Name = "cboSchoolYear"
+        Me.cboSchoolYear.Size = New System.Drawing.Size(121, 21)
+        Me.cboSchoolYear.TabIndex = 59
         '
         'frmAdminMenu
         '
@@ -434,7 +444,7 @@ Partial Class frmAdminMenu
         Me.AutoScroll = True
         Me.AutoScrollMinSize = New System.Drawing.Size(1200, 750)
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(248, Byte), Integer), CType(CType(249, Byte), Integer), CType(CType(250, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(1454, 761)
+        Me.ClientSize = New System.Drawing.Size(1471, 778)
         Me.Controls.Add(Me.Panel3)
         Me.Controls.Add(Me.Panel9)
         Me.Controls.Add(Me.Panel2)
@@ -481,4 +491,5 @@ Partial Class frmAdminMenu
     Friend WithEvents btnactlog As Button
     Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
     Friend WithEvents TableLayoutPanel2 As TableLayoutPanel
+    Friend WithEvents cboSchoolYear As ComboBox
 End Class

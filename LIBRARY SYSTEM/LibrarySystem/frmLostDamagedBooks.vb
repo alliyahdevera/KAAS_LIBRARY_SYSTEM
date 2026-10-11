@@ -35,7 +35,7 @@ Public Class frmLostDamagedBooks
                 conn.Open()
                 Using cmd As New MySqlCommand(
                     "SELECT i.incident_id, c.copy_id, c.accession_no, v.isbn, v.title, v.authors, i.incident_type, " &
-                    "       i.incident_date, IFNULL(u.username, '-') AS borrower, pn.penalty_amount, pn.penalty_status, " &
+                    "       i.incident_date, IFNULL(CONCAT(u.first_name, ' ', u.last_name), '-') AS borrower, pn.penalty_amount, pn.penalty_status, " &
                     "       c.copy_status, i.is_resolved, IFNULL(i.remarks, '') AS remarks " &
                     "FROM LostDamagedBooks i " &
                     "JOIN BookCopies c ON c.copy_id = i.copy_id " &
@@ -45,7 +45,7 @@ Public Class frmLostDamagedBooks
                     "LEFT JOIN Penalty pn ON pn.transaction_id = i.transaction_id " &
                     "WHERE (@kw = '' OR v.isbn LIKE CONCAT('%',@kw,'%') OR v.title LIKE CONCAT('%',@kw,'%') " &
                     "       OR c.accession_no LIKE CONCAT('%',@kw,'%') OR CAST(c.copy_id AS CHAR) = @kw " &
-                    "       OR u.username LIKE CONCAT('%',@kw,'%')) " &
+                    "       OR u.username LIKE CONCAT('%',@kw,'%') OR CONCAT(u.first_name,' ',u.last_name) LIKE CONCAT('%',@kw,'%')) " &
                     "AND (@typ = '' OR i.incident_type = @typ) " &
                     "AND (@inclRes = 1 OR i.is_resolved = 0) " &
                     "AND (@useDates = 0 OR i.incident_date BETWEEN @f AND @t) " &

@@ -12,6 +12,25 @@ Module DashboardData
         "JOIN BookCopies c ON c.copy_id = t.copy_id JOIN BookInfo b ON b.book_id = c.book_id " &
         "ORDER BY t.transaction_id DESC LIMIT 10"
 
+    ' Library activity of the last 7 days (today + 6 days back): books borrowed OR returned in that window
+    Public Const Recent7DaysSql As String =
+        "SELECT u.username, b.title, t.borrow_date, t.due_date, " & BorrowData.StatusSql & " AS status " &
+        "FROM BorrowTransaction t " &
+        "JOIN Members m ON m.member_id = t.member_id JOIN Users u ON u.user_id = m.user_id " &
+        "JOIN BookCopies c ON c.copy_id = t.copy_id JOIN BookInfo b ON b.book_id = c.book_id " &
+        "WHERE t.borrow_date >= DATE_SUB(CURDATE(), INTERVAL 6 DAY) " &
+        "   OR t.return_date >= DATE_SUB(CURDATE(), INTERVAL 6 DAY) " &
+        "ORDER BY t.transaction_id DESC"
+
+    ' Latest 10 penalties (librarian dashboard)
+    Public Const RecentPenaltySql As String =
+        "SELECT u.username, b.title, p.penalty_reason, IFNULL(t.return_condition, 'Pending') AS cond, p.penalty_status " &
+        "FROM Penalty p " &
+        "JOIN BorrowTransaction t ON t.transaction_id = p.transaction_id " &
+        "JOIN Members m ON m.member_id = t.member_id JOIN Users u ON u.user_id = m.user_id " &
+        "JOIN BookCopies c ON c.copy_id = t.copy_id JOIN BookInfo b ON b.book_id = c.book_id " &
+        "ORDER BY p.penalty_id DESC LIMIT 10"
+
     ' Top 5 most borrowed titles
     Public Const TopBooksSql As String =
         "SELECT b.title, COUNT(*) AS n FROM BorrowTransaction t " &
@@ -66,12 +85,18 @@ Module DashboardData
         Return dt
     End Function
 
-    ' dt: column 0 = label, column 1 = number
-    Public Sub FillChart(ch As Chart, dt As DataTable, chartType As SeriesChartType, showLegend As Boolean)
+    ' dt: column 0 = label, column 1 = number.  pesoValues = True shows the numbers as pesos (₱1,234.00)
+    Public Sub FillChart(ch As Chart, dt As DataTable, chartType As SeriesChartType, showLegend As Boolean,
+                         Optional pesoValues As Boolean = False)
         Dim s As Series = ch.Series(0)
         s.Points.Clear()
         s.ChartType = chartType
         s.IsValueShownAsLabel = True
+        If pesoValues Then
+            Dim peso As String = ChrW(&H20B1)
+            s.LabelFormat = peso & "#,##0.00"
+            s.ToolTip = "#VALX: " & peso & "#VALY{N2}"
+        End If
         If ch.Legends.Count > 0 Then ch.Legends(0).Enabled = showLegend
         Dim round As Boolean = (chartType = SeriesChartType.Pie OrElse chartType = SeriesChartType.Doughnut)
         For Each r As DataRow In dt.Rows
@@ -98,6 +123,20 @@ Module DashboardData
             lv.Items.Add(item)
         Next
         lv.EndUpdate()
+    End Sub
+    ' Fills a read-only DataGridView; the query columns go into the grid columns in the same order
+    Public Sub FillGrid(g As DataGridView, dt As DataTable)
+        SetupReadOnlyGrid(g)
+        g.Rows.Clear()
+        For Each r As DataRow In dt.Rows
+            Dim row As DataGridViewRow = g.Rows(g.Rows.Add())
+            For i As Integer = 0 To Math.Min(dt.Columns.Count, g.Columns.Count) - 1
+                Dim text As String = Cell(r(i))
+                row.Cells(i).Value = text
+                If text = "Overdue" OrElse text = "Unpaid" Then row.DefaultCellStyle.ForeColor = Color.Firebrick
+            Next
+        Next
+        g.ClearSelection()
     End Sub
 
     Private Function Cell(o As Object) As String

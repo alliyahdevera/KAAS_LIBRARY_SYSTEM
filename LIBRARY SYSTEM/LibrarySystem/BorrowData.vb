@@ -23,8 +23,14 @@ Module BorrowData
     End Class
 
     ' Loan period; a due date on Saturday/Sunday moves to Monday (library is closed)
+    ' Student = 2 days, Teacher = 1 month. A due date on Saturday/Sunday moves to Monday.
     Public Function CalcDueDate(fromDate As Date, memberType As String) As Date
-        Dim result As Date = fromDate.AddDays(LibraryRules.LoanDays(memberType))
+        Dim result As Date
+        If memberType = "Teacher" Then
+            result = fromDate.AddMonths(1)
+        Else
+            result = fromDate.AddDays(LibraryRules.LoanDays(memberType))
+        End If
         Select Case result.DayOfWeek
             Case DayOfWeek.Saturday : result = result.AddDays(2)
             Case DayOfWeek.Sunday : result = result.AddDays(1)

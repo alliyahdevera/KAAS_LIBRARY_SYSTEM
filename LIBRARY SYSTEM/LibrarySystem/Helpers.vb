@@ -50,8 +50,8 @@ Module LibraryRules
 
     Public Function LoanDays(memberType As String) As Integer
         Select Case memberType
-            Case "Teacher", "Staff" : Return 2
-            Case Else : Return 2          ' Student
+            Case "Teacher" : Return 30      ' about 1 month (CalcDueDate uses AddMonths for the exact date)
+            Case Else : Return 2            ' Student / Staff
         End Select
     End Function
 

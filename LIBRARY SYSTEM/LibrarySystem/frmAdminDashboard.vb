@@ -19,18 +19,20 @@ Public Class frmAdminDashboard
                 "SELECT copy_status, COUNT(*) FROM BookCopies WHERE copy_status <> 'Archived' GROUP BY copy_status"),
                 SeriesChartType.Doughnut, True)
 
-
             DashboardData.FillChart(chartb_categories, DashboardData.Table(
-    "SELECT c.category_name, SUM(v.total_copies) " &
-    "FROM BookCategories bc " &
-    "JOIN Categories c ON c.category_id = bc.category_id " &
-    "JOIN vw_BookCatalog v ON v.book_id = bc.book_id " &
-    "GROUP BY c.category_id, c.category_name " &
-    "ORDER BY SUM(v.total_copies) DESC LIMIT 6"),
-    SeriesChartType.Column, False)
+                "SELECT c.category_name, SUM(v.total_copies) " &
+                "FROM BookCategories bc " &
+                "JOIN Categories c ON c.category_id = bc.category_id " &
+                "JOIN vw_BookCatalog v ON v.book_id = bc.book_id " &
+                "GROUP BY c.category_id, c.category_name " &
+                "ORDER BY SUM(v.total_copies) DESC LIMIT 6"),
+                SeriesChartType.Column, False)
 
             DashboardData.FillChart(chartb_mborrowed, DashboardData.Table(DashboardData.TopBooksSql),
                 SeriesChartType.Bar, False)
+
+            ' Library Activity - last 7 days (DataGridView)
+            DashboardData.FillGrid(DataGridView1, DashboardData.Table(DashboardData.Recent7DaysSql))
 
         Catch ex As Exception
             MsgBox("Could not load the dashboard: " & ex.Message, vbCritical, "Dashboard")

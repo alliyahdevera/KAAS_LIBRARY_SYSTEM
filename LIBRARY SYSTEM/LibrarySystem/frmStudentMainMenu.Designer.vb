@@ -36,12 +36,12 @@ Partial Class frmStudentMainMenu
         Me.btnAvailBooks = New System.Windows.Forms.Button()
         Me.btnReturn = New System.Windows.Forms.Button()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.lbl_dT = New System.Windows.Forms.Label()
-        Me.lblt_datetime = New System.Windows.Forms.Label()
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
-        Me.Label2 = New System.Windows.Forms.Label()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
+        Me.cboSchoolYear = New System.Windows.Forms.ComboBox()
+        Me.lbl_dT = New System.Windows.Forms.Label()
+        Me.lblt_datetime = New System.Windows.Forms.Label()
         PictureBox2 = New System.Windows.Forms.PictureBox()
         CType(PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel2.SuspendLayout()
@@ -252,36 +252,14 @@ Partial Class frmStudentMainMenu
         Me.Panel1.Size = New System.Drawing.Size(1454, 77)
         Me.Panel1.TabIndex = 55
         '
-        'lbl_dT
-        '
-        Me.lbl_dT.AutoSize = True
-        Me.lbl_dT.BackColor = System.Drawing.Color.Transparent
-        Me.lbl_dT.Font = New System.Drawing.Font("Segoe UI Semibold", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_dT.ForeColor = System.Drawing.Color.FromArgb(CType(CType(90, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(60, Byte), Integer))
-        Me.lbl_dT.Location = New System.Drawing.Point(1135, 35)
-        Me.lbl_dT.Name = "lbl_dT"
-        Me.lbl_dT.Size = New System.Drawing.Size(0, 21)
-        Me.lbl_dT.TabIndex = 58
-        '
-        'lblt_datetime
-        '
-        Me.lblt_datetime.AutoSize = True
-        Me.lblt_datetime.BackColor = System.Drawing.Color.Transparent
-        Me.lblt_datetime.Font = New System.Drawing.Font("Segoe UI Semibold", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblt_datetime.ForeColor = System.Drawing.Color.FromArgb(CType(CType(90, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(60, Byte), Integer))
-        Me.lblt_datetime.Location = New System.Drawing.Point(1606, 35)
-        Me.lblt_datetime.Name = "lblt_datetime"
-        Me.lblt_datetime.Size = New System.Drawing.Size(0, 21)
-        Me.lblt_datetime.TabIndex = 57
-        '
         'TableLayoutPanel2
         '
         Me.TableLayoutPanel2.ColumnCount = 2
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel2.Controls.Add(Me.Label2, 1, 0)
         Me.TableLayoutPanel2.Controls.Add(Me.Label11, 0, 0)
         Me.TableLayoutPanel2.Controls.Add(Me.Label4, 0, 1)
+        Me.TableLayoutPanel2.Controls.Add(Me.cboSchoolYear, 1, 1)
         Me.TableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel2.Location = New System.Drawing.Point(0, 0)
         Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
@@ -290,20 +268,6 @@ Partial Class frmStudentMainMenu
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 46.26866!))
         Me.TableLayoutPanel2.Size = New System.Drawing.Size(1454, 77)
         Me.TableLayoutPanel2.TabIndex = 59
-        '
-        'Label2
-        '
-        Me.Label2.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Label2.AutoSize = True
-        Me.Label2.BackColor = System.Drawing.Color.Transparent
-        Me.Label2.Font = New System.Drawing.Font("Segoe UI Semibold", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(90, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(60, Byte), Integer))
-        Me.Label2.Location = New System.Drawing.Point(1368, 20)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(83, 21)
-        Me.Label2.TabIndex = 58
-        Me.Label2.Text = "time/date"
-        Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'Label11
         '
@@ -325,9 +289,39 @@ Partial Class frmStudentMainMenu
         Me.Label4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(90, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(60, Byte), Integer))
         Me.Label4.Location = New System.Drawing.Point(3, 41)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(136, 15)
+        Me.Label4.Size = New System.Drawing.Size(134, 15)
         Me.Label4.TabIndex = 39
         Me.Label4.Text = "MANAGEMENT SYSTEM"
+        '
+        'cboSchoolYear
+        '
+        Me.cboSchoolYear.FormattingEnabled = True
+        Me.cboSchoolYear.Location = New System.Drawing.Point(730, 44)
+        Me.cboSchoolYear.Name = "cboSchoolYear"
+        Me.cboSchoolYear.Size = New System.Drawing.Size(121, 21)
+        Me.cboSchoolYear.TabIndex = 59
+        '
+        'lbl_dT
+        '
+        Me.lbl_dT.AutoSize = True
+        Me.lbl_dT.BackColor = System.Drawing.Color.Transparent
+        Me.lbl_dT.Font = New System.Drawing.Font("Segoe UI Semibold", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_dT.ForeColor = System.Drawing.Color.FromArgb(CType(CType(90, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(60, Byte), Integer))
+        Me.lbl_dT.Location = New System.Drawing.Point(1135, 35)
+        Me.lbl_dT.Name = "lbl_dT"
+        Me.lbl_dT.Size = New System.Drawing.Size(0, 21)
+        Me.lbl_dT.TabIndex = 58
+        '
+        'lblt_datetime
+        '
+        Me.lblt_datetime.AutoSize = True
+        Me.lblt_datetime.BackColor = System.Drawing.Color.Transparent
+        Me.lblt_datetime.Font = New System.Drawing.Font("Segoe UI Semibold", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblt_datetime.ForeColor = System.Drawing.Color.FromArgb(CType(CType(90, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(60, Byte), Integer))
+        Me.lblt_datetime.Location = New System.Drawing.Point(1606, 35)
+        Me.lblt_datetime.Name = "lblt_datetime"
+        Me.lblt_datetime.Size = New System.Drawing.Size(0, 21)
+        Me.lblt_datetime.TabIndex = 57
         '
         'frmStudentMainMenu
         '
@@ -365,7 +359,7 @@ Partial Class frmStudentMainMenu
     Friend WithEvents btnBorrow As Button
     Friend WithEvents btndashb As Button
     Friend WithEvents TableLayoutPanel2 As TableLayoutPanel
-    Friend WithEvents Label2 As Label
     Friend WithEvents Label11 As Label
     Friend WithEvents Label4 As Label
+    Friend WithEvents cboSchoolYear As ComboBox
 End Class

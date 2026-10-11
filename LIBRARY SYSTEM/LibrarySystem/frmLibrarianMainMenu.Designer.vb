@@ -35,9 +35,9 @@ Partial Class frmLibrarianMainMenu
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
-        Me.Label2 = New System.Windows.Forms.Label()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
+        Me.cboSchoolYear = New System.Windows.Forms.ComboBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.lbl_dT = New System.Windows.Forms.Label()
         Me.lblt_datetime = New System.Windows.Forms.Label()
@@ -220,9 +220,9 @@ Partial Class frmLibrarianMainMenu
         Me.TableLayoutPanel2.ColumnCount = 2
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel2.Controls.Add(Me.Label2, 1, 0)
         Me.TableLayoutPanel2.Controls.Add(Me.Label11, 0, 0)
         Me.TableLayoutPanel2.Controls.Add(Me.Label4, 0, 1)
+        Me.TableLayoutPanel2.Controls.Add(Me.cboSchoolYear, 1, 1)
         Me.TableLayoutPanel2.Location = New System.Drawing.Point(58, 3)
         Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
         Me.TableLayoutPanel2.RowCount = 2
@@ -230,20 +230,6 @@ Partial Class frmLibrarianMainMenu
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 46.26866!))
         Me.TableLayoutPanel2.Size = New System.Drawing.Size(1393, 71)
         Me.TableLayoutPanel2.TabIndex = 38
-        '
-        'Label2
-        '
-        Me.Label2.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Label2.AutoSize = True
-        Me.Label2.BackColor = System.Drawing.Color.Transparent
-        Me.Label2.Font = New System.Drawing.Font("Segoe UI Semibold", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(90, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(60, Byte), Integer))
-        Me.Label2.Location = New System.Drawing.Point(1307, 17)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(83, 21)
-        Me.Label2.TabIndex = 58
-        Me.Label2.Text = "time/date"
-        Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'Label11
         '
@@ -265,9 +251,17 @@ Partial Class frmLibrarianMainMenu
         Me.Label4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(90, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(60, Byte), Integer))
         Me.Label4.Location = New System.Drawing.Point(3, 38)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(136, 15)
+        Me.Label4.Size = New System.Drawing.Size(134, 15)
         Me.Label4.TabIndex = 39
         Me.Label4.Text = "MANAGEMENT SYSTEM"
+        '
+        'cboSchoolYear
+        '
+        Me.cboSchoolYear.FormattingEnabled = True
+        Me.cboSchoolYear.Location = New System.Drawing.Point(699, 41)
+        Me.cboSchoolYear.Name = "cboSchoolYear"
+        Me.cboSchoolYear.Size = New System.Drawing.Size(121, 21)
+        Me.cboSchoolYear.TabIndex = 59
         '
         'Label1
         '
@@ -340,7 +334,7 @@ Partial Class frmLibrarianMainMenu
     Friend WithEvents Label1 As Label
     Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
     Friend WithEvents TableLayoutPanel2 As TableLayoutPanel
-    Friend WithEvents Label2 As Label
     Friend WithEvents Label11 As Label
     Friend WithEvents Label4 As Label
+    Friend WithEvents cboSchoolYear As ComboBox
 End Class

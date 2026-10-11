@@ -3,9 +3,10 @@
 Public Class frmLibrarianBorrowManagement
 
     Private pager As GridPager
+    Private useDateRange As Boolean = False      ' CHANGED: return-date filter on/off
 
     Private Sub frmLibrarianHistory_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        UiHelpers.FillHeader(Me)          ' name, position, today
+        UiHelpers.FillHeader(Me)
         With DataGridView1
             .ReadOnly = True
             .AllowUserToAddRows = False
@@ -13,13 +14,16 @@ Public Class frmLibrarianBorrowManagement
             .MultiSelect = False
             .SelectionMode = DataGridViewSelectionMode.FullRowSelect
         End With
-        ComboBox2.Enabled = False        ' Borrow status is derived from the condition
+        ComboBox2.Enabled = False
         RefreshHistory()
     End Sub
 
     Private Sub frmLibrarianHistory_VisibleChanged(sender As Object, e As EventArgs) Handles Me.VisibleChanged
         UiHelpers.FillHeader(Me)
         If Me.Visible Then
+            useDateRange = False                                            ' CHANGED
+            DateTimePicker1.Value = New Date(Date.Today.Year, Date.Today.Month, 1)
+            DateTimePicker2.Value = Date.Today
             ClearPanel()
             RefreshHistory(txtSearch.Text)
         End If
@@ -46,8 +50,12 @@ Public Class frmLibrarianBorrowManagement
                     "WHERE (@kw = '' OR u.username LIKE CONCAT('%',@kw,'%') OR v.isbn LIKE CONCAT('%',@kw,'%') " &
                     "   OR v.title LIKE CONCAT('%',@kw,'%') OR v.authors LIKE CONCAT('%',@kw,'%') " &
                     "   OR m.member_type LIKE CONCAT('%',@kw,'%') OR (" & BorrowData.StatusSql & ") LIKE CONCAT('%',@kw,'%')) " &
+                    "AND (@useDates = 0 OR t.return_date BETWEEN @f AND @t) " &      ' CHANGED: RETURN DATE based
                     "ORDER BY t.borrow_date DESC, t.transaction_id DESC", conn)
                     cmd.Parameters.AddWithValue("@kw", kw)
+                    cmd.Parameters.AddWithValue("@useDates", If(useDateRange, 1, 0))
+                    cmd.Parameters.AddWithValue("@f", DateTimePicker1.Value.Date)
+                    cmd.Parameters.AddWithValue("@t", DateTimePicker2.Value.Date)
                     Using r As MySqlDataReader = cmd.ExecuteReader()
                         While r.Read()
                             Dim isReturned As Boolean = Not IsDBNull(r("return_date"))
@@ -81,6 +89,20 @@ Public Class frmLibrarianBorrowManagement
         pager.Apply()
     End Sub
 
+    ' CHANGED: the "Filter Data" button now works
+    Private Sub btnloaddata_Click(sender As Object, e As EventArgs) Handles btnloaddata.Click
+        If DateTimePicker1.Value.Date > DateTimePicker2.Value.Date Then
+            MsgBox("'Return Date From' cannot be later than 'To'.", vbExclamation, "Filter Data")
+            Exit Sub
+        End If
+        useDateRange = True
+        RefreshHistory(txtSearch.Text)
+        If DataGridView1.Rows.Count = 0 Then
+            MsgBox("No records with a return date between " & DateTimePicker1.Value.ToString("MM/dd/yyyy") &
+                   " and " & DateTimePicker2.Value.ToString("MM/dd/yyyy") & ".", vbInformation, "Filter Data")
+        End If
+    End Sub
+
     Private Sub txtSearch_TextChanged(sender As Object, e As EventArgs) Handles txtSearch.TextChanged
         RefreshHistory(txtSearch.Text)
     End Sub
@@ -93,7 +115,6 @@ Public Class frmLibrarianBorrowManagement
         ComboBox2.Text = Convert.ToString(row.Cells("BorrowStatus").Value)
     End Sub
 
-    ' Live preview of the borrow status (display only)
     Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox1.SelectedIndexChanged
         Select Case ComboBox1.Text
             Case "Good" : ComboBox2.Text = "Returned"
@@ -102,7 +123,6 @@ Public Class frmLibrarianBorrowManagement
         End Select
     End Sub
 
-    ' "Update Record" = verify the real condition of a returned book
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         If DataGridView1.CurrentRow Is Nothing OrElse DataGridView1.SelectedRows.Count = 0 Then
             MsgBox("Select a record from the list first.", vbExclamation, "Verify Record")
@@ -143,6 +163,10 @@ Public Class frmLibrarianBorrowManagement
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         ClearPanel()
+        If useDateRange Then               ' CHANGED: Clear also removes the date filter
+            useDateRange = False
+            RefreshHistory(txtSearch.Text)
+        End If
     End Sub
 
     Private Sub ClearPanel()

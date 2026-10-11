@@ -31,6 +31,7 @@ Public Class frmAccManagement
     Private Const LibraryDept As String = "Library"
     Private pageLoaded As Boolean = False
     Private pager As GridPager
+    Private filterBox As ComboBox
 
     Private Sub frmAccManagement_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         UiHelpers.FillHeader(Me)
@@ -55,55 +56,35 @@ Public Class frmAccManagement
     End Sub
 
     Private Sub BuildExtraControls()
-        Dim everything As List(Of Control) = AllControls(Me)
-
-        Dim knownBoxes As String() = {"txtFirstName", "txtMiddleName", "txtLastName", "txtSuffix",
-                                      "txtContactNum", "txtEmail", "txtusername", "txtpassword",
-                                      "txtconfirmpassword", "txtSearch"}
-        Dim knownCombos As String() = {"cboStatus", "cboGender", "cboCourse", "cboYear_Level"}
-
-        schoolBox = everything.OfType(Of TextBox)().FirstOrDefault(Function(t) t.Name = "txtSchoolID")
-        If schoolBox Is Nothing Then
-            schoolBox = everything.OfType(Of TextBox)().FirstOrDefault(
-                Function(t) Not knownBoxes.Contains(t.Name, StringComparer.OrdinalIgnoreCase))
-        End If
-
-        typeBox = everything.OfType(Of ComboBox)().FirstOrDefault(Function(c) c.Name = "cboMemberType")
-        If typeBox Is Nothing Then
-            typeBox = everything.OfType(Of ComboBox)().FirstOrDefault(
-                Function(c) Not knownCombos.Contains(c.Name, StringComparer.OrdinalIgnoreCase))
-        End If
-
-        borrowerBox = everything.OfType(Of CheckBox)().FirstOrDefault()
-
-        If schoolBox Is Nothing OrElse typeBox Is Nothing OrElse borrowerBox Is Nothing Then
-            MsgBox("Account Management could not find the ID No., Account Type or 'Also a borrower?' control." & vbCrLf &
-                   "In the designer, name them txtSchoolID, cboMemberType and chkBorrower.",
-                   vbCritical, "Account Management")
-            Me.Enabled = False
-            Throw New InvalidOperationException("Account Management controls are missing.")
-        End If
+        ' Controls placed by the UI designer
+        schoolBox = txtidno
+        typeBox = cboacctype            ' Account Type (user information)
+        borrowerBox = ckbxalsob         ' Also a borrower?
+        filterBox = ComboBox1           ' FILTER BY ACC TYPE
 
         schoolBox.MaxLength = 20
 
         typeBox.DropDownStyle = ComboBoxStyle.DropDownList
+        typeBox.Enabled = True
         typeBox.Items.Clear()
         typeBox.Items.AddRange(New Object() {"Student", "Teacher", "Staff", "Librarian"})
         AddHandler typeBox.SelectedIndexChanged, AddressOf TypeChanged
 
         borrowerBox.Text = "Also a borrower?"
         borrowerBox.Enabled = False
+
+        filterBox.DropDownStyle = ComboBoxStyle.DropDownList
+        filterBox.Enabled = True
+        filterBox.Items.Clear()
+        filterBox.Items.AddRange(New Object() {"All", "Student", "Teacher", "Staff", "Librarian"})
+        filterBox.SelectedIndex = 0
+        AddHandler filterBox.SelectedIndexChanged, AddressOf FilterChanged
     End Sub
 
-    Private Function AllControls(parent As Control) As List(Of Control)
-        Dim result As New List(Of Control)
-        For Each c As Control In parent.Controls
-            result.Add(c)
-            result.AddRange(AllControls(c))
-        Next
-        Return result
-    End Function
-
+    Private Sub FilterChanged(sender As Object, e As EventArgs)
+        If Not pageLoaded Then Exit Sub
+        LoadAccounts(txtSearch.Text)
+    End Sub
     Private Sub SetupGrid()
         With DataGridView1
             .ReadOnly = True
@@ -113,10 +94,8 @@ Public Class frmAccManagement
             .SelectionMode = DataGridViewSelectionMode.FullRowSelect
             If Not .Columns.Contains("colSchoolId") Then
                 .Columns.Insert(0, New DataGridViewTextBoxColumn With {.Name = "colSchoolId", .HeaderText = "School ID"})
-                .Columns.Insert(1, New DataGridViewTextBoxColumn With {.Name = "colType", .HeaderText = "Type"})
-                .Columns.Add(New DataGridViewTextBoxColumn With {.Name = "colStatus", .HeaderText = "Status"})
             End If
-            .Columns("Password").Visible = False          ' passwords are hashed now, nothing to show
+            .Columns("Password").Visible = False          ' passwords are hashed, nothing to show
             .Columns("Course").HeaderText = "Course / Dept."
         End With
     End Sub
@@ -145,6 +124,7 @@ Public Class frmAccManagement
         If pager Is Nothing Then pager = PagerHelper.Create(DataGridView1)
         DataGridView1.Rows.Clear()
         Dim kw As String = If(keyword, "").Trim()
+        Dim ft As String = If(filterBox Is Nothing OrElse filterBox.Text = "All", "", filterBox.Text)
         Try
             Using conn = DBConnection.GetConnection()
                 conn.Open()
@@ -156,8 +136,11 @@ Public Class frmAccManagement
                     "WHERE u.role <> 'Admin' AND (@kw = '' OR u.username LIKE CONCAT('%',@kw,'%') " &
                     " OR u.last_name LIKE CONCAT('%',@kw,'%') OR u.first_name LIKE CONCAT('%',@kw,'%') " &
                     " OR u.school_id LIKE CONCAT('%',@kw,'%')) " &
+                    "AND (@ft = '' OR (@ft = 'Librarian' AND u.role = 'Librarian') " &
+                    "     OR (@ft <> 'Librarian' AND u.role <> 'Librarian' AND m.member_type = @ft)) " &
                     "ORDER BY u.last_name, u.first_name", conn)
                     cmd.Parameters.AddWithValue("@kw", kw)
+                    cmd.Parameters.AddWithValue("@ft", ft)
                     Using r As MySqlDataReader = cmd.ExecuteReader()
                         While r.Read()
                             Dim info As New AccountInfo With {
@@ -189,16 +172,15 @@ Public Class frmAccManagement
 
                             Dim row As DataGridViewRow = DataGridView1.Rows(DataGridView1.Rows.Add())
                             row.Cells("colSchoolId").Value = info.SchoolId
-                            row.Cells("colType").Value = typeText
+                            row.Cells("Type").Value = typeText                 ' UI-based column
                             row.Cells("Username").Value = info.Uname
                             row.Cells("FullName").Value = fullName
                             row.Cells("Gender").Value = info.GenderText
-
                             row.Cells("ContactNo").Value = info.Contact
                             row.Cells("Email").Value = info.EmailText
                             row.Cells("Course").Value = If(info.Role = "Librarian", LibraryDept, If(info.MemberType = "Student", info.CourseText, info.Dept))
                             row.Cells("Year").Value = If(info.YearLevel >= 1 AndAlso info.YearLevel <= 4, cboYear_Level.Items(info.YearLevel - 1).ToString(), "")
-                            row.Cells("colStatus").Value = info.StatusText
+                            row.Cells("Status").Value = info.StatusText        ' UI-based column
                             If info.StatusText <> "Active" Then row.DefaultCellStyle.ForeColor = Color.Firebrick
                             row.Tag = info
                         End While
