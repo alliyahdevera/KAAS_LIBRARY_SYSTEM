@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 07, 2026 at 01:45 PM
+-- Generation Time: Oct 11, 2026 at 08:23 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -124,7 +124,55 @@ INSERT INTO `activitylogs` (`log_id`, `user_id`, `action`, `description`, `log_t
 (82, 1, 'Recovered Book', 'Book no. 9 marked as recovered / repaired', '2026-10-07 19:36:22'),
 (83, 1, 'Logout', 'A_admin logged out.', '2026-10-07 19:37:17'),
 (84, 3, 'Logout', 'A_Librarian logged out.', '2026-10-07 19:38:40'),
-(85, 3, 'Logout', 'A_Librarian logged out.', '2026-10-07 19:39:02');
+(85, 3, 'Logout', 'A_Librarian logged out.', '2026-10-07 19:39:02'),
+(86, 1, 'Logout', 'A_admin logged out.', '2026-10-11 20:49:39'),
+(87, 6, 'Logout', 'Tailor logged out.', '2026-10-11 20:49:57'),
+(88, 1, 'Logout', 'A_admin logged out.', '2026-10-11 20:50:51'),
+(89, 10, 'Logout', 'librarian logged out.', '2026-10-11 20:51:20'),
+(90, 6, 'Logout', 'Tailor logged out.', '2026-10-11 20:51:49'),
+(91, 1, 'Logout', 'A_admin logged out.', '2026-10-11 20:55:25'),
+(92, 6, 'Logout', 'Tailor logged out.', '2026-10-11 20:55:42'),
+(93, 3, 'Logout', 'A_Librarian logged out.', '2026-10-11 21:16:56'),
+(94, 1, 'Logout', 'A_admin logged out.', '2026-10-11 21:23:13'),
+(95, 1, 'Logout', 'A_admin logged out.', '2026-10-11 21:53:05'),
+(96, 3, 'Logout', 'A_Librarian logged out.', '2026-10-11 21:54:17'),
+(97, 1, 'Logout', 'A_admin logged out.', '2026-10-11 21:56:52'),
+(98, 6, 'Logout', 'Tailor logged out.', '2026-10-11 21:58:58'),
+(99, 1, 'Logout', 'A_admin logged out.', '2026-10-11 21:59:22'),
+(100, 10, 'Logout', 'librarian logged out.', '2026-10-11 21:59:55'),
+(101, 1, 'Logout', 'A_admin logged out.', '2026-10-11 22:00:25'),
+(102, 3, 'Logout', 'A_Librarian logged out.', '2026-10-11 22:02:37'),
+(103, 1, 'Logout', 'A_admin logged out.', '2026-10-11 22:04:28'),
+(104, 10, 'Logout', 'librarian logged out.', '2026-10-11 23:02:44'),
+(105, 1, 'Logout', 'A_admin logged out.', '2026-10-11 23:03:31'),
+(106, 6, 'Logout', 'Tailor logged out.', '2026-10-11 23:07:30'),
+(107, 10, 'Logout', 'librarian logged out.', '2026-10-11 23:07:54'),
+(108, 6, 'Logout', 'Tailor logged out.', '2026-10-11 23:20:59'),
+(109, 1, 'Logout', 'A_admin logged out.', '2026-10-11 23:39:25'),
+(110, 10, 'Logout', 'librarian logged out.', '2026-10-11 23:45:35'),
+(111, 1, 'Logout', 'A_admin logged out.', '2026-10-12 00:35:00'),
+(112, 3, 'Logout', 'A_Librarian logged out.', '2026-10-12 00:35:31'),
+(113, 6, 'Logout', 'Tailor logged out.', '2026-10-12 00:35:58'),
+(114, 1, 'Logout', 'A_admin logged out.', '2026-10-12 00:58:11'),
+(115, 10, 'Logout', 'librarian logged out.', '2026-10-12 00:58:35'),
+(116, 6, 'Logout', 'Tailor logged out.', '2026-10-12 01:11:10'),
+(117, 1, 'Generate Report', 'Report 10/01/2026 to 10/12/2026 (4 records, All Time)', '2026-10-12 01:54:50'),
+(118, 1, 'Generate Report', 'Report 10/01/2026 to 10/12/2026 (4 records, S.Y. 2026-2027)', '2026-10-12 01:55:09'),
+(119, 1, 'Generate Report', 'Report 10/01/2026 to 10/12/2026 (0 records, S.Y. 2025-2026)', '2026-10-12 01:55:15'),
+(120, 1, 'Generate Report', 'Report 10/01/2026 to 10/12/2026 (4 records, All Time)', '2026-10-12 01:56:50'),
+(121, 1, 'Generate Report', 'Report 10/01/2026 to 10/12/2026 (4 records, All Time)', '2026-10-12 01:56:54'),
+(122, 1, 'Generate Report', 'Report 10/01/2026 to 10/12/2026 (0 records, S.Y. 2025-2026)', '2026-10-12 01:57:35'),
+(123, 1, 'Generate Report', 'Report 10/01/2026 to 10/12/2026 (4 records, All Time)', '2026-10-12 02:00:29'),
+(124, 1, 'Generate Report', 'Report 10/01/2026 to 10/12/2026 (4 records)', '2026-10-12 02:03:07'),
+(125, 1, 'Logout', 'A_admin logged out.', '2026-10-12 02:03:50'),
+(126, 3, 'Logout', 'A_Librarian logged out.', '2026-10-12 02:07:41'),
+(127, 6, 'Logout', 'Tailor logged out.', '2026-10-12 02:08:00'),
+(128, 1, 'Logout', 'A_admin logged out.', '2026-10-12 02:09:39'),
+(129, 1, 'Logout', 'A_admin logged out.', '2026-10-12 02:13:16'),
+(130, 1, 'Logout', 'A_admin logged out.', '2026-10-12 02:14:08'),
+(131, 1, 'Logout', 'A_admin logged out.', '2026-10-12 02:17:12'),
+(132, 1, 'Logout', 'A_admin logged out.', '2026-10-12 02:20:27'),
+(133, 3, 'Logout', 'A_Librarian logged out.', '2026-10-12 02:21:52');
 
 -- --------------------------------------------------------
 
@@ -550,7 +598,59 @@ INSERT INTO `loginlogs` (`login_log_id`, `user_id`, `username`, `status`, `attem
 (35, 1, 'A_admin', 'Success', '2026-10-07 19:29:52'),
 (36, 3, 'A_Librarian', 'Success', '2026-10-07 19:37:28'),
 (37, 3, 'A_Librarian', 'Success', '2026-10-07 19:38:58'),
-(38, 1, 'A_admin', 'Success', '2026-10-07 19:39:10');
+(38, 1, 'A_admin', 'Success', '2026-10-07 19:39:10'),
+(39, NULL, 'admin', 'Failed', '2026-10-11 20:49:05'),
+(40, 1, 'A_admin', 'Failed', '2026-10-11 20:49:14'),
+(41, 1, 'A_admin', 'Success', '2026-10-11 20:49:20'),
+(42, 6, 'Tailor', 'Success', '2026-10-11 20:49:45'),
+(43, 1, 'A_admin', 'Success', '2026-10-11 20:50:26'),
+(44, 10, 'librarian', 'Success', '2026-10-11 20:50:59'),
+(45, 6, 'Tailor', 'Success', '2026-10-11 20:51:29'),
+(46, 1, 'A_admin', 'Success', '2026-10-11 20:52:09'),
+(47, 6, 'Tailor', 'Success', '2026-10-11 20:55:30'),
+(48, 3, 'A_Librarian', 'Success', '2026-10-11 20:55:51'),
+(49, 1, 'A_admin', 'Success', '2026-10-11 21:17:04'),
+(50, 1, 'A_admin', 'Success', '2026-10-11 21:21:26'),
+(51, 3, 'A_Librarian', 'Success', '2026-10-11 21:23:27'),
+(52, 1, 'A_admin', 'Success', '2026-10-11 21:52:54'),
+(53, 3, 'A_Librarian', 'Success', '2026-10-11 21:53:15'),
+(54, 1, 'A_admin', 'Success', '2026-10-11 21:54:23'),
+(55, 6, 'Tailor', 'Success', '2026-10-11 21:56:59'),
+(56, 1, 'A_admin', 'Success', '2026-10-11 21:59:05'),
+(57, 10, 'librarian', 'Success', '2026-10-11 21:59:29'),
+(58, 1, 'A_admin', 'Success', '2026-10-11 22:00:04'),
+(59, 3, 'A_Librarian', 'Success', '2026-10-11 22:00:35'),
+(60, 1, 'A_admin', 'Success', '2026-10-11 22:02:45'),
+(61, 3, 'A_Librarian', 'Success', '2026-10-11 22:04:40'),
+(62, 6, 'Tailor', 'Success', '2026-10-11 22:59:20'),
+(63, 10, 'librarian', 'Success', '2026-10-11 23:02:30'),
+(64, 1, 'A_admin', 'Success', '2026-10-11 23:03:16'),
+(65, 6, 'Tailor', 'Success', '2026-10-11 23:07:18'),
+(66, 10, 'librarian', 'Success', '2026-10-11 23:07:46'),
+(67, 6, 'Tailor', 'Success', '2026-10-11 23:09:04'),
+(68, 6, 'Tailor', 'Success', '2026-10-11 23:20:48'),
+(69, 3, 'A_Librarian', 'Success', '2026-10-11 23:23:00'),
+(70, 1, 'A_admin', 'Success', '2026-10-11 23:36:25'),
+(71, 10, 'librarian', 'Success', '2026-10-11 23:39:31'),
+(72, 1, 'A_admin', 'Success', '2026-10-12 00:34:45'),
+(73, 3, 'A_Librarian', 'Success', '2026-10-12 00:35:07'),
+(74, 6, 'Tailor', 'Success', '2026-10-12 00:35:41'),
+(75, 1, 'A_admin', 'Success', '2026-10-12 00:51:54'),
+(76, 10, 'librarian', 'Success', '2026-10-12 00:58:19'),
+(77, 6, 'Tailor', 'Success', '2026-10-12 01:10:59'),
+(78, 3, 'A_Librarian', 'Success', '2026-10-12 01:11:21'),
+(79, 1, 'A_admin', 'Success', '2026-10-12 01:54:19'),
+(80, 1, 'A_admin', 'Success', '2026-10-12 02:02:44'),
+(81, 3, 'A_Librarian', 'Success', '2026-10-12 02:03:59'),
+(82, 6, 'Tailor', 'Success', '2026-10-12 02:07:48'),
+(83, 1, 'A_admin', 'Success', '2026-10-12 02:08:30'),
+(84, 6, 'Tailor', 'Success', '2026-10-12 02:09:51'),
+(85, 1, 'A_admin', 'Success', '2026-10-12 02:12:58'),
+(86, 1, 'A_admin', 'Success', '2026-10-12 02:13:34'),
+(87, 6, 'Tailor', 'Success', '2026-10-12 02:14:24'),
+(88, 1, 'A_admin', 'Success', '2026-10-12 02:17:03'),
+(89, 1, 'A_admin', 'Success', '2026-10-12 02:18:17'),
+(90, 3, 'A_Librarian', 'Success', '2026-10-12 02:20:38');
 
 -- --------------------------------------------------------
 
@@ -933,6 +1033,27 @@ INSERT INTO `publishers` (`publisher_id`, `publisher_name`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `schoolyear`
+--
+
+CREATE TABLE `schoolyear` (
+  `sy_id` int(11) NOT NULL,
+  `sy_name` varchar(20) NOT NULL,
+  `start_date` date NOT NULL,
+  `end_date` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `schoolyear`
+--
+
+INSERT INTO `schoolyear` (`sy_id`, `sy_name`, `start_date`, `end_date`) VALUES
+(1, '2025-2026', '2025-06-01', '2026-05-31'),
+(2, '2026-2027', '2026-06-01', '2027-05-31');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `users`
 --
 
@@ -1180,6 +1301,13 @@ ALTER TABLE `publishers`
   ADD UNIQUE KEY `uq_publisher_name` (`publisher_name`);
 
 --
+-- Indexes for table `schoolyear`
+--
+ALTER TABLE `schoolyear`
+  ADD PRIMARY KEY (`sy_id`),
+  ADD UNIQUE KEY `sy_name` (`sy_name`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -1195,7 +1323,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `activitylogs`
 --
 ALTER TABLE `activitylogs`
-  MODIFY `log_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=86;
+  MODIFY `log_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=134;
 
 --
 -- AUTO_INCREMENT for table `authors`
@@ -1231,7 +1359,7 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT for table `loginlogs`
 --
 ALTER TABLE `loginlogs`
-  MODIFY `login_log_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+  MODIFY `login_log_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=91;
 
 --
 -- AUTO_INCREMENT for table `lostdamagedbooks`
@@ -1286,6 +1414,12 @@ ALTER TABLE `penalty`
 --
 ALTER TABLE `publishers`
   MODIFY `publisher_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+
+--
+-- AUTO_INCREMENT for table `schoolyear`
+--
+ALTER TABLE `schoolyear`
+  MODIFY `sy_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `users`
