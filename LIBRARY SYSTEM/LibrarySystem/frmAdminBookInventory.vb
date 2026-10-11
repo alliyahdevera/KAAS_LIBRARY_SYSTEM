@@ -1,21 +1,18 @@
 ﻿Imports MySql.Data.MySqlClient
 
-' The LAYOUT of this form lives in frmAdminBookInventory.Designer.vb -- open the form in the
-' Visual Studio designer to move, resize or restyle anything. This file only holds behaviour.
 Public Class frmAdminBookInventory
 
     Private selectedCopyId As Integer = 0
     Private pager As GridPager
 
-    Private isReady As Boolean = False      ' stays False until Load finishes, so setting up the filters runs no query
+    Private isReady As Boolean = False
 
     Private Sub frmAdminBookInventory_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        cboCondition.Items.AddRange(CopyData.AllConditions)   ' single source of truth for the condition list
+        cboCondition.Items.AddRange(CopyData.AllConditions)
         cboFilter.SelectedIndex = 0
         isReady = True
     End Sub
 
-    ' ------------------------------------------------------------ list
     Private Sub OnVisible(sender As Object, e As EventArgs) Handles MyBase.VisibleChanged
         If Not Me.DesignMode AndAlso Me.Visible Then
             LoadCopies()
@@ -321,7 +318,7 @@ Public Class frmAdminBookInventory
         txtIsbn.Focus()
     End Sub
 
-    Private Sub btnExport_Click(sender As Object, e As EventArgs) Handles btnExport.Click
+    Private Sub btnExport_Click(sender As Object, e As EventArgs)
         BorrowData.ExportGridToCsv(dgvCopies, "Book_Inventory")
     End Sub
 End Class

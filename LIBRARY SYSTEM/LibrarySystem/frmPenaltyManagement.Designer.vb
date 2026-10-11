@@ -34,7 +34,7 @@ Partial Class frmPenaltyManagement
         Me.Label3 = New System.Windows.Forms.Label()
         Me.ComboBox3 = New System.Windows.Forms.ComboBox()
         Me.Label5 = New System.Windows.Forms.Label()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.dgvp = New System.Windows.Forms.DataGridView()
         Me.Username = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ReceiptNo = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.BookID = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -60,7 +60,7 @@ Partial Class frmPenaltyManagement
         Me.Label6 = New System.Windows.Forms.Label()
         Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
         Me.Label4 = New System.Windows.Forms.Label()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dgvp, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel13.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -179,12 +179,14 @@ Partial Class frmPenaltyManagement
         Me.Label5.TabIndex = 85
         Me.Label5.Text = "Penalty Status"
         '
-        'DataGridView1
+        'dgvp
         '
-        Me.DataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
-        Me.DataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Username, Me.ReceiptNo, Me.BookID, Me.ISBN, Me.BookTitle, Me.BookAuthor, Me.Reason, Me.BookCondition, Me.Amount, Me.PenaltyStatus, Me.PenaltyDate})
+        Me.dgvp.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.dgvp.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.dgvp.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
+        Me.dgvp.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvp.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Username, Me.ReceiptNo, Me.BookID, Me.ISBN, Me.BookTitle, Me.BookAuthor, Me.Reason, Me.BookCondition, Me.Amount, Me.PenaltyStatus, Me.PenaltyDate})
         DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window
         DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -192,12 +194,13 @@ Partial Class frmPenaltyManagement
         DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
         DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridView1.DefaultCellStyle = DataGridViewCellStyle1
-        Me.DataGridView1.Location = New System.Drawing.Point(0, 210)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.RowHeadersWidth = 51
-        Me.DataGridView1.Size = New System.Drawing.Size(1245, 542)
-        Me.DataGridView1.TabIndex = 93
+        Me.dgvp.DefaultCellStyle = DataGridViewCellStyle1
+        Me.dgvp.Location = New System.Drawing.Point(0, 210)
+        Me.dgvp.Name = "dgvp"
+        Me.dgvp.RowHeadersVisible = False
+        Me.dgvp.RowHeadersWidth = 51
+        Me.dgvp.Size = New System.Drawing.Size(1245, 542)
+        Me.dgvp.TabIndex = 93
         '
         'Username
         '
@@ -437,7 +440,7 @@ Partial Class frmPenaltyManagement
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Label14)
         Me.Controls.Add(Me.txtSearch)
-        Me.Controls.Add(Me.DataGridView1)
+        Me.Controls.Add(Me.dgvp)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.ComboBox3)
         Me.Controls.Add(Me.Label3)
@@ -451,7 +454,7 @@ Partial Class frmPenaltyManagement
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "frmPenaltyManagement"
         Me.Text = "frmPenaltyManagement"
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dgvp, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel13.ResumeLayout(False)
         Me.Panel13.PerformLayout()
         Me.ResumeLayout(False)
@@ -469,7 +472,7 @@ Partial Class frmPenaltyManagement
     Friend WithEvents Label3 As Label
     Friend WithEvents ComboBox3 As ComboBox
     Friend WithEvents Label5 As Label
-    Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents dgvp As DataGridView
     Friend WithEvents Username As DataGridViewTextBoxColumn
     Friend WithEvents ReceiptNo As DataGridViewTextBoxColumn
     Friend WithEvents BookID As DataGridViewTextBoxColumn

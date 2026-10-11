@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
-Partial Class Form1
+Partial Class frmLogin
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -23,7 +23,7 @@ Partial Class Form1
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim PictureBox1 As System.Windows.Forms.PictureBox
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmLogin))
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.PWPanel = New System.Windows.Forms.Panel()
         Me.PW = New System.Windows.Forms.PictureBox()
@@ -36,8 +36,6 @@ Partial Class Form1
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.Button1 = New System.Windows.Forms.Button()
-        Me.lblRegister = New System.Windows.Forms.LinkLabel()
-        Me.Label6 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.btnLogin = New System.Windows.Forms.Button()
@@ -79,8 +77,6 @@ Partial Class Form1
         Me.Panel2.Controls.Add(Me.Label11)
         Me.Panel2.Controls.Add(PictureBox1)
         Me.Panel2.Controls.Add(Me.Button1)
-        Me.Panel2.Controls.Add(Me.lblRegister)
-        Me.Panel2.Controls.Add(Me.Label6)
         Me.Panel2.Controls.Add(Me.Label8)
         Me.Panel2.Controls.Add(Me.Label9)
         Me.Panel2.Controls.Add(Me.btnLogin)
@@ -168,11 +164,12 @@ Partial Class Form1
         '
         Me.lblAttempts.AutoSize = True
         Me.lblAttempts.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblAttempts.Location = New System.Drawing.Point(97, 376)
+        Me.lblAttempts.Location = New System.Drawing.Point(212, 401)
         Me.lblAttempts.Name = "lblAttempts"
         Me.lblAttempts.Size = New System.Drawing.Size(76, 15)
         Me.lblAttempts.TabIndex = 41
         Me.lblAttempts.Text = "Attempts left"
+        Me.lblAttempts.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'Label4
         '
@@ -206,27 +203,6 @@ Partial Class Form1
         Me.Button1.Text = "X"
         Me.Button1.UseVisualStyleBackColor = True
         '
-        'lblRegister
-        '
-        Me.lblRegister.AutoSize = True
-        Me.lblRegister.Font = New System.Drawing.Font("Segoe UI", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblRegister.Location = New System.Drawing.Point(280, 479)
-        Me.lblRegister.Name = "lblRegister"
-        Me.lblRegister.Size = New System.Drawing.Size(58, 19)
-        Me.lblRegister.TabIndex = 10
-        Me.lblRegister.TabStop = True
-        Me.lblRegister.Text = "Register"
-        '
-        'Label6
-        '
-        Me.Label6.AutoSize = True
-        Me.Label6.Font = New System.Drawing.Font("Segoe UI", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(156, 479)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(118, 19)
-        Me.Label6.TabIndex = 9
-        Me.Label6.Text = "Need an account?"
-        '
         'Label8
         '
         Me.Label8.AutoSize = True
@@ -254,7 +230,7 @@ Partial Class Form1
         Me.btnLogin.ForeColor = System.Drawing.Color.White
         Me.btnLogin.Location = New System.Drawing.Point(100, 429)
         Me.btnLogin.Name = "btnLogin"
-        Me.btnLogin.Size = New System.Drawing.Size(296, 29)
+        Me.btnLogin.Size = New System.Drawing.Size(296, 34)
         Me.btnLogin.TabIndex = 6
         Me.btnLogin.Text = "Log in"
         Me.btnLogin.UseVisualStyleBackColor = False
@@ -300,7 +276,7 @@ Partial Class Form1
         '
         Me.PictureBox2.BackColor = System.Drawing.Color.Transparent
         Me.PictureBox2.Image = Global.LibrarySystem.My.Resources.Resources.CLICK2
-        Me.PictureBox2.Location = New System.Drawing.Point(450, 344)
+        Me.PictureBox2.Location = New System.Drawing.Point(391, 308)
         Me.PictureBox2.Name = "PictureBox2"
         Me.PictureBox2.Size = New System.Drawing.Size(45, 40)
         Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -313,17 +289,17 @@ Partial Class Form1
         Me.Label2.BackColor = System.Drawing.Color.Transparent
         Me.Label2.Font = New System.Drawing.Font("Segoe UI Semibold", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.Color.SaddleBrown
-        Me.Label2.Location = New System.Drawing.Point(153, 333)
+        Me.Label2.Location = New System.Drawing.Point(156, 305)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(233, 30)
         Me.Label2.TabIndex = 6
         Me.Label2.Text = "just a single click away!"
         '
-        'Form1
+        'frmLogin
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.BackColor = System.Drawing.Color.LightSteelBlue
-        Me.BackgroundImage = Global.LibrarySystem.My.Resources.Resources.LIB_BG
+        Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(1163, 750)
         Me.Controls.Add(Me.Label2)
@@ -332,7 +308,7 @@ Partial Class Form1
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.btnExit)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
-        Me.Name = "Form1"
+        Me.Name = "frmLogin"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Form1"
         CType(PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -352,8 +328,6 @@ Partial Class Form1
 
     Friend WithEvents Panel2 As Panel
     Friend WithEvents Button1 As Button
-    Friend WithEvents lblRegister As LinkLabel
-    Friend WithEvents Label6 As Label
     Friend WithEvents Label8 As Label
     Friend WithEvents Label9 As Label
     Friend WithEvents btnLogin As Button

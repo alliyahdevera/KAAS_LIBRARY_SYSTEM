@@ -5,19 +5,19 @@
         ScreenFit.Apply(Me, 1924, 1052)      ' Task 3: delete this line if you have not added the ScreenFit module
         Me.CenterToScreen()
 
-        ' new sidebar button: must be created BEFORE the click handlers below are attached
+
         MenuBuilder.AddMenuButton(Me, "btnpenaltyman", "Lost and Damaged")
 
         For Each b As Button In UiHelpers.AllButtons(Me)
             AddHandler b.Click, AddressOf MenuButton_Click
         Next
-        FormHost.LoadInto(Panel3, frmLibraryDashboard)
+        FormHost.LoadInto(Panel3, frmLibrarianDashboard)
     End Sub
 
     Private Sub MenuButton_Click(sender As Object, e As EventArgs)
         Dim caption As String = DirectCast(sender, Button).Text.Trim()
         Select Case caption
-            Case "Dashboard" : FormHost.LoadInto(Panel3, frmLibraryDashboard)
+            Case "Dashboard" : FormHost.LoadInto(Panel3, frmLibrarianDashboard)
             Case "Book Management" : FormHost.LoadInto(Panel3, frmBookManagement)
             Case "Borrow Management" : FormHost.LoadInto(Panel3, frmLibrarianBorrowManagement)
             Case "Penalty Management" : FormHost.LoadInto(Panel3, frmPenaltyManagement)
@@ -31,7 +31,7 @@
             DBConnection.LogActivity("Logout", AppSession.Username & " logged out.")
             loggingOut = True
             AppSession.SignOut()
-            Form1.Show()
+            frmLogin.Show()
             Me.Close()
         End If
     End Sub

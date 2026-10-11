@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class frmAdminBookInventory
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class frmAdminBookInventory
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.dgvCopies = New System.Windows.Forms.DataGridView()
@@ -35,15 +35,13 @@ Partial Class frmAdminBookInventory
         Me.BookCondition = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.CopyStatus = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DateAdded = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.pnlButtons = New System.Windows.Forms.Panel()
         Me.btnAdd = New System.Windows.Forms.Button()
         Me.btnUpdate = New System.Windows.Forms.Button()
         Me.btnDelete = New System.Windows.Forms.Button()
         Me.btnClear = New System.Windows.Forms.Button()
-        Me.btnExport = New System.Windows.Forms.Button()
         Me.pnlForm = New System.Windows.Forms.Panel()
-        Me.lblBookNo = New System.Windows.Forms.Label()
         Me.txtBookNo = New System.Windows.Forms.TextBox()
+        Me.lblBookNo = New System.Windows.Forms.Label()
         Me.lblAccession = New System.Windows.Forms.Label()
         Me.txtAccession = New System.Windows.Forms.TextBox()
         Me.lblIsbn = New System.Windows.Forms.Label()
@@ -62,39 +60,51 @@ Partial Class frmAdminBookInventory
         Me.txtSearch = New System.Windows.Forms.TextBox()
         Me.lblStatus = New System.Windows.Forms.Label()
         Me.cboFilter = New System.Windows.Forms.ComboBox()
+        Me.Panel13 = New System.Windows.Forms.Panel()
+        Me.lblname = New System.Windows.Forms.Label()
+        Me.Label29 = New System.Windows.Forms.Label()
+        Me.Label28 = New System.Windows.Forms.Label()
+        Me.lblposition = New System.Windows.Forms.Label()
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.Label15 = New System.Windows.Forms.Label()
         CType(Me.dgvCopies, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.pnlButtons.SuspendLayout()
         Me.pnlForm.SuspendLayout()
         CType(Me.numCopies, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlTop.SuspendLayout()
+        Me.Panel13.SuspendLayout()
+        Me.Panel1.SuspendLayout()
+        Me.Panel2.SuspendLayout()
         Me.SuspendLayout()
         '
         'dgvCopies
         '
         Me.dgvCopies.AllowUserToAddRows = False
         Me.dgvCopies.AllowUserToDeleteRows = False
+        Me.dgvCopies.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.dgvCopies.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.dgvCopies.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
         Me.dgvCopies.BackgroundColor = System.Drawing.Color.White
+        Me.dgvCopies.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvCopies.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.BookNo, Me.Accession, Me.ISBN, Me.BookTitle, Me.BookAuthor, Me.Publisher, Me.Edition, Me.YearPublished, Me.BookCondition, Me.CopyStatus, Me.DateAdded})
         DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText
         DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
         DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.dgvCopies.DefaultCellStyle = DataGridViewCellStyle1
-        Me.dgvCopies.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvCopies.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.BookNo, Me.Accession, Me.ISBN, Me.BookTitle, Me.BookAuthor, Me.Publisher, Me.Edition, Me.YearPublished, Me.BookCondition, Me.CopyStatus, Me.DateAdded})
-        Me.dgvCopies.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.dgvCopies.Location = New System.Drawing.Point(0, 169)
+        Me.dgvCopies.GridColor = System.Drawing.Color.Black
+        Me.dgvCopies.Location = New System.Drawing.Point(0, 331)
         Me.dgvCopies.MultiSelect = False
         Me.dgvCopies.Name = "dgvCopies"
         Me.dgvCopies.ReadOnly = True
         Me.dgvCopies.RowHeadersVisible = False
         Me.dgvCopies.RowHeadersWidth = 51
         Me.dgvCopies.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgvCopies.Size = New System.Drawing.Size(1700, 731)
+        Me.dgvCopies.Size = New System.Drawing.Size(1231, 326)
         Me.dgvCopies.TabIndex = 3
         '
         'BookNo
@@ -178,20 +188,6 @@ Partial Class frmAdminBookInventory
         Me.DateAdded.Name = "DateAdded"
         Me.DateAdded.ReadOnly = True
         '
-        'pnlButtons
-        '
-        Me.pnlButtons.BackColor = System.Drawing.Color.White
-        Me.pnlButtons.Controls.Add(Me.btnAdd)
-        Me.pnlButtons.Controls.Add(Me.btnUpdate)
-        Me.pnlButtons.Controls.Add(Me.btnDelete)
-        Me.pnlButtons.Controls.Add(Me.btnClear)
-        Me.pnlButtons.Controls.Add(Me.btnExport)
-        Me.pnlButtons.Dock = System.Windows.Forms.DockStyle.Top
-        Me.pnlButtons.Location = New System.Drawing.Point(0, 115)
-        Me.pnlButtons.Name = "pnlButtons"
-        Me.pnlButtons.Size = New System.Drawing.Size(1700, 54)
-        Me.pnlButtons.TabIndex = 2
-        '
         'btnAdd
         '
         Me.btnAdd.BackColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(25, Byte), Integer))
@@ -200,9 +196,9 @@ Partial Class frmAdminBookInventory
         Me.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnAdd.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnAdd.ForeColor = System.Drawing.Color.White
-        Me.btnAdd.Location = New System.Drawing.Point(16, 6)
+        Me.btnAdd.Location = New System.Drawing.Point(488, 160)
         Me.btnAdd.Name = "btnAdd"
-        Me.btnAdd.Size = New System.Drawing.Size(160, 38)
+        Me.btnAdd.Size = New System.Drawing.Size(186, 28)
         Me.btnAdd.TabIndex = 0
         Me.btnAdd.Text = "Add Copy"
         Me.btnAdd.UseVisualStyleBackColor = False
@@ -215,9 +211,9 @@ Partial Class frmAdminBookInventory
         Me.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnUpdate.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnUpdate.ForeColor = System.Drawing.Color.White
-        Me.btnUpdate.Location = New System.Drawing.Point(186, 6)
+        Me.btnUpdate.Location = New System.Drawing.Point(770, 56)
         Me.btnUpdate.Name = "btnUpdate"
-        Me.btnUpdate.Size = New System.Drawing.Size(160, 38)
+        Me.btnUpdate.Size = New System.Drawing.Size(146, 33)
         Me.btnUpdate.TabIndex = 1
         Me.btnUpdate.Text = "Update Condition"
         Me.btnUpdate.UseVisualStyleBackColor = False
@@ -230,9 +226,9 @@ Partial Class frmAdminBookInventory
         Me.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnDelete.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnDelete.ForeColor = System.Drawing.Color.White
-        Me.btnDelete.Location = New System.Drawing.Point(356, 6)
+        Me.btnDelete.Location = New System.Drawing.Point(770, 104)
         Me.btnDelete.Name = "btnDelete"
-        Me.btnDelete.Size = New System.Drawing.Size(160, 38)
+        Me.btnDelete.Size = New System.Drawing.Size(146, 33)
         Me.btnDelete.TabIndex = 2
         Me.btnDelete.Text = "Delete Copy"
         Me.btnDelete.UseVisualStyleBackColor = False
@@ -245,77 +241,52 @@ Partial Class frmAdminBookInventory
         Me.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnClear.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnClear.ForeColor = System.Drawing.Color.White
-        Me.btnClear.Location = New System.Drawing.Point(526, 6)
+        Me.btnClear.Location = New System.Drawing.Point(770, 152)
         Me.btnClear.Name = "btnClear"
-        Me.btnClear.Size = New System.Drawing.Size(160, 38)
+        Me.btnClear.Size = New System.Drawing.Size(146, 35)
         Me.btnClear.TabIndex = 3
         Me.btnClear.Text = "Clear"
         Me.btnClear.UseVisualStyleBackColor = False
         '
-        'btnExport
-        '
-        Me.btnExport.BackColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(25, Byte), Integer))
-        Me.btnExport.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnExport.FlatAppearance.BorderSize = 0
-        Me.btnExport.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnExport.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnExport.ForeColor = System.Drawing.Color.White
-        Me.btnExport.Location = New System.Drawing.Point(696, 6)
-        Me.btnExport.Name = "btnExport"
-        Me.btnExport.Size = New System.Drawing.Size(160, 38)
-        Me.btnExport.TabIndex = 4
-        Me.btnExport.Text = "Export"
-        Me.btnExport.UseVisualStyleBackColor = False
-        '
         'pnlForm
         '
-        Me.pnlForm.BackColor = System.Drawing.Color.White
-        Me.pnlForm.Controls.Add(Me.lblBookNo)
-        Me.pnlForm.Controls.Add(Me.txtBookNo)
-        Me.pnlForm.Controls.Add(Me.lblAccession)
-        Me.pnlForm.Controls.Add(Me.txtAccession)
-        Me.pnlForm.Controls.Add(Me.lblIsbn)
-        Me.pnlForm.Controls.Add(Me.txtIsbn)
-        Me.pnlForm.Controls.Add(Me.lblTitleCaption)
-        Me.pnlForm.Controls.Add(Me.txtTitle)
-        Me.pnlForm.Controls.Add(Me.lblCondition)
-        Me.pnlForm.Controls.Add(Me.cboCondition)
-        Me.pnlForm.Controls.Add(Me.lblStatusCaption)
-        Me.pnlForm.Controls.Add(Me.txtStatus)
-        Me.pnlForm.Controls.Add(Me.lblCopies)
-        Me.pnlForm.Controls.Add(Me.numCopies)
+        Me.pnlForm.BackColor = System.Drawing.Color.FromArgb(CType(CType(251, Byte), Integer), CType(CType(243, Byte), Integer), CType(CType(235, Byte), Integer))
+        Me.pnlForm.Controls.Add(Me.Panel1)
+        Me.pnlForm.Controls.Add(Me.btnDelete)
+        Me.pnlForm.Controls.Add(Me.btnUpdate)
+        Me.pnlForm.Controls.Add(Me.btnClear)
         Me.pnlForm.Dock = System.Windows.Forms.DockStyle.Top
         Me.pnlForm.Location = New System.Drawing.Point(0, 51)
         Me.pnlForm.Name = "pnlForm"
-        Me.pnlForm.Size = New System.Drawing.Size(1700, 64)
+        Me.pnlForm.Size = New System.Drawing.Size(1231, 240)
         Me.pnlForm.TabIndex = 1
+        '
+        'txtBookNo
+        '
+        Me.txtBookNo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.txtBookNo.Location = New System.Drawing.Point(121, 54)
+        Me.txtBookNo.Name = "txtBookNo"
+        Me.txtBookNo.ReadOnly = True
+        Me.txtBookNo.Size = New System.Drawing.Size(229, 25)
+        Me.txtBookNo.TabIndex = 1
         '
         'lblBookNo
         '
         Me.lblBookNo.AutoSize = True
         Me.lblBookNo.Font = New System.Drawing.Font("Segoe UI Semibold", 9.5!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblBookNo.ForeColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(25, Byte), Integer))
-        Me.lblBookNo.Location = New System.Drawing.Point(16, 4)
+        Me.lblBookNo.Location = New System.Drawing.Point(19, 57)
         Me.lblBookNo.Name = "lblBookNo"
         Me.lblBookNo.Size = New System.Drawing.Size(64, 17)
         Me.lblBookNo.TabIndex = 0
         Me.lblBookNo.Text = "Book No."
-        '
-        'txtBookNo
-        '
-        Me.txtBookNo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.txtBookNo.Location = New System.Drawing.Point(16, 26)
-        Me.txtBookNo.Name = "txtBookNo"
-        Me.txtBookNo.ReadOnly = True
-        Me.txtBookNo.Size = New System.Drawing.Size(100, 25)
-        Me.txtBookNo.TabIndex = 1
         '
         'lblAccession
         '
         Me.lblAccession.AutoSize = True
         Me.lblAccession.Font = New System.Drawing.Font("Segoe UI Semibold", 9.5!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblAccession.ForeColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(25, Byte), Integer))
-        Me.lblAccession.Location = New System.Drawing.Point(128, 4)
+        Me.lblAccession.Location = New System.Drawing.Point(19, 94)
         Me.lblAccession.Name = "lblAccession"
         Me.lblAccession.Size = New System.Drawing.Size(92, 17)
         Me.lblAccession.TabIndex = 2
@@ -324,10 +295,10 @@ Partial Class frmAdminBookInventory
         'txtAccession
         '
         Me.txtAccession.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.txtAccession.Location = New System.Drawing.Point(128, 26)
+        Me.txtAccession.Location = New System.Drawing.Point(121, 90)
         Me.txtAccession.Name = "txtAccession"
         Me.txtAccession.ReadOnly = True
-        Me.txtAccession.Size = New System.Drawing.Size(130, 25)
+        Me.txtAccession.Size = New System.Drawing.Size(229, 25)
         Me.txtAccession.TabIndex = 3
         '
         'lblIsbn
@@ -335,7 +306,7 @@ Partial Class frmAdminBookInventory
         Me.lblIsbn.AutoSize = True
         Me.lblIsbn.Font = New System.Drawing.Font("Segoe UI Semibold", 9.5!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblIsbn.ForeColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(25, Byte), Integer))
-        Me.lblIsbn.Location = New System.Drawing.Point(270, 4)
+        Me.lblIsbn.Location = New System.Drawing.Point(19, 131)
         Me.lblIsbn.Name = "lblIsbn"
         Me.lblIsbn.Size = New System.Drawing.Size(37, 17)
         Me.lblIsbn.TabIndex = 4
@@ -344,10 +315,10 @@ Partial Class frmAdminBookInventory
         'txtIsbn
         '
         Me.txtIsbn.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.txtIsbn.Location = New System.Drawing.Point(270, 26)
+        Me.txtIsbn.Location = New System.Drawing.Point(121, 127)
         Me.txtIsbn.MaxLength = 13
         Me.txtIsbn.Name = "txtIsbn"
-        Me.txtIsbn.Size = New System.Drawing.Size(170, 25)
+        Me.txtIsbn.Size = New System.Drawing.Size(229, 25)
         Me.txtIsbn.TabIndex = 5
         '
         'lblTitleCaption
@@ -355,7 +326,7 @@ Partial Class frmAdminBookInventory
         Me.lblTitleCaption.AutoSize = True
         Me.lblTitleCaption.Font = New System.Drawing.Font("Segoe UI Semibold", 9.5!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblTitleCaption.ForeColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(25, Byte), Integer))
-        Me.lblTitleCaption.Location = New System.Drawing.Point(452, 4)
+        Me.lblTitleCaption.Location = New System.Drawing.Point(19, 167)
         Me.lblTitleCaption.Name = "lblTitleCaption"
         Me.lblTitleCaption.Size = New System.Drawing.Size(68, 17)
         Me.lblTitleCaption.TabIndex = 6
@@ -364,10 +335,10 @@ Partial Class frmAdminBookInventory
         'txtTitle
         '
         Me.txtTitle.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.txtTitle.Location = New System.Drawing.Point(452, 26)
+        Me.txtTitle.Location = New System.Drawing.Point(121, 163)
         Me.txtTitle.Name = "txtTitle"
         Me.txtTitle.ReadOnly = True
-        Me.txtTitle.Size = New System.Drawing.Size(330, 25)
+        Me.txtTitle.Size = New System.Drawing.Size(229, 25)
         Me.txtTitle.TabIndex = 7
         '
         'lblCondition
@@ -375,7 +346,7 @@ Partial Class frmAdminBookInventory
         Me.lblCondition.AutoSize = True
         Me.lblCondition.Font = New System.Drawing.Font("Segoe UI Semibold", 9.5!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblCondition.ForeColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(25, Byte), Integer))
-        Me.lblCondition.Location = New System.Drawing.Point(794, 4)
+        Me.lblCondition.Location = New System.Drawing.Point(385, 55)
         Me.lblCondition.Name = "lblCondition"
         Me.lblCondition.Size = New System.Drawing.Size(67, 17)
         Me.lblCondition.TabIndex = 8
@@ -385,9 +356,9 @@ Partial Class frmAdminBookInventory
         '
         Me.cboCondition.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboCondition.FormattingEnabled = True
-        Me.cboCondition.Location = New System.Drawing.Point(794, 26)
+        Me.cboCondition.Location = New System.Drawing.Point(488, 52)
         Me.cboCondition.Name = "cboCondition"
-        Me.cboCondition.Size = New System.Drawing.Size(140, 25)
+        Me.cboCondition.Size = New System.Drawing.Size(186, 25)
         Me.cboCondition.TabIndex = 9
         '
         'lblStatusCaption
@@ -395,7 +366,7 @@ Partial Class frmAdminBookInventory
         Me.lblStatusCaption.AutoSize = True
         Me.lblStatusCaption.Font = New System.Drawing.Font("Segoe UI Semibold", 9.5!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblStatusCaption.ForeColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(25, Byte), Integer))
-        Me.lblStatusCaption.Location = New System.Drawing.Point(946, 4)
+        Me.lblStatusCaption.Location = New System.Drawing.Point(385, 91)
         Me.lblStatusCaption.Name = "lblStatusCaption"
         Me.lblStatusCaption.Size = New System.Drawing.Size(46, 17)
         Me.lblStatusCaption.TabIndex = 10
@@ -403,10 +374,10 @@ Partial Class frmAdminBookInventory
         '
         'txtStatus
         '
-        Me.txtStatus.Location = New System.Drawing.Point(946, 26)
+        Me.txtStatus.Location = New System.Drawing.Point(488, 88)
         Me.txtStatus.Name = "txtStatus"
         Me.txtStatus.ReadOnly = True
-        Me.txtStatus.Size = New System.Drawing.Size(110, 25)
+        Me.txtStatus.Size = New System.Drawing.Size(186, 25)
         Me.txtStatus.TabIndex = 11
         '
         'lblCopies
@@ -414,7 +385,7 @@ Partial Class frmAdminBookInventory
         Me.lblCopies.AutoSize = True
         Me.lblCopies.Font = New System.Drawing.Font("Segoe UI Semibold", 9.5!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblCopies.ForeColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(25, Byte), Integer))
-        Me.lblCopies.Location = New System.Drawing.Point(1068, 4)
+        Me.lblCopies.Location = New System.Drawing.Point(385, 127)
         Me.lblCopies.Name = "lblCopies"
         Me.lblCopies.Size = New System.Drawing.Size(92, 17)
         Me.lblCopies.TabIndex = 12
@@ -422,35 +393,31 @@ Partial Class frmAdminBookInventory
         '
         'numCopies
         '
-        Me.numCopies.Location = New System.Drawing.Point(1068, 26)
+        Me.numCopies.Location = New System.Drawing.Point(488, 125)
         Me.numCopies.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
         Me.numCopies.Name = "numCopies"
-        Me.numCopies.Size = New System.Drawing.Size(120, 25)
+        Me.numCopies.Size = New System.Drawing.Size(186, 25)
         Me.numCopies.TabIndex = 13
         Me.numCopies.Value = New Decimal(New Integer() {1, 0, 0, 0})
         '
         'pnlTop
         '
-        Me.pnlTop.BackColor = System.Drawing.Color.White
+        Me.pnlTop.BackColor = System.Drawing.Color.FromArgb(CType(CType(251, Byte), Integer), CType(CType(243, Byte), Integer), CType(CType(235, Byte), Integer))
         Me.pnlTop.Controls.Add(Me.lblTitle)
-        Me.pnlTop.Controls.Add(Me.lblSearch)
-        Me.pnlTop.Controls.Add(Me.txtSearch)
-        Me.pnlTop.Controls.Add(Me.lblStatus)
-        Me.pnlTop.Controls.Add(Me.cboFilter)
         Me.pnlTop.Dock = System.Windows.Forms.DockStyle.Top
         Me.pnlTop.Location = New System.Drawing.Point(0, 0)
         Me.pnlTop.Name = "pnlTop"
-        Me.pnlTop.Size = New System.Drawing.Size(1700, 51)
+        Me.pnlTop.Size = New System.Drawing.Size(1231, 51)
         Me.pnlTop.TabIndex = 0
         '
         'lblTitle
         '
         Me.lblTitle.AutoSize = True
-        Me.lblTitle.Font = New System.Drawing.Font("Segoe UI Semibold", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblTitle.Font = New System.Drawing.Font("Segoe UI", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblTitle.ForeColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(25, Byte), Integer))
-        Me.lblTitle.Location = New System.Drawing.Point(13, 10)
+        Me.lblTitle.Location = New System.Drawing.Point(17, 9)
         Me.lblTitle.Name = "lblTitle"
-        Me.lblTitle.Size = New System.Drawing.Size(149, 32)
+        Me.lblTitle.Size = New System.Drawing.Size(191, 32)
         Me.lblTitle.TabIndex = 0
         Me.lblTitle.Text = "Book Inventory"
         '
@@ -460,18 +427,19 @@ Partial Class frmAdminBookInventory
         Me.lblSearch.AutoSize = True
         Me.lblSearch.Font = New System.Drawing.Font("Segoe UI Semibold", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblSearch.ForeColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(25, Byte), Integer))
-        Me.lblSearch.Location = New System.Drawing.Point(1082, 17)
+        Me.lblSearch.Location = New System.Drawing.Point(19, 304)
         Me.lblSearch.Name = "lblSearch"
-        Me.lblSearch.Size = New System.Drawing.Size(54, 19)
+        Me.lblSearch.Size = New System.Drawing.Size(241, 19)
         Me.lblSearch.TabIndex = 1
-        Me.lblSearch.Text = "Search:"
+        Me.lblSearch.Text = "Search by BookID / ISBN / Book Title" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
         '
         'txtSearch
         '
         Me.txtSearch.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtSearch.Location = New System.Drawing.Point(1146, 13)
+        Me.txtSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.txtSearch.Location = New System.Drawing.Point(266, 300)
         Me.txtSearch.Name = "txtSearch"
-        Me.txtSearch.Size = New System.Drawing.Size(245, 25)
+        Me.txtSearch.Size = New System.Drawing.Size(175, 25)
         Me.txtSearch.TabIndex = 2
         '
         'lblStatus
@@ -480,7 +448,7 @@ Partial Class frmAdminBookInventory
         Me.lblStatus.AutoSize = True
         Me.lblStatus.Font = New System.Drawing.Font("Segoe UI Semibold", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblStatus.ForeColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(25, Byte), Integer))
-        Me.lblStatus.Location = New System.Drawing.Point(1415, 18)
+        Me.lblStatus.Location = New System.Drawing.Point(972, 304)
         Me.lblStatus.Name = "lblStatus"
         Me.lblStatus.Size = New System.Drawing.Size(51, 19)
         Me.lblStatus.TabIndex = 3
@@ -493,37 +461,151 @@ Partial Class frmAdminBookInventory
         Me.cboFilter.DropDownWidth = 200
         Me.cboFilter.FormattingEnabled = True
         Me.cboFilter.Items.AddRange(New Object() {"All", "Available", "Borrowed", "Lost", "Damaged"})
-        Me.cboFilter.Location = New System.Drawing.Point(1476, 14)
+        Me.cboFilter.Location = New System.Drawing.Point(1033, 300)
         Me.cboFilter.Name = "cboFilter"
         Me.cboFilter.Size = New System.Drawing.Size(186, 25)
         Me.cboFilter.TabIndex = 4
+        '
+        'Panel13
+        '
+        Me.Panel13.BackColor = System.Drawing.Color.White
+        Me.Panel13.Controls.Add(Me.lblname)
+        Me.Panel13.Controls.Add(Me.Label29)
+        Me.Panel13.Controls.Add(Me.Label28)
+        Me.Panel13.Controls.Add(Me.lblposition)
+        Me.Panel13.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.Panel13.Location = New System.Drawing.Point(0, 657)
+        Me.Panel13.Name = "Panel13"
+        Me.Panel13.Size = New System.Drawing.Size(1231, 27)
+        Me.Panel13.TabIndex = 157
+        '
+        'lblname
+        '
+        Me.lblname.AutoSize = True
+        Me.lblname.BackColor = System.Drawing.Color.Transparent
+        Me.lblname.Font = New System.Drawing.Font("Segoe UI Semibold", 12.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblname.ForeColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.lblname.Location = New System.Drawing.Point(54, 3)
+        Me.lblname.Name = "lblname"
+        Me.lblname.Size = New System.Drawing.Size(53, 21)
+        Me.lblname.TabIndex = 64
+        Me.lblname.Text = "Name"
+        '
+        'Label29
+        '
+        Me.Label29.AutoSize = True
+        Me.Label29.BackColor = System.Drawing.Color.Transparent
+        Me.Label29.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label29.ForeColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.Label29.Location = New System.Drawing.Point(4, 3)
+        Me.Label29.Name = "Label29"
+        Me.Label29.Size = New System.Drawing.Size(55, 21)
+        Me.Label29.TabIndex = 63
+        Me.Label29.Text = "Name:"
+        '
+        'Label28
+        '
+        Me.Label28.AutoSize = True
+        Me.Label28.BackColor = System.Drawing.Color.Transparent
+        Me.Label28.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label28.ForeColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.Label28.Location = New System.Drawing.Point(249, 3)
+        Me.Label28.Name = "Label28"
+        Me.Label28.Size = New System.Drawing.Size(68, 21)
+        Me.Label28.TabIndex = 65
+        Me.Label28.Text = "Position:"
+        '
+        'lblposition
+        '
+        Me.lblposition.AutoSize = True
+        Me.lblposition.BackColor = System.Drawing.Color.Transparent
+        Me.lblposition.Font = New System.Drawing.Font("Segoe UI Semibold", 12.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblposition.ForeColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.lblposition.Location = New System.Drawing.Point(315, 3)
+        Me.lblposition.Name = "lblposition"
+        Me.lblposition.Size = New System.Drawing.Size(82, 21)
+        Me.lblposition.TabIndex = 66
+        Me.lblposition.Text = "NPosition"
+        '
+        'Panel1
+        '
+        Me.Panel1.BackColor = System.Drawing.Color.White
+        Me.Panel1.Controls.Add(Me.Panel2)
+        Me.Panel1.Controls.Add(Me.txtBookNo)
+        Me.Panel1.Controls.Add(Me.lblBookNo)
+        Me.Panel1.Controls.Add(Me.btnAdd)
+        Me.Panel1.Controls.Add(Me.lblAccession)
+        Me.Panel1.Controls.Add(Me.txtAccession)
+        Me.Panel1.Controls.Add(Me.lblIsbn)
+        Me.Panel1.Controls.Add(Me.txtIsbn)
+        Me.Panel1.Controls.Add(Me.lblTitleCaption)
+        Me.Panel1.Controls.Add(Me.txtTitle)
+        Me.Panel1.Controls.Add(Me.lblCondition)
+        Me.Panel1.Controls.Add(Me.cboCondition)
+        Me.Panel1.Controls.Add(Me.lblStatusCaption)
+        Me.Panel1.Controls.Add(Me.txtStatus)
+        Me.Panel1.Controls.Add(Me.lblCopies)
+        Me.Panel1.Controls.Add(Me.numCopies)
+        Me.Panel1.Location = New System.Drawing.Point(21, 17)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(698, 208)
+        Me.Panel1.TabIndex = 14
+        '
+        'Panel2
+        '
+        Me.Panel2.BackColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.Panel2.Controls.Add(Me.Label15)
+        Me.Panel2.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Panel2.Location = New System.Drawing.Point(0, 0)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(698, 38)
+        Me.Panel2.TabIndex = 14
+        '
+        'Label15
+        '
+        Me.Label15.AutoSize = True
+        Me.Label15.Font = New System.Drawing.Font("Segoe UI Semibold", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label15.ForeColor = System.Drawing.Color.White
+        Me.Label15.Location = New System.Drawing.Point(7, 7)
+        Me.Label15.Name = "Label15"
+        Me.Label15.Size = New System.Drawing.Size(163, 25)
+        Me.Label15.TabIndex = 71
+        Me.Label15.Text = "Book Information"
         '
         'frmAdminBookInventory
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(254, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(231, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(1700, 900)
+        Me.ClientSize = New System.Drawing.Size(1231, 684)
         Me.Controls.Add(Me.dgvCopies)
-        Me.Controls.Add(Me.pnlButtons)
+        Me.Controls.Add(Me.lblStatus)
+        Me.Controls.Add(Me.txtSearch)
+        Me.Controls.Add(Me.cboFilter)
+        Me.Controls.Add(Me.lblSearch)
         Me.Controls.Add(Me.pnlForm)
         Me.Controls.Add(Me.pnlTop)
+        Me.Controls.Add(Me.Panel13)
         Me.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "frmAdminBookInventory"
         Me.Text = "frmAdminBookInventory"
         CType(Me.dgvCopies, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.pnlButtons.ResumeLayout(False)
         Me.pnlForm.ResumeLayout(False)
-        Me.pnlForm.PerformLayout()
         CType(Me.numCopies, System.ComponentModel.ISupportInitialize).EndInit()
         Me.pnlTop.ResumeLayout(False)
         Me.pnlTop.PerformLayout()
+        Me.Panel13.ResumeLayout(False)
+        Me.Panel13.PerformLayout()
+        Me.Panel1.ResumeLayout(False)
+        Me.Panel1.PerformLayout()
+        Me.Panel2.ResumeLayout(False)
+        Me.Panel2.PerformLayout()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 
     Friend WithEvents dgvCopies As System.Windows.Forms.DataGridView
-    Friend WithEvents pnlButtons As System.Windows.Forms.Panel
     Friend WithEvents pnlForm As System.Windows.Forms.Panel
     Friend WithEvents pnlTop As System.Windows.Forms.Panel
     Friend WithEvents lblTitle As System.Windows.Forms.Label
@@ -549,7 +631,6 @@ Partial Class frmAdminBookInventory
     Friend WithEvents btnUpdate As System.Windows.Forms.Button
     Friend WithEvents btnDelete As System.Windows.Forms.Button
     Friend WithEvents btnClear As System.Windows.Forms.Button
-    Friend WithEvents btnExport As System.Windows.Forms.Button
     Friend WithEvents colBookNo As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents colAccession As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents colIsbn As System.Windows.Forms.DataGridViewTextBoxColumn
@@ -572,4 +653,12 @@ Partial Class frmAdminBookInventory
     Friend WithEvents BookCondition As DataGridViewTextBoxColumn
     Friend WithEvents CopyStatus As DataGridViewTextBoxColumn
     Friend WithEvents DateAdded As DataGridViewTextBoxColumn
+    Friend WithEvents Panel13 As Panel
+    Friend WithEvents lblname As Label
+    Friend WithEvents Label29 As Label
+    Friend WithEvents Label28 As Label
+    Friend WithEvents lblposition As Label
+    Friend WithEvents Panel1 As Panel
+    Friend WithEvents Panel2 As Panel
+    Friend WithEvents Label15 As Label
 End Class

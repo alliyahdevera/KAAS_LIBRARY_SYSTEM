@@ -2,7 +2,6 @@
     Private loggingOut As Boolean = False
 
     Private Sub frmAdminMenu_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        ScreenFit.Apply(Me, 1924, 1052)      ' Task 3: delete this line if you have not added the ScreenFit module
         Me.CenterToScreen()
         lblc_name.Text = AppSession.FullName
         tmrDateTime.Interval = 1000
@@ -19,7 +18,7 @@
         Select Case True
             Case sender Is btndash : FormHost.LoadInto(Panel3, frmAdminDashboard)
             Case sender Is btnaccman : FormHost.LoadInto(Panel3, frmAccManagement)
-            Case sender Is btnborrowh : FormHost.LoadInto(Panel3, frmAdminHistory)
+            Case sender Is btnborrowh : FormHost.LoadInto(Panel3, frmAdminBorrowHistory)
             Case sender Is btnbookinventory : FormHost.LoadInto(Panel3, frmAdminBookInventory)
             Case sender Is btnLostDamaged : FormHost.LoadInto(Panel3, frmLostDamagedBooks)
             Case sender Is btnactlog : FormHost.LoadInto(Panel3, frmAdminLogs)
@@ -42,7 +41,7 @@
             DBConnection.LogActivity("Logout", AppSession.Username & " logged out.")
             loggingOut = True
             AppSession.SignOut()
-            Form1.Show()
+            frmLogin.Show()
             Me.Close()
         End If
     End Sub

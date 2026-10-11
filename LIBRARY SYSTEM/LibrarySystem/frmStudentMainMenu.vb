@@ -29,7 +29,7 @@
             DBConnection.LogActivity("Logout", AppSession.Username & " logged out.")
             loggingOut = True
             AppSession.SignOut()
-            Form1.Show()
+            frmLogin.Show()
             Me.Close()
         End If
     End Sub

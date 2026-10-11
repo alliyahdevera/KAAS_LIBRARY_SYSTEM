@@ -108,8 +108,9 @@ Partial Class frmAvailBooks
         Me.DataGridView1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DataGridView1.Location = New System.Drawing.Point(0, 45)
         Me.DataGridView1.Name = "DataGridView1"
+        Me.DataGridView1.RowHeadersVisible = False
         Me.DataGridView1.RowHeadersWidth = 51
-        Me.DataGridView1.Size = New System.Drawing.Size(1245, 733)
+        Me.DataGridView1.Size = New System.Drawing.Size(1245, 735)
         Me.DataGridView1.TabIndex = 22
         '
         'ISBN
@@ -176,7 +177,7 @@ Partial Class frmAvailBooks
         Me.Panel13.Controls.Add(Me.Label28)
         Me.Panel13.Controls.Add(Me.lblposition)
         Me.Panel13.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.Panel13.Location = New System.Drawing.Point(0, 751)
+        Me.Panel13.Location = New System.Drawing.Point(0, 753)
         Me.Panel13.Name = "Panel13"
         Me.Panel13.Size = New System.Drawing.Size(1245, 27)
         Me.Panel13.TabIndex = 158
@@ -257,7 +258,7 @@ Partial Class frmAvailBooks
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1245, 778)
+        Me.ClientSize = New System.Drawing.Size(1245, 780)
         Me.Controls.Add(Me.Panel13)
         Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.Panel2)

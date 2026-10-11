@@ -1,6 +1,6 @@
 Imports MySql.Data.MySqlClient
 
-Public Class frmAdminHistory
+Public Class frmAdminBorrowHistory
 
     Private useDateRange As Boolean = False
     Private pager As GridPager
@@ -8,8 +8,8 @@ Public Class frmAdminHistory
     Private Sub frmAdminHistory_VisibleChanged(sender As Object, e As EventArgs) Handles Me.VisibleChanged
         If Not Me.Visible Then Exit Sub
         UiHelpers.FillHeader(Me)
-        DashboardData.SetupReadOnlyGrid(DataGridView1)
-        If pager Is Nothing Then pager = PagerHelper.Create(DataGridView1)
+        DashboardData.SetupReadOnlyGrid(dgvbh)
+        If pager Is Nothing Then pager = PagerHelper.Create(dgvbh)
         useDateRange = False                                   ' every visit starts with all records
         DateTimePicker1.Value = New Date(Date.Today.Year, Date.Today.Month, 1)   ' 1st of this month
         DateTimePicker2.Value = Date.Today
@@ -18,7 +18,7 @@ Public Class frmAdminHistory
     End Sub
 
     Public Sub LoadRecords(Optional keyword As String = "")
-        DataGridView1.Rows.Clear()
+        dgvbh.Rows.Clear()
         Dim kw As String = If(keyword, "").Trim()
         Try
             Using conn = DBConnection.GetConnection()
@@ -36,7 +36,7 @@ Public Class frmAdminHistory
                     cmd.Parameters.AddWithValue("@toDate", DateTimePicker2.Value.Date)
                     Using r As MySqlDataReader = cmd.ExecuteReader()
                         While r.Read()
-                            DashboardData.AddRecordRow(DataGridView1, r)
+                            DashboardData.AddRecordRow(dgvbh, r)
                         End While
                     End Using
                 End Using
@@ -44,7 +44,7 @@ Public Class frmAdminHistory
         Catch ex As Exception
             MsgBox("Could not load records: " & ex.Message, vbCritical, "Borrow History Records")
         End Try
-        DataGridView1.ClearSelection()
+        dgvbh.ClearSelection()
         If pager IsNot Nothing Then pager.Apply()
     End Sub
 
@@ -57,7 +57,7 @@ Public Class frmAdminHistory
         useDateRange = True
         LoadRecords(txtSearch.Text)
 
-        If DataGridView1.Rows.Count = 0 Then
+        If dgvbh.Rows.Count = 0 Then
             MsgBox("No borrow records found between " & DateTimePicker1.Value.ToString("MM/dd/yyyy") &
                    " and " & DateTimePicker2.Value.ToString("MM/dd/yyyy") & ".",
                    vbInformation, "Borrow History Records")
@@ -73,6 +73,6 @@ Public Class frmAdminHistory
         If useDateRange Then
             name &= "_" & DateTimePicker1.Value.ToString("yyyyMMdd") & "_to_" & DateTimePicker2.Value.ToString("yyyyMMdd")
         End If
-        BorrowData.ExportGridToCsv(DataGridView1, name)
+        BorrowData.ExportGridToCsv(dgvbh, name)
     End Sub
 End Class

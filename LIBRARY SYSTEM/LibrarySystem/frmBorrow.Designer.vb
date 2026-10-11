@@ -253,14 +253,15 @@ Partial Class frmBorrow
         Me.Label14.ForeColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(10, Byte), Integer))
         Me.Label14.Location = New System.Drawing.Point(30, 206)
         Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(170, 17)
+        Me.Label14.Size = New System.Drawing.Size(226, 17)
         Me.Label14.TabIndex = 56
-        Me.Label14.Text = "SEARCH BY ISBN OR TITLE"
+        Me.Label14.Text = "SEARCH BY ISBN / TITLE / AUTHOR" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
         '
         'txtSearch
         '
+        Me.txtSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.txtSearch.Font = New System.Drawing.Font("Segoe UI", 12.0!)
-        Me.txtSearch.Location = New System.Drawing.Point(206, 200)
+        Me.txtSearch.Location = New System.Drawing.Point(265, 201)
         Me.txtSearch.Name = "txtSearch"
         Me.txtSearch.Size = New System.Drawing.Size(189, 29)
         Me.txtSearch.TabIndex = 55
@@ -296,7 +297,7 @@ Partial Class frmBorrow
         DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window
         DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.White
         DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
         DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]

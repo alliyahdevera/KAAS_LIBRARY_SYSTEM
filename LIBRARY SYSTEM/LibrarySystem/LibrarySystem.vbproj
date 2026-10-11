@@ -129,11 +129,11 @@
     <Compile Include="DashboardData.vb" />
     <Compile Include="DBConnection.vb" />
     <Compile Include="ExcelImporter.vb" />
-    <Compile Include="Form1.vb">
+    <Compile Include="frmLogin.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.vb">
-      <DependentUpon>Form1.vb</DependentUpon>
+    <Compile Include="frmLogin.Designer.vb">
+      <DependentUpon>frmLogin.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmAdminBookInventory.Designer.vb">
@@ -160,10 +160,10 @@
     <Compile Include="frmAdminDashboard.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmAdminHistory.Designer.vb">
-      <DependentUpon>frmAdminHistory.vb</DependentUpon>
+    <Compile Include="frmAdminBorrowHistory.Designer.vb">
+      <DependentUpon>frmAdminBorrowHistory.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmAdminHistory.vb">
+    <Compile Include="frmAdminBorrowHistory.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmAdminLogs.Designer.vb">
@@ -214,22 +214,16 @@
     <Compile Include="frmLibrarianMainMenu.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmLibraryDashboard.Designer.vb">
-      <DependentUpon>frmLibraryDashboard.vb</DependentUpon>
+    <Compile Include="frmLibrarianDashboard.Designer.vb">
+      <DependentUpon>frmLibrarianDashboard.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmLibraryDashboard.vb">
+    <Compile Include="frmLibrarianDashboard.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmPenaltyManagement.Designer.vb">
       <DependentUpon>frmPenaltyManagement.vb</DependentUpon>
     </Compile>
     <Compile Include="frmPenaltyManagement.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmRegister.Designer.vb">
-      <DependentUpon>frmRegister.vb</DependentUpon>
-    </Compile>
-    <Compile Include="frmRegister.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmReturn.Designer.vb">
@@ -290,8 +284,8 @@
     <Compile Include="UIHelper.vb" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.vb</DependentUpon>
+    <EmbeddedResource Include="frmLogin.resx">
+      <DependentUpon>frmLogin.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmAdminBookInventory.resx">
       <DependentUpon>frmAdminBookInventory.vb</DependentUpon>
@@ -305,8 +299,8 @@
     <EmbeddedResource Include="frmAdminDashboard.resx">
       <DependentUpon>frmAdminDashboard.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmAdminHistory.resx">
-      <DependentUpon>frmAdminHistory.vb</DependentUpon>
+    <EmbeddedResource Include="frmAdminBorrowHistory.resx">
+      <DependentUpon>frmAdminBorrowHistory.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmAdminLogs.resx">
       <DependentUpon>frmAdminLogs.vb</DependentUpon>
@@ -332,14 +326,11 @@
     <EmbeddedResource Include="frmLibrarianMainMenu.resx">
       <DependentUpon>frmLibrarianMainMenu.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmLibraryDashboard.resx">
-      <DependentUpon>frmLibraryDashboard.vb</DependentUpon>
+    <EmbeddedResource Include="frmLibrarianDashboard.resx">
+      <DependentUpon>frmLibrarianDashboard.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPenaltyManagement.resx">
       <DependentUpon>frmPenaltyManagement.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmRegister.resx">
-      <DependentUpon>frmRegister.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmReturn.resx">
       <DependentUpon>frmReturn.vb</DependentUpon>

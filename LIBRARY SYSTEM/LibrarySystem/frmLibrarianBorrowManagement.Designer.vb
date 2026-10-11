@@ -26,6 +26,8 @@ Partial Class frmLibrarianBorrowManagement
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.lblTitle = New System.Windows.Forms.Label()
         Me.btnExportExcel = New System.Windows.Forms.Button()
+        Me.txtSearch = New System.Windows.Forms.TextBox()
+        Me.Label14 = New System.Windows.Forms.Label()
         Me.Label17 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -45,13 +47,9 @@ Partial Class frmLibrarianBorrowManagement
         Me.ReturnDate = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.BookCondition = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Penalty = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Label14 = New System.Windows.Forms.Label()
-        Me.txtSearch = New System.Windows.Forms.TextBox()
         Me.Panel13 = New System.Windows.Forms.Panel()
         Me.lblname = New System.Windows.Forms.Label()
-        Me.lbldatetime = New System.Windows.Forms.Label()
         Me.Label29 = New System.Windows.Forms.Label()
-        Me.Label27 = New System.Windows.Forms.Label()
         Me.Label28 = New System.Windows.Forms.Label()
         Me.lblposition = New System.Windows.Forms.Label()
         Me.btnloaddata = New System.Windows.Forms.Button()
@@ -69,8 +67,6 @@ Partial Class frmLibrarianBorrowManagement
         Me.Panel2.BackColor = System.Drawing.Color.White
         Me.Panel2.Controls.Add(Me.lblTitle)
         Me.Panel2.Controls.Add(Me.btnExportExcel)
-        Me.Panel2.Controls.Add(Me.txtSearch)
-        Me.Panel2.Controls.Add(Me.Label14)
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel2.Location = New System.Drawing.Point(0, 0)
         Me.Panel2.Name = "Panel2"
@@ -90,7 +86,7 @@ Partial Class frmLibrarianBorrowManagement
         '
         'btnExportExcel
         '
-        Me.btnExportExcel.BackColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.btnExportExcel.BackColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(10, Byte), Integer))
         Me.btnExportExcel.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnExportExcel.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnExportExcel.ForeColor = System.Drawing.Color.White
@@ -101,12 +97,32 @@ Partial Class frmLibrarianBorrowManagement
         Me.btnExportExcel.Text = "Export Excel"
         Me.btnExportExcel.UseVisualStyleBackColor = False
         '
+        'txtSearch
+        '
+        Me.txtSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.txtSearch.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtSearch.Location = New System.Drawing.Point(253, 181)
+        Me.txtSearch.Name = "txtSearch"
+        Me.txtSearch.Size = New System.Drawing.Size(189, 25)
+        Me.txtSearch.TabIndex = 93
+        '
+        'Label14
+        '
+        Me.Label14.AutoSize = True
+        Me.Label14.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label14.ForeColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(10, Byte), Integer))
+        Me.Label14.Location = New System.Drawing.Point(15, 183)
+        Me.Label14.Name = "Label14"
+        Me.Label14.Size = New System.Drawing.Size(232, 17)
+        Me.Label14.TabIndex = 94
+        Me.Label14.Text = "SEARCH BY ISBN, AUTHOR OR TITLE" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
+        '
         'Label17
         '
         Me.Label17.AutoSize = True
         Me.Label17.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label17.ForeColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(10, Byte), Integer))
-        Me.Label17.Location = New System.Drawing.Point(20, 68)
+        Me.Label17.Location = New System.Drawing.Point(19, 66)
         Me.Label17.Name = "Label17"
         Me.Label17.Size = New System.Drawing.Size(165, 25)
         Me.Label17.TabIndex = 65
@@ -116,7 +132,7 @@ Partial Class frmLibrarianBorrowManagement
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(20, 143)
+        Me.Label3.Location = New System.Drawing.Point(20, 142)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(89, 17)
         Me.Label3.TabIndex = 89
@@ -126,7 +142,7 @@ Partial Class frmLibrarianBorrowManagement
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(21, 107)
+        Me.Label2.Location = New System.Drawing.Point(19, 106)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(97, 17)
         Me.Label2.TabIndex = 88
@@ -137,7 +153,7 @@ Partial Class frmLibrarianBorrowManagement
         Me.ComboBox2.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ComboBox2.FormattingEnabled = True
         Me.ComboBox2.Items.AddRange(New Object() {"Pending", "Returned", "Penalty"})
-        Me.ComboBox2.Location = New System.Drawing.Point(133, 140)
+        Me.ComboBox2.Location = New System.Drawing.Point(133, 138)
         Me.ComboBox2.Name = "ComboBox2"
         Me.ComboBox2.Size = New System.Drawing.Size(187, 25)
         Me.ComboBox2.TabIndex = 87
@@ -147,7 +163,7 @@ Partial Class frmLibrarianBorrowManagement
         Me.ComboBox1.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ComboBox1.FormattingEnabled = True
         Me.ComboBox1.Items.AddRange(New Object() {"Pending", "Good", "Damaged", "Lost"})
-        Me.ComboBox1.Location = New System.Drawing.Point(133, 104)
+        Me.ComboBox1.Location = New System.Drawing.Point(133, 102)
         Me.ComboBox1.Name = "ComboBox1"
         Me.ComboBox1.Size = New System.Drawing.Size(187, 25)
         Me.ComboBox1.TabIndex = 86
@@ -158,7 +174,7 @@ Partial Class frmLibrarianBorrowManagement
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button1.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button1.ForeColor = System.Drawing.Color.White
-        Me.Button1.Location = New System.Drawing.Point(339, 99)
+        Me.Button1.Location = New System.Drawing.Point(339, 97)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(170, 32)
         Me.Button1.TabIndex = 40
@@ -173,13 +189,15 @@ Partial Class frmLibrarianBorrowManagement
         Me.Button2.ForeColor = System.Drawing.Color.Black
         Me.Button2.Location = New System.Drawing.Point(340, 136)
         Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(169, 32)
+        Me.Button2.Size = New System.Drawing.Size(169, 29)
         Me.Button2.TabIndex = 90
         Me.Button2.Text = "Clear"
         Me.Button2.UseVisualStyleBackColor = False
         '
         'DataGridView1
         '
+        Me.DataGridView1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.DataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.DataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
@@ -264,32 +282,11 @@ Partial Class frmLibrarianBorrowManagement
         Me.Penalty.MinimumWidth = 6
         Me.Penalty.Name = "Penalty"
         '
-        'Label14
-        '
-        Me.Label14.AutoSize = True
-        Me.Label14.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label14.ForeColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(10, Byte), Integer))
-        Me.Label14.Location = New System.Drawing.Point(649, 19)
-        Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(232, 17)
-        Me.Label14.TabIndex = 94
-        Me.Label14.Text = "SEARCH BY ISBN, AUTHOR OR TITLE" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
-        '
-        'txtSearch
-        '
-        Me.txtSearch.Font = New System.Drawing.Font("Segoe UI", 12.0!)
-        Me.txtSearch.Location = New System.Drawing.Point(887, 13)
-        Me.txtSearch.Name = "txtSearch"
-        Me.txtSearch.Size = New System.Drawing.Size(189, 29)
-        Me.txtSearch.TabIndex = 93
-        '
         'Panel13
         '
         Me.Panel13.BackColor = System.Drawing.Color.White
         Me.Panel13.Controls.Add(Me.lblname)
-        Me.Panel13.Controls.Add(Me.lbldatetime)
         Me.Panel13.Controls.Add(Me.Label29)
-        Me.Panel13.Controls.Add(Me.Label27)
         Me.Panel13.Controls.Add(Me.Label28)
         Me.Panel13.Controls.Add(Me.lblposition)
         Me.Panel13.Dock = System.Windows.Forms.DockStyle.Bottom
@@ -310,18 +307,6 @@ Partial Class frmLibrarianBorrowManagement
         Me.lblname.TabIndex = 64
         Me.lblname.Text = "Name"
         '
-        'lbldatetime
-        '
-        Me.lbldatetime.AutoSize = True
-        Me.lbldatetime.BackColor = System.Drawing.Color.Transparent
-        Me.lbldatetime.Font = New System.Drawing.Font("Segoe UI Semibold", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbldatetime.ForeColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(25, Byte), Integer))
-        Me.lbldatetime.Location = New System.Drawing.Point(575, 3)
-        Me.lbldatetime.Name = "lbldatetime"
-        Me.lbldatetime.Size = New System.Drawing.Size(16, 21)
-        Me.lbldatetime.TabIndex = 68
-        Me.lbldatetime.Text = "-"
-        '
         'Label29
         '
         Me.Label29.AutoSize = True
@@ -333,18 +318,6 @@ Partial Class frmLibrarianBorrowManagement
         Me.Label29.Size = New System.Drawing.Size(55, 21)
         Me.Label29.TabIndex = 63
         Me.Label29.Text = "Name:"
-        '
-        'Label27
-        '
-        Me.Label27.AutoSize = True
-        Me.Label27.BackColor = System.Drawing.Color.Transparent
-        Me.Label27.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label27.ForeColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(25, Byte), Integer))
-        Me.Label27.Location = New System.Drawing.Point(504, 3)
-        Me.Label27.Name = "Label27"
-        Me.Label27.Size = New System.Drawing.Size(65, 21)
-        Me.Label27.TabIndex = 67
-        Me.Label27.Text = "Today is"
         '
         'Label28
         '
@@ -372,11 +345,11 @@ Partial Class frmLibrarianBorrowManagement
         '
         'btnloaddata
         '
-        Me.btnloaddata.BackColor = System.Drawing.Color.FromArgb(CType(CType(90, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(60, Byte), Integer))
+        Me.btnloaddata.BackColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(10, Byte), Integer))
         Me.btnloaddata.FlatAppearance.BorderSize = 0
         Me.btnloaddata.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnloaddata.ForeColor = System.Drawing.Color.White
-        Me.btnloaddata.Location = New System.Drawing.Point(415, 178)
+        Me.btnloaddata.Location = New System.Drawing.Point(867, 179)
         Me.btnloaddata.Name = "btnloaddata"
         Me.btnloaddata.Size = New System.Drawing.Size(94, 27)
         Me.btnloaddata.TabIndex = 165
@@ -388,7 +361,7 @@ Partial Class frmLibrarianBorrowManagement
         Me.DateTimePicker2.CalendarFont = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.DateTimePicker2.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.DateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DateTimePicker2.Location = New System.Drawing.Point(299, 179)
+        Me.DateTimePicker2.Location = New System.Drawing.Point(742, 180)
         Me.DateTimePicker2.Name = "DateTimePicker2"
         Me.DateTimePicker2.Size = New System.Drawing.Size(109, 25)
         Me.DateTimePicker2.TabIndex = 164
@@ -397,7 +370,8 @@ Partial Class frmLibrarianBorrowManagement
         '
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Segoe UI Semibold", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(270, 182)
+        Me.Label6.ForeColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(10, Byte), Integer))
+        Me.Label6.Location = New System.Drawing.Point(713, 183)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(25, 20)
         Me.Label6.TabIndex = 163
@@ -408,7 +382,7 @@ Partial Class frmLibrarianBorrowManagement
         Me.DateTimePicker1.CalendarFont = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.DateTimePicker1.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.DateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DateTimePicker1.Location = New System.Drawing.Point(153, 179)
+        Me.DateTimePicker1.Location = New System.Drawing.Point(596, 180)
         Me.DateTimePicker1.Name = "DateTimePicker1"
         Me.DateTimePicker1.Size = New System.Drawing.Size(109, 25)
         Me.DateTimePicker1.TabIndex = 162
@@ -417,7 +391,8 @@ Partial Class frmLibrarianBorrowManagement
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Segoe UI Semibold", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(20, 180)
+        Me.Label1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(10, Byte), Integer))
+        Me.Label1.Location = New System.Drawing.Point(463, 181)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(131, 20)
         Me.Label1.TabIndex = 161
@@ -427,10 +402,12 @@ Partial Class frmLibrarianBorrowManagement
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(253, Byte), Integer), CType(CType(251, Byte), Integer), CType(CType(248, Byte), Integer))
+        Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(251, Byte), Integer), CType(CType(243, Byte), Integer), CType(CType(235, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(1245, 778)
         Me.Controls.Add(Me.btnloaddata)
         Me.Controls.Add(Me.DateTimePicker2)
+        Me.Controls.Add(Me.txtSearch)
+        Me.Controls.Add(Me.Label14)
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.DateTimePicker1)
         Me.Controls.Add(Me.Label1)
@@ -482,9 +459,7 @@ Partial Class frmLibrarianBorrowManagement
     Friend WithEvents txtSearch As TextBox
     Friend WithEvents Panel13 As Panel
     Friend WithEvents lblname As Label
-    Friend WithEvents lbldatetime As Label
     Friend WithEvents Label29 As Label
-    Friend WithEvents Label27 As Label
     Friend WithEvents Label28 As Label
     Friend WithEvents lblposition As Label
     Friend WithEvents btnloaddata As Button

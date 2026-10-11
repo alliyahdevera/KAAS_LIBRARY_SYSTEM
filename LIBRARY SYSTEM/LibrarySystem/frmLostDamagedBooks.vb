@@ -98,7 +98,7 @@ Public Class frmLostDamagedBooks
         End If
     End Sub
 
-    Private Sub btnReset_Click(sender As Object, e As EventArgs) Handles btnReset.Click
+    Private Sub btnReset_Click(sender As Object, e As EventArgs)
         useDateRange = False
         LoadIncidents()
     End Sub

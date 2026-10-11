@@ -28,7 +28,7 @@ Public Class frmAccManagement
     Private typeBox As ComboBox
     Private borrowerBox As CheckBox
     Private selectedUserId As Integer = 0
-    Private Const LibraryDept As String = "Library"     ' every librarian belongs to the Library department
+    Private Const LibraryDept As String = "Library"
     Private pageLoaded As Boolean = False
     Private pager As GridPager
 
@@ -57,7 +57,6 @@ Public Class frmAccManagement
     Private Sub BuildExtraControls()
         Dim everything As List(Of Control) = AllControls(Me)
 
-        ' Controls that already have a known job; whatever is left over is the new one.
         Dim knownBoxes As String() = {"txtFirstName", "txtMiddleName", "txtLastName", "txtSuffix",
                                       "txtContactNum", "txtEmail", "txtusername", "txtpassword",
                                       "txtconfirmpassword", "txtSearch"}
@@ -93,7 +92,7 @@ Public Class frmAccManagement
         AddHandler typeBox.SelectedIndexChanged, AddressOf TypeChanged
 
         borrowerBox.Text = "Also a borrower?"
-        borrowerBox.Enabled = False          ' only a Librarian can choose this (see TypeChanged)
+        borrowerBox.Enabled = False
     End Sub
 
     Private Function AllControls(parent As Control) As List(Of Control)
@@ -228,7 +227,6 @@ Public Class frmAccManagement
         txtFirstName.Text = info.First
         txtMiddleName.Text = info.Middle
         txtLastName.Text = info.Last
-        txtSuffix.Text = info.Suffix
         SelectItem(cboGender, info.GenderText)
 
         txtContactNum.Text = info.Contact
@@ -251,7 +249,7 @@ Public Class frmAccManagement
         schoolBox.Clear()
         typeBox.SelectedIndex = -1
         borrowerBox.Checked = False
-        txtFirstName.Clear() : txtMiddleName.Clear() : txtLastName.Clear() : txtSuffix.Clear()
+        txtFirstName.Clear() : txtMiddleName.Clear() : txtLastName.Clear()
         cboGender.SelectedIndex = -1
 
         txtContactNum.Clear() : txtEmail.Clear()
@@ -362,7 +360,7 @@ Public Class frmAccManagement
 
                         Dim newId As Integer
                         Using ins As New MySqlCommand(
-                            "INSERT INTO Users (school_id, username, password, first_name, middle_name, last_name, suffix, gender, " &
+                            "INSERT INTO Users (school_id, username, password, first_name, middle_name, last_name, gender, " &
                             "contact_num, email, role, account_status, attempts) " &
                             "VALUES (@sid, @u, @p, @fn, @mn, @ln, @sf, @g, @cn, @em, @role, @st, 3)", conn, tx)
                             ins.Parameters.AddWithValue("@sid", schoolBox.Text.Trim())
@@ -371,9 +369,7 @@ Public Class frmAccManagement
                             ins.Parameters.AddWithValue("@fn", txtFirstName.Text.Trim())
                             ins.Parameters.AddWithValue("@mn", Opt(txtMiddleName.Text))
                             ins.Parameters.AddWithValue("@ln", txtLastName.Text.Trim())
-                            ins.Parameters.AddWithValue("@sf", Opt(txtSuffix.Text))
                             ins.Parameters.AddWithValue("@g", cboGender.Text)
-
                             ins.Parameters.AddWithValue("@cn", txtContactNum.Text.Trim())
                             ins.Parameters.AddWithValue("@em", txtEmail.Text.Trim())
                             ins.Parameters.AddWithValue("@role", RoleValue())
@@ -437,7 +433,7 @@ Public Class frmAccManagement
 
                         Dim changePwd As Boolean = (txtpassword.Text <> "")
                         Using upd As New MySqlCommand(
-                            "UPDATE Users SET school_id=@sid, username=@u, first_name=@fn, middle_name=@mn, last_name=@ln, suffix=@sf, " &
+                            "UPDATE Users SET school_id=@sid, username=@u, first_name=@fn, middle_name=@mn, last_name=@ln, " &
                             "gender=@g, contact_num=@cn, email=@em, role=@role, account_status=@st, " &
                             "attempts = IFNULL(@att, attempts)" & If(changePwd, ", password=@p", "") & " WHERE user_id=@id", conn, tx)
                             upd.Parameters.AddWithValue("@sid", schoolBox.Text.Trim())
@@ -445,7 +441,6 @@ Public Class frmAccManagement
                             upd.Parameters.AddWithValue("@fn", txtFirstName.Text.Trim())
                             upd.Parameters.AddWithValue("@mn", Opt(txtMiddleName.Text))
                             upd.Parameters.AddWithValue("@ln", txtLastName.Text.Trim())
-                            upd.Parameters.AddWithValue("@sf", Opt(txtSuffix.Text))
                             upd.Parameters.AddWithValue("@g", cboGender.Text)
 
                             upd.Parameters.AddWithValue("@cn", txtContactNum.Text.Trim())
@@ -562,5 +557,6 @@ Public Class frmAccManagement
     Private Sub btnClear_Click(sender As Object, e As EventArgs) Handles btnClear.Click
         ClearForm()
     End Sub
+
 
 End Class

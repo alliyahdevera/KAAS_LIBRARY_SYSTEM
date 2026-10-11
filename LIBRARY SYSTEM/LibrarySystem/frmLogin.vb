@@ -1,7 +1,7 @@
 ﻿Imports System.Data.SqlClient
 Imports MySql.Data.MySqlClient
 
-Public Class Form1
+Public Class frmLogin
     Private Const MaxLoginAttempts As Integer = 3
     Private Const LockoutSeconds As Integer = 5
 
@@ -47,11 +47,6 @@ Public Class Form1
         lblAttempts.Text = ""
         txtUsername.Clear()
         txtPassword.Clear()
-    End Sub
-
-    Private Sub lblRegister_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles lblRegister.LinkClicked
-        frmRegister.Show()
-        Me.Hide()
     End Sub
 
     Private Sub LogAttempt(attemptedUsername As String, status As String, Optional userId As Integer? = Nothing)
@@ -169,7 +164,6 @@ Public Class Form1
 
         MsgBox("Login Successful!", vbInformation, "WELCOME")
 
-        ' A librarian/admin who is also registered as a borrower (Staff) can choose their view
         Dim openBorrower As Boolean = False
         If (role = "Admin" OrElse role = "Librarian") AndAlso memberId.HasValue Then
             openBorrower = (MsgBox("Open your Borrower menu (borrow / return your own books)?" & vbCrLf &
@@ -187,7 +181,7 @@ Public Class Form1
         ElseIf role = "Librarian" Then
             frmLibrarianMainMenu.Show()
         Else
-            frmAdminMenu.Show()      ' Admin shell is reworked in Phase 5
+            frmAdminMenu.Show()
         End If
 
         Me.Hide()

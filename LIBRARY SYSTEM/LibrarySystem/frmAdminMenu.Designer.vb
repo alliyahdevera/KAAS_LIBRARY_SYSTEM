@@ -35,11 +35,12 @@ Partial Class frmAdminMenu
         Me.btnaccman = New System.Windows.Forms.Button()
         Me.btndash = New System.Windows.Forms.Button()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.Label1 = New System.Windows.Forms.Label()
+        Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
+        Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
         Me.lbl_dT = New System.Windows.Forms.Label()
-        Me.lblt_datetime = New System.Windows.Forms.Label()
-        Me.Label4 = New System.Windows.Forms.Label()
         Me.Label11 = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.lblt_datetime = New System.Windows.Forms.Label()
         Me.Panel9 = New System.Windows.Forms.Panel()
         Me.lbldatetime = New System.Windows.Forms.Label()
         Me.Label19 = New System.Windows.Forms.Label()
@@ -53,16 +54,19 @@ Partial Class frmAdminMenu
         CType(PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel2.SuspendLayout()
         Me.Panel1.SuspendLayout()
+        Me.TableLayoutPanel1.SuspendLayout()
+        Me.TableLayoutPanel2.SuspendLayout()
         Me.Panel9.SuspendLayout()
         Me.SuspendLayout()
         '
         'PictureBox2
         '
+        PictureBox2.Anchor = System.Windows.Forms.AnchorStyles.Left
         PictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         PictureBox2.Image = Global.LibrarySystem.My.Resources.Resources.BOOK_LOGO_
-        PictureBox2.Location = New System.Drawing.Point(13, 14)
+        PictureBox2.Location = New System.Drawing.Point(3, 12)
         PictureBox2.Name = "PictureBox2"
-        PictureBox2.Size = New System.Drawing.Size(50, 50)
+        PictureBox2.Size = New System.Drawing.Size(49, 50)
         PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         PictureBox2.TabIndex = 37
         PictureBox2.TabStop = False
@@ -81,7 +85,7 @@ Partial Class frmAdminMenu
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Left
         Me.Panel2.Location = New System.Drawing.Point(0, 77)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(223, 778)
+        Me.Panel2.Size = New System.Drawing.Size(223, 1109)
         Me.Panel2.TabIndex = 17
         '
         'btnactlog
@@ -132,7 +136,7 @@ Partial Class frmAdminMenu
         Me.btnlogout.ForeColor = System.Drawing.Color.White
         Me.btnlogout.Image = CType(resources.GetObject("btnlogout.Image"), System.Drawing.Image)
         Me.btnlogout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnlogout.Location = New System.Drawing.Point(0, 728)
+        Me.btnlogout.Location = New System.Drawing.Point(0, 1059)
         Me.btnlogout.Name = "btnlogout"
         Me.btnlogout.Size = New System.Drawing.Size(223, 50)
         Me.btnlogout.TabIndex = 53
@@ -230,42 +234,86 @@ Partial Class frmAdminMenu
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(254, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(231, Byte), Integer))
-        Me.Panel1.Controls.Add(Me.Label1)
-        Me.Panel1.Controls.Add(Me.lbl_dT)
+        Me.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel1.Controls.Add(Me.TableLayoutPanel1)
         Me.Panel1.Controls.Add(Me.lblt_datetime)
-        Me.Panel1.Controls.Add(Me.Label4)
-        Me.Panel1.Controls.Add(Me.Label11)
-        Me.Panel1.Controls.Add(PictureBox2)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(1443, 77)
+        Me.Panel1.Size = New System.Drawing.Size(1469, 77)
         Me.Panel1.TabIndex = 16
         '
-        'Label1
+        'TableLayoutPanel1
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(90, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(60, Byte), Integer))
-        Me.Label1.Location = New System.Drawing.Point(-5, 64)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(1539, 20)
-        Me.Label1.TabIndex = 59
-        Me.Label1.Text = "—————————————————————————————————————————————————————————————————————————————————" &
-    "—————————————————————"
+        Me.TableLayoutPanel1.ColumnCount = 2
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 3.816794!))
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 96.1832!))
+        Me.TableLayoutPanel1.Controls.Add(PictureBox2, 0, 0)
+        Me.TableLayoutPanel1.Controls.Add(Me.TableLayoutPanel2, 1, 0)
+        Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TableLayoutPanel1.Location = New System.Drawing.Point(0, 0)
+        Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
+        Me.TableLayoutPanel1.RowCount = 1
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(1467, 75)
+        Me.TableLayoutPanel1.TabIndex = 58
+        '
+        'TableLayoutPanel2
+        '
+        Me.TableLayoutPanel2.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.TableLayoutPanel2.ColumnCount = 2
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel2.Controls.Add(Me.lbl_dT, 1, 0)
+        Me.TableLayoutPanel2.Controls.Add(Me.Label11, 0, 0)
+        Me.TableLayoutPanel2.Controls.Add(Me.Label4, 0, 1)
+        Me.TableLayoutPanel2.Location = New System.Drawing.Point(58, 3)
+        Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
+        Me.TableLayoutPanel2.RowCount = 2
+        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 53.73134!))
+        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 46.26866!))
+        Me.TableLayoutPanel2.Size = New System.Drawing.Size(1406, 69)
+        Me.TableLayoutPanel2.TabIndex = 38
         '
         'lbl_dT
         '
+        Me.lbl_dT.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.lbl_dT.AutoSize = True
         Me.lbl_dT.BackColor = System.Drawing.Color.Transparent
         Me.lbl_dT.Font = New System.Drawing.Font("Segoe UI Semibold", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbl_dT.ForeColor = System.Drawing.Color.FromArgb(CType(CType(90, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(60, Byte), Integer))
-        Me.lbl_dT.Location = New System.Drawing.Point(1113, 28)
+        Me.lbl_dT.Location = New System.Drawing.Point(1320, 16)
         Me.lbl_dT.Name = "lbl_dT"
         Me.lbl_dT.Size = New System.Drawing.Size(83, 21)
         Me.lbl_dT.TabIndex = 58
         Me.lbl_dT.Text = "time/date"
         Me.lbl_dT.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'Label11
+        '
+        Me.Label11.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.Label11.AutoSize = True
+        Me.Label11.Font = New System.Drawing.Font("Times New Roman", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label11.ForeColor = System.Drawing.Color.FromArgb(CType(CType(90, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(60, Byte), Integer))
+        Me.Label11.Location = New System.Drawing.Point(3, 5)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(145, 32)
+        Me.Label11.TabIndex = 38
+        Me.Label11.Text = "LIBRARY"
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.BackColor = System.Drawing.Color.Transparent
+        Me.Label4.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(90, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(60, Byte), Integer))
+        Me.Label4.Location = New System.Drawing.Point(3, 37)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(136, 15)
+        Me.Label4.TabIndex = 39
+        Me.Label4.Text = "MANAGEMENT SYSTEM"
         '
         'lblt_datetime
         '
@@ -277,29 +325,6 @@ Partial Class frmAdminMenu
         Me.lblt_datetime.Name = "lblt_datetime"
         Me.lblt_datetime.Size = New System.Drawing.Size(0, 21)
         Me.lblt_datetime.TabIndex = 57
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.BackColor = System.Drawing.Color.Transparent
-        Me.Label4.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(90, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(60, Byte), Integer))
-        Me.Label4.Location = New System.Drawing.Point(67, 46)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(136, 15)
-        Me.Label4.TabIndex = 39
-        Me.Label4.Text = "MANAGEMENT SYSTEM"
-        '
-        'Label11
-        '
-        Me.Label11.AutoSize = True
-        Me.Label11.Font = New System.Drawing.Font("Times New Roman", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label11.ForeColor = System.Drawing.Color.FromArgb(CType(CType(90, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(60, Byte), Integer))
-        Me.Label11.Location = New System.Drawing.Point(64, 12)
-        Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(145, 32)
-        Me.Label11.TabIndex = 38
-        Me.Label11.Text = "LIBRARY"
         '
         'Panel9
         '
@@ -394,30 +419,37 @@ Partial Class frmAdminMenu
         '
         'Panel3
         '
+        Me.Panel3.AutoScroll = True
+        Me.Panel3.AutoScrollMinSize = New System.Drawing.Size(1200, 750)
         Me.Panel3.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel3.Location = New System.Drawing.Point(223, 77)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(1220, 778)
+        Me.Panel3.Size = New System.Drawing.Size(1246, 1109)
         Me.Panel3.TabIndex = 54
         '
         'frmAdminMenu
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.AutoScroll = True
+        Me.AutoScrollMinSize = New System.Drawing.Size(1200, 750)
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(248, Byte), Integer), CType(CType(249, Byte), Integer), CType(CType(250, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(1443, 855)
+        Me.ClientSize = New System.Drawing.Size(1454, 761)
         Me.Controls.Add(Me.Panel3)
         Me.Controls.Add(Me.Panel9)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.Panel1)
-        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Name = "frmAdminMenu"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "frmAdmin"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         CType(PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel2.ResumeLayout(False)
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
+        Me.TableLayoutPanel1.ResumeLayout(False)
+        Me.TableLayoutPanel2.ResumeLayout(False)
+        Me.TableLayoutPanel2.PerformLayout()
         Me.Panel9.ResumeLayout(False)
         Me.Panel9.PerformLayout()
         Me.ResumeLayout(False)
@@ -446,6 +478,7 @@ Partial Class frmAdminMenu
     Friend WithEvents btnlogout As Button
     Friend WithEvents Panel3 As Panel
     Friend WithEvents btnLostDamaged As Button
-    Friend WithEvents Label1 As Label
     Friend WithEvents btnactlog As Button
+    Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
+    Friend WithEvents TableLayoutPanel2 As TableLayoutPanel
 End Class

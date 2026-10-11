@@ -24,6 +24,7 @@ Partial Class frmAdminLogs
     Private Sub InitializeComponent()
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.Label2 = New System.Windows.Forms.Label()
         Me.cbodate = New System.Windows.Forms.ComboBox()
         Me.Label14 = New System.Windows.Forms.Label()
         Me.txtSearch = New System.Windows.Forms.TextBox()
@@ -47,6 +48,7 @@ Partial Class frmAdminLogs
         'Panel2
         '
         Me.Panel2.BackColor = System.Drawing.Color.White
+        Me.Panel2.Controls.Add(Me.Label2)
         Me.Panel2.Controls.Add(Me.cbodate)
         Me.Panel2.Controls.Add(Me.Label14)
         Me.Panel2.Controls.Add(Me.txtSearch)
@@ -57,10 +59,21 @@ Partial Class frmAdminLogs
         Me.Panel2.Size = New System.Drawing.Size(1245, 45)
         Me.Panel2.TabIndex = 23
         '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.Label2.Location = New System.Drawing.Point(502, 15)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(105, 17)
+        Me.Label2.TabIndex = 64
+        Me.Label2.Text = "FILTER BY DATE"
+        '
         'cbodate
         '
         Me.cbodate.FormattingEnabled = True
-        Me.cbodate.Location = New System.Drawing.Point(613, 11)
+        Me.cbodate.Location = New System.Drawing.Point(613, 13)
         Me.cbodate.Name = "cbodate"
         Me.cbodate.Size = New System.Drawing.Size(121, 21)
         Me.cbodate.TabIndex = 63
@@ -78,10 +91,11 @@ Partial Class frmAdminLogs
         '
         'txtSearch
         '
-        Me.txtSearch.Font = New System.Drawing.Font("Segoe UI", 12.0!)
-        Me.txtSearch.Location = New System.Drawing.Point(1041, 8)
+        Me.txtSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.txtSearch.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtSearch.Location = New System.Drawing.Point(1041, 10)
         Me.txtSearch.Name = "txtSearch"
-        Me.txtSearch.Size = New System.Drawing.Size(189, 29)
+        Me.txtSearch.Size = New System.Drawing.Size(189, 25)
         Me.txtSearch.TabIndex = 61
         '
         'Label1
@@ -97,6 +111,8 @@ Partial Class frmAdminLogs
         '
         'DataGridView1
         '
+        Me.DataGridView1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.DataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.DataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
@@ -111,6 +127,7 @@ Partial Class frmAdminLogs
         Me.DataGridView1.DefaultCellStyle = DataGridViewCellStyle1
         Me.DataGridView1.Location = New System.Drawing.Point(0, 45)
         Me.DataGridView1.Name = "DataGridView1"
+        Me.DataGridView1.RowHeadersVisible = False
         Me.DataGridView1.RowHeadersWidth = 51
         Me.DataGridView1.Size = New System.Drawing.Size(1245, 706)
         Me.DataGridView1.TabIndex = 25
@@ -240,5 +257,6 @@ Partial Class frmAdminLogs
     Friend WithEvents lblposition As Label
     Friend WithEvents Label14 As Label
     Friend WithEvents txtSearch As TextBox
+    Friend WithEvents Label2 As Label
     Friend WithEvents cbodate As ComboBox
 End Class

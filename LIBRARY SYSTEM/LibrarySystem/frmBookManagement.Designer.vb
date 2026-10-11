@@ -22,7 +22,7 @@ Partial Class frmBookManagement
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Panel13 = New System.Windows.Forms.Panel()
         Me.lblname = New System.Windows.Forms.Label()
         Me.Label29 = New System.Windows.Forms.Label()
@@ -44,7 +44,8 @@ Partial Class frmBookManagement
         Me.DateAdded = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.btnUpdate = New System.Windows.Forms.Button()
         Me.Panel4 = New System.Windows.Forms.Panel()
-        Me.Label5 = New System.Windows.Forms.Label()
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.txtEdition = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.txtAuthor = New System.Windows.Forms.TextBox()
@@ -54,8 +55,9 @@ Partial Class frmBookManagement
         Me.Label13 = New System.Windows.Forms.Label()
         Me.Label15 = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.cboCategory = New System.Windows.Forms.ComboBox()
+        Me.Panel8 = New System.Windows.Forms.Panel()
         Me.Label17 = New System.Windows.Forms.Label()
+        Me.cboCategory = New System.Windows.Forms.ComboBox()
         Me.txtISBN = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
@@ -69,7 +71,9 @@ Partial Class frmBookManagement
         Me.Panel13.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel4.SuspendLayout()
+        Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
+        Me.Panel8.SuspendLayout()
         Me.SuspendLayout()
         '
         'Panel13
@@ -80,9 +84,9 @@ Partial Class frmBookManagement
         Me.Panel13.Controls.Add(Me.Label28)
         Me.Panel13.Controls.Add(Me.lblposition)
         Me.Panel13.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.Panel13.Location = New System.Drawing.Point(0, 751)
+        Me.Panel13.Location = New System.Drawing.Point(0, 657)
         Me.Panel13.Name = "Panel13"
-        Me.Panel13.Size = New System.Drawing.Size(1245, 27)
+        Me.Panel13.Size = New System.Drawing.Size(1231, 27)
         Me.Panel13.TabIndex = 157
         '
         'lblname
@@ -174,22 +178,25 @@ Partial Class frmBookManagement
         '
         'DataGridView1
         '
+        Me.DataGridView1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.DataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.DataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.BookID, Me.ISBN, Me.BookTitle, Me.BookAuthor, Me.Publisher, Me.Category, Me.Edition, Me.YearPublished, Me.Price, Me.DateAdded})
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridView1.DefaultCellStyle = DataGridViewCellStyle3
-        Me.DataGridView1.Location = New System.Drawing.Point(-4, 317)
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridView1.DefaultCellStyle = DataGridViewCellStyle1
+        Me.DataGridView1.Location = New System.Drawing.Point(0, 313)
         Me.DataGridView1.Name = "DataGridView1"
+        Me.DataGridView1.RowHeadersVisible = False
         Me.DataGridView1.RowHeadersWidth = 51
-        Me.DataGridView1.Size = New System.Drawing.Size(1249, 434)
+        Me.DataGridView1.Size = New System.Drawing.Size(1231, 344)
         Me.DataGridView1.TabIndex = 177
         '
         'BookID
@@ -269,7 +276,7 @@ Partial Class frmBookManagement
         '
         Me.Panel4.BackColor = System.Drawing.Color.White
         Me.Panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Panel4.Controls.Add(Me.Label5)
+        Me.Panel4.Controls.Add(Me.Panel1)
         Me.Panel4.Controls.Add(Me.txtEdition)
         Me.Panel4.Controls.Add(Me.Label6)
         Me.Panel4.Controls.Add(Me.txtAuthor)
@@ -283,30 +290,41 @@ Partial Class frmBookManagement
         Me.Panel4.Size = New System.Drawing.Size(406, 208)
         Me.Panel4.TabIndex = 176
         '
-        'Label5
+        'Panel1
         '
-        Me.Label5.AutoSize = True
-        Me.Label5.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.ForeColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(10, Byte), Integer))
-        Me.Label5.Location = New System.Drawing.Point(16, 17)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(177, 25)
-        Me.Label5.TabIndex = 66
-        Me.Label5.Text = "Publication Details"
+        Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.Panel1.Controls.Add(Me.Label1)
+        Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Panel1.Location = New System.Drawing.Point(0, 0)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(404, 37)
+        Me.Panel1.TabIndex = 179
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.ForeColor = System.Drawing.Color.White
+        Me.Label1.Location = New System.Drawing.Point(6, 6)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(177, 25)
+        Me.Label1.TabIndex = 66
+        Me.Label1.Text = "Publication Details"
         '
         'txtEdition
         '
+        Me.txtEdition.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.txtEdition.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtEdition.Location = New System.Drawing.Point(138, 163)
+        Me.txtEdition.Location = New System.Drawing.Point(137, 161)
         Me.txtEdition.Name = "txtEdition"
-        Me.txtEdition.Size = New System.Drawing.Size(244, 27)
+        Me.txtEdition.Size = New System.Drawing.Size(238, 27)
         Me.txtEdition.TabIndex = 47
         '
         'Label6
         '
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(21, 94)
+        Me.Label6.Location = New System.Drawing.Point(20, 92)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(54, 20)
         Me.Label6.TabIndex = 26
@@ -314,17 +332,18 @@ Partial Class frmBookManagement
         '
         'txtAuthor
         '
+        Me.txtAuthor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.txtAuthor.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtAuthor.Location = New System.Drawing.Point(138, 94)
+        Me.txtAuthor.Location = New System.Drawing.Point(137, 92)
         Me.txtAuthor.Name = "txtAuthor"
-        Me.txtAuthor.Size = New System.Drawing.Size(244, 27)
+        Me.txtAuthor.Size = New System.Drawing.Size(238, 27)
         Me.txtAuthor.TabIndex = 30
         '
         'Label12
         '
         Me.Label12.AutoSize = True
         Me.Label12.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label12.Location = New System.Drawing.Point(21, 128)
+        Me.Label12.Location = New System.Drawing.Point(20, 126)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(69, 20)
         Me.Label12.TabIndex = 42
@@ -332,25 +351,27 @@ Partial Class frmBookManagement
         '
         'txtPublisher
         '
+        Me.txtPublisher.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.txtPublisher.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtPublisher.Location = New System.Drawing.Point(138, 128)
+        Me.txtPublisher.Location = New System.Drawing.Point(137, 126)
         Me.txtPublisher.Name = "txtPublisher"
-        Me.txtPublisher.Size = New System.Drawing.Size(244, 27)
+        Me.txtPublisher.Size = New System.Drawing.Size(238, 27)
         Me.txtPublisher.TabIndex = 43
         '
         'txtYearPublished
         '
+        Me.txtYearPublished.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.txtYearPublished.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtYearPublished.Location = New System.Drawing.Point(138, 55)
+        Me.txtYearPublished.Location = New System.Drawing.Point(137, 53)
         Me.txtYearPublished.Name = "txtYearPublished"
-        Me.txtYearPublished.Size = New System.Drawing.Size(244, 27)
+        Me.txtYearPublished.Size = New System.Drawing.Size(238, 27)
         Me.txtYearPublished.TabIndex = 49
         '
         'Label13
         '
         Me.Label13.AutoSize = True
         Me.Label13.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label13.Location = New System.Drawing.Point(21, 165)
+        Me.Label13.Location = New System.Drawing.Point(20, 163)
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(56, 20)
         Me.Label13.TabIndex = 46
@@ -360,7 +381,7 @@ Partial Class frmBookManagement
         '
         Me.Label15.AutoSize = True
         Me.Label15.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label15.Location = New System.Drawing.Point(21, 58)
+        Me.Label15.Location = New System.Drawing.Point(20, 56)
         Me.Label15.Name = "Label15"
         Me.Label15.Size = New System.Drawing.Size(105, 20)
         Me.Label15.TabIndex = 48
@@ -370,8 +391,8 @@ Partial Class frmBookManagement
         '
         Me.Panel2.BackColor = System.Drawing.Color.White
         Me.Panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel2.Controls.Add(Me.Panel8)
         Me.Panel2.Controls.Add(Me.cboCategory)
-        Me.Panel2.Controls.Add(Me.Label17)
         Me.Panel2.Controls.Add(Me.txtISBN)
         Me.Panel2.Controls.Add(Me.Label2)
         Me.Panel2.Controls.Add(Me.Label3)
@@ -384,6 +405,27 @@ Partial Class frmBookManagement
         Me.Panel2.Size = New System.Drawing.Size(420, 208)
         Me.Panel2.TabIndex = 175
         '
+        'Panel8
+        '
+        Me.Panel8.BackColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.Panel8.Controls.Add(Me.Label17)
+        Me.Panel8.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Panel8.Location = New System.Drawing.Point(0, 0)
+        Me.Panel8.Name = "Panel8"
+        Me.Panel8.Size = New System.Drawing.Size(418, 37)
+        Me.Panel8.TabIndex = 178
+        '
+        'Label17
+        '
+        Me.Label17.AutoSize = True
+        Me.Label17.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label17.ForeColor = System.Drawing.Color.White
+        Me.Label17.Location = New System.Drawing.Point(6, 6)
+        Me.Label17.Name = "Label17"
+        Me.Label17.Size = New System.Drawing.Size(172, 25)
+        Me.Label17.TabIndex = 65
+        Me.Label17.Text = "Book Information"
+        '
         'cboCategory
         '
         Me.cboCategory.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -394,19 +436,9 @@ Partial Class frmBookManagement
         Me.cboCategory.Size = New System.Drawing.Size(274, 25)
         Me.cboCategory.TabIndex = 68
         '
-        'Label17
-        '
-        Me.Label17.AutoSize = True
-        Me.Label17.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label17.ForeColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(10, Byte), Integer))
-        Me.Label17.Location = New System.Drawing.Point(22, 17)
-        Me.Label17.Name = "Label17"
-        Me.Label17.Size = New System.Drawing.Size(172, 25)
-        Me.Label17.TabIndex = 65
-        Me.Label17.Text = "Book Information"
-        '
         'txtISBN
         '
+        Me.txtISBN.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.txtISBN.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtISBN.Location = New System.Drawing.Point(116, 55)
         Me.txtISBN.Name = "txtISBN"
@@ -435,6 +467,7 @@ Partial Class frmBookManagement
         '
         'txtTitle
         '
+        Me.txtTitle.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.txtTitle.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtTitle.Location = New System.Drawing.Point(116, 92)
         Me.txtTitle.Name = "txtTitle"
@@ -463,6 +496,7 @@ Partial Class frmBookManagement
         '
         'txtPrice
         '
+        Me.txtPrice.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.txtPrice.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtPrice.Location = New System.Drawing.Point(116, 159)
         Me.txtPrice.Name = "txtPrice"
@@ -476,16 +510,17 @@ Partial Class frmBookManagement
         Me.Label14.ForeColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(10, Byte), Integer))
         Me.Label14.Location = New System.Drawing.Point(16, 284)
         Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(170, 17)
+        Me.Label14.Size = New System.Drawing.Size(226, 17)
         Me.Label14.TabIndex = 174
-        Me.Label14.Text = "SEARCH BY ISBN OR TITLE"
+        Me.Label14.Text = "SEARCH BY ISBN / TITLE / AUTHOR"
         '
         'txtSearch
         '
+        Me.txtSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.txtSearch.Font = New System.Drawing.Font("Segoe UI", 12.0!)
-        Me.txtSearch.Location = New System.Drawing.Point(190, 278)
+        Me.txtSearch.Location = New System.Drawing.Point(253, 278)
         Me.txtSearch.Name = "txtSearch"
-        Me.txtSearch.Size = New System.Drawing.Size(218, 29)
+        Me.txtSearch.Size = New System.Drawing.Size(184, 29)
         Me.txtSearch.TabIndex = 173
         '
         'Label4
@@ -503,8 +538,8 @@ Partial Class frmBookManagement
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(1245, 778)
+        Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(251, Byte), Integer), CType(CType(243, Byte), Integer), CType(CType(235, Byte), Integer))
+        Me.ClientSize = New System.Drawing.Size(1231, 684)
         Me.Controls.Add(Me.btnAdd)
         Me.Controls.Add(Me.btnClear)
         Me.Controls.Add(Me.btnDelete)
@@ -524,8 +559,12 @@ Partial Class frmBookManagement
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel4.ResumeLayout(False)
         Me.Panel4.PerformLayout()
+        Me.Panel1.ResumeLayout(False)
+        Me.Panel1.PerformLayout()
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
+        Me.Panel8.ResumeLayout(False)
+        Me.Panel8.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -551,7 +590,6 @@ Partial Class frmBookManagement
     Friend WithEvents DateAdded As DataGridViewTextBoxColumn
     Friend WithEvents btnUpdate As Button
     Friend WithEvents Panel4 As Panel
-    Friend WithEvents Label5 As Label
     Friend WithEvents txtEdition As TextBox
     Friend WithEvents Label6 As Label
     Friend WithEvents txtAuthor As TextBox
@@ -573,4 +611,7 @@ Partial Class frmBookManagement
     Friend WithEvents Label14 As Label
     Friend WithEvents txtSearch As TextBox
     Friend WithEvents Label4 As Label
+    Friend WithEvents Panel1 As Panel
+    Friend WithEvents Label1 As Label
+    Friend WithEvents Panel8 As Panel
 End Class

@@ -89,9 +89,9 @@ Partial Class frmReturn
         Me.btnReturn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnReturn.Font = New System.Drawing.Font("Segoe UI Semibold", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnReturn.ForeColor = System.Drawing.Color.White
-        Me.btnReturn.Location = New System.Drawing.Point(1060, 696)
+        Me.btnReturn.Location = New System.Drawing.Point(1060, 695)
         Me.btnReturn.Name = "btnReturn"
-        Me.btnReturn.Size = New System.Drawing.Size(150, 30)
+        Me.btnReturn.Size = New System.Drawing.Size(150, 38)
         Me.btnReturn.TabIndex = 27
         Me.btnReturn.Text = "Return"
         Me.btnReturn.UseVisualStyleBackColor = False
@@ -102,9 +102,9 @@ Partial Class frmReturn
         Me.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnClear.Font = New System.Drawing.Font("Segoe UI Semibold", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnClear.ForeColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(25, Byte), Integer))
-        Me.btnClear.Location = New System.Drawing.Point(944, 696)
+        Me.btnClear.Location = New System.Drawing.Point(944, 695)
         Me.btnClear.Name = "btnClear"
-        Me.btnClear.Size = New System.Drawing.Size(110, 30)
+        Me.btnClear.Size = New System.Drawing.Size(110, 38)
         Me.btnClear.TabIndex = 62
         Me.btnClear.Text = "Clear"
         Me.btnClear.UseVisualStyleBackColor = False

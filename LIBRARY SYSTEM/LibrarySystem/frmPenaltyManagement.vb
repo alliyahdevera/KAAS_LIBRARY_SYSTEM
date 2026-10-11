@@ -3,30 +3,25 @@
 Public Class frmPenaltyManagement
     Private selectedTransactionId As Integer = 0
     Private pager As GridPager
-
-    ' Date range pickers and the Generate Report button are located by type/text, so the
-    ' designer control names do not matter (left picker = From, right picker = To).
     Private dtpFrom As DateTimePicker
     Private dtpTo As DateTimePicker
     Private btnReport As Button
 
-    ' The date filter is only applied after "Generate Report" is clicked.
     Private dateFilterOn As Boolean = False
     Private filterFrom As Date
     Private filterTo As Date
     Private ready As Boolean = False
 
-    ' ------------------------------------------------------------ setup
     Private Sub frmPenaltyManagement_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        UiHelpers.FillHeader(Me)          ' name, position, today
-        With DataGridView1
+        UiHelpers.FillHeader(Me)
+        With dgvp
             .ReadOnly = True
             .AllowUserToAddRows = False
             .AllowUserToDeleteRows = False
             .MultiSelect = False
             .SelectionMode = DataGridViewSelectionMode.FullRowSelect
         End With
-        ComboBox2.Enabled = False        ' derived from the condition
+        ComboBox2.Enabled = False
 
         BindReportControls()
         ready = True
@@ -60,7 +55,6 @@ Public Class frmPenaltyManagement
         If btnReport IsNot Nothing Then AddHandler btnReport.Click, AddressOf btnGenerateReport_Click
     End Sub
 
-    ' ------------------------------------------------------------ generate report (date filter)
     Private Sub btnGenerateReport_Click(sender As Object, e As EventArgs)
         If dtpFrom Is Nothing OrElse dtpTo Is Nothing Then
             MsgBox("Date pickers were not found on this form.", vbExclamation, "Generate Report")
@@ -77,18 +71,15 @@ Public Class frmPenaltyManagement
         dateFilterOn = True
         RefreshPenaltyData(txtSearch.Text)
 
-        If DataGridView1.Rows.Count = 0 Then
+        If dgvp.Rows.Count = 0 Then
             MsgBox("No penalty records found from " & filterFrom.ToString("MM/dd/yyyy") &
                    " to " & filterTo.ToString("MM/dd/yyyy") & ".", vbInformation, "Generate Report")
         End If
     End Sub
 
-    ' ------------------------------------------------------------ list
-    ' Search matches the username only. If Generate Report was clicked, the grid is
-    ' also limited to the chosen date range (Penalty Date column).
     Public Sub RefreshPenaltyData(Optional keyword As String = "")
-        If pager Is Nothing Then pager = PagerHelper.Create(DataGridView1)
-        DataGridView1.Rows.Clear()
+        If pager Is Nothing Then pager = PagerHelper.Create(dgvp)
+        dgvp.Rows.Clear()
         Dim kw As String = If(keyword, "").Trim()
 
         Try
@@ -112,7 +103,7 @@ Public Class frmPenaltyManagement
                     cmd.Parameters.AddWithValue("@dt", If(dateFilterOn, filterTo, New Date(9999, 12, 31)))
                     Using r As MySqlDataReader = cmd.ExecuteReader()
                         While r.Read()
-                            Dim row As DataGridViewRow = DataGridView1.Rows(DataGridView1.Rows.Add())
+                            Dim row As DataGridViewRow = dgvp.Rows(dgvp.Rows.Add())
                             row.Cells("Username").Value = r("username").ToString()
                             row.Cells("ReceiptNo").Value = If(IsDBNull(r("receipt_number")), "N/A", r("receipt_number").ToString())
                             row.Cells("BookID").Value = r("book_id").ToString()
@@ -132,7 +123,7 @@ Public Class frmPenaltyManagement
         Catch ex As Exception
             MsgBox("Could not load penalties: " & ex.Message, vbCritical, "Penalty Management")
         End Try
-        DataGridView1.ClearSelection()
+        dgvp.ClearSelection()
         pager.Apply()
     End Sub
 
@@ -140,9 +131,9 @@ Public Class frmPenaltyManagement
         If ready Then RefreshPenaltyData(txtSearch.Text)
     End Sub
 
-    Private Sub DataGridView1_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellClick
+    Private Sub DataGridView1_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvp.CellClick
         If e.RowIndex < 0 Then Exit Sub
-        Dim row As DataGridViewRow = DataGridView1.Rows(e.RowIndex)
+        Dim row As DataGridViewRow = dgvp.Rows(e.RowIndex)
         selectedTransactionId = Convert.ToInt32(row.Tag)
         Dim receipt As String = Convert.ToString(row.Cells("ReceiptNo").Value)
         txtUserID.Text = If(receipt = "N/A", "", receipt)
@@ -224,6 +215,6 @@ Public Class frmPenaltyManagement
         ComboBox1.SelectedIndex = -1 : ComboBox1.Text = ""
         ComboBox2.SelectedIndex = -1 : ComboBox2.Text = ""
         ComboBox3.SelectedIndex = -1 : ComboBox3.Text = ""
-        DataGridView1.ClearSelection()
+        dgvp.ClearSelection()
     End Sub
 End Class

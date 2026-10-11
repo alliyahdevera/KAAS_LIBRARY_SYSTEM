@@ -22,7 +22,8 @@ Partial Class frmLostDamagedBooks
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.dgvIncidents = New System.Windows.Forms.DataGridView()
         Me.ReportNo = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.BookNo = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -38,10 +39,8 @@ Partial Class frmLostDamagedBooks
         Me.Recovered = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Remarks = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.btnFilter = New System.Windows.Forms.Button()
-        Me.btnReset = New System.Windows.Forms.Button()
         Me.btnRecover = New System.Windows.Forms.Button()
         Me.btnExport = New System.Windows.Forms.Button()
-        Me.pnlFilter = New System.Windows.Forms.Panel()
         Me.lblSearch = New System.Windows.Forms.Label()
         Me.txtSearch = New System.Windows.Forms.TextBox()
         Me.lblType = New System.Windows.Forms.Label()
@@ -61,7 +60,6 @@ Partial Class frmLostDamagedBooks
         Me.Label28 = New System.Windows.Forms.Label()
         Me.lblposition = New System.Windows.Forms.Label()
         CType(Me.dgvIncidents, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.pnlFilter.SuspendLayout()
         Me.pnlTop.SuspendLayout()
         Me.Panel13.SuspendLayout()
         Me.SuspendLayout()
@@ -73,25 +71,33 @@ Partial Class frmLostDamagedBooks
         Me.dgvIncidents.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.dgvIncidents.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
         Me.dgvIncidents.BackgroundColor = System.Drawing.Color.White
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgvIncidents.DefaultCellStyle = DataGridViewCellStyle1
         Me.dgvIncidents.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvIncidents.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ReportNo, Me.BookNo, Me.Accession, Me.ISBN, Me.BookTitle, Me.BookAuthor, Me.IncidentType, Me.DateReported, Me.Borrower, Me.Penalty, Me.CopyStatus, Me.Recovered, Me.Remarks})
-        Me.dgvIncidents.Dock = System.Windows.Forms.DockStyle.Top
-        Me.dgvIncidents.Location = New System.Drawing.Point(0, 122)
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgvIncidents.DefaultCellStyle = DataGridViewCellStyle3
+        Me.dgvIncidents.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.dgvIncidents.Location = New System.Drawing.Point(0, 135)
         Me.dgvIncidents.MultiSelect = False
         Me.dgvIncidents.Name = "dgvIncidents"
         Me.dgvIncidents.ReadOnly = True
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle4.Font = New System.Drawing.Font("Segoe UI", 10.0!)
+        DataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgvIncidents.RowHeadersDefaultCellStyle = DataGridViewCellStyle4
         Me.dgvIncidents.RowHeadersVisible = False
         Me.dgvIncidents.RowHeadersWidth = 51
         Me.dgvIncidents.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgvIncidents.Size = New System.Drawing.Size(1245, 559)
+        Me.dgvIncidents.Size = New System.Drawing.Size(1245, 546)
         Me.dgvIncidents.TabIndex = 3
         '
         'ReportNo
@@ -197,27 +203,12 @@ Partial Class frmLostDamagedBooks
         Me.btnFilter.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnFilter.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnFilter.ForeColor = System.Drawing.Color.White
-        Me.btnFilter.Location = New System.Drawing.Point(563, 8)
+        Me.btnFilter.Location = New System.Drawing.Point(697, 94)
         Me.btnFilter.Name = "btnFilter"
-        Me.btnFilter.Size = New System.Drawing.Size(160, 38)
+        Me.btnFilter.Size = New System.Drawing.Size(125, 25)
         Me.btnFilter.TabIndex = 0
         Me.btnFilter.Text = "Filter by Date"
         Me.btnFilter.UseVisualStyleBackColor = False
-        '
-        'btnReset
-        '
-        Me.btnReset.BackColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(25, Byte), Integer))
-        Me.btnReset.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnReset.FlatAppearance.BorderSize = 0
-        Me.btnReset.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnReset.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnReset.ForeColor = System.Drawing.Color.White
-        Me.btnReset.Location = New System.Drawing.Point(733, 8)
-        Me.btnReset.Name = "btnReset"
-        Me.btnReset.Size = New System.Drawing.Size(160, 38)
-        Me.btnReset.TabIndex = 1
-        Me.btnReset.Text = "Show All Dates"
-        Me.btnReset.UseVisualStyleBackColor = False
         '
         'btnRecover
         '
@@ -227,9 +218,9 @@ Partial Class frmLostDamagedBooks
         Me.btnRecover.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnRecover.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnRecover.ForeColor = System.Drawing.Color.White
-        Me.btnRecover.Location = New System.Drawing.Point(903, 8)
+        Me.btnRecover.Location = New System.Drawing.Point(211, 96)
         Me.btnRecover.Name = "btnRecover"
-        Me.btnRecover.Size = New System.Drawing.Size(160, 38)
+        Me.btnRecover.Size = New System.Drawing.Size(129, 25)
         Me.btnRecover.TabIndex = 2
         Me.btnRecover.Text = "Mark Recovered"
         Me.btnRecover.UseVisualStyleBackColor = False
@@ -242,47 +233,30 @@ Partial Class frmLostDamagedBooks
         Me.btnExport.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnExport.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnExport.ForeColor = System.Drawing.Color.White
-        Me.btnExport.Location = New System.Drawing.Point(1073, 8)
+        Me.btnExport.Location = New System.Drawing.Point(1095, 14)
         Me.btnExport.Name = "btnExport"
-        Me.btnExport.Size = New System.Drawing.Size(160, 38)
+        Me.btnExport.Size = New System.Drawing.Size(135, 30)
         Me.btnExport.TabIndex = 3
         Me.btnExport.Text = "Export"
         Me.btnExport.UseVisualStyleBackColor = False
-        '
-        'pnlFilter
-        '
-        Me.pnlFilter.BackColor = System.Drawing.Color.White
-        Me.pnlFilter.Controls.Add(Me.lblSearch)
-        Me.pnlFilter.Controls.Add(Me.txtSearch)
-        Me.pnlFilter.Controls.Add(Me.lblType)
-        Me.pnlFilter.Controls.Add(Me.cboType)
-        Me.pnlFilter.Controls.Add(Me.lblDateFrom)
-        Me.pnlFilter.Controls.Add(Me.dtpFrom)
-        Me.pnlFilter.Controls.Add(Me.lblDateTo)
-        Me.pnlFilter.Controls.Add(Me.dtpTo)
-        Me.pnlFilter.Controls.Add(Me.chkRecovered)
-        Me.pnlFilter.Dock = System.Windows.Forms.DockStyle.Top
-        Me.pnlFilter.Location = New System.Drawing.Point(0, 58)
-        Me.pnlFilter.Name = "pnlFilter"
-        Me.pnlFilter.Size = New System.Drawing.Size(1245, 64)
-        Me.pnlFilter.TabIndex = 1
         '
         'lblSearch
         '
         Me.lblSearch.AutoSize = True
         Me.lblSearch.Font = New System.Drawing.Font("Segoe UI Semibold", 9.5!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblSearch.ForeColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(25, Byte), Integer))
-        Me.lblSearch.Location = New System.Drawing.Point(15, 10)
+        Me.lblSearch.Location = New System.Drawing.Point(14, 72)
         Me.lblSearch.Name = "lblSearch"
-        Me.lblSearch.Size = New System.Drawing.Size(234, 17)
+        Me.lblSearch.Size = New System.Drawing.Size(268, 17)
         Me.lblSearch.TabIndex = 0
-        Me.lblSearch.Text = "Search (ISBN, title, book no., student)"
+        Me.lblSearch.Text = "Search by ISBN / Title / Book No. / Student"
         '
         'txtSearch
         '
-        Me.txtSearch.Location = New System.Drawing.Point(15, 32)
+        Me.txtSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.txtSearch.Location = New System.Drawing.Point(16, 96)
         Me.txtSearch.Name = "txtSearch"
-        Me.txtSearch.Size = New System.Drawing.Size(330, 25)
+        Me.txtSearch.Size = New System.Drawing.Size(187, 25)
         Me.txtSearch.TabIndex = 1
         '
         'lblType
@@ -290,7 +264,7 @@ Partial Class frmLostDamagedBooks
         Me.lblType.AutoSize = True
         Me.lblType.Font = New System.Drawing.Font("Segoe UI Semibold", 9.5!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblType.ForeColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(25, Byte), Integer))
-        Me.lblType.Location = New System.Drawing.Point(357, 10)
+        Me.lblType.Location = New System.Drawing.Point(836, 99)
         Me.lblType.Name = "lblType"
         Me.lblType.Size = New System.Drawing.Size(36, 17)
         Me.lblType.TabIndex = 2
@@ -299,9 +273,10 @@ Partial Class frmLostDamagedBooks
         'cboType
         '
         Me.cboType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cboType.DropDownWidth = 200
         Me.cboType.FormattingEnabled = True
         Me.cboType.Items.AddRange(New Object() {"All", "Lost", "Damaged"})
-        Me.cboType.Location = New System.Drawing.Point(357, 32)
+        Me.cboType.Location = New System.Drawing.Point(878, 94)
         Me.cboType.Name = "cboType"
         Me.cboType.Size = New System.Drawing.Size(140, 25)
         Me.cboType.TabIndex = 3
@@ -311,7 +286,7 @@ Partial Class frmLostDamagedBooks
         Me.lblDateFrom.AutoSize = True
         Me.lblDateFrom.Font = New System.Drawing.Font("Segoe UI Semibold", 9.5!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblDateFrom.ForeColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(25, Byte), Integer))
-        Me.lblDateFrom.Location = New System.Drawing.Point(509, 10)
+        Me.lblDateFrom.Location = New System.Drawing.Point(353, 98)
         Me.lblDateFrom.Name = "lblDateFrom"
         Me.lblDateFrom.Size = New System.Drawing.Size(72, 17)
         Me.lblDateFrom.TabIndex = 4
@@ -320,9 +295,9 @@ Partial Class frmLostDamagedBooks
         'dtpFrom
         '
         Me.dtpFrom.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dtpFrom.Location = New System.Drawing.Point(509, 32)
+        Me.dtpFrom.Location = New System.Drawing.Point(431, 94)
         Me.dtpFrom.Name = "dtpFrom"
-        Me.dtpFrom.Size = New System.Drawing.Size(140, 25)
+        Me.dtpFrom.Size = New System.Drawing.Size(110, 25)
         Me.dtpFrom.TabIndex = 5
         '
         'lblDateTo
@@ -330,25 +305,25 @@ Partial Class frmLostDamagedBooks
         Me.lblDateTo.AutoSize = True
         Me.lblDateTo.Font = New System.Drawing.Font("Segoe UI Semibold", 9.5!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblDateTo.ForeColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(25, Byte), Integer))
-        Me.lblDateTo.Location = New System.Drawing.Point(661, 10)
+        Me.lblDateTo.Location = New System.Drawing.Point(547, 98)
         Me.lblDateTo.Name = "lblDateTo"
-        Me.lblDateTo.Size = New System.Drawing.Size(54, 17)
+        Me.lblDateTo.Size = New System.Drawing.Size(22, 17)
         Me.lblDateTo.TabIndex = 6
-        Me.lblDateTo.Text = "Date To"
+        Me.lblDateTo.Text = "To"
         '
         'dtpTo
         '
         Me.dtpTo.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dtpTo.Location = New System.Drawing.Point(661, 32)
+        Me.dtpTo.Location = New System.Drawing.Point(575, 94)
         Me.dtpTo.Name = "dtpTo"
-        Me.dtpTo.Size = New System.Drawing.Size(140, 25)
+        Me.dtpTo.Size = New System.Drawing.Size(114, 25)
         Me.dtpTo.TabIndex = 7
         '
         'chkRecovered
         '
         Me.chkRecovered.AutoSize = True
         Me.chkRecovered.ForeColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(25, Byte), Integer))
-        Me.chkRecovered.Location = New System.Drawing.Point(813, 36)
+        Me.chkRecovered.Location = New System.Drawing.Point(1031, 95)
         Me.chkRecovered.Name = "chkRecovered"
         Me.chkRecovered.Size = New System.Drawing.Size(199, 23)
         Me.chkRecovered.TabIndex = 8
@@ -358,11 +333,8 @@ Partial Class frmLostDamagedBooks
         'pnlTop
         '
         Me.pnlTop.BackColor = System.Drawing.Color.White
-        Me.pnlTop.Controls.Add(Me.btnFilter)
         Me.pnlTop.Controls.Add(Me.lblTitle)
-        Me.pnlTop.Controls.Add(Me.btnReset)
         Me.pnlTop.Controls.Add(Me.btnExport)
-        Me.pnlTop.Controls.Add(Me.btnRecover)
         Me.pnlTop.Dock = System.Windows.Forms.DockStyle.Top
         Me.pnlTop.Location = New System.Drawing.Point(0, 0)
         Me.pnlTop.Name = "pnlTop"
@@ -472,27 +444,35 @@ Partial Class frmLostDamagedBooks
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(254, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(231, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(1245, 708)
-        Me.Controls.Add(Me.Panel13)
+        Me.Controls.Add(Me.chkRecovered)
+        Me.Controls.Add(Me.btnFilter)
+        Me.Controls.Add(Me.btnRecover)
+        Me.Controls.Add(Me.cboType)
+        Me.Controls.Add(Me.lblDateFrom)
+        Me.Controls.Add(Me.lblType)
+        Me.Controls.Add(Me.dtpFrom)
+        Me.Controls.Add(Me.lblDateTo)
+        Me.Controls.Add(Me.lblSearch)
+        Me.Controls.Add(Me.dtpTo)
         Me.Controls.Add(Me.dgvIncidents)
-        Me.Controls.Add(Me.pnlFilter)
+        Me.Controls.Add(Me.txtSearch)
         Me.Controls.Add(Me.pnlTop)
+        Me.Controls.Add(Me.Panel13)
         Me.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "frmLostDamagedBooks"
         Me.Text = "frmLostDamagedBooks"
         CType(Me.dgvIncidents, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.pnlFilter.ResumeLayout(False)
-        Me.pnlFilter.PerformLayout()
         Me.pnlTop.ResumeLayout(False)
         Me.pnlTop.PerformLayout()
         Me.Panel13.ResumeLayout(False)
         Me.Panel13.PerformLayout()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 
     Friend WithEvents dgvIncidents As System.Windows.Forms.DataGridView
-    Friend WithEvents pnlFilter As System.Windows.Forms.Panel
     Friend WithEvents pnlTop As System.Windows.Forms.Panel
     Friend WithEvents lblTitle As System.Windows.Forms.Label
     Friend WithEvents lblSearch As System.Windows.Forms.Label
@@ -505,7 +485,6 @@ Partial Class frmLostDamagedBooks
     Friend WithEvents dtpTo As System.Windows.Forms.DateTimePicker
     Friend WithEvents chkRecovered As System.Windows.Forms.CheckBox
     Friend WithEvents btnFilter As System.Windows.Forms.Button
-    Friend WithEvents btnReset As System.Windows.Forms.Button
     Friend WithEvents btnRecover As System.Windows.Forms.Button
     Friend WithEvents btnExport As System.Windows.Forms.Button
     Friend WithEvents colReportNo As System.Windows.Forms.DataGridViewTextBoxColumn
