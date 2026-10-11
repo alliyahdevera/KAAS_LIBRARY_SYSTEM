@@ -122,7 +122,7 @@ Partial Class frmHelp
         '
         'pnlb
         '
-        Me.pnlb.BackColor = System.Drawing.Color.FromArgb(CType(CType(251, Byte), Integer), CType(CType(243, Byte), Integer), CType(CType(235, Byte), Integer))
+        Me.pnlb.BackColor = System.Drawing.Color.White
         Me.pnlb.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.pnlb.Controls.Add(Me.Label9)
         Me.pnlb.Controls.Add(Me.PictureBox3)
@@ -185,7 +185,7 @@ Partial Class frmHelp
         '
         'pnlbr
         '
-        Me.pnlbr.BackColor = System.Drawing.Color.FromArgb(CType(CType(251, Byte), Integer), CType(CType(243, Byte), Integer), CType(CType(235, Byte), Integer))
+        Me.pnlbr.BackColor = System.Drawing.Color.White
         Me.pnlbr.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.pnlbr.Controls.Add(Me.Label11)
         Me.pnlbr.Controls.Add(Me.PictureBox4)
@@ -247,7 +247,7 @@ Partial Class frmHelp
         '
         'pnlrb
         '
-        Me.pnlrb.BackColor = System.Drawing.Color.FromArgb(CType(CType(251, Byte), Integer), CType(CType(243, Byte), Integer), CType(CType(235, Byte), Integer))
+        Me.pnlrb.BackColor = System.Drawing.Color.White
         Me.pnlrb.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.pnlrb.Controls.Add(Me.Label12)
         Me.pnlrb.Controls.Add(Me.PictureBox5)
@@ -309,7 +309,7 @@ Partial Class frmHelp
         '
         'pnlbh
         '
-        Me.pnlbh.BackColor = System.Drawing.Color.FromArgb(CType(CType(251, Byte), Integer), CType(CType(243, Byte), Integer), CType(CType(235, Byte), Integer))
+        Me.pnlbh.BackColor = System.Drawing.Color.White
         Me.pnlbh.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.pnlbh.Controls.Add(Me.Label17)
         Me.pnlbh.Controls.Add(Me.PictureBox6)
@@ -372,7 +372,7 @@ Partial Class frmHelp
         '
         'pnlp
         '
-        Me.pnlp.BackColor = System.Drawing.Color.FromArgb(CType(CType(251, Byte), Integer), CType(CType(243, Byte), Integer), CType(CType(235, Byte), Integer))
+        Me.pnlp.BackColor = System.Drawing.Color.White
         Me.pnlp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.pnlp.Controls.Add(Me.Label20)
         Me.pnlp.Controls.Add(Me.PictureBox1)
@@ -436,7 +436,7 @@ Partial Class frmHelp
         '
         'pnlh
         '
-        Me.pnlh.BackColor = System.Drawing.Color.FromArgb(CType(CType(251, Byte), Integer), CType(CType(243, Byte), Integer), CType(CType(235, Byte), Integer))
+        Me.pnlh.BackColor = System.Drawing.Color.White
         Me.pnlh.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.pnlh.Controls.Add(Me.Label21)
         Me.pnlh.Controls.Add(Me.PictureBox7)
@@ -499,7 +499,7 @@ Partial Class frmHelp
         '
         'pnlfaq
         '
-        Me.pnlfaq.BackColor = System.Drawing.Color.FromArgb(CType(CType(251, Byte), Integer), CType(CType(243, Byte), Integer), CType(CType(235, Byte), Integer))
+        Me.pnlfaq.BackColor = System.Drawing.Color.White
         Me.pnlfaq.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.pnlfaq.Controls.Add(Me.Label38)
         Me.pnlfaq.Controls.Add(Me.PictureBox13)
@@ -898,7 +898,7 @@ Partial Class frmHelp
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.Color.White
+        Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(254, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(231, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(1245, 778)
         Me.Controls.Add(Me.Label23)
         Me.Controls.Add(Me.Label22)

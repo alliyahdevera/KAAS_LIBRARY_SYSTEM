@@ -47,7 +47,7 @@ Partial Class frmAdminLogs
         '
         'Panel2
         '
-        Me.Panel2.BackColor = System.Drawing.Color.White
+        Me.Panel2.BackColor = System.Drawing.Color.FromArgb(CType(CType(254, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(231, Byte), Integer))
         Me.Panel2.Controls.Add(Me.Label2)
         Me.Panel2.Controls.Add(Me.cbodate)
         Me.Panel2.Controls.Add(Me.Label14)

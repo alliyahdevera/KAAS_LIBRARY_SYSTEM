@@ -23,31 +23,26 @@ Partial Class frmStudentDashboard
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmStudentDashboard))
-        Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend1 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series1 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea2 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend2 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series2 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label15 = New System.Windows.Forms.Label()
         Me.Panel10 = New System.Windows.Forms.Panel()
-        Me.PictureBox7 = New System.Windows.Forms.PictureBox()
         Me.chartb_mborrowed = New System.Windows.Forms.DataVisualization.Charting.Chart()
         Me.Label20 = New System.Windows.Forms.Label()
         Me.Panel5 = New System.Windows.Forms.Panel()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.PictureBox4 = New System.Windows.Forms.PictureBox()
         Me.lblPenalty = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Panel7 = New System.Windows.Forms.Panel()
-        Me.PictureBox6 = New System.Windows.Forms.PictureBox()
         Me.lblb_Borrowed = New System.Windows.Forms.Label()
         Me.Label14 = New System.Windows.Forms.Label()
         Me.Panel6 = New System.Windows.Forms.Panel()
-        Me.PictureBox5 = New System.Windows.Forms.PictureBox()
         Me.lblb_return = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.Panel3 = New System.Windows.Forms.Panel()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.lblBooksDue = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
@@ -61,24 +56,29 @@ Partial Class frmStudentDashboard
         Me.Label27 = New System.Windows.Forms.Label()
         Me.Label28 = New System.Windows.Forms.Label()
         Me.lblposition = New System.Windows.Forms.Label()
+        Me.PictureBox7 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox4 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox6 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox5 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Panel4.SuspendLayout()
         Me.Panel10.SuspendLayout()
-        CType(Me.PictureBox7, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.chartb_mborrowed, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel5.SuspendLayout()
-        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel7.SuspendLayout()
-        CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel6.SuspendLayout()
-        CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel3.SuspendLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel13.SuspendLayout()
+        CType(Me.PictureBox7, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel4
         '
-        Me.Panel4.BackColor = System.Drawing.Color.FromArgb(CType(CType(253, Byte), Integer), CType(CType(251, Byte), Integer), CType(CType(248, Byte), Integer))
+        Me.Panel4.BackColor = System.Drawing.Color.White
         Me.Panel4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Panel4.Controls.Add(Me.Label7)
@@ -115,7 +115,7 @@ Partial Class frmStudentDashboard
         '
         'Panel10
         '
-        Me.Panel10.BackColor = System.Drawing.Color.FromArgb(CType(CType(253, Byte), Integer), CType(CType(251, Byte), Integer), CType(CType(248, Byte), Integer))
+        Me.Panel10.BackColor = System.Drawing.Color.White
         Me.Panel10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Panel10.Controls.Add(Me.PictureBox7)
         Me.Panel10.Controls.Add(Me.chartb_mborrowed)
@@ -125,31 +125,20 @@ Partial Class frmStudentDashboard
         Me.Panel10.Size = New System.Drawing.Size(651, 408)
         Me.Panel10.TabIndex = 73
         '
-        'PictureBox7
-        '
-        Me.PictureBox7.BackColor = System.Drawing.Color.Transparent
-        Me.PictureBox7.Image = Global.LibrarySystem.My.Resources.Resources.tbook1
-        Me.PictureBox7.Location = New System.Drawing.Point(31, 26)
-        Me.PictureBox7.Name = "PictureBox7"
-        Me.PictureBox7.Size = New System.Drawing.Size(40, 40)
-        Me.PictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox7.TabIndex = 55
-        Me.PictureBox7.TabStop = False
-        '
         'chartb_mborrowed
         '
         Me.chartb_mborrowed.BackColor = System.Drawing.Color.Transparent
-        ChartArea1.Name = "ChartArea1"
-        Me.chartb_mborrowed.ChartAreas.Add(ChartArea1)
-        Legend1.Name = "Legend1"
-        Me.chartb_mborrowed.Legends.Add(Legend1)
+        ChartArea2.Name = "ChartArea1"
+        Me.chartb_mborrowed.ChartAreas.Add(ChartArea2)
+        Legend2.Name = "Legend1"
+        Me.chartb_mborrowed.Legends.Add(Legend2)
         Me.chartb_mborrowed.Location = New System.Drawing.Point(31, 89)
         Me.chartb_mborrowed.Name = "chartb_mborrowed"
-        Series1.ChartArea = "ChartArea1"
-        Series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Bar
-        Series1.Legend = "Legend1"
-        Series1.Name = "Series1"
-        Me.chartb_mborrowed.Series.Add(Series1)
+        Series2.ChartArea = "ChartArea1"
+        Series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Bar
+        Series2.Legend = "Legend1"
+        Series2.Name = "Series1"
+        Me.chartb_mborrowed.Series.Add(Series2)
         Me.chartb_mborrowed.Size = New System.Drawing.Size(592, 286)
         Me.chartb_mborrowed.TabIndex = 54
         Me.chartb_mborrowed.Text = "Chart2"
@@ -168,7 +157,7 @@ Partial Class frmStudentDashboard
         '
         'Panel5
         '
-        Me.Panel5.BackColor = System.Drawing.Color.FromArgb(CType(CType(253, Byte), Integer), CType(CType(251, Byte), Integer), CType(CType(248, Byte), Integer))
+        Me.Panel5.BackColor = System.Drawing.Color.White
         Me.Panel5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Panel5.Controls.Add(Me.Label3)
@@ -192,18 +181,6 @@ Partial Class frmStudentDashboard
         Me.Label3.Size = New System.Drawing.Size(42, 46)
         Me.Label3.TabIndex = 49
         Me.Label3.Text = "₱"
-        '
-        'PictureBox4
-        '
-        Me.PictureBox4.BackColor = System.Drawing.Color.Transparent
-        Me.PictureBox4.Image = Global.LibrarySystem.My.Resources.Resources.icons__9_
-        Me.PictureBox4.InitialImage = Global.LibrarySystem.My.Resources.Resources.tbook
-        Me.PictureBox4.Location = New System.Drawing.Point(26, 18)
-        Me.PictureBox4.Name = "PictureBox4"
-        Me.PictureBox4.Size = New System.Drawing.Size(40, 40)
-        Me.PictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox4.TabIndex = 48
-        Me.PictureBox4.TabStop = False
         '
         'lblPenalty
         '
@@ -231,7 +208,7 @@ Partial Class frmStudentDashboard
         '
         'Panel7
         '
-        Me.Panel7.BackColor = System.Drawing.Color.FromArgb(CType(CType(253, Byte), Integer), CType(CType(251, Byte), Integer), CType(CType(248, Byte), Integer))
+        Me.Panel7.BackColor = System.Drawing.Color.White
         Me.Panel7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Panel7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Panel7.Controls.Add(Me.PictureBox6)
@@ -242,17 +219,6 @@ Partial Class frmStudentDashboard
         Me.Panel7.Name = "Panel7"
         Me.Panel7.Size = New System.Drawing.Size(270, 130)
         Me.Panel7.TabIndex = 71
-        '
-        'PictureBox6
-        '
-        Me.PictureBox6.BackColor = System.Drawing.Color.Transparent
-        Me.PictureBox6.Image = Global.LibrarySystem.My.Resources.Resources.icons__16_2
-        Me.PictureBox6.Location = New System.Drawing.Point(24, 18)
-        Me.PictureBox6.Name = "PictureBox6"
-        Me.PictureBox6.Size = New System.Drawing.Size(40, 40)
-        Me.PictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox6.TabIndex = 49
-        Me.PictureBox6.TabStop = False
         '
         'lblb_Borrowed
         '
@@ -280,7 +246,7 @@ Partial Class frmStudentDashboard
         '
         'Panel6
         '
-        Me.Panel6.BackColor = System.Drawing.Color.FromArgb(CType(CType(253, Byte), Integer), CType(CType(251, Byte), Integer), CType(CType(248, Byte), Integer))
+        Me.Panel6.BackColor = System.Drawing.Color.White
         Me.Panel6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Panel6.Controls.Add(Me.PictureBox5)
@@ -291,17 +257,6 @@ Partial Class frmStudentDashboard
         Me.Panel6.Name = "Panel6"
         Me.Panel6.Size = New System.Drawing.Size(270, 130)
         Me.Panel6.TabIndex = 70
-        '
-        'PictureBox5
-        '
-        Me.PictureBox5.BackColor = System.Drawing.Color.Transparent
-        Me.PictureBox5.Image = Global.LibrarySystem.My.Resources.Resources.icons__1_1
-        Me.PictureBox5.Location = New System.Drawing.Point(26, 18)
-        Me.PictureBox5.Name = "PictureBox5"
-        Me.PictureBox5.Size = New System.Drawing.Size(40, 40)
-        Me.PictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox5.TabIndex = 49
-        Me.PictureBox5.TabStop = False
         '
         'lblb_return
         '
@@ -329,7 +284,7 @@ Partial Class frmStudentDashboard
         '
         'Panel3
         '
-        Me.Panel3.BackColor = System.Drawing.Color.FromArgb(CType(CType(253, Byte), Integer), CType(CType(251, Byte), Integer), CType(CType(248, Byte), Integer))
+        Me.Panel3.BackColor = System.Drawing.Color.White
         Me.Panel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Panel3.Controls.Add(Me.PictureBox1)
@@ -340,17 +295,6 @@ Partial Class frmStudentDashboard
         Me.Panel3.Name = "Panel3"
         Me.Panel3.Size = New System.Drawing.Size(270, 130)
         Me.Panel3.TabIndex = 69
-        '
-        'PictureBox1
-        '
-        Me.PictureBox1.BackColor = System.Drawing.Color.Transparent
-        Me.PictureBox1.Image = Global.LibrarySystem.My.Resources.Resources.icons__15_2
-        Me.PictureBox1.Location = New System.Drawing.Point(32, 18)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(40, 40)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox1.TabIndex = 49
-        Me.PictureBox1.TabStop = False
         '
         'lblBooksDue
         '
@@ -510,11 +454,67 @@ Partial Class frmStudentDashboard
         Me.lblposition.TabIndex = 66
         Me.lblposition.Text = "NPosition"
         '
+        'PictureBox7
+        '
+        Me.PictureBox7.BackColor = System.Drawing.Color.Transparent
+        Me.PictureBox7.Image = Global.LibrarySystem.My.Resources.Resources.tbook1
+        Me.PictureBox7.Location = New System.Drawing.Point(31, 26)
+        Me.PictureBox7.Name = "PictureBox7"
+        Me.PictureBox7.Size = New System.Drawing.Size(40, 40)
+        Me.PictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox7.TabIndex = 55
+        Me.PictureBox7.TabStop = False
+        '
+        'PictureBox4
+        '
+        Me.PictureBox4.BackColor = System.Drawing.Color.Transparent
+        Me.PictureBox4.Image = Global.LibrarySystem.My.Resources.Resources.icons__9_
+        Me.PictureBox4.InitialImage = Global.LibrarySystem.My.Resources.Resources.tbook
+        Me.PictureBox4.Location = New System.Drawing.Point(26, 18)
+        Me.PictureBox4.Name = "PictureBox4"
+        Me.PictureBox4.Size = New System.Drawing.Size(40, 40)
+        Me.PictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox4.TabIndex = 48
+        Me.PictureBox4.TabStop = False
+        '
+        'PictureBox6
+        '
+        Me.PictureBox6.BackColor = System.Drawing.Color.Transparent
+        Me.PictureBox6.Image = Global.LibrarySystem.My.Resources.Resources.icons__16_2
+        Me.PictureBox6.Location = New System.Drawing.Point(24, 18)
+        Me.PictureBox6.Name = "PictureBox6"
+        Me.PictureBox6.Size = New System.Drawing.Size(40, 40)
+        Me.PictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox6.TabIndex = 49
+        Me.PictureBox6.TabStop = False
+        '
+        'PictureBox5
+        '
+        Me.PictureBox5.BackColor = System.Drawing.Color.Transparent
+        Me.PictureBox5.Image = Global.LibrarySystem.My.Resources.Resources.icons__1_1
+        Me.PictureBox5.Location = New System.Drawing.Point(26, 18)
+        Me.PictureBox5.Name = "PictureBox5"
+        Me.PictureBox5.Size = New System.Drawing.Size(40, 40)
+        Me.PictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox5.TabIndex = 49
+        Me.PictureBox5.TabStop = False
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.BackColor = System.Drawing.Color.Transparent
+        Me.PictureBox1.Image = Global.LibrarySystem.My.Resources.Resources.icons__15_2
+        Me.PictureBox1.Location = New System.Drawing.Point(32, 18)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(40, 40)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox1.TabIndex = 49
+        Me.PictureBox1.TabStop = False
+        '
         'frmStudentDashboard
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.Color.White
+        Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(254, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(231, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(1245, 778)
         Me.Controls.Add(Me.Panel13)
         Me.Controls.Add(Me.Panel4)
@@ -534,22 +534,22 @@ Partial Class frmStudentDashboard
         Me.Panel4.PerformLayout()
         Me.Panel10.ResumeLayout(False)
         Me.Panel10.PerformLayout()
-        CType(Me.PictureBox7, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.chartb_mborrowed, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel5.ResumeLayout(False)
         Me.Panel5.PerformLayout()
-        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel7.ResumeLayout(False)
         Me.Panel7.PerformLayout()
-        CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel6.ResumeLayout(False)
         Me.Panel6.PerformLayout()
-        CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel3.ResumeLayout(False)
         Me.Panel3.PerformLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel13.ResumeLayout(False)
         Me.Panel13.PerformLayout()
+        CType(Me.PictureBox7, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

@@ -40,6 +40,7 @@ Partial Class frmAdminMenu
         Me.lbl_dT = New System.Windows.Forms.Label()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
+        Me.cboSchoolYear = New System.Windows.Forms.ComboBox()
         Me.lblt_datetime = New System.Windows.Forms.Label()
         Me.Panel9 = New System.Windows.Forms.Panel()
         Me.lbldatetime = New System.Windows.Forms.Label()
@@ -50,7 +51,8 @@ Partial Class frmAdminMenu
         Me.Label15 = New System.Windows.Forms.Label()
         Me.tmrDateTime = New System.Windows.Forms.Timer(Me.components)
         Me.Panel3 = New System.Windows.Forms.Panel()
-        Me.cboSchoolYear = New System.Windows.Forms.ComboBox()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.Button1 = New System.Windows.Forms.Button()
         PictureBox2 = New System.Windows.Forms.PictureBox()
         CType(PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel2.SuspendLayout()
@@ -75,6 +77,7 @@ Partial Class frmAdminMenu
         'Panel2
         '
         Me.Panel2.BackColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.Panel2.Controls.Add(Me.Button1)
         Me.Panel2.Controls.Add(Me.btnactlog)
         Me.Panel2.Controls.Add(Me.btnLostDamaged)
         Me.Panel2.Controls.Add(Me.btnlogout)
@@ -241,7 +244,7 @@ Partial Class frmAdminMenu
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(1454, 77)
+        Me.Panel1.Size = New System.Drawing.Size(1469, 77)
         Me.Panel1.TabIndex = 16
         '
         'TableLayoutPanel1
@@ -256,37 +259,38 @@ Partial Class frmAdminMenu
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
         Me.TableLayoutPanel1.RowCount = 1
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(1452, 75)
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(1467, 75)
         Me.TableLayoutPanel1.TabIndex = 58
         '
         'TableLayoutPanel2
         '
-        Me.TableLayoutPanel2.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.TableLayoutPanel2.ColumnCount = 2
+        Me.TableLayoutPanel2.ColumnCount = 4
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel2.Controls.Add(Me.lbl_dT, 1, 0)
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 297.0!))
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 144.0!))
         Me.TableLayoutPanel2.Controls.Add(Me.Label11, 0, 0)
         Me.TableLayoutPanel2.Controls.Add(Me.Label4, 0, 1)
-        Me.TableLayoutPanel2.Controls.Add(Me.cboSchoolYear, 1, 1)
+        Me.TableLayoutPanel2.Controls.Add(Me.cboSchoolYear, 3, 1)
+        Me.TableLayoutPanel2.Controls.Add(Me.lbl_dT, 3, 0)
+        Me.TableLayoutPanel2.Controls.Add(Me.Label1, 2, 1)
+        Me.TableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel2.Location = New System.Drawing.Point(58, 3)
         Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
         Me.TableLayoutPanel2.RowCount = 2
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 53.73134!))
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 46.26866!))
-        Me.TableLayoutPanel2.Size = New System.Drawing.Size(1391, 69)
+        Me.TableLayoutPanel2.Size = New System.Drawing.Size(1406, 69)
         Me.TableLayoutPanel2.TabIndex = 38
         '
         'lbl_dT
         '
-        Me.lbl_dT.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.lbl_dT.Anchor = System.Windows.Forms.AnchorStyles.Left
         Me.lbl_dT.AutoSize = True
         Me.lbl_dT.BackColor = System.Drawing.Color.Transparent
         Me.lbl_dT.Font = New System.Drawing.Font("Segoe UI Semibold", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbl_dT.ForeColor = System.Drawing.Color.FromArgb(CType(CType(90, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(60, Byte), Integer))
-        Me.lbl_dT.Location = New System.Drawing.Point(1305, 16)
+        Me.lbl_dT.Location = New System.Drawing.Point(1264, 8)
         Me.lbl_dT.Name = "lbl_dT"
         Me.lbl_dT.Size = New System.Drawing.Size(83, 21)
         Me.lbl_dT.TabIndex = 58
@@ -313,9 +317,18 @@ Partial Class frmAdminMenu
         Me.Label4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(90, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(60, Byte), Integer))
         Me.Label4.Location = New System.Drawing.Point(3, 37)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(134, 15)
+        Me.Label4.Size = New System.Drawing.Size(136, 15)
         Me.Label4.TabIndex = 39
         Me.Label4.Text = "MANAGEMENT SYSTEM"
+        '
+        'cboSchoolYear
+        '
+        Me.cboSchoolYear.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.cboSchoolYear.FormattingEnabled = True
+        Me.cboSchoolYear.Location = New System.Drawing.Point(1264, 42)
+        Me.cboSchoolYear.Name = "cboSchoolYear"
+        Me.cboSchoolYear.Size = New System.Drawing.Size(139, 21)
+        Me.cboSchoolYear.TabIndex = 59
         '
         'lblt_datetime
         '
@@ -426,16 +439,41 @@ Partial Class frmAdminMenu
         Me.Panel3.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel3.Location = New System.Drawing.Point(223, 77)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(1231, 1109)
+        Me.Panel3.Size = New System.Drawing.Size(1246, 1109)
         Me.Panel3.TabIndex = 54
         '
-        'cboSchoolYear
+        'Label1
         '
-        Me.cboSchoolYear.FormattingEnabled = True
-        Me.cboSchoolYear.Location = New System.Drawing.Point(698, 40)
-        Me.cboSchoolYear.Name = "cboSchoolYear"
-        Me.cboSchoolYear.Size = New System.Drawing.Size(121, 21)
-        Me.cboSchoolYear.TabIndex = 59
+        Me.Label1.Anchor = System.Windows.Forms.AnchorStyles.Right
+        Me.Label1.AutoSize = True
+        Me.Label1.BackColor = System.Drawing.Color.Transparent
+        Me.Label1.Font = New System.Drawing.Font("Segoe UI Semibold", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(90, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(60, Byte), Integer))
+        Me.Label1.Location = New System.Drawing.Point(1095, 42)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(163, 21)
+        Me.Label1.TabIndex = 60
+        Me.Label1.Text = "Manage School Year:"
+        Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'Button1
+        '
+        Me.Button1.BackColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.Button1.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Button1.FlatAppearance.BorderSize = 0
+        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button1.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.ForeColor = System.Drawing.Color.White
+        Me.Button1.Image = CType(resources.GetObject("Button1.Image"), System.Drawing.Image)
+        Me.Button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button1.Location = New System.Drawing.Point(0, 300)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(223, 50)
+        Me.Button1.TabIndex = 56
+        Me.Button1.Text = "     Manage S.Y."
+        Me.Button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.Button1.UseVisualStyleBackColor = False
         '
         'frmAdminMenu
         '
@@ -492,4 +530,6 @@ Partial Class frmAdminMenu
     Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
     Friend WithEvents TableLayoutPanel2 As TableLayoutPanel
     Friend WithEvents cboSchoolYear As ComboBox
+    Friend WithEvents Label1 As Label
+    Friend WithEvents Button1 As Button
 End Class

@@ -64,7 +64,7 @@ Partial Class frmLibrarianBorrowManagement
         '
         'Panel2
         '
-        Me.Panel2.BackColor = System.Drawing.Color.White
+        Me.Panel2.BackColor = System.Drawing.Color.FromArgb(CType(CType(251, Byte), Integer), CType(CType(243, Byte), Integer), CType(CType(235, Byte), Integer))
         Me.Panel2.Controls.Add(Me.lblTitle)
         Me.Panel2.Controls.Add(Me.btnExportExcel)
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Top

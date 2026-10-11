@@ -40,6 +40,9 @@ Partial Class frmAdminBookInventory
         Me.btnDelete = New System.Windows.Forms.Button()
         Me.btnClear = New System.Windows.Forms.Button()
         Me.pnlForm = New System.Windows.Forms.Panel()
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.Label15 = New System.Windows.Forms.Label()
         Me.txtBookNo = New System.Windows.Forms.TextBox()
         Me.lblBookNo = New System.Windows.Forms.Label()
         Me.lblAccession = New System.Windows.Forms.Label()
@@ -65,16 +68,13 @@ Partial Class frmAdminBookInventory
         Me.Label29 = New System.Windows.Forms.Label()
         Me.Label28 = New System.Windows.Forms.Label()
         Me.lblposition = New System.Windows.Forms.Label()
-        Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.Label15 = New System.Windows.Forms.Label()
         CType(Me.dgvCopies, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlForm.SuspendLayout()
+        Me.Panel1.SuspendLayout()
+        Me.Panel2.SuspendLayout()
         CType(Me.numCopies, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlTop.SuspendLayout()
         Me.Panel13.SuspendLayout()
-        Me.Panel1.SuspendLayout()
-        Me.Panel2.SuspendLayout()
         Me.SuspendLayout()
         '
         'dgvCopies
@@ -261,6 +261,51 @@ Partial Class frmAdminBookInventory
         Me.pnlForm.Size = New System.Drawing.Size(1231, 240)
         Me.pnlForm.TabIndex = 1
         '
+        'Panel1
+        '
+        Me.Panel1.BackColor = System.Drawing.Color.White
+        Me.Panel1.Controls.Add(Me.Panel2)
+        Me.Panel1.Controls.Add(Me.txtBookNo)
+        Me.Panel1.Controls.Add(Me.lblBookNo)
+        Me.Panel1.Controls.Add(Me.btnAdd)
+        Me.Panel1.Controls.Add(Me.lblAccession)
+        Me.Panel1.Controls.Add(Me.txtAccession)
+        Me.Panel1.Controls.Add(Me.lblIsbn)
+        Me.Panel1.Controls.Add(Me.txtIsbn)
+        Me.Panel1.Controls.Add(Me.lblTitleCaption)
+        Me.Panel1.Controls.Add(Me.txtTitle)
+        Me.Panel1.Controls.Add(Me.lblCondition)
+        Me.Panel1.Controls.Add(Me.cboCondition)
+        Me.Panel1.Controls.Add(Me.lblStatusCaption)
+        Me.Panel1.Controls.Add(Me.txtStatus)
+        Me.Panel1.Controls.Add(Me.lblCopies)
+        Me.Panel1.Controls.Add(Me.numCopies)
+        Me.Panel1.Location = New System.Drawing.Point(21, 17)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(698, 208)
+        Me.Panel1.TabIndex = 14
+        '
+        'Panel2
+        '
+        Me.Panel2.BackColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.Panel2.Controls.Add(Me.Label15)
+        Me.Panel2.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Panel2.Location = New System.Drawing.Point(0, 0)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(698, 38)
+        Me.Panel2.TabIndex = 14
+        '
+        'Label15
+        '
+        Me.Label15.AutoSize = True
+        Me.Label15.Font = New System.Drawing.Font("Segoe UI Semibold", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label15.ForeColor = System.Drawing.Color.White
+        Me.Label15.Location = New System.Drawing.Point(7, 7)
+        Me.Label15.Name = "Label15"
+        Me.Label15.Size = New System.Drawing.Size(163, 25)
+        Me.Label15.TabIndex = 71
+        Me.Label15.Text = "Book Information"
+        '
         'txtBookNo
         '
         Me.txtBookNo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
@@ -427,19 +472,19 @@ Partial Class frmAdminBookInventory
         Me.lblSearch.AutoSize = True
         Me.lblSearch.Font = New System.Drawing.Font("Segoe UI Semibold", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblSearch.ForeColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(25, Byte), Integer))
-        Me.lblSearch.Location = New System.Drawing.Point(19, 304)
+        Me.lblSearch.Location = New System.Drawing.Point(19, 301)
         Me.lblSearch.Name = "lblSearch"
-        Me.lblSearch.Size = New System.Drawing.Size(241, 19)
+        Me.lblSearch.Size = New System.Drawing.Size(55, 19)
         Me.lblSearch.TabIndex = 1
-        Me.lblSearch.Text = "Search by BookID / ISBN / Book Title" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
+        Me.lblSearch.Text = "Search "
         '
         'txtSearch
         '
         Me.txtSearch.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.txtSearch.Location = New System.Drawing.Point(266, 300)
+        Me.txtSearch.Location = New System.Drawing.Point(83, 299)
         Me.txtSearch.Name = "txtSearch"
-        Me.txtSearch.Size = New System.Drawing.Size(175, 25)
+        Me.txtSearch.Size = New System.Drawing.Size(176, 25)
         Me.txtSearch.TabIndex = 2
         '
         'lblStatus
@@ -527,51 +572,6 @@ Partial Class frmAdminBookInventory
         Me.lblposition.TabIndex = 66
         Me.lblposition.Text = "NPosition"
         '
-        'Panel1
-        '
-        Me.Panel1.BackColor = System.Drawing.Color.White
-        Me.Panel1.Controls.Add(Me.Panel2)
-        Me.Panel1.Controls.Add(Me.txtBookNo)
-        Me.Panel1.Controls.Add(Me.lblBookNo)
-        Me.Panel1.Controls.Add(Me.btnAdd)
-        Me.Panel1.Controls.Add(Me.lblAccession)
-        Me.Panel1.Controls.Add(Me.txtAccession)
-        Me.Panel1.Controls.Add(Me.lblIsbn)
-        Me.Panel1.Controls.Add(Me.txtIsbn)
-        Me.Panel1.Controls.Add(Me.lblTitleCaption)
-        Me.Panel1.Controls.Add(Me.txtTitle)
-        Me.Panel1.Controls.Add(Me.lblCondition)
-        Me.Panel1.Controls.Add(Me.cboCondition)
-        Me.Panel1.Controls.Add(Me.lblStatusCaption)
-        Me.Panel1.Controls.Add(Me.txtStatus)
-        Me.Panel1.Controls.Add(Me.lblCopies)
-        Me.Panel1.Controls.Add(Me.numCopies)
-        Me.Panel1.Location = New System.Drawing.Point(21, 17)
-        Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(698, 208)
-        Me.Panel1.TabIndex = 14
-        '
-        'Panel2
-        '
-        Me.Panel2.BackColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(25, Byte), Integer))
-        Me.Panel2.Controls.Add(Me.Label15)
-        Me.Panel2.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Panel2.Location = New System.Drawing.Point(0, 0)
-        Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(698, 38)
-        Me.Panel2.TabIndex = 14
-        '
-        'Label15
-        '
-        Me.Label15.AutoSize = True
-        Me.Label15.Font = New System.Drawing.Font("Segoe UI Semibold", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label15.ForeColor = System.Drawing.Color.White
-        Me.Label15.Location = New System.Drawing.Point(7, 7)
-        Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(163, 25)
-        Me.Label15.TabIndex = 71
-        Me.Label15.Text = "Book Information"
-        '
         'frmAdminBookInventory
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
@@ -591,15 +591,15 @@ Partial Class frmAdminBookInventory
         Me.Text = "frmAdminBookInventory"
         CType(Me.dgvCopies, System.ComponentModel.ISupportInitialize).EndInit()
         Me.pnlForm.ResumeLayout(False)
+        Me.Panel1.ResumeLayout(False)
+        Me.Panel1.PerformLayout()
+        Me.Panel2.ResumeLayout(False)
+        Me.Panel2.PerformLayout()
         CType(Me.numCopies, System.ComponentModel.ISupportInitialize).EndInit()
         Me.pnlTop.ResumeLayout(False)
         Me.pnlTop.PerformLayout()
         Me.Panel13.ResumeLayout(False)
         Me.Panel13.PerformLayout()
-        Me.Panel1.ResumeLayout(False)
-        Me.Panel1.PerformLayout()
-        Me.Panel2.ResumeLayout(False)
-        Me.Panel2.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

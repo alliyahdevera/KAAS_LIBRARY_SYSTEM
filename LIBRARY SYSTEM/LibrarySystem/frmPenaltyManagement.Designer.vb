@@ -22,7 +22,7 @@ Partial Class frmPenaltyManagement
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.btnMarkAsNotPaid = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.btnMarkAsPaid = New System.Windows.Forms.Button()
@@ -187,14 +187,14 @@ Partial Class frmPenaltyManagement
         Me.dgvp.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
         Me.dgvp.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvp.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Username, Me.ReceiptNo, Me.BookID, Me.ISBN, Me.BookTitle, Me.BookAuthor, Me.Reason, Me.BookCondition, Me.Amount, Me.PenaltyStatus, Me.PenaltyDate})
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgvp.DefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgvp.DefaultCellStyle = DataGridViewCellStyle3
         Me.dgvp.Location = New System.Drawing.Point(0, 210)
         Me.dgvp.Name = "dgvp"
         Me.dgvp.RowHeadersVisible = False
@@ -281,6 +281,7 @@ Partial Class frmPenaltyManagement
         '
         'txtSearch
         '
+        Me.txtSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.txtSearch.Font = New System.Drawing.Font("Segoe UI", 12.0!)
         Me.txtSearch.Location = New System.Drawing.Point(1044, 165)
         Me.txtSearch.Name = "txtSearch"
@@ -376,7 +377,7 @@ Partial Class frmPenaltyManagement
         '
         'btnGenerateReport
         '
-        Me.btnGenerateReport.BackColor = System.Drawing.Color.FromArgb(CType(CType(90, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(60, Byte), Integer))
+        Me.btnGenerateReport.BackColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(25, Byte), Integer))
         Me.btnGenerateReport.FlatAppearance.BorderSize = 0
         Me.btnGenerateReport.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnGenerateReport.ForeColor = System.Drawing.Color.White
@@ -391,9 +392,10 @@ Partial Class frmPenaltyManagement
         '
         Me.DateTimePicker2.CalendarFont = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.DateTimePicker2.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         Me.DateTimePicker2.Location = New System.Drawing.Point(358, 168)
         Me.DateTimePicker2.Name = "DateTimePicker2"
-        Me.DateTimePicker2.Size = New System.Drawing.Size(213, 25)
+        Me.DateTimePicker2.Size = New System.Drawing.Size(117, 25)
         Me.DateTimePicker2.TabIndex = 169
         '
         'Label6
@@ -410,9 +412,10 @@ Partial Class frmPenaltyManagement
         '
         Me.DateTimePicker1.CalendarFont = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.DateTimePicker1.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         Me.DateTimePicker1.Location = New System.Drawing.Point(109, 168)
         Me.DateTimePicker1.Name = "DateTimePicker1"
-        Me.DateTimePicker1.Size = New System.Drawing.Size(213, 25)
+        Me.DateTimePicker1.Size = New System.Drawing.Size(117, 25)
         Me.DateTimePicker1.TabIndex = 167
         '
         'Label4
@@ -429,7 +432,7 @@ Partial Class frmPenaltyManagement
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.Color.White
+        Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(254, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(231, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(1245, 778)
         Me.Controls.Add(Me.btnGenerateReport)
         Me.Controls.Add(Me.DateTimePicker2)

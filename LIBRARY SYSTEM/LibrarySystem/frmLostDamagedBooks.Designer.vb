@@ -22,8 +22,7 @@ Partial Class frmLostDamagedBooks
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.dgvIncidents = New System.Windows.Forms.DataGridView()
         Me.ReportNo = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.BookNo = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -73,27 +72,19 @@ Partial Class frmLostDamagedBooks
         Me.dgvIncidents.BackgroundColor = System.Drawing.Color.White
         Me.dgvIncidents.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvIncidents.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ReportNo, Me.BookNo, Me.Accession, Me.ISBN, Me.BookTitle, Me.BookAuthor, Me.IncidentType, Me.DateReported, Me.Borrower, Me.Penalty, Me.CopyStatus, Me.Recovered, Me.Remarks})
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle3.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgvIncidents.DefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgvIncidents.DefaultCellStyle = DataGridViewCellStyle1
         Me.dgvIncidents.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.dgvIncidents.Location = New System.Drawing.Point(0, 135)
         Me.dgvIncidents.MultiSelect = False
         Me.dgvIncidents.Name = "dgvIncidents"
         Me.dgvIncidents.ReadOnly = True
-        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle4.Font = New System.Drawing.Font("Segoe UI", 10.0!)
-        DataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgvIncidents.RowHeadersDefaultCellStyle = DataGridViewCellStyle4
         Me.dgvIncidents.RowHeadersVisible = False
         Me.dgvIncidents.RowHeadersWidth = 51
         Me.dgvIncidents.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
@@ -332,7 +323,7 @@ Partial Class frmLostDamagedBooks
         '
         'pnlTop
         '
-        Me.pnlTop.BackColor = System.Drawing.Color.White
+        Me.pnlTop.BackColor = System.Drawing.Color.FromArgb(CType(CType(254, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(231, Byte), Integer))
         Me.pnlTop.Controls.Add(Me.lblTitle)
         Me.pnlTop.Controls.Add(Me.btnExport)
         Me.pnlTop.Dock = System.Windows.Forms.DockStyle.Top

@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class frmStudentMainMenu
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class frmStudentMainMenu
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim PictureBox2 As System.Windows.Forms.PictureBox
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmStudentMainMenu))
@@ -39,7 +39,6 @@ Partial Class frmStudentMainMenu
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.cboSchoolYear = New System.Windows.Forms.ComboBox()
         Me.lbl_dT = New System.Windows.Forms.Label()
         Me.lblt_datetime = New System.Windows.Forms.Label()
         PictureBox2 = New System.Windows.Forms.PictureBox()
@@ -259,7 +258,6 @@ Partial Class frmStudentMainMenu
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TableLayoutPanel2.Controls.Add(Me.Label11, 0, 0)
         Me.TableLayoutPanel2.Controls.Add(Me.Label4, 0, 1)
-        Me.TableLayoutPanel2.Controls.Add(Me.cboSchoolYear, 1, 1)
         Me.TableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel2.Location = New System.Drawing.Point(0, 0)
         Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
@@ -289,17 +287,9 @@ Partial Class frmStudentMainMenu
         Me.Label4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(90, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(60, Byte), Integer))
         Me.Label4.Location = New System.Drawing.Point(3, 41)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(134, 15)
+        Me.Label4.Size = New System.Drawing.Size(136, 15)
         Me.Label4.TabIndex = 39
         Me.Label4.Text = "MANAGEMENT SYSTEM"
-        '
-        'cboSchoolYear
-        '
-        Me.cboSchoolYear.FormattingEnabled = True
-        Me.cboSchoolYear.Location = New System.Drawing.Point(730, 44)
-        Me.cboSchoolYear.Name = "cboSchoolYear"
-        Me.cboSchoolYear.Size = New System.Drawing.Size(121, 21)
-        Me.cboSchoolYear.TabIndex = 59
         '
         'lbl_dT
         '
@@ -361,5 +351,4 @@ Partial Class frmStudentMainMenu
     Friend WithEvents TableLayoutPanel2 As TableLayoutPanel
     Friend WithEvents Label11 As Label
     Friend WithEvents Label4 As Label
-    Friend WithEvents cboSchoolYear As ComboBox
 End Class

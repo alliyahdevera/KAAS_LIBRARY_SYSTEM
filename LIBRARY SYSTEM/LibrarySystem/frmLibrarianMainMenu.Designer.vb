@@ -22,47 +22,36 @@ Partial Class frmLibrarianMainMenu
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim PictureBox2 As System.Windows.Forms.PictureBox
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmLibrarianMainMenu))
+        Dim PictureBox2 As System.Windows.Forms.PictureBox
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.btnpenaltyman = New System.Windows.Forms.Button()
-        Me.btnbookman = New System.Windows.Forms.Button()
-        Me.btnborrowman = New System.Windows.Forms.Button()
-        Me.btndashb = New System.Windows.Forms.Button()
-        Me.btnlogout = New System.Windows.Forms.Button()
         Me.Panel8 = New System.Windows.Forms.Panel()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.cboSchoolYear = New System.Windows.Forms.ComboBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.lbl_dT = New System.Windows.Forms.Label()
         Me.lblt_datetime = New System.Windows.Forms.Label()
+        Me.lblsy = New System.Windows.Forms.Label()
+        Me.btnpenaltyman = New System.Windows.Forms.Button()
+        Me.btnbookman = New System.Windows.Forms.Button()
+        Me.btnborrowman = New System.Windows.Forms.Button()
+        Me.btndashb = New System.Windows.Forms.Button()
+        Me.btnlogout = New System.Windows.Forms.Button()
         PictureBox2 = New System.Windows.Forms.PictureBox()
-        CType(PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel2.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.TableLayoutPanel2.SuspendLayout()
+        CType(PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
-        '
-        'PictureBox2
-        '
-        PictureBox2.Anchor = System.Windows.Forms.AnchorStyles.Left
-        PictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        PictureBox2.Image = Global.LibrarySystem.My.Resources.Resources.BOOK_LOGO_
-        PictureBox2.Location = New System.Drawing.Point(3, 13)
-        PictureBox2.Name = "PictureBox2"
-        PictureBox2.Size = New System.Drawing.Size(49, 50)
-        PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        PictureBox2.TabIndex = 37
-        PictureBox2.TabStop = False
         '
         'Panel3
         '
+        Me.Panel3.BackColor = System.Drawing.Color.FromArgb(CType(CType(254, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(231, Byte), Integer))
         Me.Panel3.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel3.Location = New System.Drawing.Point(223, 77)
         Me.Panel3.Name = "Panel3"
@@ -83,6 +72,135 @@ Partial Class frmLibrarianMainMenu
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(223, 684)
         Me.Panel2.TabIndex = 59
+        '
+        'Panel8
+        '
+        Me.Panel8.BackColor = System.Drawing.Color.White
+        Me.Panel8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.Panel8.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.Panel8.Location = New System.Drawing.Point(269, 916)
+        Me.Panel8.Name = "Panel8"
+        Me.Panel8.Size = New System.Drawing.Size(280, 34)
+        Me.Panel8.TabIndex = 52
+        '
+        'Panel1
+        '
+        Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(254, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(231, Byte), Integer))
+        Me.Panel1.Controls.Add(Me.TableLayoutPanel1)
+        Me.Panel1.Controls.Add(Me.Label1)
+        Me.Panel1.Controls.Add(Me.lbl_dT)
+        Me.Panel1.Controls.Add(Me.lblt_datetime)
+        Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Panel1.Location = New System.Drawing.Point(0, 0)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(1454, 77)
+        Me.Panel1.TabIndex = 58
+        '
+        'TableLayoutPanel1
+        '
+        Me.TableLayoutPanel1.ColumnCount = 2
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 3.816794!))
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 96.1832!))
+        Me.TableLayoutPanel1.Controls.Add(PictureBox2, 0, 0)
+        Me.TableLayoutPanel1.Controls.Add(Me.TableLayoutPanel2, 1, 0)
+        Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TableLayoutPanel1.Location = New System.Drawing.Point(0, 0)
+        Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
+        Me.TableLayoutPanel1.RowCount = 1
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(1454, 77)
+        Me.TableLayoutPanel1.TabIndex = 61
+        '
+        'TableLayoutPanel2
+        '
+        Me.TableLayoutPanel2.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.TableLayoutPanel2.ColumnCount = 2
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel2.Controls.Add(Me.Label11, 0, 0)
+        Me.TableLayoutPanel2.Controls.Add(Me.Label4, 0, 1)
+        Me.TableLayoutPanel2.Controls.Add(Me.lblsy, 1, 1)
+        Me.TableLayoutPanel2.Location = New System.Drawing.Point(58, 3)
+        Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
+        Me.TableLayoutPanel2.RowCount = 2
+        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 53.73134!))
+        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 46.26866!))
+        Me.TableLayoutPanel2.Size = New System.Drawing.Size(1393, 71)
+        Me.TableLayoutPanel2.TabIndex = 38
+        '
+        'Label11
+        '
+        Me.Label11.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.Label11.AutoSize = True
+        Me.Label11.Font = New System.Drawing.Font("Times New Roman", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label11.ForeColor = System.Drawing.Color.FromArgb(CType(CType(90, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(60, Byte), Integer))
+        Me.Label11.Location = New System.Drawing.Point(3, 6)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(145, 32)
+        Me.Label11.TabIndex = 38
+        Me.Label11.Text = "LIBRARY"
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.BackColor = System.Drawing.Color.Transparent
+        Me.Label4.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(90, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(60, Byte), Integer))
+        Me.Label4.Location = New System.Drawing.Point(3, 38)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(136, 15)
+        Me.Label4.TabIndex = 39
+        Me.Label4.Text = "MANAGEMENT SYSTEM"
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(90, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(60, Byte), Integer))
+        Me.Label1.Location = New System.Drawing.Point(-4, 64)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(1539, 20)
+        Me.Label1.TabIndex = 60
+        Me.Label1.Text = "—————————————————————————————————————————————————————————————————————————————————" &
+    "—————————————————————"
+        '
+        'lbl_dT
+        '
+        Me.lbl_dT.AutoSize = True
+        Me.lbl_dT.BackColor = System.Drawing.Color.Transparent
+        Me.lbl_dT.Font = New System.Drawing.Font("Segoe UI Semibold", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_dT.ForeColor = System.Drawing.Color.FromArgb(CType(CType(90, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(60, Byte), Integer))
+        Me.lbl_dT.Location = New System.Drawing.Point(1135, 35)
+        Me.lbl_dT.Name = "lbl_dT"
+        Me.lbl_dT.Size = New System.Drawing.Size(0, 21)
+        Me.lbl_dT.TabIndex = 58
+        '
+        'lblt_datetime
+        '
+        Me.lblt_datetime.AutoSize = True
+        Me.lblt_datetime.BackColor = System.Drawing.Color.Transparent
+        Me.lblt_datetime.Font = New System.Drawing.Font("Segoe UI Semibold", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblt_datetime.ForeColor = System.Drawing.Color.FromArgb(CType(CType(90, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(60, Byte), Integer))
+        Me.lblt_datetime.Location = New System.Drawing.Point(1606, 35)
+        Me.lblt_datetime.Name = "lblt_datetime"
+        Me.lblt_datetime.Size = New System.Drawing.Size(0, 21)
+        Me.lblt_datetime.TabIndex = 57
+        '
+        'lblsy
+        '
+        Me.lblsy.Anchor = System.Windows.Forms.AnchorStyles.Right
+        Me.lblsy.AutoSize = True
+        Me.lblsy.BackColor = System.Drawing.Color.Transparent
+        Me.lblsy.Font = New System.Drawing.Font("Segoe UI Semibold", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblsy.ForeColor = System.Drawing.Color.FromArgb(CType(CType(90, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(60, Byte), Integer))
+        Me.lblsy.Location = New System.Drawing.Point(1290, 44)
+        Me.lblsy.Name = "lblsy"
+        Me.lblsy.Size = New System.Drawing.Size(100, 21)
+        Me.lblsy.TabIndex = 61
+        Me.lblsy.Text = "School Year:"
+        Me.lblsy.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'btnpenaltyman
         '
@@ -174,128 +292,17 @@ Partial Class frmLibrarianMainMenu
         Me.btnlogout.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.btnlogout.UseVisualStyleBackColor = False
         '
-        'Panel8
+        'PictureBox2
         '
-        Me.Panel8.BackColor = System.Drawing.Color.White
-        Me.Panel8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.Panel8.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Panel8.Location = New System.Drawing.Point(269, 916)
-        Me.Panel8.Name = "Panel8"
-        Me.Panel8.Size = New System.Drawing.Size(280, 34)
-        Me.Panel8.TabIndex = 52
-        '
-        'Panel1
-        '
-        Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(254, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(231, Byte), Integer))
-        Me.Panel1.Controls.Add(Me.TableLayoutPanel1)
-        Me.Panel1.Controls.Add(Me.Label1)
-        Me.Panel1.Controls.Add(Me.lbl_dT)
-        Me.Panel1.Controls.Add(Me.lblt_datetime)
-        Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Panel1.Location = New System.Drawing.Point(0, 0)
-        Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(1454, 77)
-        Me.Panel1.TabIndex = 58
-        '
-        'TableLayoutPanel1
-        '
-        Me.TableLayoutPanel1.ColumnCount = 2
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 3.816794!))
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 96.1832!))
-        Me.TableLayoutPanel1.Controls.Add(PictureBox2, 0, 0)
-        Me.TableLayoutPanel1.Controls.Add(Me.TableLayoutPanel2, 1, 0)
-        Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel1.Location = New System.Drawing.Point(0, 0)
-        Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
-        Me.TableLayoutPanel1.RowCount = 1
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(1454, 77)
-        Me.TableLayoutPanel1.TabIndex = 61
-        '
-        'TableLayoutPanel2
-        '
-        Me.TableLayoutPanel2.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.TableLayoutPanel2.ColumnCount = 2
-        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel2.Controls.Add(Me.Label11, 0, 0)
-        Me.TableLayoutPanel2.Controls.Add(Me.Label4, 0, 1)
-        Me.TableLayoutPanel2.Controls.Add(Me.cboSchoolYear, 1, 1)
-        Me.TableLayoutPanel2.Location = New System.Drawing.Point(58, 3)
-        Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
-        Me.TableLayoutPanel2.RowCount = 2
-        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 53.73134!))
-        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 46.26866!))
-        Me.TableLayoutPanel2.Size = New System.Drawing.Size(1393, 71)
-        Me.TableLayoutPanel2.TabIndex = 38
-        '
-        'Label11
-        '
-        Me.Label11.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.Label11.AutoSize = True
-        Me.Label11.Font = New System.Drawing.Font("Times New Roman", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label11.ForeColor = System.Drawing.Color.FromArgb(CType(CType(90, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(60, Byte), Integer))
-        Me.Label11.Location = New System.Drawing.Point(3, 6)
-        Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(145, 32)
-        Me.Label11.TabIndex = 38
-        Me.Label11.Text = "LIBRARY"
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.BackColor = System.Drawing.Color.Transparent
-        Me.Label4.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(90, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(60, Byte), Integer))
-        Me.Label4.Location = New System.Drawing.Point(3, 38)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(134, 15)
-        Me.Label4.TabIndex = 39
-        Me.Label4.Text = "MANAGEMENT SYSTEM"
-        '
-        'cboSchoolYear
-        '
-        Me.cboSchoolYear.FormattingEnabled = True
-        Me.cboSchoolYear.Location = New System.Drawing.Point(699, 41)
-        Me.cboSchoolYear.Name = "cboSchoolYear"
-        Me.cboSchoolYear.Size = New System.Drawing.Size(121, 21)
-        Me.cboSchoolYear.TabIndex = 59
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(90, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(60, Byte), Integer))
-        Me.Label1.Location = New System.Drawing.Point(-4, 64)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(1539, 20)
-        Me.Label1.TabIndex = 60
-        Me.Label1.Text = "—————————————————————————————————————————————————————————————————————————————————" &
-    "—————————————————————"
-        '
-        'lbl_dT
-        '
-        Me.lbl_dT.AutoSize = True
-        Me.lbl_dT.BackColor = System.Drawing.Color.Transparent
-        Me.lbl_dT.Font = New System.Drawing.Font("Segoe UI Semibold", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_dT.ForeColor = System.Drawing.Color.FromArgb(CType(CType(90, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(60, Byte), Integer))
-        Me.lbl_dT.Location = New System.Drawing.Point(1135, 35)
-        Me.lbl_dT.Name = "lbl_dT"
-        Me.lbl_dT.Size = New System.Drawing.Size(0, 21)
-        Me.lbl_dT.TabIndex = 58
-        '
-        'lblt_datetime
-        '
-        Me.lblt_datetime.AutoSize = True
-        Me.lblt_datetime.BackColor = System.Drawing.Color.Transparent
-        Me.lblt_datetime.Font = New System.Drawing.Font("Segoe UI Semibold", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblt_datetime.ForeColor = System.Drawing.Color.FromArgb(CType(CType(90, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(60, Byte), Integer))
-        Me.lblt_datetime.Location = New System.Drawing.Point(1606, 35)
-        Me.lblt_datetime.Name = "lblt_datetime"
-        Me.lblt_datetime.Size = New System.Drawing.Size(0, 21)
-        Me.lblt_datetime.TabIndex = 57
+        PictureBox2.Anchor = System.Windows.Forms.AnchorStyles.Left
+        PictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        PictureBox2.Image = Global.LibrarySystem.My.Resources.Resources.BOOK_LOGO_
+        PictureBox2.Location = New System.Drawing.Point(3, 13)
+        PictureBox2.Name = "PictureBox2"
+        PictureBox2.Size = New System.Drawing.Size(49, 50)
+        PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        PictureBox2.TabIndex = 37
+        PictureBox2.TabStop = False
         '
         'frmLibrarianMainMenu
         '
@@ -309,13 +316,13 @@ Partial Class frmLibrarianMainMenu
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "frmLibrarianMainMenu"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
-        CType(PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel2.ResumeLayout(False)
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
         Me.TableLayoutPanel1.ResumeLayout(False)
         Me.TableLayoutPanel2.ResumeLayout(False)
         Me.TableLayoutPanel2.PerformLayout()
+        CType(PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -336,5 +343,5 @@ Partial Class frmLibrarianMainMenu
     Friend WithEvents TableLayoutPanel2 As TableLayoutPanel
     Friend WithEvents Label11 As Label
     Friend WithEvents Label4 As Label
-    Friend WithEvents cboSchoolYear As ComboBox
+    Friend WithEvents lblsy As Label
 End Class

@@ -148,6 +148,12 @@
     <Compile Include="frmLostDamagedBooks.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmManageSY.Designer.vb">
+      <DependentUpon>frmManageSY.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmManageSY.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmReports.Designer.vb">
       <DependentUpon>frmReports.vb</DependentUpon>
     </Compile>
@@ -292,6 +298,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmLostDamagedBooks.resx">
       <DependentUpon>frmLostDamagedBooks.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmManageSY.resx">
+      <DependentUpon>frmManageSY.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmReports.resx">
       <DependentUpon>frmReports.vb</DependentUpon>
