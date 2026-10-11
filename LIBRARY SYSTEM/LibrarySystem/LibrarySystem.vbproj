@@ -286,6 +286,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="PagerHelper.vb" />
+    <Compile Include="SchoolYearContext.vb" />
     <Compile Include="ScreenFit.vb" />
     <Compile Include="UIHelper.vb" />
   </ItemGroup>

@@ -9,10 +9,22 @@ Public Class frmLostDamagedBooks
     Private Sub frmLostDamagedBooks_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         cboType.SelectedIndex = 0
         isReady = True
+        AddHandler SchoolYearContext.Changed, AddressOf OnSchoolYearChanged
+    End Sub
+
+    Private Sub frmLostDamagedBooks_Disposed(sender As Object, e As EventArgs) Handles Me.Disposed
+        RemoveHandler SchoolYearContext.Changed, AddressOf OnSchoolYearChanged
+    End Sub
+
+    Private Sub OnSchoolYearChanged()
+        If Me.IsDisposed OrElse Not Me.Visible Then Exit Sub
+        SchoolYearBanner.Apply(Me, "lblTitle")
+        LoadIncidents()
     End Sub
 
     Private Sub OnVisible(sender As Object, e As EventArgs) Handles MyBase.VisibleChanged
         If Me.DesignMode OrElse Not Me.Visible Then Exit Sub
+        SchoolYearBanner.Apply(Me, "lblTitle")
         useDateRange = False
         dtpFrom.Value = New Date(Date.Today.Year, Date.Today.Month, 1)
         dtpTo.Value = Date.Today
@@ -49,6 +61,7 @@ Public Class frmLostDamagedBooks
                     "AND (@typ = '' OR i.incident_type = @typ) " &
                     "AND (@inclRes = 1 OR i.is_resolved = 0) " &
                     "AND (@useDates = 0 OR i.incident_date BETWEEN @f AND @t) " &
+                    "AND " & SchoolYearContext.Between("i.incident_date") & " " &
                     "ORDER BY i.incident_date DESC, i.incident_id DESC", conn)
                     cmd.Parameters.AddWithValue("@kw", kw)
                     cmd.Parameters.AddWithValue("@typ", typ)
@@ -152,10 +165,11 @@ Public Class frmLostDamagedBooks
     End Sub
 
     Private Sub btnExport_Click(sender As Object, e As EventArgs) Handles btnExport.Click
-        Dim name As String = "Lost_Damaged_Books"
+        Dim name As String = "Lost_Damaged_Books" & SchoolYearContext.FileTag()
         If useDateRange Then
             name &= "_" & dtpFrom.Value.ToString("yyyyMMdd") & "_to_" & dtpTo.Value.ToString("yyyyMMdd")
         End If
         BorrowData.ExportGridToCsv(dgvIncidents, name)
     End Sub
+
 End Class

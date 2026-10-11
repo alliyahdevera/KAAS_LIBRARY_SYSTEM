@@ -82,7 +82,9 @@
 
     Private Sub PositionBanner()
         If pnlNotif Is Nothing Then Exit Sub
-        pnlNotif.Location = New Point(Math.Max(0, Panel3.ClientSize.Width - pnlNotif.Width - 30), 18)
+        Dim farRight As Integer = Panel3.ClientSize.Width - pnlNotif.Width - 30     ' old position (screen edge)
+        Dim x As Integer = Math.Min(farRight, Math.Max(520, Panel3.ClientSize.Width - pnlNotif.Width - 460))
+        pnlNotif.Location = New Point(Math.Max(0, x), 29)
     End Sub
 
     Private Sub Panel3_Resize(sender As Object, e As EventArgs) Handles Panel3.Resize

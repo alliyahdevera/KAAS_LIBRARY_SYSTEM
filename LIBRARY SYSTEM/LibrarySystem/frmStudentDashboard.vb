@@ -10,16 +10,21 @@ Public Class frmStudentDashboard
 
     Private Sub RefreshDashboard()
         Try
+            ' Trending books (all time)
             DashboardData.FillChart(chartb_mborrowed, DashboardData.Table(DashboardData.TopBooksSql),
                 SeriesChartType.Bar, False)
 
             If Not AppSession.MemberId.HasValue Then Exit Sub
             Dim m As Integer = AppSession.MemberId.Value
 
+            ' Books out right now
             lblb_Borrowed.Text = DashboardData.Scalar(
                 "SELECT COUNT(*) FROM BorrowTransaction WHERE member_id = @m AND transaction_status = 'Borrowed'", "@m", m).ToString("N0")
+
+            ' Books returned (all time)
             lblb_return.Text = DashboardData.Scalar(
                 "SELECT COUNT(*) FROM BorrowTransaction WHERE member_id = @m AND transaction_status = 'Returned'", "@m", m).ToString("N0")
+
             lblBooksDue.Text = DashboardData.Scalar(
                 "SELECT COUNT(*) FROM BorrowTransaction WHERE member_id = @m AND transaction_status = 'Borrowed' " &
                 "AND due_date >= CURDATE() AND due_date <= DATE_ADD(CURDATE(), INTERVAL 1 DAY)", "@m", m).ToString("N0")
@@ -30,7 +35,7 @@ Public Class frmStudentDashboard
                 "JOIN BorrowTransaction t ON t.transaction_id = p.transaction_id " &
                 "WHERE t.member_id = @m AND p.penalty_status IN ('Unpaid','Pending')", "@m", m)
 
-            ' Penalty still building up on books that are late right now (after the grace period)   ' CHANGED
+            ' Penalty still building up on books that are late right now (after the grace period)
             Dim chargeableDays As Decimal = DashboardData.Scalar(
                 "SELECT IFNULL(SUM(GREATEST(0, DATEDIFF(CURDATE(), due_date) - @g)),0) FROM BorrowTransaction " &
                 "WHERE member_id = @m AND transaction_status = 'Borrowed'",

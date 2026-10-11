@@ -51,6 +51,16 @@ Module DashboardData
         "JOIN vw_BookCatalog v ON v.book_id = c.book_id " &
         "LEFT JOIN Penalty p ON p.transaction_id = t.transaction_id "
 
+    ' Top 5 most borrowed titles within a school year (syClause = SchoolYearContext.Between("t.borrow_date"))
+    Public Function TopBooksSqlFor(syClause As String) As String
+        Return "SELECT b.title, COUNT(*) AS n FROM BorrowTransaction t " &
+               "JOIN BookCopies c ON c.copy_id = t.copy_id JOIN BookInfo b ON b.book_id = c.book_id " &
+               "WHERE " & syClause & " " &
+               "GROUP BY b.book_id, b.title ORDER BY n DESC, b.title LIMIT 5"
+    End Function
+
+
+
     Private Sub AddParams(cmd As MySqlCommand, args() As Object)
         If args Is Nothing Then Exit Sub
         For i As Integer = 0 To args.Length - 2 Step 2
@@ -133,7 +143,7 @@ Module DashboardData
             For i As Integer = 0 To Math.Min(dt.Columns.Count, g.Columns.Count) - 1
                 Dim text As String = Cell(r(i))
                 row.Cells(i).Value = text
-                If text = "Overdue" OrElse text = "Unpaid" Then row.DefaultCellStyle.ForeColor = Color.Firebrick
+                If text = "Overdue" OrElse text = "Unpaid" OrElse text = "Penalty" Then row.DefaultCellStyle.ForeColor = Color.Firebrick
             Next
         Next
         g.ClearSelection()

@@ -4,7 +4,9 @@
     Private Sub frmLibrarianMainMenu_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ScreenFit.Apply(Me, 1924, 1052)      ' Task 3: delete this line if you have not added the ScreenFit module
         Me.CenterToScreen()
-
+        ' School year of today's date - display only, the librarian's screens are NOT filtered by it
+        Dim cur As SchoolYearInfo = SchoolYearContext.Current()
+        lblsy.Text = "School Year: " & If(cur IsNot Nothing, cur.Name, "Not set")
 
         MenuBuilder.AddMenuButton(Me, "btnpenaltyman", "Lost and Damaged")
 
@@ -38,5 +40,9 @@
 
     Private Sub frmLibrarianMainMenu_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
         If Not loggingOut Then Application.Exit()
+    End Sub
+
+    Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs)
+
     End Sub
 End Class

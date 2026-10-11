@@ -5,9 +5,24 @@ Public Class frmAdminLogs
     Private pager As GridPager
     Private isReady As Boolean = False
 
+    Private Sub frmAdminLogs_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        AddHandler SchoolYearContext.Changed, AddressOf OnSchoolYearChanged
+    End Sub
+
+    Private Sub frmAdminLogs_Disposed(sender As Object, e As EventArgs) Handles Me.Disposed
+        RemoveHandler SchoolYearContext.Changed, AddressOf OnSchoolYearChanged
+    End Sub
+
+    Private Sub OnSchoolYearChanged()
+        If Me.IsDisposed OrElse Not Me.Visible OrElse Not isReady Then Exit Sub
+        SchoolYearBanner.Apply(Me, "Label1")
+        LoadLogs(txtSearch.Text)
+    End Sub
+
     Private Sub frmAdminLogs_VisibleChanged(sender As Object, e As EventArgs) Handles Me.VisibleChanged
         If Not Me.Visible Then Exit Sub
         UiHelpers.FillHeader(Me)
+        SchoolYearBanner.Apply(Me, "Label1")
         DashboardData.SetupReadOnlyGrid(DataGridView1)
 
         If pager Is Nothing Then pager = PagerHelper.Create(DataGridView1)
@@ -36,6 +51,7 @@ Public Class frmAdminLogs
                     "WHERE (@kw = '' OR u.username LIKE CONCAT('%',@kw,'%') OR l.action LIKE CONCAT('%',@kw,'%') " &
                     " OR l.description LIKE CONCAT('%',@kw,'%')) " &
                     "AND (@wk = 0 OR YEARWEEK(l.log_time, 1) = YEARWEEK(CURDATE(), 1)) " &
+                    "AND " & SchoolYearContext.Between("l.log_time", True) & " " &
                     "ORDER BY l.log_id DESC LIMIT 5000", conn)
                     cmd.Parameters.AddWithValue("@kw", kw)
                     cmd.Parameters.AddWithValue("@wk", weekOnly)

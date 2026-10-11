@@ -16,7 +16,7 @@ Public Class frmLibrarianDashboard
             ' "Books For Return" = books currently out on loan
             lblPendingReceipts.Text = DashboardData.Scalar("SELECT COUNT(*) FROM BorrowTransaction WHERE transaction_status = 'Borrowed'").ToString("N0")
 
-            ' Unpaid vs Paid penalty - shown in pesos
+            ' Unpaid vs Paid penalty - shown in pesos (all penalties, no school year filter)
             DashboardData.FillChart(Chart1, DashboardData.Table(
                 "SELECT 'Unpaid', IFNULL(SUM(penalty_amount),0) FROM Penalty WHERE penalty_status IN ('Unpaid','Pending') " &
                 "UNION ALL SELECT 'Paid', IFNULL(SUM(penalty_amount),0) FROM Penalty WHERE penalty_status = 'Paid'"),
@@ -24,11 +24,8 @@ Public Class frmLibrarianDashboard
 
             ' Recent Penalty (DataGridView)
             DashboardData.FillGrid(dgvpenalty, DashboardData.Table(DashboardData.RecentPenaltySql))
-
-            ' Recent Library Activity - last 7 days (DataGridView)
             DashboardData.FillGrid(DataGridView1, DashboardData.Table(DashboardData.Recent7DaysSql))
 
-            ' Book Overview
             DashboardData.FillChart(chartb_overview, DashboardData.Table(
                 "SELECT copy_status, COUNT(*) FROM BookCopies WHERE copy_status <> 'Archived' GROUP BY copy_status"),
                 SeriesChartType.Doughnut, True)
