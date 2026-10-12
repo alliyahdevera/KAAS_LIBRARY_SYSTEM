@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 11, 2026 at 08:23 PM
+-- Generation Time: Oct 12, 2026 at 05:39 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -172,7 +172,58 @@ INSERT INTO `activitylogs` (`log_id`, `user_id`, `action`, `description`, `log_t
 (130, 1, 'Logout', 'A_admin logged out.', '2026-10-12 02:14:08'),
 (131, 1, 'Logout', 'A_admin logged out.', '2026-10-12 02:17:12'),
 (132, 1, 'Logout', 'A_admin logged out.', '2026-10-12 02:20:27'),
-(133, 3, 'Logout', 'A_Librarian logged out.', '2026-10-12 02:21:52');
+(133, 3, 'Logout', 'A_Librarian logged out.', '2026-10-12 02:21:52'),
+(134, 10, 'Logout', 'librarian logged out.', '2026-10-12 08:01:07'),
+(135, 1, 'Logout', 'A_admin logged out.', '2026-10-12 08:04:12'),
+(136, 1, 'Logout', 'A_admin logged out.', '2026-10-12 08:06:32'),
+(137, 3, 'Recovered Book', 'Book no. 10 marked as recovered / repaired', '2026-10-12 08:07:28'),
+(138, 3, 'Logout', 'A_Librarian logged out.', '2026-10-12 08:07:39'),
+(139, 3, 'Logout', 'A_Librarian logged out.', '2026-10-12 08:08:53'),
+(140, 1, 'Update Account', 'Updated account \'librarian\' (status Active).', '2026-10-12 08:27:45'),
+(141, 1, 'Update Account', 'Updated account \'librarian\' (status Active).', '2026-10-12 08:49:47'),
+(142, 1, 'Changed Password', 'Changed the password of librarian librarian (librarian)', '2026-10-12 08:49:47'),
+(143, 1, 'Update Account', 'Updated account \'librarian\' (status Inactive).', '2026-10-12 08:50:21'),
+(144, 1, 'Update Account', 'Updated account \'librarian\' (status Active).', '2026-10-12 08:50:35'),
+(145, 1, 'Logout', 'A_admin logged out.', '2026-10-12 08:50:49'),
+(146, 1, 'Generate Report', 'Report 10/01/2026 to 10/12/2026 (4 records)', '2026-10-12 08:59:35'),
+(147, 1, 'Generate Report', 'Report 10/01/2026 to 10/12/2026 (4 records)', '2026-10-12 09:01:48'),
+(148, 3, 'Logout', 'A_Librarian logged out.', '2026-10-12 09:20:56'),
+(149, 1, 'Logout', 'A_admin logged out.', '2026-10-12 09:39:19'),
+(150, 1, 'Logout', 'A_admin logged out.', '2026-10-12 09:41:51'),
+(151, 3, 'Logout', 'A_Librarian logged out.', '2026-10-12 09:48:13'),
+(152, 6, 'Logout', 'Tailor logged out.', '2026-10-12 09:49:58'),
+(153, 1, 'Logout', 'A_admin logged out.', '2026-10-12 09:50:56'),
+(154, 6, 'Borrow', 'Tailor borrowed 1 book(s).', '2026-10-12 09:51:40'),
+(155, 6, 'Logout', 'Tailor logged out.', '2026-10-12 09:51:51'),
+(156, 9, 'Logout', 'teacher logged out.', '2026-10-12 09:54:55'),
+(157, 10, 'Logout', 'librarian logged out.', '2026-10-12 09:57:10'),
+(158, 6, 'Logout', 'Tailor logged out.', '2026-10-12 09:57:24'),
+(159, 10, 'Verify Record', 'Verified transaction #24 as Lost - penalty ₱2,450.00', '2026-10-12 09:59:06'),
+(160, 10, 'Verify Record', 'Verified transaction #24 as Good - no penalty', '2026-10-12 09:59:41'),
+(161, 10, 'Verify Record', 'Verified transaction #24 as Damaged - penalty ₱2,450.00', '2026-10-12 09:59:52'),
+(162, 10, 'Update Penalty', 'Updated transaction #24 - condition Damaged, amount ₱2,450.00, status Paid', '2026-10-12 10:01:56'),
+(163, 10, 'Update Penalty', 'Updated transaction #24 - condition Damaged, amount ₱2,450.00, status Unpaid', '2026-10-12 10:02:11'),
+(164, 10, 'Logout', 'librarian logged out.', '2026-10-12 10:05:02'),
+(165, 1, 'Logout', 'A_admin logged out.', '2026-10-12 10:10:46'),
+(166, 3, 'Recovered Book', 'Book no. 17 marked as recovered / repaired', '2026-10-12 10:15:04'),
+(167, 3, 'Logout', 'A_Librarian logged out.', '2026-10-12 10:19:19'),
+(168, 1, 'Update Account', 'Updated account \'librarian\' (status Active).', '2026-10-12 10:22:19'),
+(169, 1, 'Update Account', 'Updated account \'librarian\' (status Active).', '2026-10-12 10:23:39'),
+(170, 1, 'Update Account', 'Updated account \'librarian\' (status Active).', '2026-10-12 10:24:01'),
+(171, 1, 'Logout', 'A_admin logged out.', '2026-10-12 10:25:14'),
+(172, 1, 'Logout', 'A_admin logged out.', '2026-10-12 10:38:46'),
+(173, 3, 'Add Book', 'Added \'Wotakoi\' (ISBN 9780293857687) with 2 copy/copies', '2026-10-12 10:40:27'),
+(174, 3, 'Logout', 'A_Librarian logged out.', '2026-10-12 10:40:31'),
+(175, 1, 'Logout', 'A_admin logged out.', '2026-10-12 10:40:53'),
+(176, 3, 'Logout', 'A_Librarian logged out.', '2026-10-12 11:00:03'),
+(177, 1, 'Logout', 'A_admin logged out.', '2026-10-12 11:04:31'),
+(178, 3, 'Logout', 'A_Librarian logged out.', '2026-10-12 11:05:03'),
+(179, 1, 'Add Book Copy', 'Added 1 copy/copies (Good) to ISBN 9780141439518', '2026-10-12 11:13:27'),
+(180, 1, 'Logout', 'A_admin logged out.', '2026-10-12 11:13:37'),
+(181, 3, 'Logout', 'A_Librarian logged out.', '2026-10-12 11:14:26'),
+(182, 1, 'Logout', 'A_admin logged out.', '2026-10-12 11:15:53'),
+(183, 3, 'Logout', 'A_Librarian logged out.', '2026-10-12 11:27:06'),
+(184, 1, 'Logout', 'A_admin logged out.', '2026-10-12 11:27:46');
 
 -- --------------------------------------------------------
 
@@ -195,6 +246,7 @@ INSERT INTO `authors` (`author_id`, `author_name`) VALUES
 (21, 'E.H. Gombrich'),
 (3, 'F. Scott Fitzgerald'),
 (4, 'Frank Herbert'),
+(32, 'Fujita'),
 (7, 'Gillian Flynn'),
 (1, 'J.K. Rowling'),
 (5, 'J.R.R. Tolkien'),
@@ -255,7 +307,8 @@ INSERT INTO `bookauthors` (`book_id`, `author_id`, `author_order`) VALUES
 (21, 18, 1),
 (22, 24, 1),
 (23, 12, 1),
-(24, 22, 1);
+(24, 22, 1),
+(32, 32, 1);
 
 --
 -- Triggers `bookauthors`
@@ -308,7 +361,8 @@ INSERT INTO `bookcategories` (`book_id`, `category_id`) VALUES
 (21, 18),
 (22, 24),
 (23, 12),
-(24, 22);
+(24, 22),
+(32, 32);
 
 -- --------------------------------------------------------
 
@@ -339,14 +393,14 @@ INSERT INTO `bookcopies` (`copy_id`, `book_id`, `accession_no`, `copy_status`, `
 (7, 2, 'ACC-00007', 'Available', 'Good', '2026-07-31 10:02:59'),
 (8, 13, 'ACC-00008', 'Available', 'Good', '2026-07-31 10:02:59'),
 (9, 14, 'ACC-00009', 'Available', 'Good', '2026-07-31 10:02:59'),
-(10, 15, 'ACC-00010', 'Damaged', 'Damaged', '2026-07-31 10:02:59'),
+(10, 15, 'ACC-00010', 'Available', 'Good', '2026-07-31 10:02:59'),
 (11, 3, 'ACC-00011', 'Available', 'Good', '2026-07-31 10:02:59'),
 (12, 23, 'ACC-00012', 'Available', 'Good', '2026-07-31 10:02:59'),
 (13, 11, 'ACC-00013', 'Available', 'Good', '2026-07-31 10:02:59'),
 (14, 9, 'ACC-00014', 'Available', 'Good', '2026-07-31 10:02:59'),
 (15, 6, 'ACC-00015', 'Damaged', 'Damaged', '2026-07-31 10:02:59'),
 (16, 8, 'ACC-00016', 'Available', 'Good', '2026-07-31 10:02:59'),
-(17, 4, 'ACC-00017', 'Lost', 'Lost', '2026-07-31 10:02:59'),
+(17, 4, 'ACC-00017', 'Available', 'Good', '2026-07-31 10:02:59'),
 (18, 21, 'ACC-00018', 'Available', 'Good', '2026-07-31 10:02:59'),
 (19, 5, 'ACC-00019', 'Available', 'Good', '2026-07-31 10:02:59'),
 (20, 7, 'ACC-00020', 'Available', 'Good', '2026-07-31 10:02:59'),
@@ -354,7 +408,7 @@ INSERT INTO `bookcopies` (`copy_id`, `book_id`, `accession_no`, `copy_status`, `
 (22, 24, 'ACC-00022', 'Damaged', 'Damaged', '2026-07-31 10:02:59'),
 (23, 12, 'ACC-00023', 'Available', 'Good', '2026-07-31 10:02:59'),
 (24, 22, 'ACC-00024', 'Available', 'Good', '2026-07-31 10:02:59'),
-(25, 10, 'ACC-00025', 'Available', 'Good', '2026-07-31 10:03:23'),
+(25, 10, 'ACC-00025', 'Borrowed', 'Good', '2026-07-31 10:03:23'),
 (26, 16, 'ACC-00026', 'Available', 'Good', '2026-08-01 11:28:08'),
 (27, 10, 'ACC-00027', 'Available', 'Good', '2026-08-01 11:28:08'),
 (28, 20, 'ACC-00028', 'Available', 'Good', '2026-08-01 11:28:08'),
@@ -403,7 +457,10 @@ INSERT INTO `bookcopies` (`copy_id`, `book_id`, `accession_no`, `copy_status`, `
 (71, 24, 'ACC-00071', 'Available', 'Good', '2026-08-01 11:29:46'),
 (72, 12, 'ACC-00072', 'Available', 'Good', '2026-08-01 11:29:46'),
 (73, 22, 'ACC-00073', 'Available', 'Good', '2026-08-01 11:29:46'),
-(74, 7, 'ACC-00074', 'Available', 'Good', '2026-08-02 06:47:55');
+(74, 7, 'ACC-00074', 'Available', 'Good', '2026-08-02 06:47:55'),
+(75, 32, 'ACC-00075', 'Available', 'Good', '2026-10-12 02:40:27'),
+(76, 32, 'ACC-00076', 'Available', 'Good', '2026-10-12 02:40:27'),
+(77, 10, 'ACC-00077', 'Available', 'Good', '2026-10-12 03:13:27');
 
 -- --------------------------------------------------------
 
@@ -450,7 +507,8 @@ INSERT INTO `bookinfo` (`book_id`, `isbn`, `title`, `publisher_id`, `edition`, `
 (21, '9781292401981', 'Principles of Marketing', 14, '18th Edition', '2021', 1950.00, '2026-07-31 10:02:59'),
 (22, '9781426222221', 'National Geographic Almanac 2024', 20, '2024 Edition', '2024', 900.00, '2026-07-31 10:02:59'),
 (23, '9781501127625', 'Steve Jobs', 12, '1st Edition', '2015', 890.00, '2026-07-31 10:02:59'),
-(24, '9781786571205', 'Lonely Planet Japan', 18, '17th Edition', '2023', 1300.00, '2026-07-31 10:02:59');
+(24, '9781786571205', 'Lonely Planet Japan', 18, '17th Edition', '2023', 1300.00, '2026-07-31 10:02:59'),
+(32, '9780293857687', 'Wotakoi', 32, '1st Edition', '2015', 900.00, '2026-10-12 02:40:27');
 
 -- --------------------------------------------------------
 
@@ -499,7 +557,8 @@ INSERT INTO `borrowtransaction` (`transaction_id`, `member_id`, `copy_id`, `issu
 (21, 7, 25, NULL, '2026-10-06', '2026-10-08', '2026-10-06', 10, 'Good', 'Returned'),
 (22, 7, 25, NULL, '2026-10-06', '2026-10-08', '2026-10-06', 10, 'Good', 'Returned'),
 (23, 7, 17, NULL, '2026-10-06', '2026-10-08', '2026-10-06', 10, 'Lost', 'Returned'),
-(24, 7, 15, NULL, '2026-10-06', '2026-10-08', '2026-10-06', 10, 'Damaged', 'Returned');
+(24, 7, 15, NULL, '2026-10-06', '2026-10-08', '2026-10-06', 10, 'Damaged', 'Returned'),
+(25, 6, 25, NULL, '2026-10-12', '2026-10-14', NULL, NULL, NULL, 'Borrowed');
 
 -- --------------------------------------------------------
 
@@ -519,6 +578,7 @@ CREATE TABLE `categories` (
 INSERT INTO `categories` (`category_id`, `category_name`) VALUES
 (10, 'Action & Adventure'),
 (21, 'Art & Photography'),
+(32, 'Arts'),
 (12, 'Biography'),
 (18, 'Business & Economics'),
 (16, 'Computer Science / Information Technology'),
@@ -650,7 +710,49 @@ INSERT INTO `loginlogs` (`login_log_id`, `user_id`, `username`, `status`, `attem
 (87, 6, 'Tailor', 'Success', '2026-10-12 02:14:24'),
 (88, 1, 'A_admin', 'Success', '2026-10-12 02:17:03'),
 (89, 1, 'A_admin', 'Success', '2026-10-12 02:18:17'),
-(90, 3, 'A_Librarian', 'Success', '2026-10-12 02:20:38');
+(90, 3, 'A_Librarian', 'Success', '2026-10-12 02:20:38'),
+(91, 1, 'A_admin', 'Success', '2026-10-12 07:54:53'),
+(92, 10, 'librarian', 'Success', '2026-10-12 07:59:51'),
+(93, 1, 'A_admin', 'Success', '2026-10-12 08:01:19'),
+(94, 1, 'A_admin', 'Success', '2026-10-12 08:04:29'),
+(95, 3, 'A_Librarian', 'Success', '2026-10-12 08:06:41'),
+(96, 3, 'A_Librarian', 'Success', '2026-10-12 08:08:19'),
+(97, 1, 'A_admin', 'Success', '2026-10-12 08:09:07'),
+(98, 1, 'A_admin', 'Success', '2026-10-12 08:19:25'),
+(99, 1, 'A_admin', 'Success', '2026-10-12 08:21:54'),
+(100, 1, 'A_admin', 'Success', '2026-10-12 08:25:47'),
+(101, 1, 'A_admin', 'Success', '2026-10-12 08:49:20'),
+(102, 1, 'A_admin', 'Success', '2026-10-12 08:56:49'),
+(103, 3, 'A_Librarian', 'Success', '2026-10-12 09:20:20'),
+(104, 1, 'A_admin', 'Success', '2026-10-12 09:21:07'),
+(105, 1, 'A_admin', 'Success', '2026-10-12 09:37:32'),
+(106, 1, 'A_admin', 'Success', '2026-10-12 09:41:38'),
+(107, 3, 'A_Librarian', 'Success', '2026-10-12 09:42:01'),
+(108, 6, 'Tailor', 'Success', '2026-10-12 09:49:33'),
+(109, 1, 'A_admin', 'Success', '2026-10-12 09:50:13'),
+(110, 6, 'Tailor', 'Success', '2026-10-12 09:51:03'),
+(111, 9, 'teacher', 'Success', '2026-10-12 09:52:07'),
+(112, 10, 'librarian', 'Success', '2026-10-12 09:56:46'),
+(113, 6, 'Tailor', 'Success', '2026-10-12 09:57:16'),
+(114, 10, 'librarian', 'Success', '2026-10-12 09:57:43'),
+(115, 1, 'A_admin', 'Success', '2026-10-12 10:05:10'),
+(116, 3, 'A_Librarian', 'Success', '2026-10-12 10:11:07'),
+(117, 1, 'A_admin', 'Success', '2026-10-12 10:19:26'),
+(118, 1, 'A_admin', 'Success', '2026-10-12 10:28:10'),
+(119, 3, 'A_Librarian', 'Success', '2026-10-12 10:38:59'),
+(120, 1, 'A_admin', 'Success', '2026-10-12 10:40:40'),
+(121, 3, 'A_Librarian', 'Success', '2026-10-12 10:50:55'),
+(122, 3, 'A_Librarian', 'Success', '2026-10-12 10:58:54'),
+(123, 1, 'A_admin', 'Success', '2026-10-12 11:00:11'),
+(124, 3, 'A_Librarian', 'Success', '2026-10-12 11:04:41'),
+(125, 1, 'A_admin', 'Success', '2026-10-12 11:05:35'),
+(126, 1, 'A_admin', 'Success', '2026-10-12 11:12:59'),
+(127, 3, 'A_Librarian', 'Success', '2026-10-12 11:13:46'),
+(128, 1, 'A_admin', 'Success', '2026-10-12 11:14:48'),
+(129, 3, 'A_Librarian', 'Success', '2026-10-12 11:16:02'),
+(130, 3, 'A_Librarian', 'Success', '2026-10-12 11:26:45'),
+(131, 1, 'A_admin', 'Success', '2026-10-12 11:27:30'),
+(132, 1, 'A_admin', 'Success', '2026-10-12 11:30:36');
 
 -- --------------------------------------------------------
 
@@ -679,11 +781,11 @@ CREATE TABLE `lostdamagedbooks` (
 INSERT INTO `lostdamagedbooks` (`incident_id`, `copy_id`, `transaction_id`, `member_id`, `incident_type`, `incident_date`, `reported_by`, `remarks`, `is_resolved`, `resolved_date`, `date_recorded`) VALUES
 (1, 2, 12, 2, 'Lost', '2026-08-02', NULL, 'Imported from borrow history', 0, NULL, '2026-10-07 10:24:15'),
 (2, 9, 17, 6, 'Lost', '2026-08-02', NULL, 'Imported from borrow history', 1, '2026-10-07', '2026-10-07 10:24:15'),
-(3, 17, 23, 7, 'Lost', '2026-10-06', 10, 'Imported from borrow history', 0, NULL, '2026-10-07 10:24:15'),
-(4, 15, 24, 7, 'Damaged', '2026-10-06', 10, 'Imported from borrow history', 0, NULL, '2026-10-07 10:24:15'),
+(3, 17, 23, 7, 'Lost', '2026-10-06', 10, 'Imported from borrow history', 1, '2026-10-12', '2026-10-07 10:24:15'),
 (8, 6, 14, 2, 'Damaged', '2026-08-02', NULL, 'Imported from borrow history', 1, '2026-10-07', '2026-10-07 11:29:03'),
 (9, 22, 15, 2, 'Damaged', '2026-08-02', NULL, 'Imported from borrow history', 0, NULL, '2026-10-07 11:29:03'),
-(10, 10, 18, 6, 'Damaged', '2026-08-02', NULL, 'Imported from borrow history', 0, NULL, '2026-10-07 11:29:03');
+(10, 10, 18, 6, 'Damaged', '2026-08-02', NULL, 'Imported from borrow history', 1, '2026-10-12', '2026-10-07 11:29:03'),
+(14, 15, 24, 7, 'Damaged', '2026-10-06', 10, 'Reported when the book was returned', 0, NULL, '2026-10-12 02:02:11');
 
 -- --------------------------------------------------------
 
@@ -711,7 +813,7 @@ INSERT INTO `members` (`member_id`, `user_id`, `member_type`, `course`, `year_le
 (7, 7, 'Student', 'BS Information Technology', 1, NULL),
 (8, 8, 'Student', 'BS Information Technology', 1, NULL),
 (9, 9, 'Teacher', NULL, NULL, 'BS Information Technology'),
-(10, 10, 'Staff', NULL, NULL, 'Juris Doctor');
+(10, 10, 'Staff', NULL, NULL, 'Library');
 
 -- --------------------------------------------------------
 
@@ -989,9 +1091,9 @@ INSERT INTO `penalty` (`penalty_id`, `transaction_id`, `penalty_reason`, `days_o
 (5, 16, 'Damaged', 0, 2150.00, 'Paid', '234543', NULL, NULL),
 (6, 17, 'Lost', 0, 750.00, 'Paid', '278456', NULL, NULL),
 (7, 18, 'Damaged', 0, 680.00, 'Paid', '343453', NULL, NULL),
-(8, 24, 'Damaged', 0, 2450.00, 'Paid', '123457', 10, '2026-10-06 12:45:48'),
 (9, 23, 'Lost', 0, 2150.00, 'Paid', '236535', 10, '2026-10-06 12:46:02'),
-(14, 19, 'Overdue', 66, 1320.00, 'Unpaid', NULL, NULL, NULL);
+(14, 19, 'Overdue', 66, 1320.00, 'Unpaid', NULL, NULL, NULL),
+(16, 24, 'Damaged', 0, 2450.00, 'Unpaid', NULL, 10, '2026-10-12 10:02:11');
 
 -- --------------------------------------------------------
 
@@ -1018,6 +1120,7 @@ INSERT INTO `publishers` (`publisher_id`, `publisher_name`) VALUES
 (6, 'Grand Central Publishing'),
 (11, 'Harper'),
 (5, 'HarperCollins'),
+(32, 'Kodansha Comics'),
 (18, 'Lonely Planet'),
 (19, 'Merriam-Webster'),
 (20, 'National Geographic'),
@@ -1088,7 +1191,7 @@ INSERT INTO `users` (`user_id`, `school_id`, `username`, `password`, `first_name
 (7, '278624', 'kevinn', 'PBKDF2$10000$K7x+Ldwc6BQrT/wrfMNBtA==$hiD8QnjGz5FbFV1ZR7F8ad5wZaxr/G3+ODU7m3hgBXA=', 'kevinn', NULL, 'roque', NULL, 'Male', '12345678901', 'kevin@gmail.com', 'Member', 'Active', 3, '2026-10-06 04:21:02'),
 (8, '123424', 'alliyah', 'PBKDF2$10000$kgMBpVl2lMx4T4A+yhWQIA==$q/zulRmS6yBgEMpzZH1P3MhXdR8fKaal4Tn8W7ACiNM=', 'alliyah', NULL, 'de vera', NULL, 'Female', '12345678901', 'alli@gmail.com', 'Member', 'Active', 3, '2026-10-06 04:29:15'),
 (9, '123456', 'teacher', 'PBKDF2$10000$Us5P45760hl6qf2QgtksIA==$uxCVbC7GW3ipYTqDf/gIVRPTJmoD1YUpcEjKLYK7D7k=', 'teacher', NULL, 'teacher', NULL, 'Male', '12345678901', 'teacehr@gmail.com', 'Member', 'Active', 3, '2026-10-06 04:30:32'),
-(10, '234567', 'librarian', 'PBKDF2$10000$ih9FzlV4hvpGlYD4kV42Rg==$eBxkl/TQgle/kfTFNhYAollzplVOAyjfqbpwp2Wb3Oo=', 'librarian', NULL, 'librarian', NULL, 'Female', '12345678901', 'librarian@gmail.com', 'Librarian', 'Active', 3, '2026-10-06 04:32:41');
+(10, '234567', 'librarian', 'PBKDF2$10000$H/7zeBgK+gfc4kpEzIqT5w==$vrG+me3AET4NU8TjtqGaWpiRmB4b3ambkVPF1cWtRik=', 'karla karla', NULL, 'estrada estrada', NULL, 'Female', '12345678901', 'librarian@gmail.com', 'Librarian', 'Active', 3, '2026-10-06 04:32:41');
 
 -- --------------------------------------------------------
 
@@ -1291,6 +1394,7 @@ ALTER TABLE `old_transaction`
 ALTER TABLE `penalty`
   ADD PRIMARY KEY (`penalty_id`),
   ADD UNIQUE KEY `uq_penalty_transaction` (`transaction_id`),
+  ADD UNIQUE KEY `uq_penalty_receipt` (`receipt_number`),
   ADD KEY `fk_penalty_verifier` (`verified_by`);
 
 --
@@ -1323,49 +1427,49 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `activitylogs`
 --
 ALTER TABLE `activitylogs`
-  MODIFY `log_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=134;
+  MODIFY `log_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=185;
 
 --
 -- AUTO_INCREMENT for table `authors`
 --
 ALTER TABLE `authors`
-  MODIFY `author_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `author_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT for table `bookcopies`
 --
 ALTER TABLE `bookcopies`
-  MODIFY `copy_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=75;
+  MODIFY `copy_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=78;
 
 --
 -- AUTO_INCREMENT for table `bookinfo`
 --
 ALTER TABLE `bookinfo`
-  MODIFY `book_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `book_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT for table `borrowtransaction`
 --
 ALTER TABLE `borrowtransaction`
-  MODIFY `transaction_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `transaction_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `category_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `category_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT for table `loginlogs`
 --
 ALTER TABLE `loginlogs`
-  MODIFY `login_log_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=91;
+  MODIFY `login_log_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=133;
 
 --
 -- AUTO_INCREMENT for table `lostdamagedbooks`
 --
 ALTER TABLE `lostdamagedbooks`
-  MODIFY `incident_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `incident_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `members`
@@ -1407,13 +1511,13 @@ ALTER TABLE `old_transaction`
 -- AUTO_INCREMENT for table `penalty`
 --
 ALTER TABLE `penalty`
-  MODIFY `penalty_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `penalty_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `publishers`
 --
 ALTER TABLE `publishers`
-  MODIFY `publisher_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `publisher_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT for table `schoolyear`
