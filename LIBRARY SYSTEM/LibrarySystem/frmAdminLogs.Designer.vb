@@ -30,16 +30,17 @@ Partial Class frmAdminLogs
         Me.txtSearch = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.LogID = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.AccountID = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.nAction = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.dDescription = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DateTime = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Panel13 = New System.Windows.Forms.Panel()
         Me.lblname = New System.Windows.Forms.Label()
         Me.Label29 = New System.Windows.Forms.Label()
         Me.Label28 = New System.Windows.Forms.Label()
         Me.lblposition = New System.Windows.Forms.Label()
+        Me.LogID = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.AccountID = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.colName = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.nAction = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.dDescription = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DateTime = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Panel2.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel13.SuspendLayout()
@@ -116,7 +117,7 @@ Partial Class frmAdminLogs
         Me.DataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.DataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.LogID, Me.AccountID, Me.nAction, Me.dDescription, Me.DateTime})
+        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.LogID, Me.AccountID, Me.colName, Me.nAction, Me.dDescription, Me.DateTime})
         DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window
         DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -131,36 +132,6 @@ Partial Class frmAdminLogs
         Me.DataGridView1.RowHeadersWidth = 51
         Me.DataGridView1.Size = New System.Drawing.Size(1245, 706)
         Me.DataGridView1.TabIndex = 25
-        '
-        'LogID
-        '
-        Me.LogID.HeaderText = "Log ID"
-        Me.LogID.MinimumWidth = 6
-        Me.LogID.Name = "LogID"
-        '
-        'AccountID
-        '
-        Me.AccountID.HeaderText = "Account ID"
-        Me.AccountID.MinimumWidth = 6
-        Me.AccountID.Name = "AccountID"
-        '
-        'nAction
-        '
-        Me.nAction.HeaderText = "Action"
-        Me.nAction.MinimumWidth = 6
-        Me.nAction.Name = "nAction"
-        '
-        'dDescription
-        '
-        Me.dDescription.HeaderText = "Description"
-        Me.dDescription.MinimumWidth = 6
-        Me.dDescription.Name = "dDescription"
-        '
-        'DateTime
-        '
-        Me.DateTime.HeaderText = "Date & Time"
-        Me.DateTime.MinimumWidth = 6
-        Me.DateTime.Name = "DateTime"
         '
         'Panel13
         '
@@ -223,6 +194,41 @@ Partial Class frmAdminLogs
         Me.lblposition.TabIndex = 66
         Me.lblposition.Text = "NPosition"
         '
+        'LogID
+        '
+        Me.LogID.HeaderText = "Log ID"
+        Me.LogID.MinimumWidth = 6
+        Me.LogID.Name = "LogID"
+        '
+        'AccountID
+        '
+        Me.AccountID.HeaderText = "Account ID"
+        Me.AccountID.MinimumWidth = 6
+        Me.AccountID.Name = "AccountID"
+        '
+        'colName
+        '
+        Me.colName.HeaderText = "Name"
+        Me.colName.Name = "colName"
+        '
+        'nAction
+        '
+        Me.nAction.HeaderText = "Action"
+        Me.nAction.MinimumWidth = 6
+        Me.nAction.Name = "nAction"
+        '
+        'dDescription
+        '
+        Me.dDescription.HeaderText = "Description"
+        Me.dDescription.MinimumWidth = 6
+        Me.dDescription.Name = "dDescription"
+        '
+        'DateTime
+        '
+        Me.DateTime.HeaderText = "Date & Time"
+        Me.DateTime.MinimumWidth = 6
+        Me.DateTime.Name = "DateTime"
+        '
         'frmAdminLogs
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -245,11 +251,6 @@ Partial Class frmAdminLogs
     Friend WithEvents Panel2 As Panel
     Friend WithEvents Label1 As Label
     Friend WithEvents DataGridView1 As DataGridView
-    Friend WithEvents LogID As DataGridViewTextBoxColumn
-    Friend WithEvents AccountID As DataGridViewTextBoxColumn
-    Friend WithEvents nAction As DataGridViewTextBoxColumn
-    Friend WithEvents dDescription As DataGridViewTextBoxColumn
-    Friend WithEvents DateTime As DataGridViewTextBoxColumn
     Friend WithEvents Panel13 As Panel
     Friend WithEvents lblname As Label
     Friend WithEvents Label29 As Label
@@ -259,4 +260,10 @@ Partial Class frmAdminLogs
     Friend WithEvents txtSearch As TextBox
     Friend WithEvents Label2 As Label
     Friend WithEvents cbodate As ComboBox
+    Friend WithEvents LogID As DataGridViewTextBoxColumn
+    Friend WithEvents AccountID As DataGridViewTextBoxColumn
+    Friend WithEvents colName As DataGridViewTextBoxColumn
+    Friend WithEvents nAction As DataGridViewTextBoxColumn
+    Friend WithEvents dDescription As DataGridViewTextBoxColumn
+    Friend WithEvents DateTime As DataGridViewTextBoxColumn
 End Class

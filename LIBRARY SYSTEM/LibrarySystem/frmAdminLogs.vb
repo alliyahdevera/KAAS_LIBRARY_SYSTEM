@@ -42,14 +42,16 @@ Public Class frmAdminLogs
         DataGridView1.Rows.Clear()
         Dim kw As String = If(keyword, "").Trim()
         Dim weekOnly As Integer = If(cbodate.Text = "This Week", 1, 0)
+
         Try
             Using conn = DBConnection.GetConnection()
                 conn.Open()
                 Using cmd As New MySqlCommand(
-                    "SELECT l.log_id, l.user_id, u.username, l.action, l.description, l.log_time " &
+                    "SELECT l.log_id, l.user_id, u.username, u.first_name, u.last_name, l.action, l.description, l.log_time " &
                     "FROM ActivityLogs l LEFT JOIN Users u ON u.user_id = l.user_id " &
                     "WHERE (@kw = '' OR u.username LIKE CONCAT('%',@kw,'%') OR l.action LIKE CONCAT('%',@kw,'%') " &
-                    " OR l.description LIKE CONCAT('%',@kw,'%')) " &
+                    " OR l.description LIKE CONCAT('%',@kw,'%') " &
+                    " OR CONCAT(u.first_name,' ',u.last_name) LIKE CONCAT('%',@kw,'%')) " &
                     "AND (@wk = 0 OR YEARWEEK(l.log_time, 1) = YEARWEEK(CURDATE(), 1)) " &
                     "AND " & SchoolYearContext.Between("l.log_time", True) & " " &
                     "ORDER BY l.log_id DESC LIMIT 5000", conn)
@@ -61,6 +63,9 @@ Public Class frmAdminLogs
                             row.Cells("LogID").Value = r("log_id").ToString()
                             row.Cells("AccountID").Value = If(IsDBNull(r("user_id")), "-",
                                 If(IsDBNull(r("username")), "", r("username").ToString()) & " (#" & r("user_id").ToString() & ")")
+                            row.Cells("colName").Value =
+                                (If(IsDBNull(r("first_name")), "", r("first_name").ToString()) & " " &
+                                 If(IsDBNull(r("last_name")), "", r("last_name").ToString())).Trim()
                             row.Cells("nAction").Value = If(IsDBNull(r("action")), "", r("action").ToString())
                             row.Cells("dDescription").Value = If(IsDBNull(r("description")), "", r("description").ToString())
                             row.Cells("DateTime").Value = If(IsDBNull(r("log_time")), "",

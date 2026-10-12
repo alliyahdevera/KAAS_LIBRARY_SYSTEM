@@ -1,7 +1,7 @@
 ﻿Public Class frmAdminMenu
     Private loggingOut As Boolean = False
     Private syLoading As Boolean = False
-    Private btnReports As Button
+
 
     Private Sub frmAdminMenu_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.CenterToScreen()
@@ -18,8 +18,7 @@
         AddHandler SchoolYearContext.ListChanged, AddressOf OnSchoolYearListChanged
         AddHandler SchoolYearContext.Changed, AddressOf OnSchoolYearViewChanged
 
-        ' "Reports" button, placed under Activity Logs
-        btnReports = MenuBuilder.AddMenuButton(Me, "btnactlog", "Reports")
+
 
         For Each b As Button In UiHelpers.AllButtons(Me)
             AddHandler b.Click, AddressOf MenuButton_Click
@@ -35,7 +34,7 @@
             Case sender Is btnbookinventory : FormHost.LoadInto(Panel3, frmAdminBookInventory)
             Case sender Is btnLostDamaged : FormHost.LoadInto(Panel3, frmLostDamagedBooks)
             Case sender Is btnactlog : FormHost.LoadInto(Panel3, frmAdminLogs)
-            Case sender Is btnReports : FormHost.LoadInto(Panel3, frmReports)
+
             Case sender Is Button1 : FormHost.LoadInto(Panel3, frmManageSY)           ' Manage S.Y.
             Case sender Is btnlogout : DoLogout()
         End Select
