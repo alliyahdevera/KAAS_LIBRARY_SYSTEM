@@ -130,7 +130,7 @@ Module BorrowData
                         End Using
 
                         Dim overdueDays As Integer = Math.Max(0, (today - dueDate).Days)
-                        Dim amount As Decimal = LibraryRules.LatePenalty(overdueDays, memberType)      ' CHANGED (grace period + P20/day)
+                        Dim amount As Decimal = LibraryRules.LatePenalty(overdueDays, memberType)     ' CHANGED (grace period + P20/day)
 
                         Using upd As New MySqlCommand(
                             "UPDATE BorrowTransaction SET return_date = @rd, transaction_status = 'Returned', return_condition = NULL " &
@@ -175,8 +175,8 @@ Module BorrowData
     ' newStatus = None/Unpaid/Paid -> set it explicitly (Paid needs a 6-digit receipt number)
     ' Returns the new total penalty. Throws InvalidOperationException with a user-friendly message.
     Public Function ApplyVerification(transactionId As Integer, newCondition As String,
-                                      Optional newStatus As String = Nothing,
-                                      Optional receipt As String = Nothing) As Decimal
+                                        Optional newStatus As String = Nothing,
+                                        Optional receipt As String = Nothing) As Decimal
         If newCondition <> "Good" AndAlso newCondition <> "Damaged" AndAlso newCondition <> "Lost" Then
             Throw New InvalidOperationException("Please select the book's actual condition (Good, Damaged, or Lost).")
         End If
@@ -237,6 +237,20 @@ Module BorrowData
                         Throw New InvalidOperationException("This record still has an amount due - choose Unpaid or Paid instead of None.")
                     End If
 
+                    ' A receipt number can only belong to ONE penalty record
+                    If total > 0 AndAlso newStatus IsNot Nothing AndAlso cleanReceipt <> "" Then
+                        Using dup As New MySqlCommand(
+                            "SELECT COUNT(*) FROM Penalty WHERE receipt_number = @rc AND transaction_id <> @t", conn, tx)
+                            dup.Parameters.AddWithValue("@rc", cleanReceipt)
+                            dup.Parameters.AddWithValue("@t", transactionId)
+                            If Convert.ToInt32(dup.ExecuteScalar()) > 0 Then
+                                Throw New InvalidOperationException(
+                                    "Receipt No. " & cleanReceipt & " is already used by another penalty record." & vbCrLf &
+                                    "Each receipt number can only be used once. Please check the receipt and enter a different number.")
+                            End If
+                        End Using
+                    End If
+
                     ' 1. condition + who received it
                     Using upd As New MySqlCommand(
                         "UPDATE BorrowTransaction SET return_condition = @c, received_by = COALESCE(received_by, @u) " &
@@ -256,7 +270,7 @@ Module BorrowData
                         "  THEN IF(book_condition IN ('Damaged','Lost'), 'Good', book_condition) ELSE @s END " &
                         "WHERE copy_id = @c AND copy_status <> 'Borrowed' " &
                         "AND (@s <> 'Available' OR NOT EXISTS (SELECT 1 FROM LostDamagedBooks i " &
-                        "     WHERE i.copy_id = @c AND i.is_resolved = 0 AND IFNULL(i.transaction_id, 0) <> @t))", conn, tx)
+                        "      WHERE i.copy_id = @c AND i.is_resolved = 0 AND IFNULL(i.transaction_id, 0) <> @t))", conn, tx)
                         upd.Parameters.AddWithValue("@s", If(newCondition = "Good", "Available", newCondition))
                         upd.Parameters.AddWithValue("@c", copyId)
                         upd.Parameters.AddWithValue("@t", transactionId)
@@ -269,7 +283,7 @@ Module BorrowData
                     ' 3. the penalty row
                     If total > 0 Then
                         Dim reasons As New List(Of String)
-                        If overdueAmount > 0 Then reasons.Add("Overdue")                                ' CHANGED (only when a fine applies)
+                        If overdueAmount > 0 Then reasons.Add("Overdue")                              ' CHANGED (only when a fine applies)
                         If newCondition <> "Good" Then reasons.Add(newCondition)
 
                         Dim status As String

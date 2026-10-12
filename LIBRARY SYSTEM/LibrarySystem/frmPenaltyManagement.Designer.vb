@@ -22,7 +22,7 @@ Partial Class frmPenaltyManagement
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.btnMarkAsNotPaid = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.btnMarkAsPaid = New System.Windows.Forms.Button()
@@ -35,17 +35,6 @@ Partial Class frmPenaltyManagement
         Me.ComboBox3 = New System.Windows.Forms.ComboBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.dgvp = New System.Windows.Forms.DataGridView()
-        Me.Username = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ReceiptNo = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.BookID = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ISBN = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.BookTitle = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.BookAuthor = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Reason = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.BookCondition = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Amount = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.PenaltyStatus = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.PenaltyDate = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Label14 = New System.Windows.Forms.Label()
         Me.txtSearch = New System.Windows.Forms.TextBox()
         Me.Panel13 = New System.Windows.Forms.Panel()
@@ -60,6 +49,17 @@ Partial Class frmPenaltyManagement
         Me.Label6 = New System.Windows.Forms.Label()
         Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
         Me.Label4 = New System.Windows.Forms.Label()
+        Me.Username = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ReceiptNo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.AccessionNo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ISBN = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.BookTitle = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.BookAuthor = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Reason = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.BookCondition = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Amount = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.PenaltyStatus = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.PenaltyDate = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.dgvp, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel13.SuspendLayout()
         Me.SuspendLayout()
@@ -186,87 +186,21 @@ Partial Class frmPenaltyManagement
         Me.dgvp.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.dgvp.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
         Me.dgvp.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvp.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Username, Me.ReceiptNo, Me.BookID, Me.ISBN, Me.BookTitle, Me.BookAuthor, Me.Reason, Me.BookCondition, Me.Amount, Me.PenaltyStatus, Me.PenaltyDate})
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgvp.DefaultCellStyle = DataGridViewCellStyle3
+        Me.dgvp.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Username, Me.ReceiptNo, Me.AccessionNo, Me.ISBN, Me.BookTitle, Me.BookAuthor, Me.Reason, Me.BookCondition, Me.Amount, Me.PenaltyStatus, Me.PenaltyDate})
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgvp.DefaultCellStyle = DataGridViewCellStyle1
         Me.dgvp.Location = New System.Drawing.Point(0, 210)
         Me.dgvp.Name = "dgvp"
         Me.dgvp.RowHeadersVisible = False
         Me.dgvp.RowHeadersWidth = 51
         Me.dgvp.Size = New System.Drawing.Size(1245, 542)
         Me.dgvp.TabIndex = 93
-        '
-        'Username
-        '
-        Me.Username.HeaderText = "Username"
-        Me.Username.MinimumWidth = 6
-        Me.Username.Name = "Username"
-        '
-        'ReceiptNo
-        '
-        Me.ReceiptNo.HeaderText = "Receipt No."
-        Me.ReceiptNo.MinimumWidth = 6
-        Me.ReceiptNo.Name = "ReceiptNo"
-        '
-        'BookID
-        '
-        Me.BookID.HeaderText = "BookID"
-        Me.BookID.MinimumWidth = 6
-        Me.BookID.Name = "BookID"
-        '
-        'ISBN
-        '
-        Me.ISBN.HeaderText = "ISBN"
-        Me.ISBN.MinimumWidth = 6
-        Me.ISBN.Name = "ISBN"
-        '
-        'BookTitle
-        '
-        Me.BookTitle.HeaderText = "Book Title"
-        Me.BookTitle.MinimumWidth = 6
-        Me.BookTitle.Name = "BookTitle"
-        '
-        'BookAuthor
-        '
-        Me.BookAuthor.HeaderText = "Book Author"
-        Me.BookAuthor.MinimumWidth = 6
-        Me.BookAuthor.Name = "BookAuthor"
-        '
-        'Reason
-        '
-        Me.Reason.HeaderText = "Reason"
-        Me.Reason.MinimumWidth = 6
-        Me.Reason.Name = "Reason"
-        '
-        'BookCondition
-        '
-        Me.BookCondition.HeaderText = "Book Condition"
-        Me.BookCondition.MinimumWidth = 6
-        Me.BookCondition.Name = "BookCondition"
-        '
-        'Amount
-        '
-        Me.Amount.HeaderText = "Amount"
-        Me.Amount.MinimumWidth = 6
-        Me.Amount.Name = "Amount"
-        '
-        'PenaltyStatus
-        '
-        Me.PenaltyStatus.HeaderText = "Penalty Status"
-        Me.PenaltyStatus.MinimumWidth = 6
-        Me.PenaltyStatus.Name = "PenaltyStatus"
-        '
-        'PenaltyDate
-        '
-        Me.PenaltyDate.HeaderText = "Penalty Date"
-        Me.PenaltyDate.MinimumWidth = 6
-        Me.PenaltyDate.Name = "PenaltyDate"
         '
         'Label14
         '
@@ -428,6 +362,72 @@ Partial Class frmPenaltyManagement
         Me.Label4.TabIndex = 166
         Me.Label4.Text = "Date From"
         '
+        'Username
+        '
+        Me.Username.HeaderText = "Username"
+        Me.Username.MinimumWidth = 6
+        Me.Username.Name = "Username"
+        '
+        'ReceiptNo
+        '
+        Me.ReceiptNo.HeaderText = "Receipt No."
+        Me.ReceiptNo.MinimumWidth = 6
+        Me.ReceiptNo.Name = "ReceiptNo"
+        '
+        'AccessionNo
+        '
+        Me.AccessionNo.HeaderText = "Accession No."
+        Me.AccessionNo.MinimumWidth = 6
+        Me.AccessionNo.Name = "AccessionNo"
+        '
+        'ISBN
+        '
+        Me.ISBN.HeaderText = "ISBN"
+        Me.ISBN.MinimumWidth = 6
+        Me.ISBN.Name = "ISBN"
+        '
+        'BookTitle
+        '
+        Me.BookTitle.HeaderText = "Book Title"
+        Me.BookTitle.MinimumWidth = 6
+        Me.BookTitle.Name = "BookTitle"
+        '
+        'BookAuthor
+        '
+        Me.BookAuthor.HeaderText = "Book Author"
+        Me.BookAuthor.MinimumWidth = 6
+        Me.BookAuthor.Name = "BookAuthor"
+        '
+        'Reason
+        '
+        Me.Reason.HeaderText = "Reason"
+        Me.Reason.MinimumWidth = 6
+        Me.Reason.Name = "Reason"
+        '
+        'BookCondition
+        '
+        Me.BookCondition.HeaderText = "Book Condition"
+        Me.BookCondition.MinimumWidth = 6
+        Me.BookCondition.Name = "BookCondition"
+        '
+        'Amount
+        '
+        Me.Amount.HeaderText = "Amount"
+        Me.Amount.MinimumWidth = 6
+        Me.Amount.Name = "Amount"
+        '
+        'PenaltyStatus
+        '
+        Me.PenaltyStatus.HeaderText = "Penalty Status"
+        Me.PenaltyStatus.MinimumWidth = 6
+        Me.PenaltyStatus.Name = "PenaltyStatus"
+        '
+        'PenaltyDate
+        '
+        Me.PenaltyDate.HeaderText = "Penalty Date"
+        Me.PenaltyDate.MinimumWidth = 6
+        Me.PenaltyDate.Name = "PenaltyDate"
+        '
         'frmPenaltyManagement
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -476,17 +476,6 @@ Partial Class frmPenaltyManagement
     Friend WithEvents ComboBox3 As ComboBox
     Friend WithEvents Label5 As Label
     Friend WithEvents dgvp As DataGridView
-    Friend WithEvents Username As DataGridViewTextBoxColumn
-    Friend WithEvents ReceiptNo As DataGridViewTextBoxColumn
-    Friend WithEvents BookID As DataGridViewTextBoxColumn
-    Friend WithEvents ISBN As DataGridViewTextBoxColumn
-    Friend WithEvents BookTitle As DataGridViewTextBoxColumn
-    Friend WithEvents BookAuthor As DataGridViewTextBoxColumn
-    Friend WithEvents Reason As DataGridViewTextBoxColumn
-    Friend WithEvents BookCondition As DataGridViewTextBoxColumn
-    Friend WithEvents Amount As DataGridViewTextBoxColumn
-    Friend WithEvents PenaltyStatus As DataGridViewTextBoxColumn
-    Friend WithEvents PenaltyDate As DataGridViewTextBoxColumn
     Friend WithEvents Label14 As Label
     Friend WithEvents txtSearch As TextBox
     Friend WithEvents Panel13 As Panel
@@ -501,4 +490,15 @@ Partial Class frmPenaltyManagement
     Friend WithEvents Label6 As Label
     Friend WithEvents DateTimePicker1 As DateTimePicker
     Friend WithEvents Label4 As Label
+    Friend WithEvents Username As DataGridViewTextBoxColumn
+    Friend WithEvents ReceiptNo As DataGridViewTextBoxColumn
+    Friend WithEvents AccessionNo As DataGridViewTextBoxColumn
+    Friend WithEvents ISBN As DataGridViewTextBoxColumn
+    Friend WithEvents BookTitle As DataGridViewTextBoxColumn
+    Friend WithEvents BookAuthor As DataGridViewTextBoxColumn
+    Friend WithEvents Reason As DataGridViewTextBoxColumn
+    Friend WithEvents BookCondition As DataGridViewTextBoxColumn
+    Friend WithEvents Amount As DataGridViewTextBoxColumn
+    Friend WithEvents PenaltyStatus As DataGridViewTextBoxColumn
+    Friend WithEvents PenaltyDate As DataGridViewTextBoxColumn
 End Class

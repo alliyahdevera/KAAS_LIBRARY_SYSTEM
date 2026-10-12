@@ -22,9 +22,8 @@ Partial Class frmAdminBookInventory
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.dgvCopies = New System.Windows.Forms.DataGridView()
-        Me.BookNo = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Accession = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ISBN = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.BookTitle = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -43,8 +42,6 @@ Partial Class frmAdminBookInventory
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Label15 = New System.Windows.Forms.Label()
-        Me.txtBookNo = New System.Windows.Forms.TextBox()
-        Me.lblBookNo = New System.Windows.Forms.Label()
         Me.lblAccession = New System.Windows.Forms.Label()
         Me.txtAccession = New System.Windows.Forms.TextBox()
         Me.lblIsbn = New System.Windows.Forms.Label()
@@ -87,15 +84,15 @@ Partial Class frmAdminBookInventory
         Me.dgvCopies.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
         Me.dgvCopies.BackgroundColor = System.Drawing.Color.White
         Me.dgvCopies.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvCopies.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.BookNo, Me.Accession, Me.ISBN, Me.BookTitle, Me.BookAuthor, Me.Publisher, Me.Edition, Me.YearPublished, Me.BookCondition, Me.CopyStatus, Me.DateAdded})
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgvCopies.DefaultCellStyle = DataGridViewCellStyle1
+        Me.dgvCopies.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Accession, Me.ISBN, Me.BookTitle, Me.BookAuthor, Me.Publisher, Me.Edition, Me.YearPublished, Me.BookCondition, Me.CopyStatus, Me.DateAdded})
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgvCopies.DefaultCellStyle = DataGridViewCellStyle3
         Me.dgvCopies.GridColor = System.Drawing.Color.Black
         Me.dgvCopies.Location = New System.Drawing.Point(0, 331)
         Me.dgvCopies.MultiSelect = False
@@ -106,14 +103,6 @@ Partial Class frmAdminBookInventory
         Me.dgvCopies.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgvCopies.Size = New System.Drawing.Size(1231, 326)
         Me.dgvCopies.TabIndex = 3
-        '
-        'BookNo
-        '
-        Me.BookNo.FillWeight = 60.0!
-        Me.BookNo.HeaderText = "Book No."
-        Me.BookNo.MinimumWidth = 6
-        Me.BookNo.Name = "BookNo"
-        Me.BookNo.ReadOnly = True
         '
         'Accession
         '
@@ -265,8 +254,6 @@ Partial Class frmAdminBookInventory
         '
         Me.Panel1.BackColor = System.Drawing.Color.White
         Me.Panel1.Controls.Add(Me.Panel2)
-        Me.Panel1.Controls.Add(Me.txtBookNo)
-        Me.Panel1.Controls.Add(Me.lblBookNo)
         Me.Panel1.Controls.Add(Me.btnAdd)
         Me.Panel1.Controls.Add(Me.lblAccession)
         Me.Panel1.Controls.Add(Me.txtAccession)
@@ -305,26 +292,6 @@ Partial Class frmAdminBookInventory
         Me.Label15.Size = New System.Drawing.Size(163, 25)
         Me.Label15.TabIndex = 71
         Me.Label15.Text = "Book Information"
-        '
-        'txtBookNo
-        '
-        Me.txtBookNo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.txtBookNo.Location = New System.Drawing.Point(121, 54)
-        Me.txtBookNo.Name = "txtBookNo"
-        Me.txtBookNo.ReadOnly = True
-        Me.txtBookNo.Size = New System.Drawing.Size(229, 25)
-        Me.txtBookNo.TabIndex = 1
-        '
-        'lblBookNo
-        '
-        Me.lblBookNo.AutoSize = True
-        Me.lblBookNo.Font = New System.Drawing.Font("Segoe UI Semibold", 9.5!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblBookNo.ForeColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(25, Byte), Integer))
-        Me.lblBookNo.Location = New System.Drawing.Point(19, 57)
-        Me.lblBookNo.Name = "lblBookNo"
-        Me.lblBookNo.Size = New System.Drawing.Size(64, 17)
-        Me.lblBookNo.TabIndex = 0
-        Me.lblBookNo.Text = "Book No."
         '
         'lblAccession
         '
@@ -613,8 +580,6 @@ Partial Class frmAdminBookInventory
     Friend WithEvents txtSearch As System.Windows.Forms.TextBox
     Friend WithEvents lblStatus As System.Windows.Forms.Label
     Friend WithEvents cboFilter As System.Windows.Forms.ComboBox
-    Friend WithEvents lblBookNo As System.Windows.Forms.Label
-    Friend WithEvents txtBookNo As System.Windows.Forms.TextBox
     Friend WithEvents lblAccession As System.Windows.Forms.Label
     Friend WithEvents txtAccession As System.Windows.Forms.TextBox
     Friend WithEvents lblIsbn As System.Windows.Forms.Label
@@ -642,7 +607,14 @@ Partial Class frmAdminBookInventory
     Friend WithEvents colBookCondition As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents colCopyStatus As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents colDateAdded As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents BookNo As DataGridViewTextBoxColumn
+    Friend WithEvents Panel13 As Panel
+    Friend WithEvents lblname As Label
+    Friend WithEvents Label29 As Label
+    Friend WithEvents Label28 As Label
+    Friend WithEvents lblposition As Label
+    Friend WithEvents Panel1 As Panel
+    Friend WithEvents Panel2 As Panel
+    Friend WithEvents Label15 As Label
     Friend WithEvents Accession As DataGridViewTextBoxColumn
     Friend WithEvents ISBN As DataGridViewTextBoxColumn
     Friend WithEvents BookTitle As DataGridViewTextBoxColumn
@@ -653,12 +625,4 @@ Partial Class frmAdminBookInventory
     Friend WithEvents BookCondition As DataGridViewTextBoxColumn
     Friend WithEvents CopyStatus As DataGridViewTextBoxColumn
     Friend WithEvents DateAdded As DataGridViewTextBoxColumn
-    Friend WithEvents Panel13 As Panel
-    Friend WithEvents lblname As Label
-    Friend WithEvents Label29 As Label
-    Friend WithEvents Label28 As Label
-    Friend WithEvents lblposition As Label
-    Friend WithEvents Panel1 As Panel
-    Friend WithEvents Panel2 As Panel
-    Friend WithEvents Label15 As Label
 End Class

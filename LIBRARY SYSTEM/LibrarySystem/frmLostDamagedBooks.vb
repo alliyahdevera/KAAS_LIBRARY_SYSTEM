@@ -65,7 +65,6 @@ Public Class frmLostDamagedBooks
                         While r.Read()
                             Dim row As DataGridViewRow = dgvIncidents.Rows(dgvIncidents.Rows.Add())
                             row.Cells("ReportNo").Value = r("incident_id").ToString()
-                            row.Cells("BookNo").Value = r("copy_id").ToString()
                             row.Cells("Accession").Value = r("accession_no").ToString()
                             row.Cells("ISBN").Value = r("isbn").ToString()
                             row.Cells("BookTitle").Value = r("title").ToString()
@@ -78,6 +77,7 @@ Public Class frmLostDamagedBooks
                             row.Cells("CopyStatus").Value = r("copy_status").ToString()
                             row.Cells("Recovered").Value = If(Convert.ToInt32(r("is_resolved")) = 1, "Yes", "No")
                             row.Cells("Remarks").Value = r("remarks").ToString()
+                            row.Tag = Convert.ToInt32(r("copy_id"))          ' hidden copy id (the Book No. column is gone)
                         End While
                     End Using
                 End Using
@@ -119,7 +119,8 @@ Public Class frmLostDamagedBooks
             Exit Sub
         End If
 
-        Dim copyId As Integer = Convert.ToInt32(row.Cells("BookNo").Value)
+        Dim copyId As Integer = Convert.ToInt32(row.Tag)
+        Dim accNo As String = Convert.ToString(row.Cells("Accession").Value)
 
         ' A book with an unpaid penalty cannot be marked as recovered / repaired yet
         Try
@@ -138,7 +139,7 @@ Public Class frmLostDamagedBooks
             Exit Sub
         End Try
 
-        If Not UiHelpers.Confirm("mark", "book no. " & copyId & " as recovered / repaired and return it to the library", "Lost and Damaged Books") Then Exit Sub
+        If Not UiHelpers.Confirm("mark", "copy " & accNo & " as recovered / repaired and return it to the library", "Lost and Damaged Books") Then Exit Sub
 
         Try
             Using conn = DBConnection.GetConnection()
@@ -169,7 +170,7 @@ Public Class frmLostDamagedBooks
             Exit Sub
         End Try
 
-        DBConnection.LogActivity("Recovered Book", "Book no. " & copyId & " marked as recovered / repaired")
+        DBConnection.LogActivity("Recovered Book", "Copy " & accNo & " marked as recovered / repaired")
         MsgBox("Book marked as recovered / repaired.", vbInformation, "Lost and Damaged Books")
         LoadIncidents()
     End Sub

@@ -86,7 +86,7 @@ Public Class frmPenaltyManagement
             Using conn = DBConnection.GetConnection()
                 conn.Open()
                 Using cmd As New MySqlCommand(
-                    "SELECT p.transaction_id, u.username, p.receipt_number, v.book_id, v.isbn, v.title, v.authors, " &
+                    "SELECT p.transaction_id, u.username, p.receipt_number, c.accession_no, v.isbn, v.title, v.authors, " &
                     "       p.penalty_reason, t.return_condition, p.penalty_amount, p.penalty_status, t.due_date " &
                     "FROM Penalty p " &
                     "JOIN BorrowTransaction t ON t.transaction_id = p.transaction_id " &
@@ -106,7 +106,7 @@ Public Class frmPenaltyManagement
                             Dim row As DataGridViewRow = dgvp.Rows(dgvp.Rows.Add())
                             row.Cells("Username").Value = r("username").ToString()
                             row.Cells("ReceiptNo").Value = If(IsDBNull(r("receipt_number")), "N/A", r("receipt_number").ToString())
-                            row.Cells("BookID").Value = r("book_id").ToString()
+                            row.Cells("AccessionNo").Value = r("accession_no").ToString()
                             row.Cells("ISBN").Value = r("isbn").ToString()
                             row.Cells("BookTitle").Value = r("title").ToString()
                             row.Cells("BookAuthor").Value = If(IsDBNull(r("authors")), "", r("authors").ToString())

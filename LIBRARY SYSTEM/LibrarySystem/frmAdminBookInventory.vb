@@ -40,7 +40,7 @@ Public Class frmAdminBookInventory
                     "FROM BookCopies c JOIN vw_BookCatalog v ON v.book_id = c.book_id " &
                     "WHERE c.copy_status <> 'Archived' " &
                     "AND (" & BookData.BookSearchSql("v") &
-                    "     OR c.accession_no LIKE CONCAT('%',@kw,'%') OR CAST(c.copy_id AS CHAR) = @kw) " &
+                    "      OR c.accession_no LIKE CONCAT('%',@kw,'%') OR CAST(c.copy_id AS CHAR) = @kw) " &
                     "AND (@st = '' OR c.copy_status = @st) " &
                     "ORDER BY v.title, c.copy_id", conn)
                     cmd.Parameters.AddWithValue("@kw", kw)
@@ -48,7 +48,7 @@ Public Class frmAdminBookInventory
                     Using r As MySqlDataReader = cmd.ExecuteReader()
                         While r.Read()
                             Dim row As DataGridViewRow = dgvCopies.Rows(dgvCopies.Rows.Add())
-                            row.Cells("BookNo").Value = r("copy_id").ToString()
+                            row.Tag = Convert.ToInt32(r("copy_id"))          ' hidden copy id (the Book No. column is gone)
                             row.Cells("Accession").Value = r("accession_no").ToString()
                             row.Cells("ISBN").Value = r("isbn").ToString()
                             row.Cells("BookTitle").Value = r("title").ToString()
@@ -75,8 +75,7 @@ Public Class frmAdminBookInventory
     Private Sub dgvCopies_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvCopies.CellClick
         If e.RowIndex < 0 Then Exit Sub
         Dim r As DataGridViewRow = dgvCopies.Rows(e.RowIndex)
-        selectedCopyId = Convert.ToInt32(r.Cells("BookNo").Value)
-        txtBookNo.Text = Convert.ToString(r.Cells("BookNo").Value)
+        selectedCopyId = Convert.ToInt32(r.Tag)
         txtAccession.Text = Convert.ToString(r.Cells("Accession").Value)
         txtIsbn.Text = Convert.ToString(r.Cells("ISBN").Value)
         txtTitle.Text = Convert.ToString(r.Cells("BookTitle").Value)
@@ -165,7 +164,7 @@ Public Class frmAdminBookInventory
             MsgBox("Select the new condition.", vbExclamation, "Book Inventory")
             Exit Sub
         End If
-        If Not UiHelpers.Confirm("update", "the condition of book no. " & selectedCopyId, "Book Inventory") Then Exit Sub
+        If Not UiHelpers.Confirm("update", "the condition of copy " & txtAccession.Text, "Book Inventory") Then Exit Sub
 
         Dim newCond As String = cboCondition.Text
         Try
@@ -237,7 +236,7 @@ Public Class frmAdminBookInventory
             Exit Sub
         End Try
 
-        DBConnection.LogActivity("Update Book Copy", "Book no. " & selectedCopyId & " condition set to " & newCond)
+        DBConnection.LogActivity("Update Book Copy", "Copy " & txtAccession.Text & " condition set to " & newCond)
         MsgBox("Copy updated successfully!", vbInformation, "Book Inventory")
         LoadCopies()
         ClearFields()
@@ -275,20 +274,20 @@ Public Class frmAdminBookInventory
                 End If
 
                 If history > 0 Then
-                    If Not UiHelpers.Confirm("archive", "book no. " & selectedCopyId &
-                                             " (it has borrow history, so it is hidden and the history is kept)", "Book Inventory") Then Exit Sub
+                    If Not UiHelpers.Confirm("archive", "copy " & txtAccession.Text &
+                                            " (it has borrow history, so it is hidden and the history is kept)", "Book Inventory") Then Exit Sub
                     Using cmd As New MySqlCommand("UPDATE BookCopies SET copy_status = 'Archived' WHERE copy_id = @c", conn)
                         cmd.Parameters.AddWithValue("@c", selectedCopyId)
                         cmd.ExecuteNonQuery()
                     End Using
-                    DBConnection.LogActivity("Archive Book Copy", "Archived book no. " & selectedCopyId)
+                    DBConnection.LogActivity("Archive Book Copy", "Archived copy " & txtAccession.Text)
                 Else
-                    If Not UiHelpers.Confirm("delete", "book no. " & selectedCopyId, "Book Inventory") Then Exit Sub
+                    If Not UiHelpers.Confirm("delete", "copy " & txtAccession.Text, "Book Inventory") Then Exit Sub
                     Using cmd As New MySqlCommand("DELETE FROM BookCopies WHERE copy_id = @c", conn)
                         cmd.Parameters.AddWithValue("@c", selectedCopyId)
                         cmd.ExecuteNonQuery()
                     End Using
-                    DBConnection.LogActivity("Delete Book Copy", "Deleted book no. " & selectedCopyId)
+                    DBConnection.LogActivity("Delete Book Copy", "Deleted copy " & txtAccession.Text)
                 End If
             End Using
         Catch ex As Exception
@@ -307,7 +306,6 @@ Public Class frmAdminBookInventory
 
     Private Sub ClearFields()
         selectedCopyId = 0
-        txtBookNo.Clear()
         txtAccession.Clear()
         txtIsbn.Clear()
         txtTitle.Clear()
@@ -321,4 +319,6 @@ Public Class frmAdminBookInventory
     Private Sub btnExport_Click(sender As Object, e As EventArgs)
         BorrowData.ExportGridToCsv(dgvCopies, "Book_Inventory")
     End Sub
+
+
 End Class
