@@ -8,7 +8,7 @@
         Dim cur As SchoolYearInfo = SchoolYearContext.Current()
         lblsy.Text = "School Year: " & If(cur IsNot Nothing, cur.Name, "Not set")
 
-        MenuBuilder.AddMenuButton(Me, "btnpenaltyman", "Lost and Damaged")
+
 
         For Each b As Button In UiHelpers.AllButtons(Me)
             AddHandler b.Click, AddressOf MenuButton_Click

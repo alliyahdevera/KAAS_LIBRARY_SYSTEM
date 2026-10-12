@@ -17,10 +17,8 @@
         AddHandler SchoolYearContext.ListChanged, AddressOf OnSchoolYearListChanged
         AddHandler SchoolYearContext.Changed, AddressOf OnSchoolYearViewChanged
 
-        ' Supervisor only: Penalty Management (placed under "Lost and Damaged Books")
-        If AppSession.IsSupervisor Then
-            MenuBuilder.AddMenuButton(Me, "btnLostDamaged", "Penalty Management")
-        End If
+        btnPenaltyManagement.Visible = AppSession.IsSupervisor
+
         Label16.Text = If(AppSession.IsSupervisor, "Supervisor", "Admin")
 
         For Each b As Button In UiHelpers.AllButtons(Me)
@@ -36,7 +34,7 @@
             Case sender Is btnborrowh : FormHost.LoadInto(Panel3, frmAdminBorrowHistory)
             Case sender Is btnbookinventory : FormHost.LoadInto(Panel3, frmAdminBookInventory)
             Case sender Is btnLostDamaged : FormHost.LoadInto(Panel3, frmLostDamagedBooks)
-            Case DirectCast(sender, Button).Name = "btnPenaltyManagement" : FormHost.LoadInto(Panel3, frmPenaltyManagement)
+            Case sender Is btnpenaltymanagement : FormHost.LoadInto(Panel3, frmPenaltyManagement)
             Case sender Is btnactlog : FormHost.LoadInto(Panel3, frmAdminLogs)
 
             Case sender Is Button1 : FormHost.LoadInto(Panel3, frmManageSY)           ' Manage S.Y.
@@ -122,7 +120,5 @@
         If Not loggingOut Then Application.Exit()
     End Sub
 
-    Private Sub btnLostDamaged_Click(sender As Object, e As EventArgs) Handles btnLostDamaged.Click
 
-    End Sub
 End Class

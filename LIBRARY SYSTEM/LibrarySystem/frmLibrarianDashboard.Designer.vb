@@ -108,18 +108,20 @@ Partial Class frmLibrarianDashboard
         Me.lblb_issued.Controls.Add(Me.PictureBox7)
         Me.lblb_issued.Controls.Add(Me.Chart1)
         Me.lblb_issued.Controls.Add(Me.Label2)
-        Me.lblb_issued.Location = New System.Drawing.Point(638, 172)
+        Me.lblb_issued.Location = New System.Drawing.Point(851, 212)
+        Me.lblb_issued.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.lblb_issued.Name = "lblb_issued"
-        Me.lblb_issued.Size = New System.Drawing.Size(567, 269)
+        Me.lblb_issued.Size = New System.Drawing.Size(755, 331)
         Me.lblb_issued.TabIndex = 82
         '
         'PictureBox7
         '
         Me.PictureBox7.BackColor = System.Drawing.Color.Transparent
         Me.PictureBox7.Image = CType(resources.GetObject("PictureBox7.Image"), System.Drawing.Image)
-        Me.PictureBox7.Location = New System.Drawing.Point(14, 14)
+        Me.PictureBox7.Location = New System.Drawing.Point(19, 17)
+        Me.PictureBox7.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.PictureBox7.Name = "PictureBox7"
-        Me.PictureBox7.Size = New System.Drawing.Size(25, 25)
+        Me.PictureBox7.Size = New System.Drawing.Size(33, 31)
         Me.PictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox7.TabIndex = 56
         Me.PictureBox7.TabStop = False
@@ -130,14 +132,15 @@ Partial Class frmLibrarianDashboard
         Me.Chart1.ChartAreas.Add(ChartArea1)
         Legend1.Name = "Legend1"
         Me.Chart1.Legends.Add(Legend1)
-        Me.Chart1.Location = New System.Drawing.Point(14, 45)
+        Me.Chart1.Location = New System.Drawing.Point(19, 55)
+        Me.Chart1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Chart1.Name = "Chart1"
         Series1.ChartArea = "ChartArea1"
         Series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut
         Series1.Legend = "Legend1"
         Series1.Name = "Series1"
         Me.Chart1.Series.Add(Series1)
-        Me.Chart1.Size = New System.Drawing.Size(536, 208)
+        Me.Chart1.Size = New System.Drawing.Size(715, 256)
         Me.Chart1.TabIndex = 76
         Me.Chart1.Text = "Chart1"
         '
@@ -147,9 +150,10 @@ Partial Class frmLibrarianDashboard
         Me.Label2.BackColor = System.Drawing.Color.Transparent
         Me.Label2.Font = New System.Drawing.Font("Segoe UI Semibold", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(90, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(60, Byte), Integer))
-        Me.Label2.Location = New System.Drawing.Point(43, 16)
+        Me.Label2.Location = New System.Drawing.Point(57, 20)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(172, 21)
+        Me.Label2.Size = New System.Drawing.Size(218, 28)
         Me.Label2.TabIndex = 53
         Me.Label2.Text = "Unpaid vs Paid Penalty"
         '
@@ -160,9 +164,10 @@ Partial Class frmLibrarianDashboard
         Me.Panel7.Controls.Add(Me.dgvpenalty)
         Me.Panel7.Controls.Add(Me.PictureBox6)
         Me.Panel7.Controls.Add(Me.Label5)
-        Me.Panel7.Location = New System.Drawing.Point(34, 172)
+        Me.Panel7.Location = New System.Drawing.Point(45, 212)
+        Me.Panel7.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Panel7.Name = "Panel7"
-        Me.Panel7.Size = New System.Drawing.Size(571, 270)
+        Me.Panel7.Size = New System.Drawing.Size(761, 332)
         Me.Panel7.TabIndex = 83
         '
         'dgvpenalty
@@ -173,44 +178,52 @@ Partial Class frmLibrarianDashboard
         Me.dgvpenalty.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvpenalty.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.User, Me.BookTitle, Me.Reason, Me.BookCondition, Me.Status})
         Me.dgvpenalty.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.dgvpenalty.Location = New System.Drawing.Point(0, 45)
+        Me.dgvpenalty.Location = New System.Drawing.Point(0, 56)
+        Me.dgvpenalty.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.dgvpenalty.Name = "dgvpenalty"
         Me.dgvpenalty.RowHeadersVisible = False
-        Me.dgvpenalty.Size = New System.Drawing.Size(569, 223)
+        Me.dgvpenalty.RowHeadersWidth = 51
+        Me.dgvpenalty.Size = New System.Drawing.Size(759, 274)
         Me.dgvpenalty.TabIndex = 159
         '
         'User
         '
         Me.User.HeaderText = "User"
+        Me.User.MinimumWidth = 6
         Me.User.Name = "User"
         '
         'BookTitle
         '
         Me.BookTitle.HeaderText = "Book Title"
+        Me.BookTitle.MinimumWidth = 6
         Me.BookTitle.Name = "BookTitle"
         '
         'Reason
         '
         Me.Reason.HeaderText = "Reason"
+        Me.Reason.MinimumWidth = 6
         Me.Reason.Name = "Reason"
         '
         'BookCondition
         '
         Me.BookCondition.HeaderText = "Book Condition"
+        Me.BookCondition.MinimumWidth = 6
         Me.BookCondition.Name = "BookCondition"
         '
         'Status
         '
         Me.Status.HeaderText = "Status"
+        Me.Status.MinimumWidth = 6
         Me.Status.Name = "Status"
         '
         'PictureBox6
         '
         Me.PictureBox6.BackColor = System.Drawing.Color.Transparent
         Me.PictureBox6.Image = CType(resources.GetObject("PictureBox6.Image"), System.Drawing.Image)
-        Me.PictureBox6.Location = New System.Drawing.Point(14, 14)
+        Me.PictureBox6.Location = New System.Drawing.Point(16, 16)
+        Me.PictureBox6.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.PictureBox6.Name = "PictureBox6"
-        Me.PictureBox6.Size = New System.Drawing.Size(25, 25)
+        Me.PictureBox6.Size = New System.Drawing.Size(33, 31)
         Me.PictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox6.TabIndex = 56
         Me.PictureBox6.TabStop = False
@@ -221,9 +234,10 @@ Partial Class frmLibrarianDashboard
         Me.Label5.BackColor = System.Drawing.Color.Transparent
         Me.Label5.Font = New System.Drawing.Font("Segoe UI Semibold", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.ForeColor = System.Drawing.Color.FromArgb(CType(CType(90, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(60, Byte), Integer))
-        Me.Label5.Location = New System.Drawing.Point(41, 15)
+        Me.Label5.Location = New System.Drawing.Point(55, 18)
+        Me.Label5.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(117, 21)
+        Me.Label5.Size = New System.Drawing.Size(145, 28)
         Me.Label5.TabIndex = 53
         Me.Label5.Text = "Recent Penalty"
         '
@@ -235,9 +249,10 @@ Partial Class frmLibrarianDashboard
         Me.Panel10.Controls.Add(Me.Label8)
         Me.Panel10.Controls.Add(Me.PictureBox3)
         Me.Panel10.Controls.Add(Me.lblissuedtoday)
-        Me.Panel10.Location = New System.Drawing.Point(34, 26)
+        Me.Panel10.Location = New System.Drawing.Point(45, 32)
+        Me.Panel10.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Panel10.Name = "Panel10"
-        Me.Panel10.Size = New System.Drawing.Size(270, 123)
+        Me.Panel10.Size = New System.Drawing.Size(359, 151)
         Me.Panel10.TabIndex = 84
         '
         'Label8
@@ -246,9 +261,10 @@ Partial Class frmLibrarianDashboard
         Me.Label8.BackColor = System.Drawing.Color.Transparent
         Me.Label8.Font = New System.Drawing.Font("Segoe UI Semibold", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label8.ForeColor = System.Drawing.Color.FromArgb(CType(CType(90, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(60, Byte), Integer))
-        Me.Label8.Location = New System.Drawing.Point(43, 88)
+        Me.Label8.Location = New System.Drawing.Point(57, 108)
+        Me.Label8.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(179, 21)
+        Me.Label8.Size = New System.Drawing.Size(221, 28)
         Me.Label8.TabIndex = 52
         Me.Label8.Text = "Books Borrowed Today"
         '
@@ -256,9 +272,10 @@ Partial Class frmLibrarianDashboard
         '
         Me.PictureBox3.BackColor = System.Drawing.Color.Transparent
         Me.PictureBox3.Image = CType(resources.GetObject("PictureBox3.Image"), System.Drawing.Image)
-        Me.PictureBox3.Location = New System.Drawing.Point(41, 35)
+        Me.PictureBox3.Location = New System.Drawing.Point(55, 43)
+        Me.PictureBox3.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.PictureBox3.Name = "PictureBox3"
-        Me.PictureBox3.Size = New System.Drawing.Size(30, 30)
+        Me.PictureBox3.Size = New System.Drawing.Size(40, 37)
         Me.PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox3.TabIndex = 51
         Me.PictureBox3.TabStop = False
@@ -268,9 +285,10 @@ Partial Class frmLibrarianDashboard
         Me.lblissuedtoday.AutoSize = True
         Me.lblissuedtoday.Font = New System.Drawing.Font("Segoe UI", 25.0!, System.Drawing.FontStyle.Bold)
         Me.lblissuedtoday.ForeColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(25, Byte), Integer))
-        Me.lblissuedtoday.Location = New System.Drawing.Point(77, 26)
+        Me.lblissuedtoday.Location = New System.Drawing.Point(103, 32)
+        Me.lblissuedtoday.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblissuedtoday.Name = "lblissuedtoday"
-        Me.lblissuedtoday.Size = New System.Drawing.Size(40, 46)
+        Me.lblissuedtoday.Size = New System.Drawing.Size(49, 57)
         Me.lblissuedtoday.TabIndex = 42
         Me.lblissuedtoday.Text = "0"
         '
@@ -283,9 +301,10 @@ Partial Class frmLibrarianDashboard
         Me.Panel5.Controls.Add(Me.lblPendingReceipts)
         Me.Panel5.Controls.Add(Me.Label6)
         Me.Panel5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Panel5.Location = New System.Drawing.Point(638, 26)
+        Me.Panel5.Location = New System.Drawing.Point(851, 32)
+        Me.Panel5.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Panel5.Name = "Panel5"
-        Me.Panel5.Size = New System.Drawing.Size(270, 123)
+        Me.Panel5.Size = New System.Drawing.Size(359, 151)
         Me.Panel5.TabIndex = 78
         '
         'PictureBox4
@@ -293,9 +312,10 @@ Partial Class frmLibrarianDashboard
         Me.PictureBox4.BackColor = System.Drawing.Color.Transparent
         Me.PictureBox4.Image = CType(resources.GetObject("PictureBox4.Image"), System.Drawing.Image)
         Me.PictureBox4.InitialImage = Global.LibrarySystem.My.Resources.Resources.tbook
-        Me.PictureBox4.Location = New System.Drawing.Point(41, 35)
+        Me.PictureBox4.Location = New System.Drawing.Point(55, 43)
+        Me.PictureBox4.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.PictureBox4.Name = "PictureBox4"
-        Me.PictureBox4.Size = New System.Drawing.Size(30, 30)
+        Me.PictureBox4.Size = New System.Drawing.Size(40, 37)
         Me.PictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox4.TabIndex = 48
         Me.PictureBox4.TabStop = False
@@ -306,9 +326,10 @@ Partial Class frmLibrarianDashboard
         Me.lblPendingReceipts.BackColor = System.Drawing.Color.Transparent
         Me.lblPendingReceipts.Font = New System.Drawing.Font("Segoe UI", 25.0!, System.Drawing.FontStyle.Bold)
         Me.lblPendingReceipts.ForeColor = System.Drawing.Color.FromArgb(CType(CType(90, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(60, Byte), Integer))
-        Me.lblPendingReceipts.Location = New System.Drawing.Point(77, 26)
+        Me.lblPendingReceipts.Location = New System.Drawing.Point(103, 32)
+        Me.lblPendingReceipts.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblPendingReceipts.Name = "lblPendingReceipts"
-        Me.lblPendingReceipts.Size = New System.Drawing.Size(40, 46)
+        Me.lblPendingReceipts.Size = New System.Drawing.Size(49, 57)
         Me.lblPendingReceipts.TabIndex = 19
         Me.lblPendingReceipts.Text = "0"
         '
@@ -318,9 +339,10 @@ Partial Class frmLibrarianDashboard
         Me.Label6.BackColor = System.Drawing.Color.Transparent
         Me.Label6.Font = New System.Drawing.Font("Segoe UI Semibold", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label6.ForeColor = System.Drawing.Color.FromArgb(CType(CType(90, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(60, Byte), Integer))
-        Me.Label6.Location = New System.Drawing.Point(68, 88)
+        Me.Label6.Location = New System.Drawing.Point(91, 108)
+        Me.Label6.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(136, 21)
+        Me.Label6.Size = New System.Drawing.Size(169, 28)
         Me.Label6.TabIndex = 18
         Me.Label6.Text = "Books For Return"
         '
@@ -333,18 +355,20 @@ Partial Class frmLibrarianDashboard
         Me.Panel6.Controls.Add(Me.lbloverduebooks)
         Me.Panel6.Controls.Add(Me.Label10)
         Me.Panel6.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Panel6.Location = New System.Drawing.Point(935, 26)
+        Me.Panel6.Location = New System.Drawing.Point(1247, 32)
+        Me.Panel6.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Panel6.Name = "Panel6"
-        Me.Panel6.Size = New System.Drawing.Size(270, 123)
+        Me.Panel6.Size = New System.Drawing.Size(359, 151)
         Me.Panel6.TabIndex = 80
         '
         'PictureBox5
         '
         Me.PictureBox5.BackColor = System.Drawing.Color.Transparent
         Me.PictureBox5.Image = CType(resources.GetObject("PictureBox5.Image"), System.Drawing.Image)
-        Me.PictureBox5.Location = New System.Drawing.Point(40, 35)
+        Me.PictureBox5.Location = New System.Drawing.Point(53, 43)
+        Me.PictureBox5.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.PictureBox5.Name = "PictureBox5"
-        Me.PictureBox5.Size = New System.Drawing.Size(30, 30)
+        Me.PictureBox5.Size = New System.Drawing.Size(40, 37)
         Me.PictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox5.TabIndex = 49
         Me.PictureBox5.TabStop = False
@@ -355,9 +379,10 @@ Partial Class frmLibrarianDashboard
         Me.lbloverduebooks.BackColor = System.Drawing.Color.Transparent
         Me.lbloverduebooks.Font = New System.Drawing.Font("Segoe UI", 25.0!, System.Drawing.FontStyle.Bold)
         Me.lbloverduebooks.ForeColor = System.Drawing.Color.FromArgb(CType(CType(90, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(60, Byte), Integer))
-        Me.lbloverduebooks.Location = New System.Drawing.Point(76, 26)
+        Me.lbloverduebooks.Location = New System.Drawing.Point(101, 32)
+        Me.lbloverduebooks.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lbloverduebooks.Name = "lbloverduebooks"
-        Me.lbloverduebooks.Size = New System.Drawing.Size(40, 46)
+        Me.lbloverduebooks.Size = New System.Drawing.Size(49, 57)
         Me.lbloverduebooks.TabIndex = 45
         Me.lbloverduebooks.Text = "0"
         '
@@ -367,9 +392,10 @@ Partial Class frmLibrarianDashboard
         Me.Label10.BackColor = System.Drawing.Color.Transparent
         Me.Label10.Font = New System.Drawing.Font("Segoe UI Semibold", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label10.ForeColor = System.Drawing.Color.FromArgb(CType(CType(90, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(60, Byte), Integer))
-        Me.Label10.Location = New System.Drawing.Point(79, 88)
+        Me.Label10.Location = New System.Drawing.Point(105, 108)
+        Me.Label10.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(122, 21)
+        Me.Label10.Size = New System.Drawing.Size(152, 28)
         Me.Label10.TabIndex = 18
         Me.Label10.Text = "Overdue Books"
         '
@@ -382,18 +408,20 @@ Partial Class frmLibrarianDashboard
         Me.Panel3.Controls.Add(Me.lblreturnedtoday)
         Me.Panel3.Controls.Add(Me.Label1)
         Me.Panel3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Panel3.Location = New System.Drawing.Point(335, 26)
+        Me.Panel3.Location = New System.Drawing.Point(447, 32)
+        Me.Panel3.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(270, 123)
+        Me.Panel3.Size = New System.Drawing.Size(359, 151)
         Me.Panel3.TabIndex = 79
         '
         'PictureBox1
         '
         Me.PictureBox1.BackColor = System.Drawing.Color.Transparent
         Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
-        Me.PictureBox1.Location = New System.Drawing.Point(31, 35)
+        Me.PictureBox1.Location = New System.Drawing.Point(41, 43)
+        Me.PictureBox1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(30, 30)
+        Me.PictureBox1.Size = New System.Drawing.Size(40, 37)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox1.TabIndex = 49
         Me.PictureBox1.TabStop = False
@@ -404,9 +432,10 @@ Partial Class frmLibrarianDashboard
         Me.lblreturnedtoday.BackColor = System.Drawing.Color.Transparent
         Me.lblreturnedtoday.Font = New System.Drawing.Font("Segoe UI", 25.0!, System.Drawing.FontStyle.Bold)
         Me.lblreturnedtoday.ForeColor = System.Drawing.Color.FromArgb(CType(CType(90, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(60, Byte), Integer))
-        Me.lblreturnedtoday.Location = New System.Drawing.Point(67, 26)
+        Me.lblreturnedtoday.Location = New System.Drawing.Point(89, 32)
+        Me.lblreturnedtoday.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblreturnedtoday.Name = "lblreturnedtoday"
-        Me.lblreturnedtoday.Size = New System.Drawing.Size(40, 46)
+        Me.lblreturnedtoday.Size = New System.Drawing.Size(49, 57)
         Me.lblreturnedtoday.TabIndex = 45
         Me.lblreturnedtoday.Text = "0"
         '
@@ -416,9 +445,10 @@ Partial Class frmLibrarianDashboard
         Me.Label1.BackColor = System.Drawing.Color.Transparent
         Me.Label1.Font = New System.Drawing.Font("Segoe UI Semibold", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(90, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(60, Byte), Integer))
-        Me.Label1.Location = New System.Drawing.Point(47, 88)
+        Me.Label1.Location = New System.Drawing.Point(63, 108)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(174, 21)
+        Me.Label1.Size = New System.Drawing.Size(216, 28)
         Me.Label1.TabIndex = 18
         Me.Label1.Text = "Books Returned Today"
         '
@@ -430,9 +460,10 @@ Partial Class frmLibrarianDashboard
         Me.Panel1.Controls.Add(Me.Label28)
         Me.Panel1.Controls.Add(Me.lblposition)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.Panel1.Location = New System.Drawing.Point(0, 770)
+        Me.Panel1.Location = New System.Drawing.Point(0, 947)
+        Me.Panel1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(1231, 27)
+        Me.Panel1.Size = New System.Drawing.Size(1643, 33)
         Me.Panel1.TabIndex = 158
         '
         'lblname
@@ -441,9 +472,10 @@ Partial Class frmLibrarianDashboard
         Me.lblname.BackColor = System.Drawing.Color.Transparent
         Me.lblname.Font = New System.Drawing.Font("Segoe UI Semibold", 12.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblname.ForeColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(25, Byte), Integer))
-        Me.lblname.Location = New System.Drawing.Point(54, 3)
+        Me.lblname.Location = New System.Drawing.Point(72, 4)
+        Me.lblname.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblname.Name = "lblname"
-        Me.lblname.Size = New System.Drawing.Size(53, 21)
+        Me.lblname.Size = New System.Drawing.Size(66, 28)
         Me.lblname.TabIndex = 64
         Me.lblname.Text = "Name"
         '
@@ -453,9 +485,10 @@ Partial Class frmLibrarianDashboard
         Me.Label29.BackColor = System.Drawing.Color.Transparent
         Me.Label29.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label29.ForeColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(25, Byte), Integer))
-        Me.Label29.Location = New System.Drawing.Point(4, 3)
+        Me.Label29.Location = New System.Drawing.Point(5, 4)
+        Me.Label29.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label29.Name = "Label29"
-        Me.Label29.Size = New System.Drawing.Size(55, 21)
+        Me.Label29.Size = New System.Drawing.Size(68, 28)
         Me.Label29.TabIndex = 63
         Me.Label29.Text = "Name:"
         '
@@ -465,9 +498,10 @@ Partial Class frmLibrarianDashboard
         Me.Label28.BackColor = System.Drawing.Color.Transparent
         Me.Label28.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label28.ForeColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(25, Byte), Integer))
-        Me.Label28.Location = New System.Drawing.Point(249, 3)
+        Me.Label28.Location = New System.Drawing.Point(332, 4)
+        Me.Label28.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label28.Name = "Label28"
-        Me.Label28.Size = New System.Drawing.Size(68, 21)
+        Me.Label28.Size = New System.Drawing.Size(86, 28)
         Me.Label28.TabIndex = 65
         Me.Label28.Text = "Position:"
         '
@@ -477,18 +511,20 @@ Partial Class frmLibrarianDashboard
         Me.lblposition.BackColor = System.Drawing.Color.Transparent
         Me.lblposition.Font = New System.Drawing.Font("Segoe UI Semibold", 12.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblposition.ForeColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(25, Byte), Integer))
-        Me.lblposition.Location = New System.Drawing.Point(315, 3)
+        Me.lblposition.Location = New System.Drawing.Point(420, 4)
+        Me.lblposition.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblposition.Name = "lblposition"
-        Me.lblposition.Size = New System.Drawing.Size(82, 21)
+        Me.lblposition.Size = New System.Drawing.Size(100, 28)
         Me.lblposition.TabIndex = 66
         Me.lblposition.Text = "NPosition"
         '
         'Panel2
         '
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.Panel2.Location = New System.Drawing.Point(0, 752)
+        Me.Panel2.Location = New System.Drawing.Point(0, 925)
+        Me.Panel2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(1231, 18)
+        Me.Panel2.Size = New System.Drawing.Size(1643, 22)
         Me.Panel2.TabIndex = 159
         '
         'Panel13
@@ -498,9 +534,10 @@ Partial Class frmLibrarianDashboard
         Me.Panel13.Controls.Add(Me.DataGridView1)
         Me.Panel13.Controls.Add(Me.PictureBox10)
         Me.Panel13.Controls.Add(Me.Label22)
-        Me.Panel13.Location = New System.Drawing.Point(34, 471)
+        Me.Panel13.Location = New System.Drawing.Point(45, 580)
+        Me.Panel13.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Panel13.Name = "Panel13"
-        Me.Panel13.Size = New System.Drawing.Size(571, 281)
+        Me.Panel13.Size = New System.Drawing.Size(761, 345)
         Me.Panel13.TabIndex = 160
         '
         'DataGridView1
@@ -519,43 +556,52 @@ Partial Class frmLibrarianDashboard
         DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.DataGridView1.DefaultCellStyle = DataGridViewCellStyle1
         Me.DataGridView1.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.DataGridView1.Location = New System.Drawing.Point(0, 41)
+        Me.DataGridView1.Location = New System.Drawing.Point(0, 50)
+        Me.DataGridView1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(569, 238)
+        Me.DataGridView1.RowHeadersVisible = False
+        Me.DataGridView1.RowHeadersWidth = 51
+        Me.DataGridView1.Size = New System.Drawing.Size(759, 293)
         Me.DataGridView1.TabIndex = 158
         '
         'DataGridViewTextBoxColumn1
         '
         Me.DataGridViewTextBoxColumn1.HeaderText = "User"
+        Me.DataGridViewTextBoxColumn1.MinimumWidth = 6
         Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
         '
         'DataGridViewTextBoxColumn2
         '
         Me.DataGridViewTextBoxColumn2.HeaderText = "Book Title"
+        Me.DataGridViewTextBoxColumn2.MinimumWidth = 6
         Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
         '
         'BorrowDate
         '
         Me.BorrowDate.HeaderText = "Book Date"
+        Me.BorrowDate.MinimumWidth = 6
         Me.BorrowDate.Name = "BorrowDate"
         '
         'DueDate
         '
         Me.DueDate.HeaderText = "Due Date"
+        Me.DueDate.MinimumWidth = 6
         Me.DueDate.Name = "DueDate"
         '
         'DataGridViewTextBoxColumn3
         '
         Me.DataGridViewTextBoxColumn3.HeaderText = "Status"
+        Me.DataGridViewTextBoxColumn3.MinimumWidth = 6
         Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
         '
         'PictureBox10
         '
         Me.PictureBox10.BackColor = System.Drawing.Color.Transparent
         Me.PictureBox10.Image = CType(resources.GetObject("PictureBox10.Image"), System.Drawing.Image)
-        Me.PictureBox10.Location = New System.Drawing.Point(12, 10)
+        Me.PictureBox10.Location = New System.Drawing.Point(16, 12)
+        Me.PictureBox10.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.PictureBox10.Name = "PictureBox10"
-        Me.PictureBox10.Size = New System.Drawing.Size(25, 25)
+        Me.PictureBox10.Size = New System.Drawing.Size(33, 31)
         Me.PictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox10.TabIndex = 56
         Me.PictureBox10.TabStop = False
@@ -566,9 +612,10 @@ Partial Class frmLibrarianDashboard
         Me.Label22.BackColor = System.Drawing.Color.Transparent
         Me.Label22.Font = New System.Drawing.Font("Segoe UI Semibold", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label22.ForeColor = System.Drawing.Color.FromArgb(CType(CType(90, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(60, Byte), Integer))
-        Me.Label22.Location = New System.Drawing.Point(41, 12)
+        Me.Label22.Location = New System.Drawing.Point(55, 15)
+        Me.Label22.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label22.Name = "Label22"
-        Me.Label22.Size = New System.Drawing.Size(175, 21)
+        Me.Label22.Size = New System.Drawing.Size(213, 28)
         Me.Label22.TabIndex = 53
         Me.Label22.Text = "Recent Library Activity"
         '
@@ -579,18 +626,20 @@ Partial Class frmLibrarianDashboard
         Me.Panel11.Controls.Add(Me.PictureBox8)
         Me.Panel11.Controls.Add(Me.chartb_overview)
         Me.Panel11.Controls.Add(Me.Label18)
-        Me.Panel11.Location = New System.Drawing.Point(638, 471)
+        Me.Panel11.Location = New System.Drawing.Point(851, 580)
+        Me.Panel11.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Panel11.Name = "Panel11"
-        Me.Panel11.Size = New System.Drawing.Size(567, 281)
+        Me.Panel11.Size = New System.Drawing.Size(755, 345)
         Me.Panel11.TabIndex = 161
         '
         'PictureBox8
         '
         Me.PictureBox8.BackColor = System.Drawing.Color.Transparent
         Me.PictureBox8.Image = CType(resources.GetObject("PictureBox8.Image"), System.Drawing.Image)
-        Me.PictureBox8.Location = New System.Drawing.Point(11, 10)
+        Me.PictureBox8.Location = New System.Drawing.Point(15, 12)
+        Me.PictureBox8.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.PictureBox8.Name = "PictureBox8"
-        Me.PictureBox8.Size = New System.Drawing.Size(25, 25)
+        Me.PictureBox8.Size = New System.Drawing.Size(33, 31)
         Me.PictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox8.TabIndex = 53
         Me.PictureBox8.TabStop = False
@@ -603,14 +652,15 @@ Partial Class frmLibrarianDashboard
         Me.chartb_overview.ChartAreas.Add(ChartArea2)
         Legend2.Name = "Legend1"
         Me.chartb_overview.Legends.Add(Legend2)
-        Me.chartb_overview.Location = New System.Drawing.Point(11, 41)
+        Me.chartb_overview.Location = New System.Drawing.Point(15, 50)
+        Me.chartb_overview.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.chartb_overview.Name = "chartb_overview"
         Series2.ChartArea = "ChartArea1"
         Series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut
         Series2.Legend = "Legend1"
         Series2.Name = "Series1"
         Me.chartb_overview.Series.Add(Series2)
-        Me.chartb_overview.Size = New System.Drawing.Size(539, 233)
+        Me.chartb_overview.Size = New System.Drawing.Size(719, 287)
         Me.chartb_overview.TabIndex = 52
         Me.chartb_overview.Text = "Chart1"
         '
@@ -620,19 +670,20 @@ Partial Class frmLibrarianDashboard
         Me.Label18.BackColor = System.Drawing.Color.Transparent
         Me.Label18.Font = New System.Drawing.Font("Segoe UI Semibold", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label18.ForeColor = System.Drawing.Color.FromArgb(CType(CType(90, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(60, Byte), Integer))
-        Me.Label18.Location = New System.Drawing.Point(39, 13)
+        Me.Label18.Location = New System.Drawing.Point(52, 16)
+        Me.Label18.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label18.Name = "Label18"
-        Me.Label18.Size = New System.Drawing.Size(121, 21)
+        Me.Label18.Size = New System.Drawing.Size(150, 28)
         Me.Label18.TabIndex = 51
         Me.Label18.Text = "Book Overview"
         '
         'frmLibrarianDashboard
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoScroll = True
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(251, Byte), Integer), CType(CType(243, Byte), Integer), CType(CType(235, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(1248, 684)
+        Me.ClientSize = New System.Drawing.Size(1664, 842)
         Me.Controls.Add(Me.Panel11)
         Me.Controls.Add(Me.Panel13)
         Me.Controls.Add(Me.Panel2)
@@ -644,6 +695,7 @@ Partial Class frmLibrarianDashboard
         Me.Controls.Add(Me.Panel6)
         Me.Controls.Add(Me.Panel3)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Name = "frmLibrarianDashboard"
         Me.Text = "frmLibraryDashboard"
         Me.lblb_issued.ResumeLayout(False)

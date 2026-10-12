@@ -46,6 +46,8 @@ Partial Class frmStudentPenalty
         Me.PenaltyStatus = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.PaymentDate = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Panel5 = New System.Windows.Forms.Panel()
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Label12 = New System.Windows.Forms.Label()
         Me.PictureBox7 = New System.Windows.Forms.PictureBox()
         Me.PictureBox8 = New System.Windows.Forms.PictureBox()
         Me.PictureBox6 = New System.Windows.Forms.PictureBox()
@@ -57,7 +59,6 @@ Partial Class frmStudentPenalty
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
-        Me.Label12 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Panel13 = New System.Windows.Forms.Panel()
         Me.lblname = New System.Windows.Forms.Label()
@@ -66,7 +67,6 @@ Partial Class frmStudentPenalty
         Me.Label27 = New System.Windows.Forms.Label()
         Me.Label28 = New System.Windows.Forms.Label()
         Me.lblposition = New System.Windows.Forms.Label()
-        Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Panel4.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel6.SuspendLayout()
@@ -75,13 +75,13 @@ Partial Class frmStudentPenalty
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgvpenalty, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel5.SuspendLayout()
+        Me.Panel1.SuspendLayout()
         CType(Me.PictureBox7, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox8, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel13.SuspendLayout()
-        Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
         'Panel4
@@ -92,18 +92,20 @@ Partial Class frmStudentPenalty
         Me.Panel4.Controls.Add(Me.PictureBox1)
         Me.Panel4.Controls.Add(Me.Label2)
         Me.Panel4.Controls.Add(Me.lbl_pend_penalty)
-        Me.Panel4.Location = New System.Drawing.Point(26, 85)
+        Me.Panel4.Location = New System.Drawing.Point(35, 105)
+        Me.Panel4.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(265, 110)
+        Me.Panel4.Size = New System.Drawing.Size(353, 135)
         Me.Panel4.TabIndex = 64
         '
         'PictureBox1
         '
         Me.PictureBox1.BackColor = System.Drawing.Color.Transparent
         Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
-        Me.PictureBox1.Location = New System.Drawing.Point(21, 27)
+        Me.PictureBox1.Location = New System.Drawing.Point(28, 33)
+        Me.PictureBox1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(50, 50)
+        Me.PictureBox1.Size = New System.Drawing.Size(67, 62)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox1.TabIndex = 51
         Me.PictureBox1.TabStop = False
@@ -113,9 +115,10 @@ Partial Class frmStudentPenalty
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(25, Byte), Integer))
-        Me.Label2.Location = New System.Drawing.Point(96, 24)
+        Me.Label2.Location = New System.Drawing.Point(128, 30)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(110, 21)
+        Me.Label2.Size = New System.Drawing.Size(135, 28)
         Me.Label2.TabIndex = 43
         Me.Label2.Text = "Total Penalty"
         '
@@ -124,9 +127,10 @@ Partial Class frmStudentPenalty
         Me.lbl_pend_penalty.AutoSize = True
         Me.lbl_pend_penalty.Font = New System.Drawing.Font("Segoe UI", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbl_pend_penalty.ForeColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(25, Byte), Integer))
-        Me.lbl_pend_penalty.Location = New System.Drawing.Point(99, 49)
+        Me.lbl_pend_penalty.Location = New System.Drawing.Point(132, 60)
+        Me.lbl_pend_penalty.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lbl_pend_penalty.Name = "lbl_pend_penalty"
-        Me.lbl_pend_penalty.Size = New System.Drawing.Size(24, 32)
+        Me.lbl_pend_penalty.Size = New System.Drawing.Size(30, 41)
         Me.lbl_pend_penalty.TabIndex = 42
         Me.lbl_pend_penalty.Text = "-"
         '
@@ -135,9 +139,10 @@ Partial Class frmStudentPenalty
         Me.lblt_due.AutoSize = True
         Me.lblt_due.Font = New System.Drawing.Font("Segoe UI", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblt_due.ForeColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(25, Byte), Integer))
-        Me.lblt_due.Location = New System.Drawing.Point(95, 49)
+        Me.lblt_due.Location = New System.Drawing.Point(127, 60)
+        Me.lblt_due.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblt_due.Name = "lblt_due"
-        Me.lblt_due.Size = New System.Drawing.Size(24, 32)
+        Me.lblt_due.Size = New System.Drawing.Size(30, 41)
         Me.lblt_due.TabIndex = 42
         Me.lblt_due.Text = "-"
         '
@@ -149,18 +154,20 @@ Partial Class frmStudentPenalty
         Me.Panel6.Controls.Add(Me.PictureBox4)
         Me.Panel6.Controls.Add(Me.Label7)
         Me.Panel6.Controls.Add(Me.lblp_penalty)
-        Me.Panel6.Location = New System.Drawing.Point(620, 85)
+        Me.Panel6.Location = New System.Drawing.Point(827, 105)
+        Me.Panel6.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Panel6.Name = "Panel6"
-        Me.Panel6.Size = New System.Drawing.Size(265, 110)
+        Me.Panel6.Size = New System.Drawing.Size(353, 135)
         Me.Panel6.TabIndex = 65
         '
         'PictureBox4
         '
         Me.PictureBox4.BackColor = System.Drawing.Color.Transparent
         Me.PictureBox4.Image = CType(resources.GetObject("PictureBox4.Image"), System.Drawing.Image)
-        Me.PictureBox4.Location = New System.Drawing.Point(21, 27)
+        Me.PictureBox4.Location = New System.Drawing.Point(28, 33)
+        Me.PictureBox4.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.PictureBox4.Name = "PictureBox4"
-        Me.PictureBox4.Size = New System.Drawing.Size(50, 50)
+        Me.PictureBox4.Size = New System.Drawing.Size(67, 62)
         Me.PictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox4.TabIndex = 53
         Me.PictureBox4.TabStop = False
@@ -170,9 +177,10 @@ Partial Class frmStudentPenalty
         Me.Label7.AutoSize = True
         Me.Label7.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label7.ForeColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(25, Byte), Integer))
-        Me.Label7.Location = New System.Drawing.Point(91, 24)
+        Me.Label7.Location = New System.Drawing.Point(121, 30)
+        Me.Label7.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(86, 21)
+        Me.Label7.Size = New System.Drawing.Size(106, 28)
         Me.Label7.TabIndex = 43
         Me.Label7.Text = "Total Paid"
         '
@@ -181,9 +189,10 @@ Partial Class frmStudentPenalty
         Me.lblp_penalty.AutoSize = True
         Me.lblp_penalty.Font = New System.Drawing.Font("Segoe UI", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblp_penalty.ForeColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(25, Byte), Integer))
-        Me.lblp_penalty.Location = New System.Drawing.Point(94, 49)
+        Me.lblp_penalty.Location = New System.Drawing.Point(125, 60)
+        Me.lblp_penalty.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblp_penalty.Name = "lblp_penalty"
-        Me.lblp_penalty.Size = New System.Drawing.Size(24, 32)
+        Me.lblp_penalty.Size = New System.Drawing.Size(30, 41)
         Me.lblp_penalty.TabIndex = 42
         Me.lblp_penalty.Text = "-"
         '
@@ -195,18 +204,20 @@ Partial Class frmStudentPenalty
         Me.Panel3.Controls.Add(Me.PictureBox3)
         Me.Panel3.Controls.Add(Me.Label8)
         Me.Panel3.Controls.Add(Me.lblt_due)
-        Me.Panel3.Location = New System.Drawing.Point(320, 85)
+        Me.Panel3.Location = New System.Drawing.Point(427, 105)
+        Me.Panel3.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(265, 110)
+        Me.Panel3.Size = New System.Drawing.Size(353, 135)
         Me.Panel3.TabIndex = 66
         '
         'PictureBox3
         '
         Me.PictureBox3.BackColor = System.Drawing.Color.Transparent
         Me.PictureBox3.Image = CType(resources.GetObject("PictureBox3.Image"), System.Drawing.Image)
-        Me.PictureBox3.Location = New System.Drawing.Point(25, 27)
+        Me.PictureBox3.Location = New System.Drawing.Point(33, 33)
+        Me.PictureBox3.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.PictureBox3.Name = "PictureBox3"
-        Me.PictureBox3.Size = New System.Drawing.Size(50, 50)
+        Me.PictureBox3.Size = New System.Drawing.Size(67, 62)
         Me.PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox3.TabIndex = 52
         Me.PictureBox3.TabStop = False
@@ -216,9 +227,10 @@ Partial Class frmStudentPenalty
         Me.Label8.AutoSize = True
         Me.Label8.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label8.ForeColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(25, Byte), Integer))
-        Me.Label8.Location = New System.Drawing.Point(92, 24)
+        Me.Label8.Location = New System.Drawing.Point(123, 30)
+        Me.Label8.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(136, 21)
+        Me.Label8.Size = New System.Drawing.Size(164, 28)
         Me.Label8.TabIndex = 43
         Me.Label8.Text = "Pending Penalty"
         '
@@ -239,10 +251,12 @@ Partial Class frmStudentPenalty
         Me.dgvpenalty.DefaultCellStyle = DataGridViewCellStyle1
         Me.dgvpenalty.EnableHeadersVisualStyles = False
         Me.dgvpenalty.GridColor = System.Drawing.Color.DarkGray
-        Me.dgvpenalty.Location = New System.Drawing.Point(26, 223)
+        Me.dgvpenalty.Location = New System.Drawing.Point(35, 274)
+        Me.dgvpenalty.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.dgvpenalty.Name = "dgvpenalty"
+        Me.dgvpenalty.RowHeadersVisible = False
         Me.dgvpenalty.RowHeadersWidth = 51
-        Me.dgvpenalty.Size = New System.Drawing.Size(859, 498)
+        Me.dgvpenalty.Size = New System.Drawing.Size(1145, 613)
         Me.dgvpenalty.TabIndex = 67
         '
         'ISBN
@@ -310,58 +324,82 @@ Partial Class frmStudentPenalty
         Me.Panel5.Controls.Add(Me.Label4)
         Me.Panel5.Controls.Add(Me.Label3)
         Me.Panel5.Controls.Add(Me.Label10)
-        Me.Panel5.Location = New System.Drawing.Point(904, 85)
+        Me.Panel5.Location = New System.Drawing.Point(1205, 105)
+        Me.Panel5.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Panel5.Name = "Panel5"
-        Me.Panel5.Size = New System.Drawing.Size(288, 636)
+        Me.Panel5.Size = New System.Drawing.Size(383, 782)
         Me.Panel5.TabIndex = 65
+        '
+        'Panel1
+        '
+        Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.Panel1.Controls.Add(Me.Label12)
+        Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Panel1.Location = New System.Drawing.Point(0, 0)
+        Me.Panel1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(381, 55)
+        Me.Panel1.TabIndex = 58
+        '
+        'Label12
+        '
+        Me.Label12.AutoSize = True
+        Me.Label12.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label12.ForeColor = System.Drawing.Color.White
+        Me.Label12.Location = New System.Drawing.Point(9, 11)
+        Me.Label12.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(340, 32)
+        Me.Label12.TabIndex = 46
+        Me.Label12.Text = "HOW TO RESOLVE PENALTY?"
         '
         'PictureBox7
         '
         Me.PictureBox7.Image = CType(resources.GetObject("PictureBox7.Image"), System.Drawing.Image)
-        Me.PictureBox7.Location = New System.Drawing.Point(17, 429)
-        Me.PictureBox7.Margin = New System.Windows.Forms.Padding(2)
+        Me.PictureBox7.Location = New System.Drawing.Point(23, 528)
+        Me.PictureBox7.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.PictureBox7.Name = "PictureBox7"
-        Me.PictureBox7.Size = New System.Drawing.Size(34, 34)
+        Me.PictureBox7.Size = New System.Drawing.Size(45, 42)
         Me.PictureBox7.TabIndex = 57
         Me.PictureBox7.TabStop = False
         '
         'PictureBox8
         '
         Me.PictureBox8.Image = CType(resources.GetObject("PictureBox8.Image"), System.Drawing.Image)
-        Me.PictureBox8.Location = New System.Drawing.Point(17, 344)
-        Me.PictureBox8.Margin = New System.Windows.Forms.Padding(2)
+        Me.PictureBox8.Location = New System.Drawing.Point(23, 423)
+        Me.PictureBox8.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.PictureBox8.Name = "PictureBox8"
-        Me.PictureBox8.Size = New System.Drawing.Size(34, 34)
+        Me.PictureBox8.Size = New System.Drawing.Size(45, 42)
         Me.PictureBox8.TabIndex = 56
         Me.PictureBox8.TabStop = False
         '
         'PictureBox6
         '
         Me.PictureBox6.Image = CType(resources.GetObject("PictureBox6.Image"), System.Drawing.Image)
-        Me.PictureBox6.Location = New System.Drawing.Point(17, 266)
-        Me.PictureBox6.Margin = New System.Windows.Forms.Padding(2)
+        Me.PictureBox6.Location = New System.Drawing.Point(23, 327)
+        Me.PictureBox6.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.PictureBox6.Name = "PictureBox6"
-        Me.PictureBox6.Size = New System.Drawing.Size(34, 34)
+        Me.PictureBox6.Size = New System.Drawing.Size(45, 42)
         Me.PictureBox6.TabIndex = 55
         Me.PictureBox6.TabStop = False
         '
         'PictureBox5
         '
         Me.PictureBox5.Image = CType(resources.GetObject("PictureBox5.Image"), System.Drawing.Image)
-        Me.PictureBox5.Location = New System.Drawing.Point(17, 189)
-        Me.PictureBox5.Margin = New System.Windows.Forms.Padding(2)
+        Me.PictureBox5.Location = New System.Drawing.Point(23, 233)
+        Me.PictureBox5.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.PictureBox5.Name = "PictureBox5"
-        Me.PictureBox5.Size = New System.Drawing.Size(34, 34)
+        Me.PictureBox5.Size = New System.Drawing.Size(45, 42)
         Me.PictureBox5.TabIndex = 54
         Me.PictureBox5.TabStop = False
         '
         'PictureBox2
         '
         Me.PictureBox2.Image = CType(resources.GetObject("PictureBox2.Image"), System.Drawing.Image)
-        Me.PictureBox2.Location = New System.Drawing.Point(17, 116)
-        Me.PictureBox2.Margin = New System.Windows.Forms.Padding(2)
+        Me.PictureBox2.Location = New System.Drawing.Point(23, 143)
+        Me.PictureBox2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(34, 34)
+        Me.PictureBox2.Size = New System.Drawing.Size(45, 42)
         Me.PictureBox2.TabIndex = 53
         Me.PictureBox2.TabStop = False
         '
@@ -370,9 +408,10 @@ Partial Class frmStudentPenalty
         Me.Label9.AutoSize = True
         Me.Label9.Font = New System.Drawing.Font("Segoe UI", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label9.ForeColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(25, Byte), Integer))
-        Me.Label9.Location = New System.Drawing.Point(14, 60)
+        Me.Label9.Location = New System.Drawing.Point(19, 74)
+        Me.Label9.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(247, 32)
+        Me.Label9.Size = New System.Drawing.Size(307, 41)
         Me.Label9.TabIndex = 52
         Me.Label9.Text = "STEP BY STEP GUIDE" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
         '
@@ -381,9 +420,10 @@ Partial Class frmStudentPenalty
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Segoe UI Semibold", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label6.ForeColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(25, Byte), Integer))
-        Me.Label6.Location = New System.Drawing.Point(54, 425)
+        Me.Label6.Location = New System.Drawing.Point(72, 523)
+        Me.Label6.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(207, 40)
+        Me.Label6.Size = New System.Drawing.Size(264, 50)
         Me.Label6.TabIndex = 51
         Me.Label6.Text = "Once verified, your penalty " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "status will be marked as PAID"
         '
@@ -392,9 +432,10 @@ Partial Class frmStudentPenalty
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Segoe UI Semibold", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.ForeColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(25, Byte), Integer))
-        Me.Label5.Location = New System.Drawing.Point(56, 351)
+        Me.Label5.Location = New System.Drawing.Point(75, 432)
+        Me.Label5.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(209, 20)
+        Me.Label5.Size = New System.Drawing.Size(263, 25)
         Me.Label5.TabIndex = 50
         Me.Label5.Text = "Wait for Librarian verification"
         '
@@ -403,9 +444,10 @@ Partial Class frmStudentPenalty
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Segoe UI Semibold", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(25, Byte), Integer))
-        Me.Label4.Location = New System.Drawing.Point(57, 273)
+        Me.Label4.Location = New System.Drawing.Point(76, 336)
+        Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(206, 20)
+        Me.Label4.Size = New System.Drawing.Size(258, 25)
         Me.Label4.TabIndex = 49
         Me.Label4.Text = "Show the receipt to Librarian"
         '
@@ -414,9 +456,10 @@ Partial Class frmStudentPenalty
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Segoe UI Semibold", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(25, Byte), Integer))
-        Me.Label3.Location = New System.Drawing.Point(58, 197)
+        Me.Label3.Location = New System.Drawing.Point(77, 242)
+        Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(169, 20)
+        Me.Label3.Size = New System.Drawing.Size(214, 25)
         Me.Label3.TabIndex = 48
         Me.Label3.Text = "Get your official receipt" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
         '
@@ -425,31 +468,22 @@ Partial Class frmStudentPenalty
         Me.Label10.AutoSize = True
         Me.Label10.Font = New System.Drawing.Font("Segoe UI Semibold", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label10.ForeColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(25, Byte), Integer))
-        Me.Label10.Location = New System.Drawing.Point(58, 124)
+        Me.Label10.Location = New System.Drawing.Point(77, 153)
+        Me.Label10.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(212, 20)
+        Me.Label10.Size = New System.Drawing.Size(267, 25)
         Me.Label10.TabIndex = 47
         Me.Label10.Text = "Pay the penalty at the Cashier"
-        '
-        'Label12
-        '
-        Me.Label12.AutoSize = True
-        Me.Label12.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label12.ForeColor = System.Drawing.Color.White
-        Me.Label12.Location = New System.Drawing.Point(7, 9)
-        Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(268, 25)
-        Me.Label12.TabIndex = 46
-        Me.Label12.Text = "HOW TO RESOLVE PENALTY?"
         '
         'Label1
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Segoe UI", 19.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(10, Byte), Integer))
-        Me.Label1.Location = New System.Drawing.Point(21, 28)
+        Me.Label1.Location = New System.Drawing.Point(28, 34)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(203, 37)
+        Me.Label1.Size = New System.Drawing.Size(249, 45)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "MY PENALTIES"
         '
@@ -463,9 +497,10 @@ Partial Class frmStudentPenalty
         Me.Panel13.Controls.Add(Me.Label28)
         Me.Panel13.Controls.Add(Me.lblposition)
         Me.Panel13.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.Panel13.Location = New System.Drawing.Point(0, 751)
+        Me.Panel13.Location = New System.Drawing.Point(0, 925)
+        Me.Panel13.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Panel13.Name = "Panel13"
-        Me.Panel13.Size = New System.Drawing.Size(1220, 27)
+        Me.Panel13.Size = New System.Drawing.Size(1627, 33)
         Me.Panel13.TabIndex = 160
         '
         'lblname
@@ -474,9 +509,10 @@ Partial Class frmStudentPenalty
         Me.lblname.BackColor = System.Drawing.Color.Transparent
         Me.lblname.Font = New System.Drawing.Font("Segoe UI Semibold", 12.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblname.ForeColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(25, Byte), Integer))
-        Me.lblname.Location = New System.Drawing.Point(54, 3)
+        Me.lblname.Location = New System.Drawing.Point(72, 4)
+        Me.lblname.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblname.Name = "lblname"
-        Me.lblname.Size = New System.Drawing.Size(53, 21)
+        Me.lblname.Size = New System.Drawing.Size(66, 28)
         Me.lblname.TabIndex = 64
         Me.lblname.Text = "Name"
         '
@@ -486,9 +522,10 @@ Partial Class frmStudentPenalty
         Me.lbldatetime.BackColor = System.Drawing.Color.Transparent
         Me.lbldatetime.Font = New System.Drawing.Font("Segoe UI Semibold", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbldatetime.ForeColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(25, Byte), Integer))
-        Me.lbldatetime.Location = New System.Drawing.Point(575, 3)
+        Me.lbldatetime.Location = New System.Drawing.Point(767, 4)
+        Me.lbldatetime.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lbldatetime.Name = "lbldatetime"
-        Me.lbldatetime.Size = New System.Drawing.Size(16, 21)
+        Me.lbldatetime.Size = New System.Drawing.Size(20, 28)
         Me.lbldatetime.TabIndex = 68
         Me.lbldatetime.Text = "-"
         '
@@ -498,9 +535,10 @@ Partial Class frmStudentPenalty
         Me.Label29.BackColor = System.Drawing.Color.Transparent
         Me.Label29.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label29.ForeColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(25, Byte), Integer))
-        Me.Label29.Location = New System.Drawing.Point(4, 3)
+        Me.Label29.Location = New System.Drawing.Point(5, 4)
+        Me.Label29.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label29.Name = "Label29"
-        Me.Label29.Size = New System.Drawing.Size(55, 21)
+        Me.Label29.Size = New System.Drawing.Size(68, 28)
         Me.Label29.TabIndex = 63
         Me.Label29.Text = "Name:"
         '
@@ -510,9 +548,10 @@ Partial Class frmStudentPenalty
         Me.Label27.BackColor = System.Drawing.Color.Transparent
         Me.Label27.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label27.ForeColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(25, Byte), Integer))
-        Me.Label27.Location = New System.Drawing.Point(504, 3)
+        Me.Label27.Location = New System.Drawing.Point(672, 4)
+        Me.Label27.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label27.Name = "Label27"
-        Me.Label27.Size = New System.Drawing.Size(65, 21)
+        Me.Label27.Size = New System.Drawing.Size(82, 28)
         Me.Label27.TabIndex = 67
         Me.Label27.Text = "Today is"
         '
@@ -522,9 +561,10 @@ Partial Class frmStudentPenalty
         Me.Label28.BackColor = System.Drawing.Color.Transparent
         Me.Label28.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label28.ForeColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(25, Byte), Integer))
-        Me.Label28.Location = New System.Drawing.Point(249, 3)
+        Me.Label28.Location = New System.Drawing.Point(332, 4)
+        Me.Label28.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label28.Name = "Label28"
-        Me.Label28.Size = New System.Drawing.Size(68, 21)
+        Me.Label28.Size = New System.Drawing.Size(86, 28)
         Me.Label28.TabIndex = 65
         Me.Label28.Text = "Position:"
         '
@@ -534,28 +574,19 @@ Partial Class frmStudentPenalty
         Me.lblposition.BackColor = System.Drawing.Color.Transparent
         Me.lblposition.Font = New System.Drawing.Font("Segoe UI Semibold", 12.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblposition.ForeColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(25, Byte), Integer))
-        Me.lblposition.Location = New System.Drawing.Point(315, 3)
+        Me.lblposition.Location = New System.Drawing.Point(420, 4)
+        Me.lblposition.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblposition.Name = "lblposition"
-        Me.lblposition.Size = New System.Drawing.Size(82, 21)
+        Me.lblposition.Size = New System.Drawing.Size(100, 28)
         Me.lblposition.TabIndex = 66
         Me.lblposition.Text = "NPosition"
         '
-        'Panel1
-        '
-        Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(25, Byte), Integer))
-        Me.Panel1.Controls.Add(Me.Label12)
-        Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Panel1.Location = New System.Drawing.Point(0, 0)
-        Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(286, 45)
-        Me.Panel1.TabIndex = 58
-        '
         'frmStudentPenalty
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(251, Byte), Integer), CType(CType(243, Byte), Integer), CType(CType(235, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(1220, 778)
+        Me.ClientSize = New System.Drawing.Size(1627, 958)
         Me.Controls.Add(Me.Panel13)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.dgvpenalty)
@@ -564,6 +595,7 @@ Partial Class frmStudentPenalty
         Me.Controls.Add(Me.Panel5)
         Me.Controls.Add(Me.Panel4)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Name = "frmStudentPenalty"
         Me.Text = "frmStudentPenalty"
         Me.Panel4.ResumeLayout(False)
@@ -578,6 +610,8 @@ Partial Class frmStudentPenalty
         CType(Me.dgvpenalty, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel5.ResumeLayout(False)
         Me.Panel5.PerformLayout()
+        Me.Panel1.ResumeLayout(False)
+        Me.Panel1.PerformLayout()
         CType(Me.PictureBox7, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox8, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).EndInit()
@@ -585,8 +619,6 @@ Partial Class frmStudentPenalty
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel13.ResumeLayout(False)
         Me.Panel13.PerformLayout()
-        Me.Panel1.ResumeLayout(False)
-        Me.Panel1.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
