@@ -36,17 +36,6 @@ Partial Class frmLibrarianBorrowManagement
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.Username = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Type = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.BorrowStatus = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ISBN = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.BookTitle = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.BookAuthor = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.BorrowDate = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DueDate = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ReturnDate = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.BookCondition = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Penalty = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Panel13 = New System.Windows.Forms.Panel()
         Me.lblname = New System.Windows.Forms.Label()
         Me.Label29 = New System.Windows.Forms.Label()
@@ -57,6 +46,18 @@ Partial Class frmLibrarianBorrowManagement
         Me.Label6 = New System.Windows.Forms.Label()
         Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.Username = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Type = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.AccessionNo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.BorrowStatus = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ISBN = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.BookTitle = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.BookAuthor = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.BorrowDate = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DueDate = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ReturnDate = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.BookCondition = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Penalty = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Panel2.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel13.SuspendLayout()
@@ -201,7 +202,7 @@ Partial Class frmLibrarianBorrowManagement
         Me.DataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.DataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Username, Me.Type, Me.BorrowStatus, Me.ISBN, Me.BookTitle, Me.BookAuthor, Me.BorrowDate, Me.DueDate, Me.ReturnDate, Me.BookCondition, Me.Penalty})
+        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Username, Me.Type, Me.AccessionNo, Me.BorrowStatus, Me.ISBN, Me.BookTitle, Me.BookAuthor, Me.BorrowDate, Me.DueDate, Me.ReturnDate, Me.BookCondition, Me.Penalty})
         DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window
         DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -215,72 +216,6 @@ Partial Class frmLibrarianBorrowManagement
         Me.DataGridView1.RowHeadersWidth = 51
         Me.DataGridView1.Size = New System.Drawing.Size(1245, 533)
         Me.DataGridView1.TabIndex = 92
-        '
-        'Username
-        '
-        Me.Username.HeaderText = "Username"
-        Me.Username.MinimumWidth = 6
-        Me.Username.Name = "Username"
-        '
-        'Type
-        '
-        Me.Type.HeaderText = "Type"
-        Me.Type.MinimumWidth = 6
-        Me.Type.Name = "Type"
-        '
-        'BorrowStatus
-        '
-        Me.BorrowStatus.HeaderText = "Borrow Status"
-        Me.BorrowStatus.MinimumWidth = 6
-        Me.BorrowStatus.Name = "BorrowStatus"
-        '
-        'ISBN
-        '
-        Me.ISBN.HeaderText = "ISBN"
-        Me.ISBN.MinimumWidth = 6
-        Me.ISBN.Name = "ISBN"
-        '
-        'BookTitle
-        '
-        Me.BookTitle.HeaderText = "Book Title"
-        Me.BookTitle.MinimumWidth = 6
-        Me.BookTitle.Name = "BookTitle"
-        '
-        'BookAuthor
-        '
-        Me.BookAuthor.HeaderText = "Book Author"
-        Me.BookAuthor.MinimumWidth = 6
-        Me.BookAuthor.Name = "BookAuthor"
-        '
-        'BorrowDate
-        '
-        Me.BorrowDate.HeaderText = "Borrow Date"
-        Me.BorrowDate.MinimumWidth = 6
-        Me.BorrowDate.Name = "BorrowDate"
-        '
-        'DueDate
-        '
-        Me.DueDate.HeaderText = "Due Date"
-        Me.DueDate.MinimumWidth = 6
-        Me.DueDate.Name = "DueDate"
-        '
-        'ReturnDate
-        '
-        Me.ReturnDate.HeaderText = "Return Date"
-        Me.ReturnDate.MinimumWidth = 6
-        Me.ReturnDate.Name = "ReturnDate"
-        '
-        'BookCondition
-        '
-        Me.BookCondition.HeaderText = "Book Condition"
-        Me.BookCondition.MinimumWidth = 6
-        Me.BookCondition.Name = "BookCondition"
-        '
-        'Penalty
-        '
-        Me.Penalty.HeaderText = "Penalty"
-        Me.Penalty.MinimumWidth = 6
-        Me.Penalty.Name = "Penalty"
         '
         'Panel13
         '
@@ -398,6 +333,77 @@ Partial Class frmLibrarianBorrowManagement
         Me.Label1.TabIndex = 161
         Me.Label1.Text = "Return Date From"
         '
+        'Username
+        '
+        Me.Username.HeaderText = "Username"
+        Me.Username.MinimumWidth = 6
+        Me.Username.Name = "Username"
+        '
+        'Type
+        '
+        Me.Type.HeaderText = "Type"
+        Me.Type.MinimumWidth = 6
+        Me.Type.Name = "Type"
+        '
+        'AccessionNo
+        '
+        Me.AccessionNo.HeaderText = "Accession No."
+        Me.AccessionNo.Name = "AccessionNo"
+        '
+        'BorrowStatus
+        '
+        Me.BorrowStatus.HeaderText = "Borrow Status"
+        Me.BorrowStatus.MinimumWidth = 6
+        Me.BorrowStatus.Name = "BorrowStatus"
+        '
+        'ISBN
+        '
+        Me.ISBN.HeaderText = "ISBN"
+        Me.ISBN.MinimumWidth = 6
+        Me.ISBN.Name = "ISBN"
+        '
+        'BookTitle
+        '
+        Me.BookTitle.HeaderText = "Book Title"
+        Me.BookTitle.MinimumWidth = 6
+        Me.BookTitle.Name = "BookTitle"
+        '
+        'BookAuthor
+        '
+        Me.BookAuthor.HeaderText = "Book Author"
+        Me.BookAuthor.MinimumWidth = 6
+        Me.BookAuthor.Name = "BookAuthor"
+        '
+        'BorrowDate
+        '
+        Me.BorrowDate.HeaderText = "Borrow Date"
+        Me.BorrowDate.MinimumWidth = 6
+        Me.BorrowDate.Name = "BorrowDate"
+        '
+        'DueDate
+        '
+        Me.DueDate.HeaderText = "Due Date"
+        Me.DueDate.MinimumWidth = 6
+        Me.DueDate.Name = "DueDate"
+        '
+        'ReturnDate
+        '
+        Me.ReturnDate.HeaderText = "Return Date"
+        Me.ReturnDate.MinimumWidth = 6
+        Me.ReturnDate.Name = "ReturnDate"
+        '
+        'BookCondition
+        '
+        Me.BookCondition.HeaderText = "Book Condition"
+        Me.BookCondition.MinimumWidth = 6
+        Me.BookCondition.Name = "BookCondition"
+        '
+        'Penalty
+        '
+        Me.Penalty.HeaderText = "Penalty"
+        Me.Penalty.MinimumWidth = 6
+        Me.Penalty.Name = "Penalty"
+        '
         'frmLibrarianBorrowManagement
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -444,17 +450,6 @@ Partial Class frmLibrarianBorrowManagement
     Friend WithEvents Button1 As Button
     Friend WithEvents Button2 As Button
     Friend WithEvents DataGridView1 As DataGridView
-    Friend WithEvents Username As DataGridViewTextBoxColumn
-    Friend WithEvents Type As DataGridViewTextBoxColumn
-    Friend WithEvents BorrowStatus As DataGridViewTextBoxColumn
-    Friend WithEvents ISBN As DataGridViewTextBoxColumn
-    Friend WithEvents BookTitle As DataGridViewTextBoxColumn
-    Friend WithEvents BookAuthor As DataGridViewTextBoxColumn
-    Friend WithEvents BorrowDate As DataGridViewTextBoxColumn
-    Friend WithEvents DueDate As DataGridViewTextBoxColumn
-    Friend WithEvents ReturnDate As DataGridViewTextBoxColumn
-    Friend WithEvents BookCondition As DataGridViewTextBoxColumn
-    Friend WithEvents Penalty As DataGridViewTextBoxColumn
     Friend WithEvents Label14 As Label
     Friend WithEvents txtSearch As TextBox
     Friend WithEvents Panel13 As Panel
@@ -467,4 +462,16 @@ Partial Class frmLibrarianBorrowManagement
     Friend WithEvents Label6 As Label
     Friend WithEvents DateTimePicker1 As DateTimePicker
     Friend WithEvents Label1 As Label
+    Friend WithEvents Username As DataGridViewTextBoxColumn
+    Friend WithEvents Type As DataGridViewTextBoxColumn
+    Friend WithEvents AccessionNo As DataGridViewTextBoxColumn
+    Friend WithEvents BorrowStatus As DataGridViewTextBoxColumn
+    Friend WithEvents ISBN As DataGridViewTextBoxColumn
+    Friend WithEvents BookTitle As DataGridViewTextBoxColumn
+    Friend WithEvents BookAuthor As DataGridViewTextBoxColumn
+    Friend WithEvents BorrowDate As DataGridViewTextBoxColumn
+    Friend WithEvents DueDate As DataGridViewTextBoxColumn
+    Friend WithEvents ReturnDate As DataGridViewTextBoxColumn
+    Friend WithEvents BookCondition As DataGridViewTextBoxColumn
+    Friend WithEvents Penalty As DataGridViewTextBoxColumn
 End Class

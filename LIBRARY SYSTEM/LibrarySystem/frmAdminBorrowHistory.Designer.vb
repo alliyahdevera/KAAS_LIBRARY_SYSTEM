@@ -29,18 +29,6 @@ Partial Class frmAdminBorrowHistory
         Me.Label14 = New System.Windows.Forms.Label()
         Me.txtSearch = New System.Windows.Forms.TextBox()
         Me.dgvbh = New System.Windows.Forms.DataGridView()
-        Me.TransactionID = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Username = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Type = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.BorrowStatus = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ISBN = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.BookTitle = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.BookAuthor = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.BorrowDate = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DueDate = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ReturnDate = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.BookCondition = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Penalty = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
@@ -54,6 +42,19 @@ Partial Class frmAdminBorrowHistory
         Me.Label29 = New System.Windows.Forms.Label()
         Me.Label28 = New System.Windows.Forms.Label()
         Me.lblposition = New System.Windows.Forms.Label()
+        Me.TransactionID = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Username = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Type = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.AccessionNo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.BorrowStatus = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ISBN = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.BookTitle = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.BookAuthor = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.BorrowDate = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DueDate = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ReturnDate = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.BookCondition = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Penalty = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Panel2.SuspendLayout()
         CType(Me.dgvbh, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel3.SuspendLayout()
@@ -90,9 +91,9 @@ Partial Class frmAdminBorrowHistory
         Me.btnExportExcel.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnExportExcel.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnExportExcel.ForeColor = System.Drawing.Color.White
-        Me.btnExportExcel.Location = New System.Drawing.Point(1105, 7)
+        Me.btnExportExcel.Location = New System.Drawing.Point(1104, 7)
         Me.btnExportExcel.Name = "btnExportExcel"
-        Me.btnExportExcel.Size = New System.Drawing.Size(137, 28)
+        Me.btnExportExcel.Size = New System.Drawing.Size(138, 28)
         Me.btnExportExcel.TabIndex = 39
         Me.btnExportExcel.Text = "Export Excel"
         Me.btnExportExcel.UseVisualStyleBackColor = False
@@ -103,7 +104,7 @@ Partial Class frmAdminBorrowHistory
         Me.Label14.AutoSize = True
         Me.Label14.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label14.ForeColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(47, Byte), Integer), CType(CType(25, Byte), Integer))
-        Me.Label14.Location = New System.Drawing.Point(4, 13)
+        Me.Label14.Location = New System.Drawing.Point(3, 13)
         Me.Label14.Name = "Label14"
         Me.Label14.Size = New System.Drawing.Size(276, 17)
         Me.Label14.TabIndex = 58
@@ -114,7 +115,7 @@ Partial Class frmAdminBorrowHistory
         Me.txtSearch.Anchor = System.Windows.Forms.AnchorStyles.Left
         Me.txtSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.txtSearch.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtSearch.Location = New System.Drawing.Point(286, 9)
+        Me.txtSearch.Location = New System.Drawing.Point(285, 9)
         Me.txtSearch.Name = "txtSearch"
         Me.txtSearch.Size = New System.Drawing.Size(153, 25)
         Me.txtSearch.TabIndex = 57
@@ -127,7 +128,7 @@ Partial Class frmAdminBorrowHistory
         Me.dgvbh.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
         Me.dgvbh.BackgroundColor = System.Drawing.Color.White
         Me.dgvbh.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvbh.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.TransactionID, Me.Username, Me.Type, Me.BorrowStatus, Me.ISBN, Me.BookTitle, Me.BookAuthor, Me.BorrowDate, Me.DueDate, Me.ReturnDate, Me.BookCondition, Me.Penalty})
+        Me.dgvbh.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.TransactionID, Me.Username, Me.Type, Me.AccessionNo, Me.BorrowStatus, Me.ISBN, Me.BookTitle, Me.BookAuthor, Me.BorrowDate, Me.DueDate, Me.ReturnDate, Me.BookCondition, Me.Penalty})
         DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window
         DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -142,78 +143,6 @@ Partial Class frmAdminBorrowHistory
         Me.dgvbh.RowHeadersWidth = 51
         Me.dgvbh.Size = New System.Drawing.Size(1245, 660)
         Me.dgvbh.TabIndex = 24
-        '
-        'TransactionID
-        '
-        Me.TransactionID.HeaderText = "TransactionID"
-        Me.TransactionID.MinimumWidth = 6
-        Me.TransactionID.Name = "TransactionID"
-        '
-        'Username
-        '
-        Me.Username.HeaderText = "Username"
-        Me.Username.MinimumWidth = 6
-        Me.Username.Name = "Username"
-        '
-        'Type
-        '
-        Me.Type.HeaderText = "Type"
-        Me.Type.MinimumWidth = 6
-        Me.Type.Name = "Type"
-        '
-        'BorrowStatus
-        '
-        Me.BorrowStatus.HeaderText = "Borrow Status"
-        Me.BorrowStatus.MinimumWidth = 6
-        Me.BorrowStatus.Name = "BorrowStatus"
-        '
-        'ISBN
-        '
-        Me.ISBN.HeaderText = "ISBN"
-        Me.ISBN.MinimumWidth = 6
-        Me.ISBN.Name = "ISBN"
-        '
-        'BookTitle
-        '
-        Me.BookTitle.HeaderText = "Book Title"
-        Me.BookTitle.MinimumWidth = 6
-        Me.BookTitle.Name = "BookTitle"
-        '
-        'BookAuthor
-        '
-        Me.BookAuthor.HeaderText = "Book Author"
-        Me.BookAuthor.MinimumWidth = 6
-        Me.BookAuthor.Name = "BookAuthor"
-        '
-        'BorrowDate
-        '
-        Me.BorrowDate.HeaderText = "Borrow Date"
-        Me.BorrowDate.MinimumWidth = 6
-        Me.BorrowDate.Name = "BorrowDate"
-        '
-        'DueDate
-        '
-        Me.DueDate.HeaderText = "Due Date"
-        Me.DueDate.MinimumWidth = 6
-        Me.DueDate.Name = "DueDate"
-        '
-        'ReturnDate
-        '
-        Me.ReturnDate.HeaderText = "Return Date"
-        Me.ReturnDate.MinimumWidth = 6
-        Me.ReturnDate.Name = "ReturnDate"
-        '
-        'BookCondition
-        '
-        Me.BookCondition.HeaderText = "Book Condition"
-        Me.BookCondition.MinimumWidth = 6
-        Me.BookCondition.Name = "BookCondition"
-        '
-        'Penalty
-        '
-        Me.Penalty.HeaderText = "Penalty"
-        Me.Penalty.MinimumWidth = 6
-        Me.Penalty.Name = "Penalty"
         '
         'Panel3
         '
@@ -249,7 +178,7 @@ Partial Class frmAdminBorrowHistory
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 29.0!))
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 132.0!))
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 103.0!))
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 142.0!))
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 143.0!))
         Me.TableLayoutPanel1.Controls.Add(Me.Label14, 0, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.txtSearch, 1, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.btnExportExcel, 10, 0)
@@ -275,7 +204,7 @@ Partial Class frmAdminBorrowHistory
         Me.btnGenerateReport.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnGenerateReport.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnGenerateReport.ForeColor = System.Drawing.Color.White
-        Me.btnGenerateReport.Location = New System.Drawing.Point(870, 8)
+        Me.btnGenerateReport.Location = New System.Drawing.Point(869, 8)
         Me.btnGenerateReport.Name = "btnGenerateReport"
         Me.btnGenerateReport.Size = New System.Drawing.Size(126, 27)
         Me.btnGenerateReport.TabIndex = 108
@@ -288,7 +217,7 @@ Partial Class frmAdminBorrowHistory
         Me.DateTimePicker2.CalendarFont = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.DateTimePicker2.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.DateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DateTimePicker2.Location = New System.Drawing.Point(728, 9)
+        Me.DateTimePicker2.Location = New System.Drawing.Point(727, 9)
         Me.DateTimePicker2.Name = "DateTimePicker2"
         Me.DateTimePicker2.Size = New System.Drawing.Size(106, 25)
         Me.DateTimePicker2.TabIndex = 107
@@ -298,7 +227,7 @@ Partial Class frmAdminBorrowHistory
         Me.Label6.Anchor = System.Windows.Forms.AnchorStyles.Left
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(690, 13)
+        Me.Label6.Location = New System.Drawing.Point(689, 13)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(22, 17)
         Me.Label6.TabIndex = 106
@@ -310,7 +239,7 @@ Partial Class frmAdminBorrowHistory
         Me.DateTimePicker1.CalendarFont = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.DateTimePicker1.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.DateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DateTimePicker1.Location = New System.Drawing.Point(568, 9)
+        Me.DateTimePicker1.Location = New System.Drawing.Point(567, 9)
         Me.DateTimePicker1.Name = "DateTimePicker1"
         Me.DateTimePicker1.Size = New System.Drawing.Size(106, 25)
         Me.DateTimePicker1.TabIndex = 105
@@ -320,7 +249,7 @@ Partial Class frmAdminBorrowHistory
         Me.Label2.Anchor = System.Windows.Forms.AnchorStyles.Right
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(493, 13)
+        Me.Label2.Location = New System.Drawing.Point(492, 13)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(69, 17)
         Me.Label2.TabIndex = 104
@@ -387,6 +316,83 @@ Partial Class frmAdminBorrowHistory
         Me.lblposition.TabIndex = 66
         Me.lblposition.Text = "NPosition"
         '
+        'TransactionID
+        '
+        Me.TransactionID.HeaderText = "TransactionID"
+        Me.TransactionID.MinimumWidth = 6
+        Me.TransactionID.Name = "TransactionID"
+        '
+        'Username
+        '
+        Me.Username.HeaderText = "Username"
+        Me.Username.MinimumWidth = 6
+        Me.Username.Name = "Username"
+        '
+        'Type
+        '
+        Me.Type.HeaderText = "Type"
+        Me.Type.MinimumWidth = 6
+        Me.Type.Name = "Type"
+        '
+        'AccessionNo
+        '
+        Me.AccessionNo.HeaderText = "Accession No."
+        Me.AccessionNo.Name = "AccessionNo"
+        '
+        'BorrowStatus
+        '
+        Me.BorrowStatus.HeaderText = "Borrow Status"
+        Me.BorrowStatus.MinimumWidth = 6
+        Me.BorrowStatus.Name = "BorrowStatus"
+        '
+        'ISBN
+        '
+        Me.ISBN.HeaderText = "ISBN"
+        Me.ISBN.MinimumWidth = 6
+        Me.ISBN.Name = "ISBN"
+        '
+        'BookTitle
+        '
+        Me.BookTitle.HeaderText = "Book Title"
+        Me.BookTitle.MinimumWidth = 6
+        Me.BookTitle.Name = "BookTitle"
+        '
+        'BookAuthor
+        '
+        Me.BookAuthor.HeaderText = "Book Author"
+        Me.BookAuthor.MinimumWidth = 6
+        Me.BookAuthor.Name = "BookAuthor"
+        '
+        'BorrowDate
+        '
+        Me.BorrowDate.HeaderText = "Borrow Date"
+        Me.BorrowDate.MinimumWidth = 6
+        Me.BorrowDate.Name = "BorrowDate"
+        '
+        'DueDate
+        '
+        Me.DueDate.HeaderText = "Due Date"
+        Me.DueDate.MinimumWidth = 6
+        Me.DueDate.Name = "DueDate"
+        '
+        'ReturnDate
+        '
+        Me.ReturnDate.HeaderText = "Return Date"
+        Me.ReturnDate.MinimumWidth = 6
+        Me.ReturnDate.Name = "ReturnDate"
+        '
+        'BookCondition
+        '
+        Me.BookCondition.HeaderText = "Book Condition"
+        Me.BookCondition.MinimumWidth = 6
+        Me.BookCondition.Name = "BookCondition"
+        '
+        'Penalty
+        '
+        Me.Penalty.HeaderText = "Penalty"
+        Me.Penalty.MinimumWidth = 6
+        Me.Penalty.Name = "Penalty"
+        '
         'frmAdminBorrowHistory
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -422,9 +428,17 @@ Partial Class frmAdminBorrowHistory
     Friend WithEvents lblposition As Label
     Friend WithEvents Label14 As Label
     Friend WithEvents txtSearch As TextBox
+    Friend WithEvents Panel1 As Panel
+    Friend WithEvents btnGenerateReport As Button
+    Friend WithEvents DateTimePicker2 As DateTimePicker
+    Friend WithEvents Label6 As Label
+    Friend WithEvents DateTimePicker1 As DateTimePicker
+    Friend WithEvents Label2 As Label
+    Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
     Friend WithEvents TransactionID As DataGridViewTextBoxColumn
     Friend WithEvents Username As DataGridViewTextBoxColumn
     Friend WithEvents Type As DataGridViewTextBoxColumn
+    Friend WithEvents AccessionNo As DataGridViewTextBoxColumn
     Friend WithEvents BorrowStatus As DataGridViewTextBoxColumn
     Friend WithEvents ISBN As DataGridViewTextBoxColumn
     Friend WithEvents BookTitle As DataGridViewTextBoxColumn
@@ -434,11 +448,4 @@ Partial Class frmAdminBorrowHistory
     Friend WithEvents ReturnDate As DataGridViewTextBoxColumn
     Friend WithEvents BookCondition As DataGridViewTextBoxColumn
     Friend WithEvents Penalty As DataGridViewTextBoxColumn
-    Friend WithEvents Panel1 As Panel
-    Friend WithEvents btnGenerateReport As Button
-    Friend WithEvents DateTimePicker2 As DateTimePicker
-    Friend WithEvents Label6 As Label
-    Friend WithEvents DateTimePicker1 As DateTimePicker
-    Friend WithEvents Label2 As Label
-    Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
 End Class

@@ -38,7 +38,7 @@ Public Class frmLibrarianBorrowManagement
             Using conn = DBConnection.GetConnection()
                 conn.Open()
                 Using cmd As New MySqlCommand(
-                    "SELECT t.transaction_id, u.username, m.member_type, " & BorrowData.StatusSql & " AS status, " &
+                    "SELECT t.transaction_id, u.username, m.member_type, c.accession_no, " & BorrowData.StatusSql & " AS status, " &
                     "       v.isbn, v.title, v.authors, t.borrow_date, t.due_date, t.return_date, t.return_condition, " &
                     "       p.penalty_amount, p.penalty_status " &
                     "FROM BorrowTransaction t " &
@@ -68,6 +68,7 @@ Public Class frmLibrarianBorrowManagement
                             Dim row As DataGridViewRow = DataGridView1.Rows(DataGridView1.Rows.Add())
                             row.Cells("Username").Value = r("username").ToString()
                             row.Cells("Type").Value = r("member_type").ToString()
+                            row.Cells("AccessionNo").Value = r("accession_no").ToString()
                             row.Cells("BorrowStatus").Value = r("status").ToString()
                             row.Cells("ISBN").Value = r("isbn").ToString()
                             row.Cells("BookTitle").Value = r("title").ToString()
