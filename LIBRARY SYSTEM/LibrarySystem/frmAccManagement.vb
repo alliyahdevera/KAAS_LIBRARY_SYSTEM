@@ -59,8 +59,8 @@ Public Class frmAccManagement
         ' Controls placed by the UI designer
         schoolBox = txtidno
         typeBox = cboacctype            ' Account Type (user information)
-        borrowerBox = ckbxalsob         ' Also a borrower?
-        filterBox = ComboBox1           ' FILTER BY ACC TYPE
+        borrowerBox = ckbxalsob           ' Also a borrower?
+        filterBox = ComboBox1             ' FILTER BY ACC TYPE
 
         schoolBox.MaxLength = 20
 
@@ -137,7 +137,7 @@ Public Class frmAccManagement
                     " OR u.last_name LIKE CONCAT('%',@kw,'%') OR u.first_name LIKE CONCAT('%',@kw,'%') " &
                     " OR u.school_id LIKE CONCAT('%',@kw,'%')) " &
                     "AND (@ft = '' OR (@ft = 'Librarian' AND u.role = 'Librarian') " &
-                    "     OR (@ft <> 'Librarian' AND u.role <> 'Librarian' AND m.member_type = @ft)) " &
+                    "      OR (@ft <> 'Librarian' AND u.role <> 'Librarian' AND m.member_type = @ft)) " &
                     "ORDER BY u.last_name, u.first_name", conn)
                     cmd.Parameters.AddWithValue("@kw", kw)
                     cmd.Parameters.AddWithValue("@ft", ft)
@@ -172,7 +172,7 @@ Public Class frmAccManagement
 
                             Dim row As DataGridViewRow = DataGridView1.Rows(DataGridView1.Rows.Add())
                             row.Cells("colSchoolId").Value = info.SchoolId
-                            row.Cells("Type").Value = typeText                 ' UI-based column
+                            row.Cells("Type").Value = typeText               ' UI-based column
                             row.Cells("Username").Value = info.Uname
                             row.Cells("FullName").Value = fullName
                             row.Cells("Gender").Value = info.GenderText
@@ -400,6 +400,7 @@ Public Class frmAccManagement
         Dim attemptsValue As Object = DBNull.Value
         If cboStatus.Text = "Active" Then attemptsValue = 3
         If cboStatus.Text = "Locked" Then attemptsValue = 0
+        Dim changePwd As Boolean = (txtpassword.Text <> "")      ' the admin typed a new password
 
         Try
             Using conn = DBConnection.GetConnection()
@@ -413,7 +414,6 @@ Public Class frmAccManagement
                             MsgBox("That username belongs to another account.", vbExclamation, "Account Management") : tx.Rollback() : Exit Sub
                         End If
 
-                        Dim changePwd As Boolean = (txtpassword.Text <> "")
                         Using upd As New MySqlCommand(
                             "UPDATE Users SET school_id=@sid, username=@u, first_name=@fn, middle_name=@mn, last_name=@ln, " &
                             "gender=@g, contact_num=@cn, email=@em, role=@role, account_status=@st, " &
@@ -481,6 +481,11 @@ Public Class frmAccManagement
         End Try
 
         DBConnection.LogActivity("Update Account", "Updated account '" & txtusername.Text.Trim() & "' (status " & cboStatus.Text & ").")
+        If changePwd Then
+            Dim fullName As String = (txtFirstName.Text.Trim() & " " & txtLastName.Text.Trim()).Trim()
+            DBConnection.LogActivity("Changed Password",
+                "Changed the password of " & fullName & " (" & txtusername.Text.Trim() & ")")
+        End If
         MsgBox("Account updated.", vbInformation, "Account Management")
         ClearForm()
         LoadAccounts(txtSearch.Text)
@@ -539,6 +544,5 @@ Public Class frmAccManagement
     Private Sub btnClear_Click(sender As Object, e As EventArgs) Handles btnClear.Click
         ClearForm()
     End Sub
-
 
 End Class

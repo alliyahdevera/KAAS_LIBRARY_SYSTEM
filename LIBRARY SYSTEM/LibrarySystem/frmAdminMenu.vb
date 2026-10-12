@@ -119,4 +119,7 @@
         If Not loggingOut Then Application.Exit()
     End Sub
 
+    Private Sub btnLostDamaged_Click(sender As Object, e As EventArgs) Handles btnLostDamaged.Click
+
+    End Sub
 End Class

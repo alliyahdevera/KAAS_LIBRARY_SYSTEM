@@ -7,24 +7,17 @@ Public Class frmLostDamagedBooks
     Private pager As GridPager
 
     Private Sub frmLostDamagedBooks_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        ' keep the grid below the filter row (the pager only stretches grids that are not docked)
+        dgvIncidents.Dock = DockStyle.None
+        dgvIncidents.Anchor = AnchorStyles.Top Or AnchorStyles.Left
+        dgvIncidents.Location = New Point(0, 135)
+
         cboType.SelectedIndex = 0
         isReady = True
-        AddHandler SchoolYearContext.Changed, AddressOf OnSchoolYearChanged
-    End Sub
-
-    Private Sub frmLostDamagedBooks_Disposed(sender As Object, e As EventArgs) Handles Me.Disposed
-        RemoveHandler SchoolYearContext.Changed, AddressOf OnSchoolYearChanged
-    End Sub
-
-    Private Sub OnSchoolYearChanged()
-        If Me.IsDisposed OrElse Not Me.Visible Then Exit Sub
-        SchoolYearBanner.Apply(Me, "lblTitle")
-        LoadIncidents()
     End Sub
 
     Private Sub OnVisible(sender As Object, e As EventArgs) Handles MyBase.VisibleChanged
         If Me.DesignMode OrElse Not Me.Visible Then Exit Sub
-        SchoolYearBanner.Apply(Me, "lblTitle")
         useDateRange = False
         dtpFrom.Value = New Date(Date.Today.Year, Date.Today.Month, 1)
         dtpTo.Value = Date.Today
@@ -61,7 +54,6 @@ Public Class frmLostDamagedBooks
                     "AND (@typ = '' OR i.incident_type = @typ) " &
                     "AND (@inclRes = 1 OR i.is_resolved = 0) " &
                     "AND (@useDates = 0 OR i.incident_date BETWEEN @f AND @t) " &
-                    "AND " & SchoolYearContext.Between("i.incident_date") & " " &
                     "ORDER BY i.incident_date DESC, i.incident_id DESC", conn)
                     cmd.Parameters.AddWithValue("@kw", kw)
                     cmd.Parameters.AddWithValue("@typ", typ)
@@ -128,6 +120,24 @@ Public Class frmLostDamagedBooks
         End If
 
         Dim copyId As Integer = Convert.ToInt32(row.Cells("BookNo").Value)
+
+        ' A book with an unpaid penalty cannot be marked as recovered / repaired yet
+        Try
+            Dim unpaid As Integer = Convert.ToInt32(DashboardData.Scalar(
+                "SELECT COUNT(*) FROM LostDamagedBooks i " &
+                "JOIN Penalty pn ON pn.transaction_id = i.transaction_id " &
+                "WHERE i.copy_id = @c AND i.is_resolved = 0 AND pn.penalty_status IN ('Unpaid','Pending')", "@c", copyId))
+            If unpaid > 0 Then
+                MsgBox("This book still has an unpaid penalty." & vbCrLf &
+                       "The penalty must be paid first before it can be marked as recovered / repaired.",
+                       vbExclamation, "Lost and Damaged Books")
+                Exit Sub
+            End If
+        Catch ex As Exception
+            MsgBox("Could not check the penalty: " & ex.Message, vbCritical, "Lost and Damaged Books")
+            Exit Sub
+        End Try
+
         If Not UiHelpers.Confirm("mark", "book no. " & copyId & " as recovered / repaired and return it to the library", "Lost and Damaged Books") Then Exit Sub
 
         Try
@@ -165,7 +175,7 @@ Public Class frmLostDamagedBooks
     End Sub
 
     Private Sub btnExport_Click(sender As Object, e As EventArgs) Handles btnExport.Click
-        Dim name As String = "Lost_Damaged_Books" & SchoolYearContext.FileTag()
+        Dim name As String = "Lost_Damaged_Books"
         If useDateRange Then
             name &= "_" & dtpFrom.Value.ToString("yyyyMMdd") & "_to_" & dtpTo.Value.ToString("yyyyMMdd")
         End If
