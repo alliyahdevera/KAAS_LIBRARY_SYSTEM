@@ -88,7 +88,7 @@ Public NotInheritable Class SchoolYearContext
     ' Only the ADMIN works by school year (to look back and generate reports).
     ' Librarian, student and teacher always see live data (All Time), so an old penalty or loan never disappears.
     Public Shared Function Scope() As SchoolYearInfo
-        If AppSession.Role = "Admin" Then Return _selected
+        If AppSession.IsAdminLevel Then Return _selected
         Return AllTime
     End Function
 
@@ -115,7 +115,7 @@ Public NotInheritable Class SchoolYearContext
 
     ' Added to export file names, e.g. "_2026-2027" or "_All_Time" (empty for non-admin roles)
     Public Shared Function FileTag() As String
-        If AppSession.Role <> "Admin" Then Return ""
+        If Not AppSession.IsAdminLevel Then Return ""
         Dim n As String = If(_selected.Id = 0, "All_Time", _selected.Name)
         For Each ch As Char In Path.GetInvalidFileNameChars()
             n = n.Replace(ch, "_"c)
@@ -134,7 +134,7 @@ Public Module SchoolYearBanner
     Private Const BannerName As String = "lblSyShowing"
 
     Public Sub Apply(f As Form, Optional titleName As String = "", Optional x As Integer = 36, Optional y As Integer = 5)
-        Dim isAdmin As Boolean = (AppSession.Role = "Admin")
+        Dim isAdmin As Boolean = AppSession.IsAdminLevel
         Dim lbl As Label = Nothing
         Dim found() As Control = f.Controls.Find(BannerName, True)
         If found.Length > 0 Then lbl = TryCast(found(0), Label)

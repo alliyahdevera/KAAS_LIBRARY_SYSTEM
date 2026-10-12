@@ -115,6 +115,7 @@ Module BookData
                p & "edition" & like1 & " OR " &
                "CAST(" & p & "year_published AS CHAR)" & like1 & ")"
     End Function
+
 End Module
 
 ' ---------------------------------------------------------------
@@ -133,6 +134,7 @@ Module UiHelpers
         Dim pos As String
         Select Case AppSession.Role
             Case "Admin" : pos = "Administrator"
+            Case "Supervisor" : pos = "Supervisor"
             Case "Librarian" : pos = "Librarian"
             Case Else : pos = AppSession.MemberType
         End Select
@@ -159,4 +161,5 @@ Module UiHelpers
         MsgBox($"'{caption}' is being rebuilt for the new design and will be connected in the next phase.",
                vbInformation, "Coming soon")
     End Sub
+
 End Module

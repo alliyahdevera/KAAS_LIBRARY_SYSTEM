@@ -165,7 +165,7 @@ Public Class frmLogin
         MsgBox("Login Successful!", vbInformation, "WELCOME")
 
         Dim openBorrower As Boolean = False
-        If (role = "Admin" OrElse role = "Librarian") AndAlso memberId.HasValue Then
+        If (role = "Admin" OrElse role = "Supervisor" OrElse role = "Librarian") AndAlso memberId.HasValue Then
             openBorrower = (MsgBox("Open your Borrower menu (borrow / return your own books)?" & vbCrLf &
                                    "Yes = Borrower menu    No = " & role & " menu",
                                    vbQuestion + vbYesNo, "Choose view") = vbYes)

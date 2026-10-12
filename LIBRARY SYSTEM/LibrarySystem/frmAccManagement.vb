@@ -33,6 +33,71 @@ Public Class frmAccManagement
     Private pager As GridPager
     Private filterBox As ComboBox
 
+    Private Function IsStaffRoleName(name As String) As Boolean
+        Return name = "Librarian" OrElse name = "Supervisor"
+    End Function
+
+    Private ReadOnly Property PasswordOnly As Boolean
+        Get
+            Return AppSession.IsSupervisor
+        End Get
+    End Property
+
+    Private Sub LockForSupervisor()
+        If Not PasswordOnly Then Exit Sub
+        For Each c As Control In New Control() {schoolBox, typeBox, borrowerBox, txtFirstName, txtMiddleName,
+                                                 txtLastName, cboGender, txtContactNum, txtEmail, cboCourse,
+                                                 cboYear_Level, txtusername, cboStatus}
+            c.Enabled = False
+        Next
+    End Sub
+
+    Private Sub ApplySupervisorMode()
+        If Not PasswordOnly Then Exit Sub
+        Button1.Visible = False
+        btnDelete.Visible = False
+        LockForSupervisor()
+    End Sub
+
+    Private Sub UpdatePasswordOnly()
+        If selectedUserId = 0 Then
+            MsgBox("Select an account from the list first.", vbExclamation, "Account Management")
+            Exit Sub
+        End If
+        If txtpassword.Text.Length < 8 OrElse txtpassword.Text.Length > 12 Then
+            MsgBox("Password must be between 8 and 12 characters long.", vbExclamation, "Account Management")
+            txtpassword.Focus() : Exit Sub
+        End If
+        If txtpassword.Text <> txtconfirmpassword.Text Then
+            MsgBox("Password and Confirm Password do not match.", vbExclamation, "Account Management")
+            txtconfirmpassword.Focus() : Exit Sub
+        End If
+        If Not UiHelpers.Confirm("change", "the password of this account", "Account Management") Then Exit Sub
+        Try
+            Using conn = DBConnection.GetConnection()
+                conn.Open()
+                Using cmd As New MySqlCommand(
+                    "UPDATE Users SET password = @p WHERE user_id = @id AND role <> 'Admin'", conn)
+                    cmd.Parameters.AddWithValue("@p", Security.HashPassword(txtpassword.Text))
+                    cmd.Parameters.AddWithValue("@id", selectedUserId)
+                    If cmd.ExecuteNonQuery() = 0 Then
+                        MsgBox("This account's password can't be changed.", vbExclamation, "Account Management")
+                        Exit Sub
+                    End If
+                End Using
+            End Using
+        Catch ex As Exception
+            MsgBox("Could not change the password: " & ex.Message, vbCritical, "Account Management")
+            Exit Sub
+        End Try
+        Dim fullName As String = (txtFirstName.Text.Trim() & " " & txtLastName.Text.Trim()).Trim()
+        DBConnection.LogActivity("Changed Password",
+            "Changed the password of " & fullName & " (" & txtusername.Text.Trim() & ")")
+        MsgBox("Password updated.", vbInformation, "Account Management")
+        ClearForm()
+        LoadAccounts(txtSearch.Text)
+    End Sub
+
     Private Sub frmAccManagement_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         UiHelpers.FillHeader(Me)
         BuildExtraControls()
@@ -42,12 +107,13 @@ Public Class frmAccManagement
 
         cboGender.DropDownStyle = ComboBoxStyle.DropDownList
         cboYear_Level.DropDownStyle = ComboBoxStyle.DropDownList
-        cboCourse.DropDownStyle = ComboBoxStyle.DropDown        ' students pick a course, others type a department
+        cboCourse.DropDownStyle = ComboBoxStyle.DropDown
         cboStatus.DropDownStyle = ComboBoxStyle.DropDownList
         cboStatus.Items.Clear()
         cboStatus.Items.AddRange(New Object() {"Active", "Inactive", "Locked"})
         ClearForm()
         LoadAccounts()
+        ApplySupervisorMode()
         pageLoaded = True
     End Sub
 
@@ -56,18 +122,17 @@ Public Class frmAccManagement
     End Sub
 
     Private Sub BuildExtraControls()
-        ' Controls placed by the UI designer
         schoolBox = txtidno
-        typeBox = cboacctype            ' Account Type (user information)
-        borrowerBox = ckbxalsob           ' Also a borrower?
-        filterBox = ComboBox1             ' FILTER BY ACC TYPE
+        typeBox = cboacctype
+        borrowerBox = ckbxalsob
+        filterBox = ComboBox1
 
         schoolBox.MaxLength = 20
 
         typeBox.DropDownStyle = ComboBoxStyle.DropDownList
         typeBox.Enabled = True
         typeBox.Items.Clear()
-        typeBox.Items.AddRange(New Object() {"Student", "Teacher", "Staff", "Librarian"})
+        typeBox.Items.AddRange(New Object() {"Student", "Teacher", "Librarian", "Supervisor"})
         AddHandler typeBox.SelectedIndexChanged, AddressOf TypeChanged
 
         borrowerBox.Text = "Also a borrower?"
@@ -76,7 +141,7 @@ Public Class frmAccManagement
         filterBox.DropDownStyle = ComboBoxStyle.DropDownList
         filterBox.Enabled = True
         filterBox.Items.Clear()
-        filterBox.Items.AddRange(New Object() {"All", "Student", "Teacher", "Staff", "Librarian"})
+        filterBox.Items.AddRange(New Object() {"All", "Student", "Teacher", "Librarian", "Supervisor"})
         filterBox.SelectedIndex = 0
         AddHandler filterBox.SelectedIndexChanged, AddressOf FilterChanged
     End Sub
@@ -85,6 +150,7 @@ Public Class frmAccManagement
         If Not pageLoaded Then Exit Sub
         LoadAccounts(txtSearch.Text)
     End Sub
+
     Private Sub SetupGrid()
         With DataGridView1
             .ReadOnly = True
@@ -95,7 +161,7 @@ Public Class frmAccManagement
             If Not .Columns.Contains("colSchoolId") Then
                 .Columns.Insert(0, New DataGridViewTextBoxColumn With {.Name = "colSchoolId", .HeaderText = "School ID"})
             End If
-            .Columns("Password").Visible = False          ' passwords are hashed, nothing to show
+            .Columns("Password").Visible = False
             .Columns("Course").HeaderText = "Course / Dept."
         End With
     End Sub
@@ -103,13 +169,13 @@ Public Class frmAccManagement
     Private Sub TypeChanged(sender As Object, e As EventArgs)
         Dim t As String = typeBox.Text
         Dim isStudent As Boolean = (t = "Student")
+        Dim isStaffRole As Boolean = IsStaffRoleName(t)
         cboYear_Level.Enabled = isStudent
         If Not isStudent Then cboYear_Level.SelectedIndex = -1
-        borrowerBox.Enabled = (t = "Librarian")
-        If t <> "Librarian" Then borrowerBox.Checked = False
+        borrowerBox.Enabled = isStaffRole
+        If Not isStaffRole Then borrowerBox.Checked = False
         Label6.Text = If(isStudent, "Course", "Department")
-
-        If t = "Librarian" Then
+        If isStaffRole Then
             cboCourse.SelectedIndex = -1
             cboCourse.Text = LibraryDept
             cboCourse.Enabled = False
@@ -117,9 +183,9 @@ Public Class frmAccManagement
             cboCourse.Enabled = True
             If cboCourse.Text = LibraryDept Then cboCourse.Text = ""
         End If
+        LockForSupervisor()
     End Sub
 
-    ' ------------------------------------------------------------ list
     Public Sub LoadAccounts(Optional keyword As String = "")
         If pager Is Nothing Then pager = PagerHelper.Create(DataGridView1)
         DataGridView1.Rows.Clear()
@@ -136,8 +202,8 @@ Public Class frmAccManagement
                     "WHERE u.role <> 'Admin' AND (@kw = '' OR u.username LIKE CONCAT('%',@kw,'%') " &
                     " OR u.last_name LIKE CONCAT('%',@kw,'%') OR u.first_name LIKE CONCAT('%',@kw,'%') " &
                     " OR u.school_id LIKE CONCAT('%',@kw,'%')) " &
-                    "AND (@ft = '' OR (@ft = 'Librarian' AND u.role = 'Librarian') " &
-                    "      OR (@ft <> 'Librarian' AND u.role <> 'Librarian' AND m.member_type = @ft)) " &
+                    "AND (@ft = '' OR (@ft IN ('Librarian','Supervisor') AND u.role = @ft) " &
+                    "      OR (@ft NOT IN ('Librarian','Supervisor') AND u.role = 'Member' AND m.member_type = @ft)) " &
                     "ORDER BY u.last_name, u.first_name", conn)
                     cmd.Parameters.AddWithValue("@kw", kw)
                     cmd.Parameters.AddWithValue("@ft", ft)
@@ -165,22 +231,22 @@ Public Class frmAccManagement
                             info.StatusText = If(attempts <= 0, "Locked", r("account_status").ToString())
 
                             Dim typeText As String = info.MemberType
-                            If info.Role = "Librarian" Then typeText = "Librarian" & If(info.MemberType <> "", " + Borrower", "")
+                            If IsStaffRoleName(info.Role) Then typeText = info.Role & If(info.MemberType <> "", " + Borrower", "")
 
                             Dim fullName As String = info.First & If(info.Middle <> "", " " & info.Middle.Substring(0, 1) & ".", "") &
-                                                     " " & info.Last & If(info.Suffix <> "", " " & info.Suffix, "")
+                                                   " " & info.Last & If(info.Suffix <> "", " " & info.Suffix, "")
 
                             Dim row As DataGridViewRow = DataGridView1.Rows(DataGridView1.Rows.Add())
                             row.Cells("colSchoolId").Value = info.SchoolId
-                            row.Cells("Type").Value = typeText               ' UI-based column
+                            row.Cells("Type").Value = typeText
                             row.Cells("Username").Value = info.Uname
                             row.Cells("FullName").Value = fullName
                             row.Cells("Gender").Value = info.GenderText
                             row.Cells("ContactNo").Value = info.Contact
                             row.Cells("Email").Value = info.EmailText
-                            row.Cells("Course").Value = If(info.Role = "Librarian", LibraryDept, If(info.MemberType = "Student", info.CourseText, info.Dept))
+                            row.Cells("Course").Value = If(IsStaffRoleName(info.Role), LibraryDept, If(info.MemberType = "Student", info.CourseText, info.Dept))
                             row.Cells("Year").Value = If(info.YearLevel >= 1 AndAlso info.YearLevel <= 4, cboYear_Level.Items(info.YearLevel - 1).ToString(), "")
-                            row.Cells("Status").Value = info.StatusText        ' UI-based column
+                            row.Cells("Status").Value = info.StatusText
                             If info.StatusText <> "Active" Then row.DefaultCellStyle.ForeColor = Color.Firebrick
                             row.Tag = info
                         End While
@@ -204,8 +270,8 @@ Public Class frmAccManagement
         If info Is Nothing Then Exit Sub
         selectedUserId = info.UserId
         schoolBox.Text = info.SchoolId
-        SelectItem(typeBox, If(info.Role = "Librarian", "Librarian", If(info.MemberType = "", "Student", info.MemberType)))
-        borrowerBox.Checked = (info.Role = "Librarian" AndAlso info.MemberType <> "")
+        SelectItem(typeBox, If(IsStaffRoleName(info.Role), info.Role, If(info.MemberType = "", "Student", info.MemberType)))
+        borrowerBox.Checked = (IsStaffRoleName(info.Role) AndAlso info.MemberType <> "")
         txtFirstName.Text = info.First
         txtMiddleName.Text = info.Middle
         txtLastName.Text = info.Last
@@ -213,15 +279,15 @@ Public Class frmAccManagement
 
         txtContactNum.Text = info.Contact
         txtEmail.Text = info.EmailText
-        cboCourse.Text = If(info.Role = "Librarian", LibraryDept, If(info.MemberType = "Student", info.CourseText, info.Dept))
+        cboCourse.Text = If(IsStaffRoleName(info.Role), LibraryDept, If(info.MemberType = "Student", info.CourseText, info.Dept))
         If info.YearLevel >= 1 AndAlso info.YearLevel <= 4 Then cboYear_Level.SelectedIndex = info.YearLevel - 1 Else cboYear_Level.SelectedIndex = -1
         txtusername.Text = info.Uname
         txtpassword.Clear()
         txtconfirmpassword.Clear()
         SelectItem(cboStatus, info.StatusText)
+        LockForSupervisor()
     End Sub
 
-    ' ------------------------------------------------------------ helpers
     Private Sub SelectItem(cbo As ComboBox, text As String)
         cbo.SelectedIndex = cbo.Items.IndexOf(text)
     End Sub
@@ -241,6 +307,7 @@ Public Class frmAccManagement
         cboStatus.SelectedIndex = -1
         Label6.Text = "Course"
         DataGridView1.ClearSelection()
+        LockForSupervisor()
     End Sub
 
     Private Function Opt(s As String) As Object
@@ -256,7 +323,6 @@ Public Class frmAccManagement
         End Using
     End Function
 
-    ' Shows a message and returns False when something is wrong
     Private Function InputsAreValid(isNew As Boolean) As Boolean
         Dim t As String = typeBox.Text
         If t = "" Then Return Fail("Please choose the Account Type.", typeBox)
@@ -278,7 +344,7 @@ Public Class frmAccManagement
         If t = "Student" Then
             If cboCourse.Items.IndexOf(cboCourse.Text) = -1 Then Return Fail("Please pick a Course from the list.", cboCourse)
             If cboYear_Level.SelectedIndex = -1 Then Return Fail("Please select the Year level.", cboYear_Level)
-        ElseIf t <> "Librarian" Then          ' librarians are fixed to the Library department
+        ElseIf Not IsStaffRoleName(t) Then
             If String.IsNullOrWhiteSpace(cboCourse.Text) Then Return Fail("Please enter the Department.", cboCourse)
         End If
 
@@ -303,15 +369,19 @@ Public Class frmAccManagement
     End Function
 
     Private Function RoleValue() As String
-        Return If(typeBox.Text = "Librarian", "Librarian", "Member")
+        Select Case typeBox.Text
+            Case "Librarian" : Return "Librarian"
+            Case "Supervisor" : Return "Supervisor"
+            Case Else : Return "Member"
+        End Select
     End Function
 
     Private Function WantsBorrowerProfile() As Boolean
-        Return typeBox.Text <> "Librarian" OrElse borrowerBox.Checked
+        Return Not IsStaffRoleName(typeBox.Text) OrElse borrowerBox.Checked
     End Function
 
     Private Function BorrowerType() As String
-        Return If(typeBox.Text = "Librarian", "Staff", typeBox.Text)
+        Return If(IsStaffRoleName(typeBox.Text), "Staff", typeBox.Text)
     End Function
 
     Private Sub BindMemberFields(cmd As MySqlCommand)
@@ -319,11 +389,11 @@ Public Class frmAccManagement
         cmd.Parameters.AddWithValue("@mt", BorrowerType())
         cmd.Parameters.AddWithValue("@course", If(isStudent, CObj(cboCourse.Text.Trim()), DBNull.Value))
         cmd.Parameters.AddWithValue("@yr", If(isStudent, CObj(cboYear_Level.SelectedIndex + 1), DBNull.Value))
-        cmd.Parameters.AddWithValue("@dept", If(isStudent, DBNull.Value, CObj(If(typeBox.Text = "Librarian", LibraryDept, cboCourse.Text.Trim()))))
+        cmd.Parameters.AddWithValue("@dept", If(isStudent, DBNull.Value, CObj(If(IsStaffRoleName(typeBox.Text), LibraryDept, cboCourse.Text.Trim()))))
     End Sub
 
-    ' ------------------------------------------------------------ add
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click      ' Add Account
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        If AppSession.IsSupervisor Then Exit Sub
         If Not InputsAreValid(True) Then Exit Sub
         If Not UiHelpers.Confirm("add", "this account", "Account Management") Then Exit Sub
 
@@ -344,7 +414,7 @@ Public Class frmAccManagement
                         Using ins As New MySqlCommand(
                             "INSERT INTO Users (school_id, username, password, first_name, middle_name, last_name, gender, " &
                             "contact_num, email, role, account_status, attempts) " &
-                            "VALUES (@sid, @u, @p, @fn, @mn, @ln, @sf, @g, @cn, @em, @role, @st, 3)", conn, tx)
+                                                        "VALUES (@sid, @u, @p, @fn, @mn, @ln, @g, @cn, @em, @role, @st, 3)", conn, tx)
                             ins.Parameters.AddWithValue("@sid", schoolBox.Text.Trim())
                             ins.Parameters.AddWithValue("@u", txtusername.Text.Trim())
                             ins.Parameters.AddWithValue("@p", Security.HashPassword(txtpassword.Text))
@@ -386,8 +456,12 @@ Public Class frmAccManagement
         LoadAccounts(txtSearch.Text)
     End Sub
 
-    ' ------------------------------------------------------------ update (also unlock)
     Private Sub btnUpdate_Click(sender As Object, e As EventArgs) Handles btnUpdate.Click
+        If PasswordOnly Then
+            UpdatePasswordOnly()
+            Exit Sub
+        End If
+
         If selectedUserId = 0 Then
             MsgBox("Select an account from the list first.", vbExclamation, "Account Management")
             Exit Sub
@@ -395,12 +469,11 @@ Public Class frmAccManagement
         If Not InputsAreValid(False) Then Exit Sub
         If Not UiHelpers.Confirm("update", "this account", "Account Management") Then Exit Sub
 
-        ' Active unlocks (attempts back to 3), Locked sets attempts to 0, Inactive keeps the attempts as they are
         Dim accStatus As String = If(cboStatus.Text = "Inactive", "Inactive", "Active")
         Dim attemptsValue As Object = DBNull.Value
         If cboStatus.Text = "Active" Then attemptsValue = 3
         If cboStatus.Text = "Locked" Then attemptsValue = 0
-        Dim changePwd As Boolean = (txtpassword.Text <> "")      ' the admin typed a new password
+        Dim changePwd As Boolean = (txtpassword.Text <> "")
 
         Try
             Using conn = DBConnection.GetConnection()
@@ -435,7 +508,6 @@ Public Class frmAccManagement
                             upd.ExecuteNonQuery()
                         End Using
 
-                        ' borrower profile (Members row)
                         Dim memberId As Integer = 0
                         Using q As New MySqlCommand("SELECT member_id FROM Members WHERE user_id = @id FOR UPDATE", conn, tx)
                             q.Parameters.AddWithValue("@id", selectedUserId)
@@ -444,25 +516,28 @@ Public Class frmAccManagement
                         End Using
 
                         If WantsBorrowerProfile() Then
-                            Dim sql As String = If(memberId > 0,
-                                "UPDATE Members SET member_type=@mt, course=@course, year_level=@yr, department=@dept WHERE user_id=@uid",
-                                "INSERT INTO Members (user_id, member_type, course, year_level, department) VALUES (@uid, @mt, @course, @yr, @dept)")
-                            Using m As New MySqlCommand(sql, conn, tx)
-                                m.Parameters.AddWithValue("@uid", selectedUserId)
-                                BindMemberFields(m)
-                                m.ExecuteNonQuery()
-                            End Using
-                        ElseIf memberId > 0 Then
-                            Using c As New MySqlCommand("SELECT COUNT(*) FROM BorrowTransaction WHERE member_id = @m", conn, tx)
-                                c.Parameters.AddWithValue("@m", memberId)
-                                If Convert.ToInt32(c.ExecuteScalar()) > 0 Then
-                                    Throw New InvalidOperationException("This person already has borrowing history, so the borrower profile can't be removed. Keep 'Also a borrower' ticked.")
-                                End If
-                            End Using
-                            Using d As New MySqlCommand("DELETE FROM Members WHERE member_id = @m", conn, tx)
-                                d.Parameters.AddWithValue("@m", memberId)
-                                d.ExecuteNonQuery()
-                            End Using
+                            If memberId > 0 Then
+                                Using updM As New MySqlCommand(
+                                    "UPDATE Members SET member_type=@mt, course=@course, year_level=@yr, department=@dept WHERE member_id=@mid", conn, tx)
+                                    updM.Parameters.AddWithValue("@mid", memberId)
+                                    BindMemberFields(updM)
+                                    updM.ExecuteNonQuery()
+                                End Using
+                            Else
+                                Using insM As New MySqlCommand(
+                                    "INSERT INTO Members (user_id, member_type, course, year_level, department) VALUES (@uid, @mt, @course, @yr, @dept)", conn, tx)
+                                    insM.Parameters.AddWithValue("@uid", selectedUserId)
+                                    BindMemberFields(insM)
+                                    insM.ExecuteNonQuery()
+                                End Using
+                            End If
+                        Else
+                            If memberId > 0 Then
+                                Using delM As New MySqlCommand("DELETE FROM Members WHERE member_id = @mid", conn, tx)
+                                    delM.Parameters.AddWithValue("@mid", memberId)
+                                    delM.ExecuteNonQuery()
+                                End Using
+                            End If
                         End If
                         tx.Commit()
                     Catch
@@ -471,72 +546,40 @@ Public Class frmAccManagement
                     End Try
                 End Using
             End Using
-        Catch ex As InvalidOperationException
-            MsgBox(ex.Message, vbExclamation, "Account Management")
-            Exit Sub
         Catch ex As Exception
             MsgBox("Could not update the account: " & ex.Message, vbCritical, "Account Management")
-
             Exit Sub
         End Try
 
-        DBConnection.LogActivity("Update Account", "Updated account '" & txtusername.Text.Trim() & "' (status " & cboStatus.Text & ").")
-        If changePwd Then
-            Dim fullName As String = (txtFirstName.Text.Trim() & " " & txtLastName.Text.Trim()).Trim()
-            DBConnection.LogActivity("Changed Password",
-                "Changed the password of " & fullName & " (" & txtusername.Text.Trim() & ")")
-        End If
+        DBConnection.LogActivity("Update Account", "Updated account '" & txtusername.Text.Trim() & "'.")
         MsgBox("Account updated.", vbInformation, "Account Management")
         ClearForm()
         LoadAccounts(txtSearch.Text)
     End Sub
 
-    ' ------------------------------------------------------------ delete
     Private Sub btnDelete_Click(sender As Object, e As EventArgs) Handles btnDelete.Click
+        If AppSession.IsSupervisor Then Exit Sub
         If selectedUserId = 0 Then
             MsgBox("Select an account from the list first.", vbExclamation, "Account Management")
             Exit Sub
         End If
-        If selectedUserId = AppSession.UserId Then
-            MsgBox("You can't delete the account you are logged in with.", vbExclamation, "Account Management")
-            Exit Sub
-        End If
-        Dim uname As String = txtusername.Text.Trim()
-        If MsgBox("Delete the account '" & uname & "'? This cannot be undone.", vbQuestion + vbYesNo, "Delete Account") <> vbYes Then Exit Sub
+        If Not UiHelpers.Confirm("delete", "this account", "Account Management") Then Exit Sub
 
         Try
             Using conn = DBConnection.GetConnection()
                 conn.Open()
-                Dim history As Integer
-                Using c As New MySqlCommand(
-                    "SELECT COUNT(*) FROM BorrowTransaction t JOIN Members m ON m.member_id = t.member_id WHERE m.user_id = @id", conn)
-                    c.Parameters.AddWithValue("@id", selectedUserId)
-                    history = Convert.ToInt32(c.ExecuteScalar())
+                Using cmd As New MySqlCommand("DELETE FROM Users WHERE user_id = @id", conn)
+                    cmd.Parameters.AddWithValue("@id", selectedUserId)
+                    cmd.ExecuteNonQuery()
                 End Using
-
-                If history > 0 Then
-                    If MsgBox("This account has borrowing history, so it can't be deleted without losing records." & vbCrLf &
-                              "Set it to Inactive instead?", vbQuestion + vbYesNo, "Delete Account") = vbYes Then
-                        Using u As New MySqlCommand("UPDATE Users SET account_status = 'Inactive' WHERE user_id = @id", conn)
-                            u.Parameters.AddWithValue("@id", selectedUserId)
-                            u.ExecuteNonQuery()
-                        End Using
-                        DBConnection.LogActivity("Deactivate Account", "Set account '" & uname & "' to Inactive.")
-                        MsgBox("Account set to Inactive.", vbInformation, "Account Management")
-                    End If
-                Else
-                    Using d As New MySqlCommand("DELETE FROM Users WHERE user_id = @id", conn)
-                        d.Parameters.AddWithValue("@id", selectedUserId)
-                        d.ExecuteNonQuery()
-                    End Using
-                    DBConnection.LogActivity("Delete Account", "Deleted account '" & uname & "'.")
-                    MsgBox("Account deleted.", vbInformation, "Account Management")
-                End If
             End Using
         Catch ex As Exception
             MsgBox("Could not delete the account: " & ex.Message, vbCritical, "Account Management")
             Exit Sub
         End Try
+
+        DBConnection.LogActivity("Delete Account", "Deleted account ID " & selectedUserId & ".")
+        MsgBox("Account deleted.", vbInformation, "Account Management")
         ClearForm()
         LoadAccounts(txtSearch.Text)
     End Sub

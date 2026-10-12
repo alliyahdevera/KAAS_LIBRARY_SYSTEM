@@ -9,13 +9,26 @@ Module AppSession
     Public Property SchoolId As String
     Public Property Username As String
     Public Property FullName As String
-    Public Property Role As String            ' Admin / Librarian / Member
+    Public Property Role As String            ' Admin / Supervisor / Librarian / Member
     Public Property MemberId As Integer?      ' Nothing if this user cannot borrow
     Public Property MemberType As String     ' Student / Teacher / Staff / ""
 
     Public ReadOnly Property IsSignedIn As Boolean
         Get
             Return UserId > 0
+        End Get
+    End Property
+
+    Public ReadOnly Property IsSupervisor As Boolean
+        Get
+            Return Role = "Supervisor"
+        End Get
+    End Property
+
+    ' Admin and Supervisor share the admin dashboard / admin menu
+    Public ReadOnly Property IsAdminLevel As Boolean
+        Get
+            Return Role = "Admin" OrElse Role = "Supervisor"
         End Get
     End Property
 
@@ -39,6 +52,7 @@ Module AppSession
         MemberId = Nothing
         MemberType = Nothing
     End Sub
+
 End Module
 
 ' ---------------------------------------------------------------
@@ -74,6 +88,7 @@ Module LibraryRules
             Case Else : Return 3
         End Select
     End Function
+
 End Module
 
 ' ---------------------------------------------------------------
@@ -116,6 +131,7 @@ Module Security
             Return diff = 0
         End Using
     End Function
+
 End Module
 
 ' ---------------------------------------------------------------
@@ -135,4 +151,5 @@ Module FormHost
         child.Show()
         child.BringToFront()
     End Sub
+
 End Module

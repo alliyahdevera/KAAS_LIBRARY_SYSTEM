@@ -2,7 +2,6 @@
     Private loggingOut As Boolean = False
     Private syLoading As Boolean = False
 
-
     Private Sub frmAdminMenu_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.CenterToScreen()
         lblc_name.Text = AppSession.FullName
@@ -18,7 +17,11 @@
         AddHandler SchoolYearContext.ListChanged, AddressOf OnSchoolYearListChanged
         AddHandler SchoolYearContext.Changed, AddressOf OnSchoolYearViewChanged
 
-
+        ' Supervisor only: Penalty Management (placed under "Lost and Damaged Books")
+        If AppSession.IsSupervisor Then
+            MenuBuilder.AddMenuButton(Me, "btnLostDamaged", "Penalty Management")
+        End If
+        Label16.Text = If(AppSession.IsSupervisor, "Supervisor", "Admin")
 
         For Each b As Button In UiHelpers.AllButtons(Me)
             AddHandler b.Click, AddressOf MenuButton_Click
@@ -33,6 +36,7 @@
             Case sender Is btnborrowh : FormHost.LoadInto(Panel3, frmAdminBorrowHistory)
             Case sender Is btnbookinventory : FormHost.LoadInto(Panel3, frmAdminBookInventory)
             Case sender Is btnLostDamaged : FormHost.LoadInto(Panel3, frmLostDamagedBooks)
+            Case DirectCast(sender, Button).Name = "btnPenaltyManagement" : FormHost.LoadInto(Panel3, frmPenaltyManagement)
             Case sender Is btnactlog : FormHost.LoadInto(Panel3, frmAdminLogs)
 
             Case sender Is Button1 : FormHost.LoadInto(Panel3, frmManageSY)           ' Manage S.Y.

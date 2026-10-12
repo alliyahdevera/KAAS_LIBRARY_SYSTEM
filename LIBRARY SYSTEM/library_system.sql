@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 12, 2026 at 05:39 AM
+-- Generation Time: Oct 12, 2026 at 06:22 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -223,7 +223,14 @@ INSERT INTO `activitylogs` (`log_id`, `user_id`, `action`, `description`, `log_t
 (181, 3, 'Logout', 'A_Librarian logged out.', '2026-10-12 11:14:26'),
 (182, 1, 'Logout', 'A_admin logged out.', '2026-10-12 11:15:53'),
 (183, 3, 'Logout', 'A_Librarian logged out.', '2026-10-12 11:27:06'),
-(184, 1, 'Logout', 'A_admin logged out.', '2026-10-12 11:27:46');
+(184, 1, 'Logout', 'A_admin logged out.', '2026-10-12 11:27:46'),
+(185, 1, 'Logout', 'A_admin logged out.', '2026-10-12 11:44:46'),
+(186, 1, 'Update Account', 'Updated account \'librarian\'.', '2026-10-12 12:05:02'),
+(187, 1, 'Logout', 'A_admin logged out.', '2026-10-12 12:06:43'),
+(188, 1, 'Add Account', 'Created Supervisor account \'supervisor\'.', '2026-10-12 12:19:26'),
+(189, 1, 'Logout', 'A_admin logged out.', '2026-10-12 12:19:32'),
+(190, 11, 'Logout', 'supervisor logged out.', '2026-10-12 12:20:03'),
+(191, 1, 'Logout', 'A_admin logged out.', '2026-10-12 12:22:16');
 
 -- --------------------------------------------------------
 
@@ -752,7 +759,14 @@ INSERT INTO `loginlogs` (`login_log_id`, `user_id`, `username`, `status`, `attem
 (129, 3, 'A_Librarian', 'Success', '2026-10-12 11:16:02'),
 (130, 3, 'A_Librarian', 'Success', '2026-10-12 11:26:45'),
 (131, 1, 'A_admin', 'Success', '2026-10-12 11:27:30'),
-(132, 1, 'A_admin', 'Success', '2026-10-12 11:30:36');
+(132, 1, 'A_admin', 'Success', '2026-10-12 11:30:36'),
+(133, 1, 'A_admin', 'Success', '2026-10-12 11:44:29'),
+(134, 3, 'A_Librarian', 'Success', '2026-10-12 11:44:58'),
+(135, 1, 'A_admin', 'Success', '2026-10-12 12:03:36'),
+(136, 1, 'A_admin', 'Success', '2026-10-12 12:04:39'),
+(137, 1, 'A_admin', 'Success', '2026-10-12 12:18:17'),
+(138, 11, 'supervisor', 'Success', '2026-10-12 12:19:39'),
+(139, 1, 'A_admin', 'Success', '2026-10-12 12:20:49');
 
 -- --------------------------------------------------------
 
@@ -1172,7 +1186,7 @@ CREATE TABLE `users` (
   `gender` varchar(20) NOT NULL,
   `contact_num` varchar(20) NOT NULL,
   `email` varchar(100) NOT NULL,
-  `role` enum('Admin','Librarian','Member') NOT NULL DEFAULT 'Member',
+  `role` enum('Admin','Supervisor','Librarian','Member') NOT NULL DEFAULT 'Member',
   `account_status` enum('Active','Inactive') NOT NULL DEFAULT 'Active',
   `attempts` int(11) NOT NULL DEFAULT 3,
   `date_registered` timestamp NOT NULL DEFAULT current_timestamp()
@@ -1191,7 +1205,8 @@ INSERT INTO `users` (`user_id`, `school_id`, `username`, `password`, `first_name
 (7, '278624', 'kevinn', 'PBKDF2$10000$K7x+Ldwc6BQrT/wrfMNBtA==$hiD8QnjGz5FbFV1ZR7F8ad5wZaxr/G3+ODU7m3hgBXA=', 'kevinn', NULL, 'roque', NULL, 'Male', '12345678901', 'kevin@gmail.com', 'Member', 'Active', 3, '2026-10-06 04:21:02'),
 (8, '123424', 'alliyah', 'PBKDF2$10000$kgMBpVl2lMx4T4A+yhWQIA==$q/zulRmS6yBgEMpzZH1P3MhXdR8fKaal4Tn8W7ACiNM=', 'alliyah', NULL, 'de vera', NULL, 'Female', '12345678901', 'alli@gmail.com', 'Member', 'Active', 3, '2026-10-06 04:29:15'),
 (9, '123456', 'teacher', 'PBKDF2$10000$Us5P45760hl6qf2QgtksIA==$uxCVbC7GW3ipYTqDf/gIVRPTJmoD1YUpcEjKLYK7D7k=', 'teacher', NULL, 'teacher', NULL, 'Male', '12345678901', 'teacehr@gmail.com', 'Member', 'Active', 3, '2026-10-06 04:30:32'),
-(10, '234567', 'librarian', 'PBKDF2$10000$H/7zeBgK+gfc4kpEzIqT5w==$vrG+me3AET4NU8TjtqGaWpiRmB4b3ambkVPF1cWtRik=', 'karla karla', NULL, 'estrada estrada', NULL, 'Female', '12345678901', 'librarian@gmail.com', 'Librarian', 'Active', 3, '2026-10-06 04:32:41');
+(10, '234567', 'librarian', 'PBKDF2$10000$H/7zeBgK+gfc4kpEzIqT5w==$vrG+me3AET4NU8TjtqGaWpiRmB4b3ambkVPF1cWtRik=', 'librarian', NULL, 'librarian', NULL, 'Female', '12345678901', 'librarian@gmail.com', 'Librarian', 'Active', 3, '2026-10-06 04:32:41'),
+(11, '236778', 'supervisor', 'PBKDF2$10000$BfH6hTw9b3XjEa6G7yhgAA==$+YJuE+rhk6cNjCGv8O5HBNtoRxp6iovH9mPHdEG1c+c=', 'supervisor', NULL, 'supervisor', NULL, 'Male', '23457612342', 'super@gmail.com', 'Supervisor', 'Active', 3, '2026-10-12 04:19:26');
 
 -- --------------------------------------------------------
 
@@ -1427,7 +1442,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `activitylogs`
 --
 ALTER TABLE `activitylogs`
-  MODIFY `log_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=185;
+  MODIFY `log_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=192;
 
 --
 -- AUTO_INCREMENT for table `authors`
@@ -1463,7 +1478,7 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT for table `loginlogs`
 --
 ALTER TABLE `loginlogs`
-  MODIFY `login_log_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=133;
+  MODIFY `login_log_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=140;
 
 --
 -- AUTO_INCREMENT for table `lostdamagedbooks`
@@ -1529,7 +1544,7 @@ ALTER TABLE `schoolyear`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- Constraints for dumped tables
